@@ -84,7 +84,7 @@ export default function DossierPanel() {
   );
 
   return (
-    <div className="bg-panel border border-border rounded-sm overflow-hidden h-full min-h-[540px] flex flex-col relative">
+    <div className="bg-panel border border-border rounded-sm overflow-hidden h-[640px] flex flex-col relative">
       {!incident ? (
         <div className="flex-1 flex items-center justify-center p-6">
           <div className="border border-dashed border-border rounded-sm w-[70%] py-10 px-6 flex flex-col items-center text-center gap-3">

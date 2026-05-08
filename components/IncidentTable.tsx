@@ -66,7 +66,7 @@ export default function IncidentTable() {
   };
 
   return (
-    <div className="bg-panel border border-border rounded-sm">
+    <div className="bg-panel border border-border rounded-sm flex flex-col h-[640px]">
       {/* Top header strip */}
       <div className="flex items-center justify-between px-4 py-3">
         <h2
@@ -131,8 +131,10 @@ export default function IncidentTable() {
       </div>
       <div className="border-b border-border" />
 
-      {/* Table */}
-      <div className="overflow-x-auto">
+      {/* Table — flex-1 + overflow-auto so the rows scroll while the
+          header strip + filter strip stay pinned at the top of the panel.
+          Sticky <thead> keeps column labels visible during scroll. */}
+      <div className="flex-1 overflow-auto">
         <table
           className="w-full border-collapse"
           style={{ minWidth: "640px" }}
