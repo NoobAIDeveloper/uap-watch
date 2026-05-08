@@ -60,7 +60,7 @@ export default function DocumentViewer() {
   const parts = doc ? parseDocumentBody(doc.body) : [];
 
   return (
-    <div className="bg-panel border border-border rounded-sm flex flex-col h-full min-h-[600px]">
+    <div className="bg-panel border border-border rounded-sm flex flex-col h-[760px]">
       {/* Header strip */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border">
         <h2

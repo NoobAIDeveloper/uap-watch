@@ -16,7 +16,7 @@ const DocumentViewer = dynamic(() => import("@/components/DocumentViewer"), {
   loading: () => (
     <div
       className="bg-panel border border-border rounded-sm animate-pulse"
-      style={{ minHeight: 600 }}
+      style={{ height: 760 }}
       aria-hidden
     />
   ),

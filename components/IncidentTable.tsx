@@ -135,7 +135,7 @@ export default function IncidentTable() {
       <div className="overflow-x-auto">
         <table
           className="w-full border-collapse"
-          style={{ minWidth: "720px" }}
+          style={{ minWidth: "640px" }}
         >
           <thead className="sticky top-0 bg-panel z-10">
             <tr className="text-text-mute text-[10px] tracking-[0.2em] uppercase border-b border-border">
