@@ -42,3 +42,8 @@ next-env.d.ts
 
 # screenshots are build artifacts; regenerate via scripts/screenshots.mjs
 /screenshots
+
+# PDF extraction pipeline — local cache + dev-only sidecar metadata.
+# Only public/extracted/*.txt ships to the repo.
+/data/pdfs-cache
+/data/extracted/*.json

@@ -75,7 +75,45 @@ export default function DocumentViewer() {
   const safeIndex =
     visibleCount === 0 ? 0 : Math.min(activeIndex, visibleCount - 1);
   const doc = visibleCount > 0 ? visibleDocs[safeIndex] : null;
-  const parts = doc ? parseDocumentBody(doc.body) : [];
+
+  // Lazy-load extracted PDF transcripts. Synthetic memos (DOC-001..DOC-008)
+  // ship their own bodies; placeholder-stub docs ship a marker that we
+  // detect here and replace with the contents of /extracted/<id>.txt at
+  // runtime. The text files live under /public/extracted/ and are produced
+  // by scripts/index-pdfs.mjs.
+  const isStub = !!doc && doc.body.includes("FULL TEXT NOT YET INDEXED");
+  const [extractedBody, setExtractedBody] = useState<string | null>(null);
+  const [fetchingTranscript, setFetchingTranscript] = useState(false);
+
+  useEffect(() => {
+    setExtractedBody(null);
+    if (!doc || !isStub) {
+      setFetchingTranscript(false);
+      return;
+    }
+    let cancelled = false;
+    setFetchingTranscript(true);
+    fetch(`/extracted/${doc.id}.txt`)
+      .then((r) => (r.ok ? r.text() : null))
+      .then((text) => {
+        if (cancelled) return;
+        setExtractedBody(text ?? null);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setExtractedBody(null);
+      })
+      .finally(() => {
+        if (cancelled) return;
+        setFetchingTranscript(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [doc?.id, isStub]);
+
+  const renderBody = extractedBody ?? (doc ? doc.body : "");
+  const parts = doc ? parseDocumentBody(renderBody) : [];
 
   return (
     <div className="bg-panel border border-border rounded-sm flex flex-col">
@@ -253,6 +291,15 @@ export default function DocumentViewer() {
 
                 {/* Hairline divider */}
                 <div className="border-t border-border my-4" />
+
+                {/* Transcript-fetch indicator: only visible while we're
+                    pulling the extracted text for a stub doc. Once the
+                    text lands, it swaps into the body block below. */}
+                {isStub && fetchingTranscript && (
+                  <div className="text-text-mute text-[10px] tracking-widest uppercase mt-2 mb-1 font-mono">
+                    // FETCHING TRANSCRIPT… //
+                  </div>
+                )}
 
                 {/* Synthetic memo body */}
                 <div
