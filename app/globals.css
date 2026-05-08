@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0e1116;
+  --color-panel: #1c2127;
+  --color-panel-2: #252a31;
+  --color-border: #2f343c;
+  --color-border-bright: #404854;
+  --color-text: #f6f7f9;
+  --color-text-dim: #abb3bf;
+  --color-text-mute: #5f6b7c;
+  --color-accent: #4c90f0;
+  --color-accent-dim: #2d72d2;
+  --color-status-unresolved: #f5498b;
+  --color-status-anomalous: #9881f3;
+  --color-status-corroborated: #13c9ba;
+  --color-status-resolved: #8abbff;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Space Mono", "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-image:
+    radial-gradient(1200px 600px at 80% -10%, rgba(76, 144, 240, 0.06), transparent 60%),
+    radial-gradient(900px 500px at -10% 110%, rgba(152, 129, 243, 0.04), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Film grain overlay */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  background-image: url("/grain.svg");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+}
+
+/* Hairline borders */
+.hairline { border: 1px solid var(--color-border); }
+.hairline-b { border-bottom: 1px solid var(--color-border); }
+.hairline-t { border-top: 1px solid var(--color-border); }
+
+/* Bracket corners (used on hover/active panels) */
+.brackets { position: relative; }
+.brackets::before, .brackets::after,
+.brackets > .br-tl, .brackets > .br-tr, .brackets > .br-bl, .brackets > .br-br {
+  /* implementation handled in components */
+}
+
+/* Scanline header */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    rgba(255, 255, 255, 0.02) 2px,
+    rgba(255, 255, 255, 0.02) 3px
+  );
+}
+
+/* Subtle blink for the LIVE indicator */
+@keyframes blink { 0%, 60% { opacity: 1; } 65%, 100% { opacity: 0.2; } }
+.blink { animation: blink 1.6s steps(1, end) infinite; }
+
+::selection { background: var(--color-accent); color: #0e1116; }
+
+/* Tabular numerals helper */
+.tnum { font-variant-numeric: tabular-nums; }
