@@ -77,6 +77,61 @@ body {
 @keyframes blink { 0%, 60% { opacity: 1; } 65%, 100% { opacity: 0.2; } }
 .blink { animation: blink 1.6s steps(1, end) infinite; }
 
+/* Hero intro animations — pure CSS so the SSR'd content paints immediately
+   (no opacity:0 on first paint) and the motion is layered on top via the
+   compositor. Critical for LCP on mobile. */
+@keyframes hero-fade-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes hero-fade-up-sm {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-anim-fade-down { animation: hero-fade-down 0.4s ease-out both; }
+.hero-anim-fade-up   { animation: hero-fade-up   0.4s ease-out both; animation-delay: 0.1s; }
+.hero-anim-fade      { animation: hero-fade      0.4s ease-out both; animation-delay: 0.25s; }
+.hero-anim-fade-late { animation: hero-fade      0.4s ease-out both; animation-delay: 0.4s; }
+.hero-anim-stat      { animation: hero-fade-up-sm 0.4s ease-out both; }
+
+/* Source breakdown row entrance — staggered in place via animation-delay */
+@keyframes row-fade-right {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.row-anim { animation: row-fade-right 0.4s ease-out both; }
+
+/* Stat numeral entrance — short CRT-style scan that never drops opacity below
+   1, so it never delays LCP detection. We pulse the text-shadow / glow
+   instead. The numeral itself is rendered server-side from the start. */
+@keyframes stat-flicker {
+  0%   { filter: brightness(1.6) drop-shadow(0 0 6px currentColor); }
+  35%  { filter: brightness(0.85); }
+  55%  { filter: brightness(1.4) drop-shadow(0 0 4px currentColor); }
+  100% { filter: none; }
+}
+.stat-flicker { animation: stat-flicker 0.7s steps(20, end) both; }
+@media (prefers-reduced-motion: reduce) {
+  .stat-flicker { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-anim-fade-down,
+  .hero-anim-fade-up,
+  .hero-anim-fade,
+  .hero-anim-fade-late,
+  .hero-anim-stat { animation: none; }
+}
+
 ::selection { background: var(--color-accent); color: #0e1116; }
 
 /* Tabular numerals helper */

@@ -1,6 +1,6 @@
-"use client";
-
-import { motion } from "motion/react";
+// Server component — purely presentational. Replaced motion mount-fade with
+// a CSS keyframe (.row-anim) so the rendered rows ship server-side and
+// animate in via the compositor without pulling motion/react into the bundle.
 import { incidents } from "@/data/incidents";
 import { SOURCE_LABEL } from "@/lib/classifications";
 import type { SourceAgency } from "@/lib/types";
@@ -46,12 +46,10 @@ export default function SourceBreakdown() {
         {rows.map((row, i) => {
           const pct = (row.count / max) * 100;
           return (
-            <motion.div
+            <div
               key={row.agency}
-              initial={{ opacity: 0, x: -6 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="group flex items-center gap-3 px-2 py-1.5 -mx-2 rounded-[1px] hover:bg-panel-2/40 transition-colors"
+              style={{ animationDelay: `${i * 0.05}s` }}
+              className="row-anim group flex items-center gap-3 px-2 py-1.5 -mx-2 rounded-[1px] hover:bg-panel-2/40 transition-colors"
             >
               <div className="text-text-dim text-xs tracking-widest w-[60px]">
                 {SOURCE_LABEL[row.agency]}
@@ -75,7 +73,7 @@ export default function SourceBreakdown() {
               <div className="text-text font-bold tabular-nums text-right w-[40px]">
                 {row.count}
               </div>
-            </motion.div>
+            </div>
           );
         })}
       </div>

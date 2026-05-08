@@ -3,10 +3,7 @@ import StatsStrip from "@/components/StatsStrip";
 import SituationMap from "@/components/SituationMap";
 import DossierPanel from "@/components/DossierPanel";
 import IncidentTable from "@/components/IncidentTable";
-import DocumentViewer from "@/components/DocumentViewer";
-import VideoEvidenceGrid from "@/components/VideoEvidenceGrid";
-import LunarPanel from "@/components/LunarPanel";
-import SourceBreakdown from "@/components/SourceBreakdown";
+import BelowFoldSections from "@/components/BelowFoldSections";
 
 export default function Page() {
   return (
@@ -24,18 +21,9 @@ export default function Page() {
       <section className="mt-8">
         <IncidentTable />
       </section>
-      <section className="mt-8">
-        <DocumentViewer />
-      </section>
-      <section className="mt-8">
-        <VideoEvidenceGrid />
-      </section>
-      <section className="mt-8">
-        <LunarPanel />
-      </section>
-      <section className="mt-8">
-        <SourceBreakdown />
-      </section>
+      {/* Below-fold sections are code-split and lazy-loaded — their data
+          (documents.ts ~190KB, videos.ts ~30KB) doesn't block first paint. */}
+      <BelowFoldSections />
     </div>
   );
 }

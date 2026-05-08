@@ -1,8 +1,9 @@
-"use client";
-
 import { Lock } from "lucide-react";
 import ZuluClock from "./ZuluClock";
 
+// Server component — only ZuluClock is interactive and it's already isolated
+// as its own client island. Keeping the banner shell server-rendered avoids
+// pulling Lock + the wrapper into the client bundle.
 export default function ClassificationBanner() {
   return (
     <div

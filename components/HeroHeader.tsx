@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "motion/react";
 import { ExternalLink } from "lucide-react";
 
 const RELEASE = {
@@ -53,27 +50,24 @@ const MICRO_STATS: MicroStat[] = [
   },
 ];
 
+// Server component: HeroHeader is the page's LCP target. Keeping it on the
+// server side (and using CSS keyframes for the entrance vibe) means the SSR
+// HTML paints with content visible — no waiting for motion/react to hydrate
+// before the LCP <p> appears. CSS animations layer on top via the compositor
+// without delaying first paint.
 export default function HeroHeader() {
   return (
     <header className="relative pt-8 pb-10 hairline-b">
       <div className="grid grid-cols-12 gap-4">
         {/* LEFT */}
         <div className="col-span-12 lg:col-span-7 flex flex-col">
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0 }}
-            className="text-accent text-[10px] tracking-[0.3em] mb-4"
-          >
+          <div className="hero-anim-fade-down text-accent text-[10px] tracking-[0.3em] mb-4">
             // PRESIDENTIAL UNSEALING & REPORTING SYSTEM //
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
+          <h1
+            className="hero-anim-fade-up text-[2.25rem] sm:text-5xl lg:text-6xl font-bold leading-none tracking-tight text-text"
             style={{ fontFamily: "var(--font-display)" }}
-            className="text-[2.25rem] sm:text-5xl lg:text-6xl font-bold leading-none tracking-tight text-text"
           >
             UAP.WATCH
             <span className="relative inline-block ml-[-0.05em]">
@@ -83,24 +77,14 @@ export default function HeroHeader() {
                 className="absolute left-0 right-0 -bottom-1 h-[3px] bg-accent"
               />
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.25 }}
-            className="text-text-dim text-sm tracking-wide mt-3 max-w-[60ch]"
-          >
+          <p className="hero-anim-fade text-text-dim text-sm tracking-wide mt-3 max-w-[60ch]">
             INDEPENDENT VISUALIZATION LAYER FOR THE U.S. DEPARTMENT OF WAR&apos;S
             DECLASSIFIED UAP FILE RELEASE — TRANCHE {RELEASE.trancheNumber}.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.4 }}
-            className="flex flex-wrap gap-2 mt-6"
-          >
+          <div className="hero-anim-fade-late flex flex-wrap gap-2 mt-6">
             <a
               href="https://www.war.gov/UFO/"
               target="_blank"
@@ -116,19 +100,17 @@ export default function HeroHeader() {
             >
               <span>▸ ABOUT THIS MIRROR</span>
             </a>
-          </motion.div>
+          </div>
         </div>
 
         {/* RIGHT */}
         <div className="col-span-12 lg:col-span-5">
           <div className="grid grid-cols-2 gap-3">
             {MICRO_STATS.map((stat, i) => (
-              <motion.div
+              <div
                 key={stat.label}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.5 + i * 0.07 }}
-                className="relative bg-panel border border-border rounded-sm pl-4 pr-3 py-3 overflow-hidden"
+                className="hero-anim-stat relative bg-panel border border-border rounded-sm pl-4 pr-3 py-3 overflow-hidden"
+                style={{ animationDelay: `${0.5 + i * 0.07}s` }}
               >
                 <span
                   aria-hidden
@@ -148,7 +130,7 @@ export default function HeroHeader() {
                 <div className="text-text-mute text-[10px] tracking-widest mt-2">
                   {stat.sub}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

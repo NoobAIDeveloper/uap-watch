@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { incidents } from "@/data/incidents";
 import type { Incident } from "@/lib/types";
 import { setSelectedId, useSelectedId } from "@/lib/store";
@@ -99,12 +100,13 @@ function LunarPlate({ incident }: { incident: Incident }) {
             so the layout and AOI overlays still work without imagery. */}
         {incident.localImagePath ? (
           <>
-            <img
+            <Image
               src={incident.localImagePath}
               alt={`${missionLabel} — ${incident.location}`}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 720px"
               loading="lazy"
-              decoding="async"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="object-cover"
               style={{ filter: "contrast(1.05) brightness(0.92)" }}
             />
             {/* Subtle vignette to keep badges readable */}
