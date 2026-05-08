@@ -330,7 +330,7 @@ export default async function Image() {
               fontSize: 18,
             }}
           >
-            <div style={{ color: COLOR.accent }}>uap.watch</div>
+            <div style={{ color: COLOR.accent }}>uap-watch-flame.vercel.app</div>
             <div style={{ color: COLOR.textDim, letterSpacing: "0.18em" }}>
               // MIRROR OF WAR.GOV/UFO/ //
             </div>

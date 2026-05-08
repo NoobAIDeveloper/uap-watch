@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: "UAP.WATCH // UAP Situation Dashboard",
   description:
     "Independent visualization layer for the U.S. Department of War's PURSUE program. Mirroring the 2026-05-08 declassified UAP file release.",
-  metadataBase: new URL("https://uap.watch"),
+  metadataBase: new URL("https://uap-watch-flame.vercel.app"),
   openGraph: {
     title: "UAP.WATCH",
     description:

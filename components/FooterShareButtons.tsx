@@ -3,11 +3,22 @@
 import { useState } from "react";
 import { Copy, MessageSquare, Send } from "lucide-react";
 
-const SHARE_URL = "https://uap.watch";
+const SHARE_URL = "https://uap-watch-flame.vercel.app/";
+const TWEET_TEXT =
+  "every declassified UAP file the pentagon just dropped, mapped and actually searchable in one place. way better than digging through war.gov";
+const REDDIT_TITLE =
+  "Every declassified UAP file from the Pentagon's PURSUE release, mapped and searchable in one dashboard";
+
 const TWEET_URL =
-  "https://twitter.com/intent/tweet?text=The+US+gov+just+released+a+ton+of+UFO+files.+I+made+this+intel+terminal+to+browse+them%3A+&url=https%3A%2F%2Fuap.watch";
+  "https://twitter.com/intent/tweet?text=" +
+  encodeURIComponent(TWEET_TEXT) +
+  "&url=" +
+  encodeURIComponent(SHARE_URL);
 const REDDIT_URL =
-  "https://www.reddit.com/submit?url=https%3A%2F%2Fuap.watch&title=UAP.WATCH+%E2%80%94+intel-terminal+view+of+the+Pentagon%27s+declassified+UFO+files";
+  "https://www.reddit.com/submit?url=" +
+  encodeURIComponent(SHARE_URL) +
+  "&title=" +
+  encodeURIComponent(REDDIT_TITLE);
 
 const shareBtn =
   "flex items-center gap-2 text-text-dim hover:text-accent border border-border hover:border-accent px-3 py-2 text-xs tracking-widest transition-colors";
