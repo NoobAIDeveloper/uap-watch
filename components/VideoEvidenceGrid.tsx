@@ -219,6 +219,17 @@ export default function VideoEvidenceGrid() {
   const filterActive = !!selectedIncident;
   const counterColor = filterActive ? "text-accent" : "";
 
+  // Catalog-truth breakdown. The Pentagon's canonical CSV lists 28 PURSUE
+  // videos (DVIDS-hosted clips). Our local grid additionally renders alt-
+  // angle DVIDS dupes plus a handful of non-DVIDS entries (Apollo 17 NASA
+  // imagery, FBI photo cards, slide-deck mission reports paired with video
+  // events) — surfaced for browsing but flagged in data/videos.ts. We expose
+  // both numbers so the hero "28 VIDEO" stat still reconciles cleanly.
+  const pursueVideoCount = videos.filter((v) =>
+    /dvidshub\.net\/video\//i.test(v.sourceUrl),
+  ).length;
+  const CANONICAL_PURSUE_VIDEOS = 28;
+
   if (total === 0) {
     return (
       <div className="bg-panel border border-border rounded-sm">
@@ -241,7 +252,9 @@ export default function VideoEvidenceGrid() {
           style={{ fontFamily: "var(--font-display)" }}
         >
           VIDEO EVIDENCE //{" "}
-          {filterActive ? `${visibleCount}/${total}` : `${total}`} CASES
+          {filterActive
+            ? `${visibleCount}/${total} CASES`
+            : `${pursueVideoCount}/${CANONICAL_PURSUE_VIDEOS} PURSUE · ${total - pursueVideoCount} ADDL`}
         </h2>
         <div className="text-text-mute text-[10px] tracking-widest uppercase">
           FOOTAGE: WAR.GOV/UFO/ (CDN BLOCKS DIRECT MIRRORING)

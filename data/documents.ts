@@ -1,6 +1,9 @@
 import type { GovDocument } from "@/lib/types";
 
 export const documents: GovDocument[] = [
+  // note: original seed entry — not a row in the canonical PURSUE CSV.
+  // Kept as illustrative "synthetic memo" content; sourceUrl points at the
+  // landing page rather than a specific PDF.
   {
     id: "DOC-001",
     title: "FBI DALLAS FIELD MEMO — OBJECT RECOVERY",
@@ -142,6 +145,8 @@ END ADDENDUM`,
     sourceUrl: "https://www.war.gov/medialink/ufo/release_1/nasa-uap-d2-apollo-17-transcript-1972.pdf",
     incidentIds: ["PURSUE-003"],
   },
+  // note: original seed entry — not a row in the canonical PURSUE CSV.
+  // Period-flavored synthetic memo; sourceUrl points at the landing page.
   {
     id: "DOC-006",
     title: "FBI MEMO — IDAHO FIELD OFFICE // PUBLIC ORDER CONCERNS",
@@ -195,6 +200,8 @@ END ASSESSMENT`,
     sourceUrl: "https://www.war.gov/medialink/ufo/release_1/western_us_event_slides_5.08.2026.pdf",
     incidentIds: ["PURSUE-005", "PURSUE-019", "PURSUE-021"],
   },
+  // note: original seed entry — not a row in the canonical PURSUE CSV.
+  // Period-flavored synthetic memo; sourceUrl points at the landing page.
   {
     id: "DOC-008",
     title: "AMC MEMORANDUM — RECURRING DISC REPORTS // DECEMBER 1947",

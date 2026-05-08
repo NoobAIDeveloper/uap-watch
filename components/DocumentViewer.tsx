@@ -54,13 +54,31 @@ export default function DocumentViewer() {
   const filterActive = !!selectedIncident;
   const counterColor = filterActive ? "text-accent" : "text-text-mute";
 
+  // Catalog-truth breakdown so users can reconcile the "162 FILES TOTAL" hero
+  // claim with what's loaded into this viewer. Of the 162 catalog rows in the
+  // Pentagon's PURSUE manifest, 134 are documents (120 PDF rows + 14 IMG rows)
+  // — the remaining 28 are videos rendered in VideoEvidenceGrid. The CSV's
+  // 120 PDF rows resolve to 117 unique URLs (D23 paired across 2 incidents,
+  // D32 across 3); we store those as single entries, so the displayed PDF
+  // count tops out around 117-118 even at full coverage. Counting URLs by
+  // file extension gives a stable per-render breakdown without bolting a
+  // Type field onto every GovDocument entry.
+  const pdfCount = documents.filter((d) =>
+    d.sourceUrl.toLowerCase().endsWith(".pdf"),
+  ).length;
+  const imgCount = documents.filter((d) =>
+    /\.(jpe?g|png|tiff?|gif)$/i.test(d.sourceUrl),
+  ).length;
+  const CANONICAL_PDFS = 120;
+  const CANONICAL_IMGS = 14;
+
   const safeIndex =
     visibleCount === 0 ? 0 : Math.min(activeIndex, visibleCount - 1);
   const doc = visibleCount > 0 ? visibleDocs[safeIndex] : null;
   const parts = doc ? parseDocumentBody(doc.body) : [];
 
   return (
-    <div className="bg-panel border border-border rounded-sm flex flex-col h-[760px]">
+    <div className="bg-panel border border-border rounded-sm flex flex-col">
       {/* Header strip */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border">
         <h2
@@ -75,7 +93,15 @@ export default function DocumentViewer() {
             counterColor,
           ].join(" ")}
         >
-          {filterActive ? `${visibleCount}/${total}` : `${total}`} INDEXED
+          {filterActive ? (
+            <>{visibleCount}/{total} INDEXED</>
+          ) : (
+            <>
+              {pdfCount}/{CANONICAL_PDFS} PDF{" "}
+              <span className="text-text-mute">·</span> {imgCount}/
+              {CANONICAL_IMGS} IMG
+            </>
+          )}
         </div>
       </div>
 
@@ -100,10 +126,22 @@ export default function DocumentViewer() {
         </div>
       )}
 
-      {/* Body — two-pane */}
-      <div className="flex flex-1 overflow-hidden">
-        {/* Left rail — document list */}
-        <div className="w-[300px] shrink-0 border-r border-border overflow-y-auto">
+      {/* Body — two-pane. The container has no fixed height; the right
+          pane grows with the document so the page (not the pane) handles
+          scrolling. The left rail is sticky-pinned just below the
+          classification banner and scrolls internally when its list is
+          taller than the viewport. */}
+      <div className="flex">
+        {/* Left rail — sticky, scrolls internally for long doc lists */}
+        <div
+          className="w-[300px] shrink-0 border-r border-border overflow-y-auto"
+          style={{
+            position: "sticky",
+            top: "40px",
+            alignSelf: "flex-start",
+            maxHeight: "calc(100vh - 40px)",
+          }}
+        >
           {visibleCount === 0 ? (
             <div className="px-4 py-12 text-center">
               <div className="text-text-mute text-[10px] tracking-widest uppercase">
@@ -157,8 +195,8 @@ export default function DocumentViewer() {
           )}
         </div>
 
-        {/* Right pane — viewer */}
-        <div className="flex-1 overflow-y-auto bg-panel-2">
+        {/* Right pane — grows with document; no inner scroll. */}
+        <div className="flex-1 bg-panel-2">
           <AnimatePresence mode="wait">
             {doc ? (
               <motion.div

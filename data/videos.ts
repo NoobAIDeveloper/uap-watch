@@ -34,6 +34,10 @@ export const videos: EvidenceVideo[] = [
     description: "Two semi-transparent orange areas, 2 seconds each.",
     incidentIds: ["PURSUE-008"],
   },
+  // note: not a row in the canonical PURSUE CSV's VID block. Catalog source
+  // for this event is a slide-deck PDF (Western US event slides), not a
+  // DVIDS video. Surfaced in the grid for narrative completeness; sourceUrl
+  // links out to the deck.
   {
     id: "VID-004",
     title: "WESTERN US // ORB FORMATION",
@@ -57,6 +61,10 @@ export const videos: EvidenceVideo[] = [
     description: "Triangular metallic object at 25,000 ft, gun-camera capture.",
     incidentIds: ["PURSUE-009"],
   },
+  // note: catalog row for Apollo 17 is an IMG (NASA-UAP-VM6 .jpg), not a
+  // DVIDS video. Rendered here in the video grid because the lunar event is
+  // most legible as motion narrative; sourceUrl points to the canonical
+  // image asset.
   {
     id: "VID-006",
     title: "APOLLO 17 // LUNAR ANOMALY",
@@ -68,6 +76,10 @@ export const videos: EvidenceVideo[] = [
     description: "Apollo 17 imagery sequence with anomaly highlighted.",
     incidentIds: ["PURSUE-003"],
   },
+  // note: alt-framed entry pointing at the same DVIDS clip as VID-001
+  // (DOW-UAP-PR34, Greece). Kept because the longer description and
+  // incident-linkage are useful — but DVIDS row in the canonical CSV is
+  // singular (1006080).
   {
     id: "VID-007",
     title: "GREECE // 90-DEG TURNS // OCEAN-SURFACE TRACK",
@@ -101,6 +113,8 @@ export const videos: EvidenceVideo[] = [
     description: "One of three 2024 CENTCOM full-motion-video clips showing a 'misshapen and uneven ball of white light' with a 'light/glare halo effect'. Catalog match: DOW-UAP-PR29 (UAE / Gulf of Oman, June 2024).",
     incidentIds: ["PURSUE-016"],
   },
+  // note: alt-framed entry pointing at the same DVIDS clip as VID-002
+  // (DOW-UAP-PR47, INDOPACOM football body, 1006107). Single row in CSV.
   {
     id: "VID-010",
     title: "INDOPACOM // FOOTBALL-SHAPED BODY // NEAR JAPAN",
