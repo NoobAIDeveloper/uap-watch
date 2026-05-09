@@ -143,6 +143,226 @@ URL: https://uap-watch-flame.vercel.app/q/phoenix-lights
 
 The Phoenix Lights were a series of large V-shaped light formations observed by thousands of witnesses over Phoenix, Arizona, on the night of March 13, 1997. Reports described both a slow-moving carpenter's-square-shaped craft and a later set of stationary lights that hung in formation for several minutes. Then-Governor Fife Symington publicly mocked the sightings at the time, then later acknowledged he had personally seen the formation and described it as "otherworldly." The U.S. Air Force attributed the later set of stationary lights to A-10 Warthog flare drops during a training exercise over the Barry M. Goldwater Range. The earlier carpenter's-square formation has never been definitively identified. The Phoenix Lights are not part of PURSUE Release 01 but are routinely referenced as one of the highest-witness-count UFO events in U.S. history.
 
+## Q: What is the Tic Tac UFO from the USS Nimitz?
+
+URL: https://uap-watch-flame.vercel.app/q/tic-tac-uap
+
+The Tic Tac UFO is the most-cited modern U.S. military UAP encounter. Over multiple days in November 2004 off the coast of Baja California, the USS Nimitz Carrier Strike Group's E-2C Hawkeye radar and the USS Princeton's SPY-1 radar repeatedly tracked anomalous objects descending from approximately 80,000 feet to sea level in seconds. On 14 November 2004, F/A-18F pilot Commander David Fravor was vectored to investigate and visually observed a smooth, white, 40-foot object "shaped like a Tic Tac" hovering above a churning patch of ocean, then accelerating beyond the F/A-18's tracking capability. The encounter was captured on FLIR1 ATFLIR sensor video, declassified in 2017. AARO has reviewed the case multiple times and as of 2026 it remains classified as anomalous; not formally resolved.
+
+## Q: What is the GIMBAL video?
+
+URL: https://uap-watch-flame.vercel.app/q/gimbal-video-explained
+
+GIMBAL is one of the three Navy ATFLIR (Advanced Targeting Forward-Looking Infrared) clips officially declassified by the Department of Defense in 2017–2020. Recorded in 2015 by F/A-18F Super Hornets from the USS Theodore Roosevelt strike group operating off the East Coast of the United States, the clip shows a smooth, saucer-shaped object hovering against a strong head-on wind, then rotating 90 degrees while remaining in place. Pilot audio captures real-time reactions: "Look at that thing! It's rotating!" Skeptics, including AARO contributors, have proposed that the apparent rotation is a gimbal-lock artifact of the ATFLIR pod itself rather than a physical rotation of the object — hence the clip's name. As of 2026 the case is not formally resolved by AARO; it sits between unresolved and anomalous depending on the analyst.
+
+## Q: Who is Bob Lazar and are his Area 51 claims credible?
+
+URL: https://uap-watch-flame.vercel.app/q/bob-lazar-claims
+
+Bob Lazar is an American who claimed in a 1989 Las Vegas television interview with George Knapp to have worked as a physicist at "Sector 4" (S-4), a classified facility approximately 15 miles south of Area 51 near Papoose Lake, Nevada, reverse-engineering recovered extraterrestrial spacecraft. Lazar described nine craft of varying shapes and a fuel he called "Element 115." His employment, education credentials, and the existence of S-4 itself have never been corroborated by any U.S. government record. AARO's 2024 Historical Record Report explicitly addressed the broader narrative of classified retrieval programs — including those in Lazar's specific claims — and stated that AARO "found no empirical evidence" for any such program. Lazar's claims remain widely discussed in popular UFO culture but are not part of any U.S. government public record, including PURSUE Release 01.
+
+## Q: What is Area 51 and what's actually known about it?
+
+URL: https://uap-watch-flame.vercel.app/q/area-51
+
+Area 51 (also Groom Lake / Homey Airport / Detachment 3, AFFTC) is a classified test facility operated by the U.S. Air Force in southern Nevada. It was established in 1955 to test the U-2 reconnaissance aircraft and subsequently hosted the A-12 OXCART, F-117 Nighthawk, B-2 Spirit, and RQ-170 Sentinel programs. The U.S. government did not officially acknowledge Area 51's existence until July 2013, when a CIA Freedom of Information Act release confirmed the facility's role in the U-2 program. AARO's 2024 Historical Record Report directly addressed the popular narrative connecting Area 51 to extraterrestrial craft retrieval and reverse-engineering, and stated that AARO found "no empirical evidence" for any such activity. The Pentagon's PURSUE Release 01 contains no incidents geolocated to Area 51.
+
+## Q: Is MJ-12 (Majestic 12) real?
+
+URL: https://uap-watch-flame.vercel.app/q/mj-12
+
+MJ-12 (also Majestic 12, Majic 12) refers to an alleged top-secret committee of twelve scientists, military officers, and government officials reportedly established by President Truman in September 1947 to manage UFO crash recoveries — most prominently the alleged Roswell debris. The narrative is built on a series of documents that surfaced in 1984, purportedly leaked to UFO researcher Jaime Shandera. The FBI examined the documents in 1988 and stated they are "completely bogus." Linguistic and typographic analysis by historians and the National Archives has identified anachronisms and signature inconsistencies that suggest the documents were fabricated in the 1980s. AARO's 2024 Historical Record Report addressed the broader MJ-12 narrative and found no evidence of any such committee in U.S. government records. MJ-12 is not part of PURSUE Release 01.
+
+## Q: What was Project Blue Book?
+
+URL: https://uap-watch-flame.vercel.app/q/project-blue-book
+
+Project Blue Book was the third and longest U.S. Air Force investigation of UFO reports, succeeding Project SIGN (1948) and Project GRUDGE (1949–1952). Active from March 1952 through December 1969 at Wright-Patterson Air Force Base, Ohio, Blue Book catalogued 12,618 reported sightings. Of these, 11,917 were attributed to known phenomena (aircraft, balloons, satellites, astronomical events, hoaxes); 701 cases (5.6%) were classified as "unidentified" at the time of termination. The program was wound down following the 1968 Condon Report — a University of Colorado study commissioned by the Air Force — which concluded that further UFO study was unlikely to yield scientific advances. The complete Blue Book archive is now at the National Archives. PURSUE Release 01 does not duplicate Blue Book content; the historical record is explicitly the predecessor catalog.
+
+## Q: What was the Ariel School UFO incident?
+
+URL: https://uap-watch-flame.vercel.app/q/ariel-school
+
+The Ariel School UFO incident occurred on the morning of 16 September 1994 at the Ariel School in Ruwa, Zimbabwe, approximately 20 kilometers from Harare. During the morning recess, 62 children aged 6 to 12 reported observing one or more silver disc-shaped objects landed in the field beyond the schoolyard, and one or more small humanoid beings standing near the craft. Children's drawings produced immediately after the incident showed remarkably consistent features. Harvard Medical School psychiatrist Dr. John Mack flew to Zimbabwe and conducted independent interviews with the children, concluding that the witnesses showed no signs of fabrication. The incident is one of the most-cited multi-witness child-witness UFO cases on record. It is not part of PURSUE Release 01 (which is U.S. government records only) but is routinely referenced in international UFO research.
+
+## Q: What was the Battle of Los Angeles?
+
+URL: https://uap-watch-flame.vercel.app/q/battle-of-los-angeles
+
+The Battle of Los Angeles (also the Great Los Angeles Air Raid) occurred on the night of 24-25 February 1942, less than three months after the attack on Pearl Harbor. U.S. Army anti-aircraft units along the Southern California coast fired 1,440 rounds of 12.8-pound shells at unidentified slow-moving objects over the city; the engagement lasted nearly an hour. Six civilians died — three of heart attacks attributed to the panic, three from falling shrapnel and friendly fire. The Los Angeles Times published a now-famous photograph showing searchlights converging on an apparent object. The Secretary of the Navy attributed the incident to "war nerves" the next day; the Army's later position was "unidentified airplanes, probably commercial." Modern UFO researchers cite Battle of LA as a pre-Roswell government acknowledgment of unidentified objects in U.S. airspace. Not part of PURSUE Release 01.
+
+## Q: What was the Rendlesham Forest incident?
+
+URL: https://uap-watch-flame.vercel.app/q/rendlesham-forest
+
+The Rendlesham Forest incident occurred over three nights, 26-28 December 1980, at the joint U.S. Air Force / Royal Air Force bases of Bentwaters and Woodbridge in Suffolk, England. Multiple USAF security personnel reported observing a small, triangular, metallic craft sitting in a clearing in Rendlesham Forest on the first night, with one airman, Sergeant Jim Penniston, reportedly touching the craft. On the third night, Deputy Base Commander Lieutenant Colonel Charles Halt led a patrol into the forest and recorded the events on a micro-cassette dictation device — the recording, now public, captures Halt and his team observing pulsing red lights and an object that appeared to drop molten objects. The British Ministry of Defence eventually released its file (DEFE 24/1948) under FOI in the 2000s; the official UK position is that the incident posed "no defence significance." Not in PURSUE Release 01 (which is U.S. records only).
+
+## Q: Who was Kenneth Arnold and what did he see?
+
+URL: https://uap-watch-flame.vercel.app/q/kenneth-arnold-sighting
+
+Kenneth Arnold was a civilian pilot from Idaho who reported a sighting on 24 June 1947 that is widely considered the founding event of the modern UFO era. While flying his CallAir A-2 from Chehalis to Yakima, Washington, Arnold observed nine bright objects flying in formation near Mount Rainier at an estimated speed of 1,200 mph. He described them to reporters in Pendleton, Oregon as moving "like a saucer would if you skipped it across the water" — a descriptive simile the press collapsed into the now-iconic term "flying saucer." The sighting predated the Roswell incident by two weeks and is the immediate precedent for the December 1947 Wright Field AMC memorandum (PURSUE-023) that acknowledged "continued and recent reports from qualified observers." The Arnold sighting itself is not in PURSUE Release 01 but is the originating event for the broader catalog.
+
+## Q: What are the McMinnville UFO photographs?
+
+URL: https://uap-watch-flame.vercel.app/q/mcminnville-photographs
+
+The McMinnville UFO photographs are two black-and-white images taken by Oregon farmer Paul Trent and his wife Evelyn at approximately 7:30 PM on 11 May 1950, near their farm outside McMinnville. The photographs show a smooth, parabolic, disc-shaped object hovering against the evening sky. They were published in Life magazine on 26 June 1950 and became the canonical reference images for the disc-shape UFO category. The 1968 Condon Report — the U.S. Air Force-commissioned scientific study at the University of Colorado — examined the McMinnville photographs in detail and concluded they showed "an extraordinary flying object… which appears to have been silvery, metallic, disk-shaped, tens of meters in diameter, and evidently artificial." The report noted that the photographic evidence is consistent with a genuine sighting but could not rule out a hoax. The photographs are not in PURSUE Release 01.
+
+## Q: What is the Travis Walton case?
+
+URL: https://uap-watch-flame.vercel.app/q/travis-walton
+
+The Travis Walton case is one of the most-investigated alleged abduction events in U.S. UFO history. On 5 November 1975, Walton — a 22-year-old logger — was working on a forest-thinning crew in the Apache-Sitgreaves National Forest near Snowflake, Arizona. According to Walton and his six co-workers, the crew encountered a hovering disc-shaped object glowing yellow-white, and when Walton approached the craft, a blue-green beam of light struck him to the ground. The other six men fled and reported him missing. Walton reappeared five days later in Heber, Arizona, in apparent confusion. Six of the seven witnesses (Walton plus five co-workers) passed polygraph examinations administered by the Arizona Department of Public Safety; the seventh result was inconclusive. The case was the basis for the 1993 film "Fire in the Sky." Not part of PURSUE Release 01.
+
+## Q: What was the Stephenville UFO incident?
+
+URL: https://uap-watch-flame.vercel.app/q/stephenville-ufo
+
+The Stephenville UFO incident is one of the best-radar-corroborated modern civilian sightings in the U.S. record. On the evening of 8 January 2008, dozens of witnesses across Erath County, Texas — centered on the town of Stephenville — reported a large bright object with rapidly-changing lights moving silently at high speed. The U.S. Air Force initially denied any military activity in the area, then revised the statement two weeks later to confirm that 10 F-16s from the 457th Fighter Squadron at Naval Air Station Joint Reserve Base Fort Worth had been on a training exercise. Subsequent FOIA-released FAA radar data showed an unidentified object with no transponder, traveling at high speed on a track that intersected the no-fly zone over the Bush ranch in Crawford. The object's identity remains formally unresolved. Not part of PURSUE Release 01.
+
+## Q: What was the Belgian UFO wave of 1989-1990?
+
+URL: https://uap-watch-flame.vercel.app/q/belgian-wave
+
+The Belgian UFO wave was a five-month period of mass-witness sightings across Belgium from November 1989 through April 1990. Thousands of witnesses, including police officers and military personnel, reported large silent triangular craft with three or four bright white lights at the corners. The most-cited single event occurred on the night of 30-31 March 1990: Belgian Air Force radar tracked unidentified objects, two F-16 fighters were scrambled, and the pilots achieved brief radar locks before the objects accelerated beyond the F-16's tracking capability. Belgian Air Force Major-General Wilfried De Brouwer publicly acknowledged the radar tracks and said the events "could not be explained." The wave is one of the most-documented multi-national UFO events of the 20th century. Not part of PURSUE Release 01 (U.S. records only).
+
+## Q: What is the Disclosure Project?
+
+URL: https://uap-watch-flame.vercel.app/q/disclosure-project
+
+The Disclosure Project is a private advocacy initiative founded by Dr. Steven M. Greer, an emergency-room physician, in 1993. The project's stated goal is to compel U.S. government acknowledgment of extraterrestrial visitation by collecting and presenting witness testimony from former military, intelligence, and civilian personnel. The most-cited Disclosure Project event was the 9 May 2001 National Press Club briefing in Washington, D.C., at which approximately 20 witnesses publicly stated they had firsthand knowledge of UFO programs. The project's claims are not corroborated by any U.S. government source; AARO's 2024 Historical Record Report did not find evidence supporting the broader narrative. The Disclosure Project is sometimes confused with the formal congressional disclosure efforts of 2022-2024 (Senator Marco Rubio, Senator Kirsten Gillibrand, Representative Tim Burchett); these are independent and unaffiliated.
+
+## Q: What did David Grusch testify about UFOs?
+
+URL: https://uap-watch-flame.vercel.app/q/grusch-testimony
+
+David Charles Grusch is a former U.S. Air Force intelligence officer and former member of the National Geospatial-Intelligence Agency UAP Task Force. On 26 July 2023, Grusch testified under oath before the House Oversight Committee's Subcommittee on National Security, the Border, and Foreign Affairs. He stated that he had become aware, while serving on the UAP Task Force, of a "multi-decade UAP crash retrieval and reverse-engineering program" being run by U.S. government contractors, and that he had filed a whistleblower complaint with the Intelligence Community Inspector General. Grusch did not present physical evidence; his testimony was based on conversations with other officials. AARO's 2024 Historical Record Report directly addressed Grusch's allegations and stated that AARO "found no empirical evidence" for the program he described. As of 2026 the broader investigation remains open, but no corroborating documentation has been declassified.
+
+## Q: What is the Galileo Project?
+
+URL: https://uap-watch-flame.vercel.app/q/galileo-project
+
+The Galileo Project is an academic research program founded in July 2021 by Harvard astrophysicist Professor Avi Loeb. Headquartered at the Harvard-Smithsonian Center for Astrophysics, the project aims to bring traditional scientific rigor to the search for evidence of extraterrestrial technological artifacts (rather than just biosignatures). It operates ground-based optical-IR-radio observatories — most prominently a station at the Harvard College Observatory — and uses machine-learning classifiers to distinguish conventional objects (birds, drones, balloons, planes) from anomalies. The project also conducted the 2023 Pacific Ocean expedition that recovered metallic spherules from the seafloor near the 2014 IM1 interstellar meteor track; the recovered material's interstellar origin remains debated. The Galileo Project is independent of and unaffiliated with the Pentagon's PURSUE program or AARO. It is the most-funded private scientific UAP research effort to date.
+
+## Q: What were Project Sign and Project Grudge?
+
+URL: https://uap-watch-flame.vercel.app/q/project-sign-grudge
+
+Project Sign was the U.S. Air Force's first formal UFO investigation, established at Wright-Patterson Air Force Base in late 1947 and active through 1948. It produced an internal classified document called the "Estimate of the Situation," which reportedly concluded that the most plausible explanation for the recurring sightings was extraterrestrial origin. Air Force Chief of Staff General Hoyt S. Vandenberg rejected the estimate as unsupported by evidence and ordered the document destroyed; no copy is in the public record. The investigation was renamed Project Grudge in 1949 with a more skeptical institutional posture; Grudge was largely a debunking exercise and was wound down in 1952. The program was then reorganized as Project Blue Book (1952–1969), which catalogued 12,618 cases. Project Sign and Project Grudge predate PURSUE Release 01 by decades, but the December 1947 Wright Field AMC memorandum (PURSUE-023) is the immediate predecessor document.
+
+## Q: Has the U.S. government recovered crashed UFOs?
+
+URL: https://uap-watch-flame.vercel.app/q/ufo-crash-retrievals
+
+There is no declassified, evidence-backed U.S. government acknowledgment of any UFO crash retrieval program. The 1947 Roswell debris — the foundational event in the broader retrieval narrative — was officially attributed by the U.S. Air Force to Project Mogul, a then-classified high-altitude balloon program for detecting Soviet nuclear tests. The 2023 testimony of former intelligence officer David Grusch alleged a "multi-decade UAP crash retrieval and reverse-engineering program," but Grusch presented no physical evidence and stated his testimony was based on conversations with other officials. AARO's 2024 Historical Record Report — the U.S. government's most-recent comprehensive review of 80 years of UAP records — directly addressed the retrieval narrative and stated AARO "found no empirical evidence" for any such program. PURSUE Release 01 contains no recovered material; the 1947 FBI Dallas memo describes the recovered Roswell object as "suspended from a 20-foot balloon by cable."
+
+## Q: Has the U.S. reverse-engineered alien technology?
+
+URL: https://uap-watch-flame.vercel.app/q/reverse-engineering-public-record
+
+As of May 2026, there is no declassified U.S. government document acknowledging any program that reverse-engineered extraterrestrial or non-human technology. AARO's 2024 Historical Record Report — the most comprehensive U.S. government review of 80 years of UAP records — addressed the reverse-engineering narrative directly and stated that AARO "found no empirical evidence" for any such program. The most-public claims of such activity are Bob Lazar's 1989 statements about "Element 115" at S-4 (Nevada), and David Grusch's 2023 congressional testimony about a "multi-decade UAP crash retrieval and reverse-engineering program." Neither has been corroborated by any U.S. government source. PURSUE Release 01 contains no recovered material, and no entry references a reverse-engineering program. Some technologies attributed in popular narratives to alien sources — notably stealth coatings and integrated circuits — have been independently traced to human development by historians and the U.S. patent record.
+
+# Comparison Pages
+
+## GOFAST vs GIMBAL — How the Two Famous Navy UFO Videos Differ
+
+URL: https://uap-watch-flame.vercel.app/compare/gofast-vs-gimbal
+
+GOFAST and GIMBAL are the two most-cited Navy ATFLIR (Advanced Targeting Forward-Looking Infrared) clips officially declassified by the U.S. Department of Defense in 2017–2020. Both were recorded in 2015 by F/A-18F Super Hornets from the USS Theodore Roosevelt strike group operating off the East Coast. The two clips look superficially similar — small white object, gun-camera framing, pilot audio in the background — but resolve into very different cases. AARO formally resolved GOFAST in 2026: geospatial-intelligence analysis placed the object at approximately 13,000 feet altitude, not skimming the ocean as it appeared, and identified parallax as the cause of the illusion of low altitude and high speed. GIMBAL remains formally unresolved as of 2026; the apparent 90-degree rotation may be either a real physical rotation or a gimbal-lock artifact of the ATFLIR pod itself, and AARO has not committed to either interpretation.
+
+## Tic Tac vs GOFAST — Comparing the Two Most-Cited Navy UAP Encounters
+
+URL: https://uap-watch-flame.vercel.app/compare/tic-tac-vs-gofast
+
+The Tic Tac UFO encounter (November 2004, USS Nimitz Carrier Strike Group) and the GOFAST clip (2015, USS Theodore Roosevelt strike group) are the two most-cited modern U.S. Navy UAP encounters. Both involve F/A-18 Super Hornet aircrew and ATFLIR/FLIR1 sensor footage, but the two cases differ on almost every other dimension. Tic Tac is a multi-day multi-witness multi-radar event with a 40-foot visual object directly observed by an experienced strike-group commander; GOFAST is a 35-second sensor clip of a small white object whose true altitude and speed were misperceived. AARO formally resolved GOFAST in 2026 as a parallax artifact at ~13,000 feet altitude. Tic Tac remains formally unresolved by AARO as of 2026, with the case still rated anomalous due to the multi-sensor corroboration and the experience level of the witnesses.
+
+## Roswell vs Phoenix Lights — How Two Iconic UFO Events Compare
+
+URL: https://uap-watch-flame.vercel.app/compare/roswell-vs-phoenix-lights
+
+Roswell (July 1947) and the Phoenix Lights (March 1997) are the two most-recognized UFO events in U.S. cultural memory, but they differ on almost every dimension. Roswell is a single-incident government-record event — the FBI Dallas field memo describing a recovered "hexagonal object suspended from a 20-foot balloon by cable" is in PURSUE Release 01 as DOC-001 (PURSUE-001). The Phoenix Lights, by contrast, is a multi-witness civilian mass-sighting with thousands of independent witnesses across Arizona, but no government acknowledgment beyond the Air Force attributing the second wave of stationary lights to A-10 flare drops. Roswell is documented but small in witness count; Phoenix Lights is undocumented in any government record but has the largest witness pool of any modern U.S. UFO event.
+
+## AARO vs the UAP Task Force — Pentagon UAP Investigation Bodies Compared
+
+URL: https://uap-watch-flame.vercel.app/compare/aaro-vs-uap-task-force
+
+The U.S. government has had multiple UAP investigation bodies over the decades; the two most relevant to the modern record are the Navy UAP Task Force (UAPTF, 2020–2022) and AARO (All-domain Anomaly Resolution Office, 2022–present). UAPTF was a Navy-led ad-hoc body established under the Office of the Under Secretary of Defense for Intelligence and Security; AARO is a congressionally-mandated, all-domain body established under the 2022 National Defense Authorization Act. UAPTF produced the June 2021 Preliminary Assessment to Congress (the so-called "ODNI Report") covering 144 incidents from 2004 to 2021. AARO publishes the formal Annual UAP Report and conducts the case-by-case resolution work — including the 2026 GOFAST resolution. AARO also administers PURSUE Release 01 in cooperation with the Department of War.
+
+## Project Blue Book vs PURSUE — Comparing U.S. UFO Investigations Across Eras
+
+URL: https://uap-watch-flame.vercel.app/compare/blue-book-vs-pursue
+
+Project Blue Book and PURSUE Release 01 are the two largest U.S. government UFO/UAP catalogs ever made publicly available. Blue Book was the third U.S. Air Force investigation, active 1952–1969 at Wright-Patterson AFB, and catalogued 12,618 reported sightings — of which 701 (5.6%) were classified as "unidentified" at termination. PURSUE Release 01 is the modern Pentagon catalog, released by the Department of War on 2026-05-08, containing 162 declassified files: 120 PDFs, 28 videos, and 14 images. The two catalogs differ in scope (broad civilian sighting reports vs. military-grade incident files), in classification (Blue Book was unclassified-from-the-start; PURSUE entries are mostly DECLASSIFIED from prior SECRET originals), and in evidentiary weight (Blue Book's median entry is a single witness report; PURSUE's median entry is a multi-sensor mission report).
+
+## Civilian UFO Reports vs Military UAP Encounters — How They Differ
+
+URL: https://uap-watch-flame.vercel.app/compare/civilian-ufo-vs-military-uap
+
+Civilian UFO reports and military UAP encounters are usually grouped under the same headline, but they differ fundamentally in evidentiary structure. Civilian reports — like those catalogued by the National UFO Reporting Center (NUFORC, ~150,000+ entries) — are dominated by single-witness visual sightings, often without sensor corroboration, often involving identifiable phenomena (Venus, satellites, drones, balloons). Military UAP encounters — as catalogued by AARO and released in PURSUE Release 01 — typically involve multi-sensor radar and FLIR/EO/SAR corroboration, witnesses with high training and credentials (F/A-18 aircrew, federal agents, ISR operators), and operational consequences such as scrambled fighters or interrupted flight operations. The two categories should be analyzed under different evidentiary frameworks.
+
+# State-by-State UFO Records
+
+## UFO Sightings in California (CA)
+
+URL: https://uap-watch-flame.vercel.app/state/california
+
+California leads the United States in total reported UFO sightings — the National UFO Reporting Center (NUFORC) catalogues more reports from California than any other state, a function of population density, military airspace from Edwards AFB through China Lake, and a long civilian-aviation history along the Pacific coast. The Pentagon's PURSUE Release 01 (2026-05-08) does not include any incidents geolocated specifically to California, but Western US-region entries — including the 2023 "Eye of Sauron" federal-agent encounter and the 2023 "blacker than black" Prius-sized object that shot upward faster than known drones — are reported from undisclosed Western US locations that may include parts of California. Historically, California is the state of the 1942 Battle of Los Angeles air-defense incident, the 1953 Coast Guard photographs from Salem (Oregon coast adjacent), and the 1990s Edwards AFB high-altitude cases.
+
+## UFO Sightings in Nevada (NV)
+
+URL: https://uap-watch-flame.vercel.app/state/nevada
+
+Nevada is the U.S. state most associated with UFO mythology — a function of Area 51 (Groom Lake), the Nellis Test and Training Range, and the broader "Extraterrestrial Highway" along Nevada State Route 375. The Pentagon's PURSUE Release 01 does not contain any incidents publicly geolocated to Nevada, but the All-domain Anomaly Resolution Office (AARO) has historically rated multiple Nellis-range encounters worth investigation. The 1989 Bob Lazar claims about reverse-engineering programs at "S-4" near Papoose Lake remain unverified by any government source. AARO's 2024 Historical Record Report stated it found "no empirical evidence" for the alleged classified retrieval program at any Nevada facility. Nevada's broader UAP record is dominated by civilian reports along US-95 and US-93, military test-range sensor anomalies, and confusion between actual classified aircraft (F-117, B-2, RQ-170) and UAP.
+
+## UFO Sightings in Arizona (AZ)
+
+URL: https://uap-watch-flame.vercel.app/state/arizona
+
+Arizona is the state of the Phoenix Lights — the largest mass UFO sighting in modern U.S. history. On the night of March 13, 1997, thousands of witnesses across Arizona observed two distinct phenomena: a slow-moving, V-shaped or "carpenter's-square"-shaped formation of lights drifting south from Nevada toward Tucson, and a separate set of stationary hovering lights over Phoenix several hours later. The U.S. Air Force later attributed the second set of stationary lights to A-10 Warthog flare drops over the Barry M. Goldwater Range during a training exercise. The earlier moving formation has never been definitively identified. Then-Governor Fife Symington publicly mocked the sightings at the time, then in 2007 acknowledged he had personally seen the formation and described it as "otherworldly." The Phoenix Lights are not part of PURSUE Release 01 but are routinely cited as the highest-witness-count modern U.S. UFO event.
+
+## UFO Sightings in New Mexico (NM)
+
+URL: https://uap-watch-flame.vercel.app/state/new-mexico
+
+New Mexico is the state of the 1947 Roswell incident — the most-cited UFO event in U.S. history and the originating event in the modern UFO record. On 8 July 1947, the FBI Dallas field office sent a memorandum to FBI Director J. Edgar Hoover describing a recovered "hexagonal object suspended from a 20-foot balloon by cable." The memo, now declassified and released in PURSUE Release 01 as DOC-001 (PURSUE-001), describes the object as "bronze, metallic, of ellipsoid form, between 130 and 195 feet in apparent dimension." The U.S. Air Force officially attributed the Roswell debris to Project Mogul, a classified high-altitude balloon program for detecting Soviet nuclear tests. New Mexico also hosts White Sands Missile Range, Holloman AFB, and Kirtland AFB — three facilities with extensive Cold War-era UAP investigation history including the 1948 "Green Fireballs" investigation centered at Los Alamos.
+
+## UFO Sightings in Texas (TX)
+
+URL: https://uap-watch-flame.vercel.app/state/texas
+
+Texas is the state of the 2008 Stephenville UFO incident, one of the most well-documented modern civilian sightings on the U.S. record. On the evening of 8 January 2008, dozens of witnesses across Erath County (centered on Stephenville) reported a large bright object with rapidly-changing lights moving silently at high speed; FAA radar later confirmed the presence of an unidentified object with no transponder traveling toward the Bush ranch in Crawford. The U.S. Air Force initially denied any military activity in the area, then revised the statement two weeks later to confirm 10 F-16s from the 457th Fighter Squadron had been on a training exercise. The object's identity remains formally unresolved. Texas is also home to the Dyess AFB (Abilene) and Sheppard AFB (Wichita Falls) ranges, both of which generate recurring civilian sighting reports correlated with classified-aircraft testing.
+
+## UFO Sightings in Florida (FL)
+
+URL: https://uap-watch-flame.vercel.app/state/florida
+
+Florida sits at the geographic intersection of two heavily-investigated UAP regions: the Atlantic-coast Navy operating areas off Jacksonville and Cape Canaveral (where multiple GIMBAL/GOFAST-era F/A-18 encounters occurred prior to formal declassification), and the Caribbean drug-interdiction airspace patrolled by the U.S. Coast Guard and Customs and Border Protection. While PURSUE Release 01 does not include any incidents geolocated specifically to Florida, the broader USS Theodore Roosevelt operating area off the East Coast is the source of the 2017 GOFAST clip (resolved by AARO in 2026 as a parallax artifact at ~13,000 feet altitude). Florida is also home to NASA's Kennedy Space Center, Cape Canaveral SFS, MacDill AFB (USCENTCOM HQ), and the 1979 Gulf Breeze photographs — a recurring Florida UAP photographic case in the 1980s widely debated as either a hoax or a genuine sighting.
+
+## UFO Sightings in Washington (WA)
+
+URL: https://uap-watch-flame.vercel.app/state/washington
+
+Washington state is where the modern UFO era began. On 24 June 1947, civilian pilot Kenneth Arnold reported nine "saucer-like" objects flying in formation near Mount Rainier at an estimated 1,200 mph. Arnold's description of the objects as moving "like a saucer would if you skipped it across the water" gave the press the term "flying saucer" — and the modern UFO discourse begins with this report. The Arnold sighting is not in PURSUE Release 01 but is the foundational event referenced in the December 1947 Wright Field AMC memorandum (PURSUE-023), which acknowledged "continued and recent reports from qualified observers." Washington also hosts the Maury Island incident of 21 June 1947 (three days before Arnold) — a contested case later largely attributed to a hoax. Modern Washington UAP reports cluster near Joint Base Lewis-McChord and the Olympic Peninsula.
+
+## UFO Sightings in Oregon (OR)
+
+URL: https://uap-watch-flame.vercel.app/state/oregon
+
+Oregon is the state of the McMinnville UFO photographs — the most analyzed civilian UFO photographs of the 20th century. On 11 May 1950, Paul and Evelyn Trent photographed a disc-shaped object hovering near their farm in McMinnville. The two original photographs were published in Life magazine the next month and became the canonical reference images for the disc-shape UFO category. The U.S. Air Force-commissioned Condon Report in 1968 examined the McMinnville photographs and concluded they showed "an extraordinary flying object… which appears to have been silvery, metallic, disk-shaped, tens of meters in diameter, and evidently artificial." PURSUE Release 01 does not include the McMinnville photographs. Oregon's modern UAP record clusters around Klamath Falls, the Cascade Range, and offshore Coast Guard reports along the northern California-Oregon border.
+
+## UFO Sightings in Idaho (ID)
+
+URL: https://uap-watch-flame.vercel.app/state/idaho
+
+Idaho appears in the Pentagon's PURSUE Release 01 catalog through a 1950 FBI regional office memorandum (DOC-014, PURSUE-010) in which the Idaho FBI office expressed formal concern that unexplained UFO sightings could cause "hysteria, or panic" among the public. The memo is one of the earliest known instances of the FBI formally acknowledging UFO reports as a public-safety consideration rather than a fringe topic. Idaho's broader UAP record is shaped by its proximity to the Mountain Home Air Force Base, the Idaho National Laboratory (formerly the Idaho Engineering Lab — a nuclear research facility with a long history of unexplained sightings), and the open desert ranges of the Snake River Plain. Multiple PURSUE "Western US (undisclosed)" entries from 2023-2025 plausibly include Idaho locations.
+
+## UFO Sightings in Ohio (OH)
+
+URL: https://uap-watch-flame.vercel.app/state/ohio
+
+Ohio is the institutional center of U.S. government UFO investigation. Wright Field (now Wright-Patterson Air Force Base) outside Dayton was the headquarters of the U.S. Air Force Air Material Command in 1947 and is the originating location of the December 1947 AMC memorandum (PURSUE-023) which formally acknowledged that "continued and recent reports from qualified observers concerning this phenomenon still makes this matter one of concern to Headquarters, Air Material Command." That memo is the predecessor document to Project SIGN (1948), Project GRUDGE (1949–1952), and Project Blue Book (1952–1969). Wright-Patterson AFB allegedly hosted recovered material from Roswell and other crash retrievals — claims that are persistent in UFO mythology but not corroborated by any declassified U.S. government source. AARO's 2024 Historical Record Report explicitly addressed and found no empirical evidence for the alleged Wright-Patterson retrieval program.
+
 # Indexed Incidents
 
 ## Incident PURSUE-001 — Roswell, New Mexico (08 JUL 1947)
@@ -434,4 +654,4 @@ Department of Defense photo, September 2023. Shows ellipsoid bronze metallic obj
 
 ---
 
-Generated 2026-05-09T07:31:09.605Z
+Generated 2026-05-09T07:31:37.787Z

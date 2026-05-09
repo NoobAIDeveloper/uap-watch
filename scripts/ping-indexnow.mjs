@@ -96,6 +96,24 @@ function parseWikiSlugs() {
   return out;
 }
 
+function parseStateSlugs() {
+  const src = readSource("lib/states.ts");
+  const re = /\{\s*slug:\s*"([^"]+)",\s*name:/g;
+  const out = [];
+  let m;
+  while ((m = re.exec(src)) !== null) out.push(m[1]);
+  return out;
+}
+
+function parseCompareSlugs() {
+  const src = readSource("lib/compare.ts");
+  const re = /\{\s*slug:\s*"([^"]+)",\s*title:/g;
+  const out = [];
+  let m;
+  while ((m = re.exec(src)) !== null) out.push(m[1]);
+  return out;
+}
+
 function parseDocYears() {
   const src = readSource("data/documents.ts");
   const re = /date:\s*"(\d{4})-\d{2}-\d{2}"/g;
@@ -111,6 +129,8 @@ function buildUrlList() {
   const vidIds = parseIds(readSource("data/videos.ts"), /VID-\d+/);
   const faqSlugs = parseFaqSlugs();
   const wikiSlugs = parseWikiSlugs();
+  const stateSlugs = parseStateSlugs();
+  const compareSlugs = parseCompareSlugs();
 
   // Year coverage derives from incidents AND documents to match the year
   // route's generateStaticParams in app/year/[year]/page.tsx.
@@ -133,6 +153,8 @@ function buildUrlList() {
   }
   for (const s of faqSlugs) urls.add(`${SITE_URL}/q/${s}`);
   for (const s of wikiSlugs) urls.add(`${SITE_URL}/wiki/${s}`);
+  for (const s of stateSlugs) urls.add(`${SITE_URL}/state/${s}`);
+  for (const s of compareSlugs) urls.add(`${SITE_URL}/compare/${s}`);
 
   return Array.from(urls);
 }

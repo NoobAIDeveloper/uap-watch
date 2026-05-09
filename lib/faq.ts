@@ -236,6 +236,233 @@ export const faqEntries: FaqEntry[] = [
     ],
     related: ["famous-ufo-incidents", "are-aliens-real", "ufo-by-state"],
   },
+  {
+    slug: "tic-tac-uap",
+    q: "What is the Tic Tac UFO from the USS Nimitz?",
+    pull:
+      "The Tic Tac UFO refers to a November 2004 multi-day Navy radar and visual encounter near the USS Nimitz strike group, in which F/A-18 pilots observed a 40-foot white object resembling a Tic Tac that demonstrated extreme acceleration and trans-medium capability.",
+    a: "The Tic Tac UFO is the most-cited modern U.S. military UAP encounter. Over multiple days in November 2004 off the coast of Baja California, the USS Nimitz Carrier Strike Group's E-2C Hawkeye radar and the USS Princeton's SPY-1 radar repeatedly tracked anomalous objects descending from approximately 80,000 feet to sea level in seconds. On 14 November 2004, F/A-18F pilot Commander David Fravor was vectored to investigate and visually observed a smooth, white, 40-foot object \"shaped like a Tic Tac\" hovering above a churning patch of ocean, then accelerating beyond the F/A-18's tracking capability. The encounter was captured on FLIR1 ATFLIR sensor video, declassified in 2017. AARO has reviewed the case multiple times and as of 2026 it remains classified as anomalous; not formally resolved.",
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "Department of Defense FLIR1 release", url: "https://www.dvidshub.net/" },
+    ],
+    related: ["famous-ufo-videos", "navy-uap-encounters", "gimbal-video-explained"],
+  },
+  {
+    slug: "gimbal-video-explained",
+    q: "What is the GIMBAL video?",
+    pull:
+      "GIMBAL is a 35-second 2015 Navy F/A-18 ATFLIR clip showing a saucer-shaped object rotating in mid-air over the Atlantic, with audio of pilots reacting in real time: \"Look at that thing! It's rotating!\"",
+    a: "GIMBAL is one of the three Navy ATFLIR (Advanced Targeting Forward-Looking Infrared) clips officially declassified by the Department of Defense in 2017–2020. Recorded in 2015 by F/A-18F Super Hornets from the USS Theodore Roosevelt strike group operating off the East Coast of the United States, the clip shows a smooth, saucer-shaped object hovering against a strong head-on wind, then rotating 90 degrees while remaining in place. Pilot audio captures real-time reactions: \"Look at that thing! It's rotating!\" Skeptics, including AARO contributors, have proposed that the apparent rotation is a gimbal-lock artifact of the ATFLIR pod itself rather than a physical rotation of the object — hence the clip's name. As of 2026 the case is not formally resolved by AARO; it sits between unresolved and anomalous depending on the analyst.",
+    sources: [
+      { label: "DoD GIMBAL release", url: "https://www.dvidshub.net/" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["gofast-video-explained", "tic-tac-uap", "famous-ufo-videos"],
+  },
+  {
+    slug: "bob-lazar-claims",
+    q: "Who is Bob Lazar and are his Area 51 claims credible?",
+    pull:
+      "Bob Lazar publicly claimed in 1989 to have worked on reverse-engineering recovered alien craft at \"S-4\" near Area 51. AARO's 2024 Historical Record Report found no empirical evidence for the program he described.",
+    a: "Bob Lazar is an American who claimed in a 1989 Las Vegas television interview with George Knapp to have worked as a physicist at \"Sector 4\" (S-4), a classified facility approximately 15 miles south of Area 51 near Papoose Lake, Nevada, reverse-engineering recovered extraterrestrial spacecraft. Lazar described nine craft of varying shapes and a fuel he called \"Element 115.\" His employment, education credentials, and the existence of S-4 itself have never been corroborated by any U.S. government record. AARO's 2024 Historical Record Report explicitly addressed the broader narrative of classified retrieval programs — including those in Lazar's specific claims — and stated that AARO \"found no empirical evidence\" for any such program. Lazar's claims remain widely discussed in popular UFO culture but are not part of any U.S. government public record, including PURSUE Release 01.",
+    sources: [
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["area-51", "ufo-crash-retrievals", "are-aliens-real"],
+  },
+  {
+    slug: "area-51",
+    q: "What is Area 51 and what's actually known about it?",
+    pull:
+      "Area 51 is a classified U.S. Air Force test facility at Groom Lake, Nevada — officially acknowledged in 2013 — that hosted U-2, A-12, F-117, and other aircraft programs. No U.S. government source has ever confirmed UFO-related activity at Area 51.",
+    a: "Area 51 (also Groom Lake / Homey Airport / Detachment 3, AFFTC) is a classified test facility operated by the U.S. Air Force in southern Nevada. It was established in 1955 to test the U-2 reconnaissance aircraft and subsequently hosted the A-12 OXCART, F-117 Nighthawk, B-2 Spirit, and RQ-170 Sentinel programs. The U.S. government did not officially acknowledge Area 51's existence until July 2013, when a CIA Freedom of Information Act release confirmed the facility's role in the U-2 program. AARO's 2024 Historical Record Report directly addressed the popular narrative connecting Area 51 to extraterrestrial craft retrieval and reverse-engineering, and stated that AARO found \"no empirical evidence\" for any such activity. The Pentagon's PURSUE Release 01 contains no incidents geolocated to Area 51.",
+    sources: [
+      { label: "CIA Area 51 declassification (2013)", url: "https://www.cia.gov/" },
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["bob-lazar-claims", "ufo-crash-retrievals", "ufo-by-state"],
+  },
+  {
+    slug: "mj-12",
+    q: "Is MJ-12 (Majestic 12) real?",
+    pull:
+      "MJ-12 is the alleged secret committee of scientists, military leaders, and government officials reportedly formed in 1947 to manage UFO recoveries. The FBI and AARO have both stated the documents purporting to prove its existence are not authentic government records.",
+    a: "MJ-12 (also Majestic 12, Majic 12) refers to an alleged top-secret committee of twelve scientists, military officers, and government officials reportedly established by President Truman in September 1947 to manage UFO crash recoveries — most prominently the alleged Roswell debris. The narrative is built on a series of documents that surfaced in 1984, purportedly leaked to UFO researcher Jaime Shandera. The FBI examined the documents in 1988 and stated they are \"completely bogus.\" Linguistic and typographic analysis by historians and the National Archives has identified anachronisms and signature inconsistencies that suggest the documents were fabricated in the 1980s. AARO's 2024 Historical Record Report addressed the broader MJ-12 narrative and found no evidence of any such committee in U.S. government records. MJ-12 is not part of PURSUE Release 01.",
+    sources: [
+      { label: "FBI Vault — MJ-12 file", url: "https://vault.fbi.gov/Majestic%2012" },
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["ufo-crash-retrievals", "are-aliens-real", "fbi-ufo-files"],
+  },
+  {
+    slug: "project-blue-book",
+    q: "What was Project Blue Book?",
+    pull:
+      "Project Blue Book was the U.S. Air Force's longest-running UFO investigation program, active from 1952 to 1969 at Wright-Patterson AFB. It catalogued 12,618 UFO reports; 701 (5.6%) were classified as 'unidentified' at termination.",
+    a: "Project Blue Book was the third and longest U.S. Air Force investigation of UFO reports, succeeding Project SIGN (1948) and Project GRUDGE (1949–1952). Active from March 1952 through December 1969 at Wright-Patterson Air Force Base, Ohio, Blue Book catalogued 12,618 reported sightings. Of these, 11,917 were attributed to known phenomena (aircraft, balloons, satellites, astronomical events, hoaxes); 701 cases (5.6%) were classified as \"unidentified\" at the time of termination. The program was wound down following the 1968 Condon Report — a University of Colorado study commissioned by the Air Force — which concluded that further UFO study was unlikely to yield scientific advances. The complete Blue Book archive is now at the National Archives. PURSUE Release 01 does not duplicate Blue Book content; the historical record is explicitly the predecessor catalog.",
+    sources: [
+      { label: "National Archives — Project Blue Book", url: "https://www.archives.gov/research/military/air-force/ufos" },
+    ],
+    related: ["project-sign-grudge", "famous-ufo-incidents", "what-is-aaro"],
+  },
+  {
+    slug: "ariel-school",
+    q: "What was the Ariel School UFO incident?",
+    pull:
+      "On 16 September 1994, 62 children at the Ariel School in Ruwa, Zimbabwe reported witnessing one or more landed disc-shaped craft and small humanoid beings during morning recess. Harvard psychiatrist John Mack interviewed the children and concluded they were not hoaxing.",
+    a: "The Ariel School UFO incident occurred on the morning of 16 September 1994 at the Ariel School in Ruwa, Zimbabwe, approximately 20 kilometers from Harare. During the morning recess, 62 children aged 6 to 12 reported observing one or more silver disc-shaped objects landed in the field beyond the schoolyard, and one or more small humanoid beings standing near the craft. Children's drawings produced immediately after the incident showed remarkably consistent features. Harvard Medical School psychiatrist Dr. John Mack flew to Zimbabwe and conducted independent interviews with the children, concluding that the witnesses showed no signs of fabrication. The incident is one of the most-cited multi-witness child-witness UFO cases on record. It is not part of PURSUE Release 01 (which is U.S. government records only) but is routinely referenced in international UFO research.",
+    sources: [
+      { label: "John Mack Institute archive", url: "https://johnemackinstitute.org/" },
+    ],
+    related: ["famous-ufo-incidents", "are-aliens-real"],
+  },
+  {
+    slug: "battle-of-los-angeles",
+    q: "What was the Battle of Los Angeles?",
+    pull:
+      "On the night of 24-25 February 1942, U.S. Army anti-aircraft batteries fired 1,440 rounds at unidentified objects over Los Angeles. Six civilians died from heart attacks and falling shrapnel. The official explanation was war nerves and weather balloons.",
+    a: "The Battle of Los Angeles (also the Great Los Angeles Air Raid) occurred on the night of 24-25 February 1942, less than three months after the attack on Pearl Harbor. U.S. Army anti-aircraft units along the Southern California coast fired 1,440 rounds of 12.8-pound shells at unidentified slow-moving objects over the city; the engagement lasted nearly an hour. Six civilians died — three of heart attacks attributed to the panic, three from falling shrapnel and friendly fire. The Los Angeles Times published a now-famous photograph showing searchlights converging on an apparent object. The Secretary of the Navy attributed the incident to \"war nerves\" the next day; the Army's later position was \"unidentified airplanes, probably commercial.\" Modern UFO researchers cite Battle of LA as a pre-Roswell government acknowledgment of unidentified objects in U.S. airspace. Not part of PURSUE Release 01.",
+    sources: [
+      { label: "Los Angeles Times archives", url: "https://www.latimes.com/" },
+    ],
+    related: ["famous-ufo-incidents", "ufo-by-state"],
+  },
+  {
+    slug: "rendlesham-forest",
+    q: "What was the Rendlesham Forest incident?",
+    pull:
+      "Over 26-28 December 1980, multiple U.S. Air Force personnel at RAF Bentwaters / Woodbridge in Suffolk, England reported a triangular craft on the ground and pulsing lights in the adjacent Rendlesham Forest. Deputy Base Commander Lt. Col. Charles Halt recorded the second night's events on micro-cassette.",
+    a: "The Rendlesham Forest incident occurred over three nights, 26-28 December 1980, at the joint U.S. Air Force / Royal Air Force bases of Bentwaters and Woodbridge in Suffolk, England. Multiple USAF security personnel reported observing a small, triangular, metallic craft sitting in a clearing in Rendlesham Forest on the first night, with one airman, Sergeant Jim Penniston, reportedly touching the craft. On the third night, Deputy Base Commander Lieutenant Colonel Charles Halt led a patrol into the forest and recorded the events on a micro-cassette dictation device — the recording, now public, captures Halt and his team observing pulsing red lights and an object that appeared to drop molten objects. The British Ministry of Defence eventually released its file (DEFE 24/1948) under FOI in the 2000s; the official UK position is that the incident posed \"no defence significance.\" Not in PURSUE Release 01 (which is U.S. records only).",
+    sources: [
+      { label: "UK National Archives — DEFE 24/1948", url: "https://www.nationalarchives.gov.uk/" },
+    ],
+    related: ["famous-ufo-incidents", "are-aliens-real"],
+  },
+  {
+    slug: "kenneth-arnold-sighting",
+    q: "Who was Kenneth Arnold and what did he see?",
+    pull:
+      "On 24 June 1947, civilian pilot Kenneth Arnold reported nine saucer-like objects flying in formation near Mount Rainier, Washington at an estimated 1,200 mph. His description gave the press the term 'flying saucer' and launched the modern UFO era.",
+    a: "Kenneth Arnold was a civilian pilot from Idaho who reported a sighting on 24 June 1947 that is widely considered the founding event of the modern UFO era. While flying his CallAir A-2 from Chehalis to Yakima, Washington, Arnold observed nine bright objects flying in formation near Mount Rainier at an estimated speed of 1,200 mph. He described them to reporters in Pendleton, Oregon as moving \"like a saucer would if you skipped it across the water\" — a descriptive simile the press collapsed into the now-iconic term \"flying saucer.\" The sighting predated the Roswell incident by two weeks and is the immediate precedent for the December 1947 Wright Field AMC memorandum (PURSUE-023) that acknowledged \"continued and recent reports from qualified observers.\" The Arnold sighting itself is not in PURSUE Release 01 but is the originating event for the broader catalog.",
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["famous-ufo-incidents", "ufo-by-state", "ufo-vs-uap"],
+  },
+  {
+    slug: "mcminnville-photographs",
+    q: "What are the McMinnville UFO photographs?",
+    pull:
+      "On 11 May 1950, Paul and Evelyn Trent photographed a disc-shaped object near McMinnville, Oregon. The 1968 Condon Report concluded the photographs showed 'an extraordinary flying object… disk-shaped, tens of meters in diameter, and evidently artificial.'",
+    a: "The McMinnville UFO photographs are two black-and-white images taken by Oregon farmer Paul Trent and his wife Evelyn at approximately 7:30 PM on 11 May 1950, near their farm outside McMinnville. The photographs show a smooth, parabolic, disc-shaped object hovering against the evening sky. They were published in Life magazine on 26 June 1950 and became the canonical reference images for the disc-shape UFO category. The 1968 Condon Report — the U.S. Air Force-commissioned scientific study at the University of Colorado — examined the McMinnville photographs in detail and concluded they showed \"an extraordinary flying object… which appears to have been silvery, metallic, disk-shaped, tens of meters in diameter, and evidently artificial.\" The report noted that the photographic evidence is consistent with a genuine sighting but could not rule out a hoax. The photographs are not in PURSUE Release 01.",
+    sources: [
+      { label: "Condon Report (1968)", url: "https://archive.org/details/scientificstudyo00unse" },
+    ],
+    related: ["famous-ufo-incidents", "ufo-by-state", "kenneth-arnold-sighting"],
+  },
+  {
+    slug: "travis-walton",
+    q: "What is the Travis Walton case?",
+    pull:
+      "On 5 November 1975, logger Travis Walton was reportedly struck by a beam of light from a hovering disc-shaped object near Snowflake, Arizona, then disappeared for five days. Six co-workers passed polygraph tests when describing the encounter.",
+    a: "The Travis Walton case is one of the most-investigated alleged abduction events in U.S. UFO history. On 5 November 1975, Walton — a 22-year-old logger — was working on a forest-thinning crew in the Apache-Sitgreaves National Forest near Snowflake, Arizona. According to Walton and his six co-workers, the crew encountered a hovering disc-shaped object glowing yellow-white, and when Walton approached the craft, a blue-green beam of light struck him to the ground. The other six men fled and reported him missing. Walton reappeared five days later in Heber, Arizona, in apparent confusion. Six of the seven witnesses (Walton plus five co-workers) passed polygraph examinations administered by the Arizona Department of Public Safety; the seventh result was inconclusive. The case was the basis for the 1993 film \"Fire in the Sky.\" Not part of PURSUE Release 01.",
+    sources: [
+      { label: "Arizona Department of Public Safety case file", url: "https://www.azdps.gov/" },
+    ],
+    related: ["famous-ufo-incidents", "ufo-by-state", "are-aliens-real"],
+  },
+  {
+    slug: "stephenville-ufo",
+    q: "What was the Stephenville UFO incident?",
+    pull:
+      "On 8 January 2008, dozens of witnesses across Erath County, Texas reported a large bright object moving silently at high speed. FAA radar later confirmed an unidentified object with no transponder traveling toward the Bush ranch in Crawford.",
+    a: "The Stephenville UFO incident is one of the best-radar-corroborated modern civilian sightings in the U.S. record. On the evening of 8 January 2008, dozens of witnesses across Erath County, Texas — centered on the town of Stephenville — reported a large bright object with rapidly-changing lights moving silently at high speed. The U.S. Air Force initially denied any military activity in the area, then revised the statement two weeks later to confirm that 10 F-16s from the 457th Fighter Squadron at Naval Air Station Joint Reserve Base Fort Worth had been on a training exercise. Subsequent FOIA-released FAA radar data showed an unidentified object with no transponder, traveling at high speed on a track that intersected the no-fly zone over the Bush ranch in Crawford. The object's identity remains formally unresolved. Not part of PURSUE Release 01.",
+    sources: [
+      { label: "MUFON Stephenville case file", url: "https://mufon.com/" },
+    ],
+    related: ["famous-ufo-incidents", "ufo-by-state"],
+  },
+  {
+    slug: "belgian-wave",
+    q: "What was the Belgian UFO wave of 1989-1990?",
+    pull:
+      "From November 1989 through April 1990, thousands of witnesses across Belgium reported large triangular craft with three or four white lights. The Belgian Air Force formally confirmed two F-16 radar locks on 30-31 March 1990.",
+    a: "The Belgian UFO wave was a five-month period of mass-witness sightings across Belgium from November 1989 through April 1990. Thousands of witnesses, including police officers and military personnel, reported large silent triangular craft with three or four bright white lights at the corners. The most-cited single event occurred on the night of 30-31 March 1990: Belgian Air Force radar tracked unidentified objects, two F-16 fighters were scrambled, and the pilots achieved brief radar locks before the objects accelerated beyond the F-16's tracking capability. Belgian Air Force Major-General Wilfried De Brouwer publicly acknowledged the radar tracks and said the events \"could not be explained.\" The wave is one of the most-documented multi-national UFO events of the 20th century. Not part of PURSUE Release 01 (U.S. records only).",
+    sources: [
+      { label: "Belgian Air Force official report (1990)", url: "https://www.mil.be/" },
+    ],
+    related: ["famous-ufo-incidents", "are-aliens-real", "ufo-types-and-shapes"],
+  },
+  {
+    slug: "disclosure-project",
+    q: "What is the Disclosure Project?",
+    pull:
+      "The Disclosure Project is a private initiative founded by Dr. Steven Greer in 1993 that has presented hundreds of military, intelligence, and civilian witnesses claiming firsthand UFO experience. It is not affiliated with any U.S. government agency.",
+    a: "The Disclosure Project is a private advocacy initiative founded by Dr. Steven M. Greer, an emergency-room physician, in 1993. The project's stated goal is to compel U.S. government acknowledgment of extraterrestrial visitation by collecting and presenting witness testimony from former military, intelligence, and civilian personnel. The most-cited Disclosure Project event was the 9 May 2001 National Press Club briefing in Washington, D.C., at which approximately 20 witnesses publicly stated they had firsthand knowledge of UFO programs. The project's claims are not corroborated by any U.S. government source; AARO's 2024 Historical Record Report did not find evidence supporting the broader narrative. The Disclosure Project is sometimes confused with the formal congressional disclosure efforts of 2022-2024 (Senator Marco Rubio, Senator Kirsten Gillibrand, Representative Tim Burchett); these are independent and unaffiliated.",
+    sources: [
+      { label: "Disclosure Project archive", url: "https://www.disclosureproject.org/" },
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["grusch-testimony", "are-aliens-real", "ufo-crash-retrievals"],
+  },
+  {
+    slug: "grusch-testimony",
+    q: "What did David Grusch testify about UFOs?",
+    pull:
+      "On 26 July 2023, former intelligence officer David Grusch testified to Congress that the U.S. government operates a 'multi-decade UAP crash retrieval and reverse-engineering program.' AARO's 2024 Historical Record Report stated it found no empirical evidence for the program he described.",
+    a: "David Charles Grusch is a former U.S. Air Force intelligence officer and former member of the National Geospatial-Intelligence Agency UAP Task Force. On 26 July 2023, Grusch testified under oath before the House Oversight Committee's Subcommittee on National Security, the Border, and Foreign Affairs. He stated that he had become aware, while serving on the UAP Task Force, of a \"multi-decade UAP crash retrieval and reverse-engineering program\" being run by U.S. government contractors, and that he had filed a whistleblower complaint with the Intelligence Community Inspector General. Grusch did not present physical evidence; his testimony was based on conversations with other officials. AARO's 2024 Historical Record Report directly addressed Grusch's allegations and stated that AARO \"found no empirical evidence\" for the program he described. As of 2026 the broader investigation remains open, but no corroborating documentation has been declassified.",
+    sources: [
+      { label: "House Oversight Committee hearing transcript (July 26, 2023)", url: "https://oversight.house.gov/" },
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["disclosure-project", "ufo-crash-retrievals", "are-aliens-real"],
+  },
+  {
+    slug: "galileo-project",
+    q: "What is the Galileo Project?",
+    pull:
+      "The Galileo Project is a Harvard-based academic research program founded by astrophysicist Avi Loeb in 2021 to systematically search for evidence of extraterrestrial technology using ground-based observatories and AI image classification.",
+    a: "The Galileo Project is an academic research program founded in July 2021 by Harvard astrophysicist Professor Avi Loeb. Headquartered at the Harvard-Smithsonian Center for Astrophysics, the project aims to bring traditional scientific rigor to the search for evidence of extraterrestrial technological artifacts (rather than just biosignatures). It operates ground-based optical-IR-radio observatories — most prominently a station at the Harvard College Observatory — and uses machine-learning classifiers to distinguish conventional objects (birds, drones, balloons, planes) from anomalies. The project also conducted the 2023 Pacific Ocean expedition that recovered metallic spherules from the seafloor near the 2014 IM1 interstellar meteor track; the recovered material's interstellar origin remains debated. The Galileo Project is independent of and unaffiliated with the Pentagon's PURSUE program or AARO. It is the most-funded private scientific UAP research effort to date.",
+    sources: [
+      { label: "Galileo Project at Harvard", url: "https://projects.iq.harvard.edu/galileo" },
+    ],
+    related: ["are-aliens-real", "what-is-aaro"],
+  },
+  {
+    slug: "project-sign-grudge",
+    q: "What were Project Sign and Project Grudge?",
+    pull:
+      "Project Sign (1948) was the U.S. Air Force's first formal UFO investigation; it produced the 'Estimate of the Situation' concluding extraterrestrial origin was likely. The estimate was rejected and the program reorganized as Project Grudge (1949–1952), then Project Blue Book.",
+    a: "Project Sign was the U.S. Air Force's first formal UFO investigation, established at Wright-Patterson Air Force Base in late 1947 and active through 1948. It produced an internal classified document called the \"Estimate of the Situation,\" which reportedly concluded that the most plausible explanation for the recurring sightings was extraterrestrial origin. Air Force Chief of Staff General Hoyt S. Vandenberg rejected the estimate as unsupported by evidence and ordered the document destroyed; no copy is in the public record. The investigation was renamed Project Grudge in 1949 with a more skeptical institutional posture; Grudge was largely a debunking exercise and was wound down in 1952. The program was then reorganized as Project Blue Book (1952–1969), which catalogued 12,618 cases. Project Sign and Project Grudge predate PURSUE Release 01 by decades, but the December 1947 Wright Field AMC memorandum (PURSUE-023) is the immediate predecessor document.",
+    sources: [
+      { label: "National Archives — Project Sign / Grudge / Blue Book", url: "https://www.archives.gov/research/military/air-force/ufos" },
+    ],
+    related: ["project-blue-book", "famous-ufo-incidents", "what-is-pursue-program"],
+  },
+  {
+    slug: "ufo-crash-retrievals",
+    q: "Has the U.S. government recovered crashed UFOs?",
+    pull:
+      "AARO's 2024 Historical Record Report stated AARO 'found no empirical evidence' for any U.S. government UFO crash retrieval or reverse-engineering program. The 1947 Roswell debris was officially attributed to Project Mogul, a high-altitude balloon program.",
+    a: "There is no declassified, evidence-backed U.S. government acknowledgment of any UFO crash retrieval program. The 1947 Roswell debris — the foundational event in the broader retrieval narrative — was officially attributed by the U.S. Air Force to Project Mogul, a then-classified high-altitude balloon program for detecting Soviet nuclear tests. The 2023 testimony of former intelligence officer David Grusch alleged a \"multi-decade UAP crash retrieval and reverse-engineering program,\" but Grusch presented no physical evidence and stated his testimony was based on conversations with other officials. AARO's 2024 Historical Record Report — the U.S. government's most-recent comprehensive review of 80 years of UAP records — directly addressed the retrieval narrative and stated AARO \"found no empirical evidence\" for any such program. PURSUE Release 01 contains no recovered material; the 1947 FBI Dallas memo describes the recovered Roswell object as \"suspended from a 20-foot balloon by cable.\"",
+    sources: [
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+      { label: "FBI Vault — Hottel memo", url: "https://vault.fbi.gov/hottel_guy" },
+    ],
+    related: ["roswell-incident", "grusch-testimony", "are-aliens-real"],
+  },
+  {
+    slug: "reverse-engineering-public-record",
+    q: "Has the U.S. reverse-engineered alien technology?",
+    pull:
+      "No. AARO's 2024 Historical Record Report explicitly stated AARO 'found no empirical evidence' for any program that reverse-engineered non-human technology. Public claims to the contrary are uncorroborated by any declassified record.",
+    a: "As of May 2026, there is no declassified U.S. government document acknowledging any program that reverse-engineered extraterrestrial or non-human technology. AARO's 2024 Historical Record Report — the most comprehensive U.S. government review of 80 years of UAP records — addressed the reverse-engineering narrative directly and stated that AARO \"found no empirical evidence\" for any such program. The most-public claims of such activity are Bob Lazar's 1989 statements about \"Element 115\" at S-4 (Nevada), and David Grusch's 2023 congressional testimony about a \"multi-decade UAP crash retrieval and reverse-engineering program.\" Neither has been corroborated by any U.S. government source. PURSUE Release 01 contains no recovered material, and no entry references a reverse-engineering program. Some technologies attributed in popular narratives to alien sources — notably stealth coatings and integrated circuits — have been independently traced to human development by historians and the U.S. patent record.",
+    sources: [
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["bob-lazar-claims", "grusch-testimony", "ufo-crash-retrievals"],
+  },
 ];
 
 export const faqBySlug: Record<string, FaqEntry> = Object.fromEntries(

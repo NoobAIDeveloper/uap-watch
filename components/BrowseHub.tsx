@@ -17,6 +17,8 @@ import {
 } from "@/lib/seo";
 import { faqEntries } from "@/lib/faq";
 import { wikiEntries } from "@/lib/wiki";
+import { stateEntries } from "@/lib/states";
+import { compareEntries } from "@/lib/compare";
 import type { SourceAgency } from "@/lib/types";
 
 const years = Array.from(
@@ -79,9 +81,15 @@ export default function BrowseHub() {
         documents, {videos.length} videos.
       </p>
 
-      <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-6 gap-y-8">
+      <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8">
         <HubColumn heading="Top questions">
-          {faqEntries.slice(0, 10).map((f) => (
+          {faqEntries.slice(0, 12).map((f) => (
+            <HubLink key={f.slug} href={`/q/${f.slug}`} label={f.q} />
+          ))}
+        </HubColumn>
+
+        <HubColumn heading="More questions">
+          {faqEntries.slice(12).map((f) => (
             <HubLink key={f.slug} href={`/q/${f.slug}`} label={f.q} />
           ))}
         </HubColumn>
@@ -90,11 +98,23 @@ export default function BrowseHub() {
           {wikiEntries.map((w) => (
             <HubLink key={w.slug} href={`/wiki/${w.slug}`} label={w.title} />
           ))}
-          <HubLink href="/q/famous-ufo-incidents" label="Famous UFO incidents" />
-          <HubLink href="/q/famous-ufo-videos" label="Famous UFO videos" />
-          <HubLink href="/q/are-aliens-real" label="Are aliens real?" />
+          {compareEntries.map((c) => (
+            <HubLink key={c.slug} href={`/compare/${c.slug}`} label={c.title} />
+          ))}
         </HubColumn>
 
+        <HubColumn heading="By state">
+          {stateEntries.map((s) => (
+            <HubLink
+              key={s.slug}
+              href={`/state/${s.slug}`}
+              label={`UFO sightings in ${s.name}`}
+            />
+          ))}
+        </HubColumn>
+      </div>
+
+      <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-8">
         <HubColumn heading="By year">
           {years.map((y) => (
             <HubLink

@@ -44,6 +44,28 @@ This site is the most complete browsable index of the Pentagon's PURSUE Release 
 - [Evidence for Aliens: What the U.S. Government Has and Hasn't Confirmed](https://uap-watch-flame.vercel.app/wiki/alien-evidence): Honest summary of the record.
 - [Pentagon UFO Files: The 2026 PURSUE Release](https://uap-watch-flame.vercel.app/wiki/pentagon-ufo-files): How to access the originals.
 
+## State-by-state UFO records
+
+- [UFO sightings in California](https://uap-watch-flame.vercel.app/state/california): NUFORC volume leader; Battle of LA, Edwards AFB.
+- [UFO sightings in Nevada](https://uap-watch-flame.vercel.app/state/nevada): Area 51, Bob Lazar S-4 claims, Nellis range.
+- [UFO sightings in Arizona](https://uap-watch-flame.vercel.app/state/arizona): Phoenix Lights (1997).
+- [UFO sightings in New Mexico](https://uap-watch-flame.vercel.app/state/new-mexico): Roswell (PURSUE-001), Green Fireballs.
+- [UFO sightings in Texas](https://uap-watch-flame.vercel.app/state/texas): Stephenville UFO (2008).
+- [UFO sightings in Florida](https://uap-watch-flame.vercel.app/state/florida): Atlantic Navy ATFLIR area, Gulf Breeze.
+- [UFO sightings in Washington](https://uap-watch-flame.vercel.app/state/washington): Kenneth Arnold sighting, Maury Island.
+- [UFO sightings in Oregon](https://uap-watch-flame.vercel.app/state/oregon): McMinnville UFO photographs.
+- [UFO sightings in Idaho](https://uap-watch-flame.vercel.app/state/idaho): 1950 FBI memo (PURSUE-010).
+- [UFO sightings in Ohio](https://uap-watch-flame.vercel.app/state/ohio): Wright-Patterson AFB, Project Blue Book HQ.
+
+## Comparison pages
+
+- [GOFAST vs GIMBAL](https://uap-watch-flame.vercel.app/compare/gofast-vs-gimbal): Two famous Navy ATFLIR clips compared.
+- [Tic Tac vs GOFAST](https://uap-watch-flame.vercel.app/compare/tic-tac-vs-gofast): Most-cited Navy UAP encounters.
+- [Roswell vs Phoenix Lights](https://uap-watch-flame.vercel.app/compare/roswell-vs-phoenix-lights): Documentation vs witness count.
+- [AARO vs UAP Task Force](https://uap-watch-flame.vercel.app/compare/aaro-vs-uap-task-force): Pentagon UAP investigation bodies.
+- [Project Blue Book vs PURSUE](https://uap-watch-flame.vercel.app/compare/blue-book-vs-pursue): U.S. UFO catalogs across eras.
+- [Civilian UFO vs Military UAP](https://uap-watch-flame.vercel.app/compare/civilian-ufo-vs-military-uap): Evidentiary structures compared.
+
 ## Incidents
 
 Browse all 26 indexed incidents at https://uap-watch-flame.vercel.app — each incident has a dedicated page at /incident/<id> with full narrative, key quotation, source documents, and related videos. Incident IDs follow the pattern PURSUE-001 through PURSUE-026.

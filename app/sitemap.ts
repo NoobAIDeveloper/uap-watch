@@ -2,9 +2,11 @@ import type { MetadataRoute } from "next";
 import { incidents } from "@/data/incidents";
 import { documents } from "@/data/documents";
 import { videos } from "@/data/videos";
-import { url, regionSlug, AGENCY_SLUGS, LAST_UPDATED } from "@/lib/seo";
+import { url, regionSlug, AGENCY_SLUGS, LAST_UPDATED, SITE_URL } from "@/lib/seo";
 import { faqEntries } from "@/lib/faq";
 import { wikiEntries } from "@/lib/wiki";
+import { stateEntries } from "@/lib/states";
+import { compareEntries } from "@/lib/compare";
 
 // Programmatic sitemap. Every entity in the dataset gets a canonical URL.
 // Next.js inlines this into /sitemap.xml at build time, so it stays in sync
@@ -96,6 +98,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const stateList: MetadataRoute.Sitemap = stateEntries.map((s) => ({
+    url: `${SITE_URL}/state/${s.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  const compareList: MetadataRoute.Sitemap = compareEntries.map((c) => ({
+    url: `${SITE_URL}/compare/${c.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
   return [
     homepage,
     ...incidentEntries,
@@ -106,5 +122,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...agencyEntries,
     ...faqList,
     ...wikiList,
+    ...stateList,
+    ...compareList,
   ];
 }

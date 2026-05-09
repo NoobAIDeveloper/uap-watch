@@ -58,6 +58,40 @@ function parseWiki() {
   return entries;
 }
 
+function parseStates() {
+  const src = readSource("lib/states.ts");
+  const entries = [];
+  const blockRe =
+    /\{\s*slug:\s*"([^"]+)",\s*name:\s*"([^"]+)",\s*abbr:\s*"([^"]+)",\s*lead:\s*"((?:[^"\\]|\\.)*)"/g;
+  let m;
+  while ((m = blockRe.exec(src)) !== null) {
+    entries.push({
+      slug: m[1],
+      name: m[2],
+      abbr: m[3],
+      lead: m[4].replace(/\\"/g, '"'),
+    });
+  }
+  return entries;
+}
+
+function parseCompares() {
+  const src = readSource("lib/compare.ts");
+  const entries = [];
+  const blockRe =
+    /\{\s*slug:\s*"([^"]+)",\s*title:\s*"([^"]+)",\s*description:\s*"((?:[^"\\]|\\.)*)",\s*lead:\s*"((?:[^"\\]|\\.)*)"/g;
+  let m;
+  while ((m = blockRe.exec(src)) !== null) {
+    entries.push({
+      slug: m[1],
+      title: m[2],
+      description: m[3].replace(/\\"/g, '"'),
+      lead: m[4].replace(/\\"/g, '"'),
+    });
+  }
+  return entries;
+}
+
 function parseIncidents() {
   const src = readSource("data/incidents.ts");
   const entries = [];
@@ -131,10 +165,32 @@ ${i.details}
 `;
 }
 
+function renderState(s) {
+  return `## UFO Sightings in ${s.name} (${s.abbr})
+
+URL: ${SITE_URL}/state/${s.slug}
+
+${s.lead}
+
+`;
+}
+
+function renderCompare(c) {
+  return `## ${c.title}
+
+URL: ${SITE_URL}/compare/${c.slug}
+
+${c.lead}
+
+`;
+}
+
 function main() {
   const wiki = parseWiki();
   const faq = parseFaq();
   const incidents = parseIncidents();
+  const states = parseStates();
+  const compares = parseCompares();
 
   const parts = [
     header(),
@@ -142,6 +198,10 @@ function main() {
     ...wiki.map(renderWiki),
     "# Frequently Asked Questions\n\n",
     ...faq.map(renderFaq),
+    "# Comparison Pages\n\n",
+    ...compares.map(renderCompare),
+    "# State-by-State UFO Records\n\n",
+    ...states.map(renderState),
     "# Indexed Incidents\n\n",
     ...incidents.map(renderIncident),
     `\n---\n\nGenerated ${new Date().toISOString()}\n`,
@@ -150,7 +210,7 @@ function main() {
   const out = path.join(repoRoot, "public", "llms-full.txt");
   fs.writeFileSync(out, parts.join(""));
   console.log(
-    `Wrote ${out} — ${wiki.length} wiki, ${faq.length} faq, ${incidents.length} incidents.`,
+    `Wrote ${out} — ${wiki.length} wiki, ${faq.length} faq, ${compares.length} compare, ${states.length} states, ${incidents.length} incidents.`,
   );
 }
 
