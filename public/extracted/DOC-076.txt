@@ -1,0 +1,408 @@
+ Misrep 4472514
+
+ Narrative
+
+ MNAT 04432]  14a  [TOOK OFF FROM OKAS. AT 0504Z]  1.44  HANDED OVER FROM THE
+ LRE. FROM _0631Z TO 0050z{  14a  IFROM 0552Z TO
+ 0012z|  14a  fUPPORTED NAVCENT TO OPERATION [___(pyipi.da
+  I VO.ARABIAN
+ GULF, STRAIT OF HORMUZ AND GULF OF OMAN.  SEEISRLINE 1. AT 0615]  1-48  [RECEIVED
+ A GUARD CALL. SEE GUARD CALL LINE 1. AT 1830}  (OBSERVED AN UNIDENTIFIED
+ AERIAL PHENOMENON. SEE OBS LINE |. AT 19202,  44a  BSERVED AN UNIDENTIFIED
+
+ AERIAL PHENOMENON. SEE OBS LINE 2. AT 2345Z]  BSERVED AN UNIDENTIFIED
+ AERIAL PHENOMENON. SEE OBS LINE 3. AT 00122,  JAS CLEARED TO RTB. AT 0124Z,
+[14a HANDED BACK TO THE LRE. AT 0200Z| 14a LANDED AT OKAS. FMV WAS
+ EXPLOITED BY DGS-1, 20.3 MISSION HOURS, 183 IMINT HOURS. | IMINT TASKING
+ PROSECUTED, 18.3]  ia  OURS, 1[  14a  [ASKING PROSECUTED, 2 TOTAL TASKINGS
+ PROSECUTED
+
+ Admin
+
+ CLASSIFICATION
+
+ * Classification:
+ * Associated Caveats:
+ * Classification Source (MS or Classification Guide ID): MULTIPLE SOURCES
+ * Declassification Date Y¥YYYMMDD): 20450301
+
+ OPERATION
+
+ * Operation: [ipcyida
+ * Domain: AIR
+ * Operations Center: 609th
+ « Major Command (MAJCOM): ACC
+ « Combatant Command (COCOM): USCENTCOM
+
+ MSGID
+
+ * Report Type: MISREP
+
+ © Originator (Unit or Squadron): 482ATKS
+
+ * Submit Date (Auto-generated):
+
+  [  3.50, (bys)  ]
+
+USCENTCOM MDR 26-0028  Approved for Release to AARO - FOUO/
+  PA applies  03/16/26  000001
+  MSNID
+
+  * Tasking Order (ATO): AS
+
+  Mission Type: AREC
+  ATO Mission Number: 5)(1)1,48
+  Country Tasked: US - UNITED STATES
+
+  Service Tasked: A - AIR FORCE
+
+  Poc
+
+  POC
+
+  ¢ Rank: 2d Lt
+
+  + Full Names
+  Gi am. 6)
+  * Unit: 482 ATKS
+  * Wing: 432 AEW
+
+  * Phone Number: (_35¢ (v6) |
+
+  + Email:[  B.Sc. (bya)  |
+  ¢ Service: Air Force
+  + Operations Center: 609 AOC Det 1
+
+  oc
+
+  + Rank: Ctr
+  * Full Name:[_
+  35 (pve) ‘|
+  © Unit: 12 AF PAROC
+  * Wing: Other
+
+  * Phone Number: [35c_ (oye) |
+
+  ° Email:[  3.5¢, (by6)
+  * Service: Air Force
+  « Operations Center: Other
+
+  APPROVER
+
+  * Rank: Capt
+  * Full Nam
+  (by), 130b,
+  gab,  (6)
+  * Unit: 609 AOC ISRD Unit Support
+  * Wing: Other
+  « Phone Number:
+  [3.56 oye) |
+
+  + Email:[7  3.50, ye)
+  * Service: Air Force
+  * Operations Center: 609 CAOC
+
+  |  3.5c, [[REDACT:FOIA-B6]]
+
+USCENTCOM MDR 26-0028  Approved for Release to AARO - FOUO/-PA applies  03/16/26  000002
+ INGEST
+
+  Rank:
+
+  Full Name;
+  Unit:
+ * Wing:
+  Phone Number:
+  Email:
+
+ * Service:
+  Operations Center:
+
+ ACEQUIP
+
+ACEQUIP
+
+ « Aircraft Callsign!  14a
+
+ * Radar Name or  Geseranon=
+
+ + Radar Software Load or Mission Data: -
+ + Radar Warning Receiver (RWR) Name or Designator: -
+ + RWR Software Load or Mission Data: -
+
+ * MWS Name or Designator: -
+
+ + MWS Software Load or Mission Data: -
+ + IRCM Name or Designator: -
+
+ + IRCM Software Load or Mission Data: -
+
+ * ECM Name or Designator: -
+
+ * ECM Software Load or Mission Data: -
+ * CMD Name or Designator: -
+
+ + Chalf Designator: -
+ ° Num Chai! or Cartridges: -
+ ¢ Flare Designator: -
+ * Num Flares: -
+ * Towed Decoy Name or Designator: -
+
+ * Towed Decoy Software Load or Mission Data: -
+ * Num Towed Decoys: -
+ ¢ Type of Radar-Guided AAM: -
+
+ ¢ Num Radar-Guided AAM: -
+ ° Type of IR-Guided AAM: -
+
+ ¢ Num IR-Guided AAM: -
+ + Gun Name or Designator: -
+ ¢ Num Gun Rounds: -
+
+ * Air-to-Ground Wpn to Include Num of Each: 1.4(a)
+ ° TGT Pod Name or Designator: ANDAS4
+
+ * Additional Avionics: AH_GMESH
+
+  [  3.50, [[REDACT:FOIA-B6]]
+
+USCENTCOM MDR 26-0028  Approved for Release to AARO - FOUO+PA applies  03/16/26  000003
+  + Data Link: -
+
+  © Gentext: -
+
+  Timeline
+
+  On Station
+
+  * Time On Station DTG: 160504:00ZJUL20
+
+  Callsign;  1.4a
+  STAR Number: -
+
+  Killbox (Location): -
+  Mission Type: AREC
+
+  STAC Callsign: -
+  Gentext/Additional Details: -
+  Did not Arrive On Station:
+
+  ISR
+
+  + Time-on Station DTG: 160552:00ZJUL26
+
+  * Time-off Station DTG: 170012:00ZJUL20
+  ° Aircraft Callsign:|  4a
+  « Msn Type: AREC
+  « Primary Sensor: ANDAS4
+
+  * Sensors Available: AH\GMESH
+  * Tasking Type: PLANNED
+
+  ° Tasking or Request Number (JTAR#, AEM#, PRI#, or TIC#): -
+
+  * BE Number (if NTISR): -
+  « Tasked Start Point: 39RVNJsfai kta
+  * Activity Description: ISR
+  + FMV or Image File Name (if NTISR): -
+
+  GENTEXTASR
+
+  + Gentext:  qAa  (COORDINATED WITH  NAVCENT 24 HOURS PRIOR
+
+  TO TAKE OFF. PRI  CTORY, AT 05522.  RRJVED ON STATION 150
+  NAVCENT TO OPERATION [[——gpida
+  TO CONDUCT SCANS FOR IDENTIFIED
+ (ta,
+  ag_ VESSELS TO ESTABLISH PATTERN OF LIFE, UAS ACTIVITY AND
+  CHARACTERIZE ACTIVITY OUTSIDE OF PORTS. FROM 0552Z T0 00124  |,  [ONDUCTED
+  SCANS IAW THE TARGET DECK IN THE ARABIAN GULF (AG). AT 0615]  ECEIVED A
+
+  GUARD CALL. SEE GUARD CALL LINE |. AT 0645Z[ 4.49 PBSERVED 1X PROB NASER WAP.
+  AT 1932Z,|  14a  |OBSERVED 1X PROB SAFIR KISH IVO 39RUN@#{qp
+  kaif MEACING EAST. AT
+  21402)  44a  PBSERVED 1X POSS HOUDONG AND 1X POSS NASER DOCKED AT BUSHEHR
+
+  35c (oye)  }
+
+USCENTCOM MDR 26-0028  Approved for Release to AARO - FOUQ/ PA applies  03/16/26  000004
+  SSS
+
+ PORT IVO 39RVM§gfiPaakAT 0012Z) 1.48 WAS near OFF TASKING AND RETURNED
+ TO BASE (RTB)
+
+ ISR ASSET UTILIZATION
+
+ + Supported Unit: NAVCENT
+
+ » Supported Operation: OPERATION
+ * Precoord Time: 24 HOURS
+
+ »* Precoord Effectiveness: SATISFACTORY
+
+ WEATHER
+
+ * Weather: EXPLAIN WEATHERS EFFECT ON THE MISSIO!  or WEATHER WAS NOT A
+ FACTOR
+
+ EFFECTIVENESS
+
+ ¢ Tasker:
+ * Intel Gap Filled?: No
+
+ * Gentext: -
+
+ Off Station
+
+ * Time Off Station DTG: 170124:00ZJUL20
+ * Total Time On Station: 20 hours 20 minutes
+
+ GUARDCALL
+
+ * GUARDCALL DTG: 160615:00ZJUL20
+ « Aircraft Callsign;  1.48
+ ¢ Ground Station  Callsig  14a, 1.4g
+ » Aircraft Location: 39RUN@Ra
+  #(pi
+  ha
+ * Aircraft Heading: 131M
+ » Aircraft Altitude: FL 180
+ * Aircraft Airspeed: -
+ * Number of Calls Noted from the Same Agency: |
+
+ ¢ Guardcall Tone: Professional
+
+ GENTEXT/GUARDCALL
+
+ * Gentext: QJ AT 06152] 14a  WAS HAILED ON cuarp|  [[REDACT:FOIA-B1]]1.4a, [[REDACT:FOIA-B1]]1.49
+ DEFENSE. ORDERS GIVEN: STANDARD CALI]  4.44  [RESP INDED WITH THE STANDARD
+ RESPONSE. NO IMPACT TO MISSION
+
+  B.Sc  (bya)
+
+  es
+USCENTCOM MDR 26-0028  Approved for Release to AARO - FOUO#PA applies  03/16/26  000005
+  OBSERVATION
+
+  + Observation DTG: 161830:00ZJUL20
+
+  + AireraftCallsign:| 14a
+  * Aircraft Location: 39RXK 3d{a1 sf ha
+  + Aircraft Heading: 152M
+
+  * Aireraft Altitude: FL 200
+
+  * Aircraft Airspeed: 98 KLAS
+  * Relative Bearing or Clock Position: -
+
+  * Range: -
+  « Killbox & Keypad: -
+  * Observed Activity Location: 39RVM4
+  {ii eaiha
+  é
+  * Observed Activity Description: UAP
+  * Method of Observation: FMV
+
+  GENTEXT/OBSERVATION
+
+  ¢ Gentext: EB  AT 18302,  IOBSERVED AN UNJDENTIFIED AERIAL PHENOMENON
+
+  1VO 9RVM S(T Maia
+
+  WEATHER
+
+  * Weather: WEATHER WAS NOT A FACTOR
+
+  OBSERVATION
+
+  * Observation DTG: 161920:00ZJUL20
+
+  * Aircraft Callsign;  4Aa
+  » Aircraft Location: SIRUN Wii waka
+
+  « Aircraft Heading: 34M
+  « Aircraft Altitude: FL 190
+
+  ¢ Aircraft Airspeed: 90 KIAS
+  * Relative Bearing or Clock Position: -
+
+  + Range: -
+
+  * Killbox & Keypad: -
+  * Observed Activity Location: 39RUN Tampa  ha
+  * Observed Activity Description: UAP
+  ° Method of Observation: FMV
+
+  GENTEXT/OBSERVATION
+
+  * Gentext: (EM AT 19202]  14a  (OBSERVED AN UNIDENTIFIED AERIAL PHENOMENON
+  TVO 39RUN Wiebe
+
+  l  B.Sc, (bys)
+
+USCENTCOM MDR 26-0028  Approved for Release to AARO - FOUO+PA applies  03/16/26  000006
+ WEATHER
+
+  Weather: WEATHER WAS NOT A FACTOR
+
+ Landing
+
+  Last Land Location (ICAO Code): OKAS
+  Last Land Time: 170200:00ZJUL20
+  Last Engine Shutdown Time: 170210:00ZJUL20
+ .
+  Total Mission Time: 21 hours 17 minutes
+
+  Gentext/Additional Details: -
+
+ Takeoff
+
+  Callsign:  14a
+  Number of Aircraft: 1
+  Asset Type (Aircraf
+  fi4a, (b)i1)1.49
+  t)
+  Aircraft Tail Number
+  ff 4a, (b)4)1.49
+  s)
+  Takeoff Location (ICAO Code): OKAS
+
+  Takeoff Time DTG: 160443:00ZJUL20
+  Mode 3 (IFF Codes): ~
+
+  Gentext/Additional Details: -
+  Mission Canceled:
+
+ OBSERVATION
+
+  Observation DTG: 162345:00ZJUL20
+  Aircraft Calisign{ ——iaa  |
+  Ra 1
+  Aircraft Location: 39RUN@@{a)Ka
+  Aircraft Heading: 331 M
+  Aircraft Altitude: FL 191
+  Aircraft Airspeed: 115 KIAS
+  Relative Bearing or Clock Position: -
+  Range: -
+
+  Killbox & Keypad: -
+
+  Observed Activity Location: 39RUN@BiGy Raith
+  Observed Activity Description: UAP
+  Method of Observation: FMV
+
+ GENTEXT/OBSERVATION
+
+ * Gentext:  EE  AT 2345Z)  14°  OBSERVED AN UNIDENTIFIED AERIAL PHENOMENON
+ TVG 39RUN6234236874
+
+  ZBc.(b6)
+
+USCENTCOM MDR 26-0028  Approved for Release to ARO - FOUO+/PA applies  03/16/26  000007
+  WEATHER
+
+  « Weather: WEATHER WAS NOT A FACTOR
+
+  [  3.5c,[[REDACT:FOIA-B6]]  ]
+
+USCENTCOM MDR 26-0028  Approved for Release to AARO - FOUO/-PA applies  03/16/26  000008
