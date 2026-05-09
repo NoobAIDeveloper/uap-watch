@@ -23,11 +23,8 @@ export default function HeroHeader() {
         <div className="text-[11px] font-medium tracking-[0.06em] uppercase text-accent mb-3">
           Presidential Unsealing &amp; Reporting System for UAP Encounters
         </div>
-        <h1 className="text-[28px] sm:text-[36px] lg:text-[40px] font-semibold leading-[1.05] tracking-[-0.005em] text-text mb-3">
-          Browse the Pentagon&rsquo;s
-          <br />
-          declassified UAP file release
-          <span className="text-accent">.</span>
+        <h1 className="text-[40px] sm:text-[56px] lg:text-[68px] font-bold leading-none tracking-[-0.02em] text-text mb-4">
+          uap.watch<span className="text-accent">.</span>
         </h1>
         <p className="text-[15px] leading-relaxed text-text-dim max-w-[60ch] mb-5">
           Independent visualization layer for the U.S. Department of War&rsquo;s
