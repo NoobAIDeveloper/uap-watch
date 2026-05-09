@@ -40,7 +40,7 @@ export default function AppBar() {
             Sightings
           </Link>
           <Link
-            href="/agency/fbi"
+            href="/#documents"
             className="h-8 px-3 inline-flex items-center text-[13px] text-text-dim hover:text-text hover:bg-[rgba(143,153,168,0.08)] rounded-[2px]"
           >
             Documents

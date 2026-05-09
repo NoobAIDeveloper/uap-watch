@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Filter, X, Download, ExternalLink } from "lucide-react";
 import { documents } from "@/data/documents";
@@ -56,6 +56,14 @@ export default function DocumentViewer() {
     visibleCount === 0 ? 0 : Math.min(activeIndex, visibleCount - 1);
   const doc = visibleCount > 0 ? visibleDocs[safeIndex] : null;
 
+  // Reset the right-pane scroll to the top whenever the active doc changes.
+  // Without this, switching from a long doc to a short one strands the user
+  // mid-page on the new doc.
+  const rightPaneRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (rightPaneRef.current) rightPaneRef.current.scrollTop = 0;
+  }, [doc?.id]);
+
   // Lazy-load extracted PDF transcripts.
   const isStub = !!doc && doc.body.includes("FULL TEXT NOT YET INDEXED");
   const [extractedBody, setExtractedBody] = useState<string | null>(null);
@@ -93,7 +101,8 @@ export default function DocumentViewer() {
 
   return (
     <section
-      className="bg-panel border border-border rounded-[4px] flex flex-col"
+      id="documents"
+      className="bg-panel border border-border rounded-[4px] flex flex-col h-[720px] scroll-mt-[80px]"
       aria-label="Document viewer"
     >
       {/* Panel header */}
@@ -143,18 +152,12 @@ export default function DocumentViewer() {
         </div>
       )}
 
-      {/* Body — two-pane */}
-      <div className="flex">
-        {/* Left rail */}
-        <div
-          className="w-[280px] shrink-0 border-r border-border overflow-y-auto"
-          style={{
-            position: "sticky",
-            top: "76px",
-            alignSelf: "flex-start",
-            maxHeight: "calc(100vh - 76px)",
-          }}
-        >
+      {/* Body — two-pane. The panel itself owns a fixed height (720px) so
+          BOTH panes scroll internally; the page no longer scrolls when the
+          user switches between docs of different lengths. */}
+      <div className="flex flex-1 overflow-hidden">
+        {/* Left rail — scrolls within the panel, not the page */}
+        <div className="w-[280px] shrink-0 border-r border-border overflow-y-auto">
           {visibleCount === 0 ? (
             <div className="px-4 py-12 text-center">
               <div className="text-[12px] font-medium text-text-dim mb-1">
@@ -203,8 +206,12 @@ export default function DocumentViewer() {
           )}
         </div>
 
-        {/* Right pane */}
-        <div className="flex-1 bg-panel-2/40 min-w-0">
+        {/* Right pane — also scrolls within the panel. The ref is used to
+            reset scrollTop on doc switch (see useEffect above). */}
+        <div
+          ref={rightPaneRef}
+          className="flex-1 bg-panel-2/40 min-w-0 overflow-y-auto"
+        >
           <AnimatePresence mode="wait">
             {doc ? (
               <motion.div
