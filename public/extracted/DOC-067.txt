@@ -1,77 +1,81 @@
-  Deel  d  11 ,1son
-  S&Sli&i!lllll lfUI
-  u..  purple
-  Deel;  ,Ge. ve and
-  · Form
-  Range FOU Ier De b ne  (see below).
-  manually
+Declassified by MG Richard A. Harrison
+USCENTCOM Chief of Staff
+Declassified on 20 March 2026
 
-Please complete this form to the best of your ability. If you do  have the requested informafion,
-please leave the field blank. If there was more than one "group " please report each on a separate
-  L
-form for data collection purposes. You should receive a response within ·5 business days.
+[Banner: SECRET//NOFORN]
 
-  Last Name, First Name  Rank  Squadron  S/PR Email Address  Crew Position
+Range Fouler Debrief Form
 
-  0-3  IHSM-73  Pilot
-  This information is for contact only. SPEAR sanitizes all reports of identifying information.
-  Absolutely no identifying information for aircrew or squadrJn will be recorded for analysis.
+Please do not use the purple "submit" button above. Save and email the complete file manually (see below).
 
-08/24/20  00:04:30  Night  705  168122  SSC  No
-Date (mmlddlyy)  Time of detection  Day I Night  Side No.  Buno  Mission Description (CAS, BFM. etc)  LFE?
-  (hh:mm:ss Z)
+Please complete this form to the best of your ability. If you do not have the requested information, please leave the field blank. If there was more than one "group," please report each on a separate form for data collection purposes. You should receive a response within 5 business days.
 
-21440  21440  1.4a  Yes  310  5
-  Contact Working Area  Contact Latitute  N/S  Contact Longitude  Contact Aftitude  Altitude  WtndDir at  Wind
-  (Ex: W-72 1A)  (0D:MM:SS)  (DD.MM:SS)  ( ' · : 22000)  Constant?  Contact An  Speed
-  (From)
-Please attempt to determine a Lat I Long for the contact at initial detection. We recommend
-µsing JMPS to reference the sensor-derived bearing and range relative to the bullseye yo u had  Was the contact moving?  Yes
-in use. If that method is not available, any reasonable derivation of location will wolk, but please
-be as specnic as possible and make a note in the comments section. The.se locations may be
-used to cue other means of tracking.  Direction/Speed  2 ?0/UNK
-  (Ex. 090/15)
+Last Name, First Name: [REDACTED]
+Rank: O-3
+Squadron: HSM-73
+SIPR Email Address: [REDACTED]
+Crew Position: Pilot
 
-  Radar Equipped: Other  AIM-9x Self-Track:
-  □  Please check all that apply:
-  0
-  Stable Trackfile?: No  A TFLIR Autotrack:
-  □  Round: [Z]
-  SQuare:  D
-  Moving Parts:
+This information is for contact only. SPEAR sanitizes all reports of identifying information. Absolutely no identifying information for aircrew or squadron will be recorded for analysis.
 
-  Metallic: 0
-# of Contacts in "Group": 3  Tally Achieved:
-  □  Bafloon-shapeq: D  Markings:  D
-  EA Indications (Check all that apply):
-  Wings/A irframe: [Z]  Translucen t:  0
-  □  □  □  □  Other Shape:O  Opaque: O
-  ECM  Letter
-  Identifier
-  False
-  Trackfiles
-  Other/
-  Ambiguous
-  Apparent Propuls io n:□  Reflective!  0
-  Art'
+Date (mm/dd/yy): 08/24/20
+Time of detection (hh:mm:ss Z): 00:04:30
+Day / Night: Night
+Side No.: 705
+Buno: 168122
+Mission Description (CAS, BFM, etc): SSC
+LFE?: No
 
-  Please use the field below to describe the contact and any inte action in your own words with as much
-  detail as possible. Please be sure to include any detail not inclilided in questions above.
- J  1.4a  I
-  !observed 3x possible unidentified small air contact while conducting routine operations in the
- North Arabian Sea. Negative ES, radar track, and IFF track. Distf nce to contact was unknown . Speed of
- contact was unknown. Precise course of contact was unknown, but appeared to be on a westerly heading .
- No interact~on took place betwee~I  1.4a .  la~d the ~nknowp ai_r contacts. Initially observed 1x
- unknown air contact and tracked It before losing sight as 1t went 9ehInd a cloud. When contact on the
- unknown air contact was regained , 2x additional unknown air corytacts were seen due east of the location of
- the initial contact. All 3x unknown air contacts appeared to maintain their relative course, speed, and
- altitude.  I
- Don't use the purple "submit" button! Save this form with filename "Date_Squadron_RF.pdf' and email
- it t~  1•>1•>  J (Also in the global)j For troubleshooting, cal~ 1•>1•> I
+Contact Working Area (Ex: W-72 1A): 21440
+Contact Latitude (DD:MM:SS): 21440
+N/S: [blank]
+Contact Longitude (DD:MM:SS): [blank]
+E/W: 1.4a
+Contact Altitude (Ex: 22000): [blank]
+Altitude Constant?: Yes
+Wind Dir at Contact Alt (From): 310
+Wind Speed: 5
 
-  Thank you for your time. Please ensure all display tapes are ripAed for the entire time of interaction and
-  saved as a .wmv (Example: 4 May VFA-106 HUD. wmv). Squadron intel personnel shall upload those files
-  to the repository located at this link.  I
- I  [[REDACT:FOIA-B6]]  I  IIIRl ■ :1112 5771 I
+Please attempt to determine a Lat / Long for the contact at initial detection. We recommend using JMPS to reference the sensor-derived bearing and range relative to the bullseye you had in use. If that method is not available, any reasonable derivation of location will work, but please be as specific as possible and make a note in the comments section. These locations may be used to cue other means of tracking.
 
-  USCENTCOM MOR 26-0038 to 26-0046  Approved for Release to MR9  03/27126 000001
+Was the contact moving?: Yes
+Direction/Speed (Ex. 090/15): 270/UNK
+
+Radar Equipped: Other
+AIM-9x Self-Track: [unchecked]
+Stable Trackfile?: No
+ATFLIR Autotrack: [unchecked]
+# of Contacts in "Group": 3
+Tally Achieved: [unchecked]
+
+EA Indications (Check all that apply):
+ECM Arc: [unchecked]
+Letter Identifier: [unchecked]
+False Trackfiles: [unchecked]
+Other/Ambiguous: [unchecked]
+
+Please check all that apply:
+Round: [checked]
+Square: [unchecked]
+Balloon-shaped: [unchecked]
+Wings/Airframe: [checked]
+Other Shape: [unchecked]
+Apparent Propulsion: [unchecked]
+Moving Parts: [unchecked]
+Metallic: [unchecked]
+Markings: [unchecked]
+Translucent: [unchecked]
+Opaque: [unchecked]
+Reflective: [unchecked]
+
+Please use the field below to describe the contact and any interaction in your own words with as much detail as possible. Please be sure to include any detail not included in questions above.
+
+[REDACTED] 1.4a observed 3x possible unidentified small air contacts while conducting routine operations in the North Arabian Sea. Negative ES, radar track, and IFF track. Distance to contact was unknown. Speed of contact was unknown. Precise course of contact was unknown, but appeared to be on a westerly heading. No interaction took place between [REDACTED] 1.4a and the unknown air contacts. Initially observed 1x unknown air contact and tracked it before losing sight as it went behind a cloud. When contact on the unknown air contact was regained, 2x additional unknown air contacts were seen due east of the location of the initial contact. All 3x unknown air contacts appeared to maintain their relative course, speed, and altitude.
+
+Don't use the purple "submit" button! Save this form with filename "Date_Squadron_RF.pdf" and email it to [REDACTED (b)(6)] (Also in the global). For troubleshooting, call [REDACTED (b)(6)].
+
+Thank you for your time. Please ensure all display tapes are ripped for the entire time of interaction and saved as a .wmv (Example: 4 May VFA-106 HUD.wmv). Squadron intel personnel shall upload those files to the repository located at this link. [REDACTED (b)(6)]
+
+[Banner: SECRET//NOFORN]
+
+USCENTCOM MDR 26-0038 to 26-0046    Approved for Release to AARO    03/27/26 000001

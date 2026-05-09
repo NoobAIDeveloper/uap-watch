@@ -47,16 +47,45 @@ const USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
   "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
 
-const CONCURRENCY = 3;
+// Concurrency lowered from 3 to 2 after the first re-extract run. At 400
+// DPI rasterization, three parallel jobs on M-series can still OOM during
+// a multi-hundred-page FBI scan; two is a safer ceiling.
+const CONCURRENCY = 2;
+
+// Per the OCR audit (May 2026), the FBI 1947–1968 tranche has cover-page
+// declassification stamps and routing strips that Tesseract OCRs as glyph
+// soup — polluting the *first screen* the user sees in the document
+// viewer. The body of these docs (page 2 onward) is fine. We strip page 1
+// from the text extraction for these specific IDs. The original PDF is
+// still hosted; only the searchable / viewable text omits page 1.
+//
+// DOC-110 (NASA Apollo 17 debrief) has a stippled half-tone cover that
+// produces `iiii!` salad; the body is clean.
+const SKIP_FIRST_PAGE_DOCS = new Set([
+  "DOC-009", "DOC-010", "DOC-011", "DOC-012", "DOC-013",
+  "DOC-014", "DOC-015", "DOC-019", "DOC-024",
+  "DOC-040", "DOC-041",
+  "DOC-110",
+]);
 
 // ---------- args ----------
 
 function parseArgs(argv) {
-  const args = { all: false, sample: null, limit: null, retryFailed: false };
+  const args = {
+    all: false,
+    sample: null,
+    limit: null,
+    retryFailed: false,
+    // --re-extract forces a full re-OCR with the stricter quality flags
+    // (deskew, clean, rotate-pages, redo-ocr, 600 DPI oversample).
+    // Bypasses the "already extracted" idempotency check.
+    reExtract: false,
+  };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
     if (a === "--all") args.all = true;
     else if (a === "--retry-failed") args.retryFailed = true;
+    else if (a === "--re-extract") args.reExtract = true;
     else if (a === "--sample") {
       args.sample = (argv[++i] || "").split(",").map((s) => s.trim()).filter(Boolean);
     } else if (a === "--limit") {
@@ -210,13 +239,14 @@ async function getPageCount(p) {
   }
 }
 
-async function pdftotextRun(p) {
+async function pdftotextRun(p, opts = {}) {
+  const flags = ["-layout", "-nopgbrk"];
+  if (opts.firstPage) flags.push("-f", String(opts.firstPage));
+  flags.push(p, "-");
   try {
-    const { stdout } = await execFileP(
-      "pdftotext",
-      ["-layout", "-nopgbrk", p, "-"],
-      { maxBuffer: 64 * 1024 * 1024 },
-    );
+    const { stdout } = await execFileP("pdftotext", flags, {
+      maxBuffer: 64 * 1024 * 1024,
+    });
     return stdout || "";
   } catch (err) {
     return "";
@@ -235,45 +265,58 @@ const OCR_ENV = {
   ].filter(Boolean).join(":"),
 };
 
-async function ocrmypdfRun(input, id) {
+// Quality flags. Conservative after a first re-extract run found anything
+// involving unpaper or 400+ DPI rasterization OOMs Tesseract on the
+// 184-page FBI scans.
+//
+// `--rotate-pages`: corrects sideways routing strips and stamped pages.
+//                   This is the load-bearing flag for the cover-page
+//                   gibberish problem identified in the audit.
+// `--deskew`: straightens slightly-rotated photocopied pages.
+//
+// Default rasterization (~300 DPI per ocrmypdf) is fine. Skipping
+// `--oversample` keeps wall-clock manageable. Skipping `--clean` avoids
+// unpaper crashes. The cover-page-skip logic in SKIP_FIRST_PAGE_DOCS
+// covers most of what `--clean` was supposed to fix.
+const QUALITY_FLAGS = [
+  "--rotate-pages",
+  "--deskew",
+];
+
+async function ocrmypdfRun(input, id, opts = {}) {
   const tmp = path.join("/tmp", `${id}.ocr.pdf`);
-  // First attempt: --skip-text (preserve existing text, OCR only image-only pages).
-  let used = "skip-text";
+  // re-extract mode: force re-OCR over any existing text layer with the
+  // stricter quality flags. Otherwise preserve existing text and only OCR
+  // image-only pages.
+  const primary = opts.reExtract
+    ? ["--redo-ocr", ...QUALITY_FLAGS, "--output-type", "pdf", "--quiet", input, tmp]
+    : ["--skip-text", ...QUALITY_FLAGS, "--output-type", "pdf", "--quiet", input, tmp];
+  const fallback = ["--force-ocr", ...QUALITY_FLAGS, "--output-type", "pdf", "--quiet", input, tmp];
+
+  let used = opts.reExtract ? "redo-ocr+quality" : "skip-text+quality";
   try {
-    await execFileP(
-      "ocrmypdf",
-      ["--skip-text", "--output-type", "pdf", "--quiet", input, tmp],
-      { maxBuffer: 8 * 1024 * 1024, timeout: 900_000, env: OCR_ENV },
-    );
+    await execFileP("ocrmypdf", primary, {
+      maxBuffer: 8 * 1024 * 1024,
+      timeout: 1_800_000, // 600 DPI is slower; 30 min ceiling per doc
+      env: OCR_ENV,
+    });
   } catch (err) {
-    const msg = String(err.stderr || err.message || "");
-    if (/PriorOcrFoundError|already has text/i.test(msg)) {
-      // Retry with --force-ocr.
-      try {
-        await execFileP(
-          "ocrmypdf",
-          ["--force-ocr", "--output-type", "pdf", "--quiet", input, tmp],
-          { maxBuffer: 8 * 1024 * 1024, timeout: 1_200_000, env: OCR_ENV },
-        );
-        used = "force-ocr";
-      } catch (err2) {
-        return { text: "", error: String(err2.stderr || err2.message || err2) };
-      }
-    } else {
-      // Try force-ocr as a generic last-ditch attempt for stubborn PDFs.
-      try {
-        await execFileP(
-          "ocrmypdf",
-          ["--force-ocr", "--output-type", "pdf", "--quiet", input, tmp],
-          { maxBuffer: 8 * 1024 * 1024, timeout: 1_200_000, env: OCR_ENV },
-        );
-        used = "force-ocr";
-      } catch {
-        return { text: "", error: msg };
-      }
+    // Any failure on the primary path falls through to --force-ocr with the
+    // same quality flags. Covers PriorOcrFoundError (already has text),
+    // unsupported page sizes, and the occasional rasterizer hiccup.
+    try {
+      await execFileP("ocrmypdf", fallback, {
+        maxBuffer: 8 * 1024 * 1024,
+        timeout: 1_800_000,
+        env: OCR_ENV,
+      });
+      used = "force-ocr+quality";
+    } catch (err2) {
+      return { text: "", error: String(err2.stderr || err2.message || err2) };
     }
   }
-  const text = await pdftotextRun(tmp);
+  const firstPage = SKIP_FIRST_PAGE_DOCS.has(id) ? 2 : undefined;
+  const text = await pdftotextRun(tmp, { firstPage });
   try { await fs.unlink(tmp); } catch {}
   return { text, mode: used };
 }
@@ -340,13 +383,17 @@ async function processDoc(doc, idx, opts) {
   }
 
   // Idempotency: if both the .txt output and the cached PDF exist, skip
-  // unless retry-failed and prior run was failed.
+  // unless retry-failed and prior run was failed, OR re-extract is set.
   const txtExists = existsSync(txtOut);
   const pdfExists = existsSync(pdfPath);
   const prior = idx.docs[id];
   const priorFailed = prior && String(prior.extractor || "").startsWith("failed");
 
-  if (txtExists && pdfExists && (!priorFailed || !opts.retryFailed)) {
+  if (
+    txtExists && pdfExists &&
+    (!priorFailed || !opts.retryFailed) &&
+    !opts.reExtract
+  ) {
     return { id, skipped: "exists", extractor: prior?.extractor };
   }
 
@@ -387,15 +434,20 @@ async function processDoc(doc, idx, opts) {
   // 2. Page count.
   const pageCount = await getPageCount(pdfPath);
 
-  // 3. pdftotext first.
+  // 3. pdftotext first. In re-extract mode skip the fast path entirely —
+  // we want the OCR re-run regardless. Otherwise try pdftotext, with
+  // optional skip-page-1 for the FBI cover-stamp tranche.
+  const firstPage = SKIP_FIRST_PAGE_DOCS.has(id) ? 2 : undefined;
   let extractor = "pdftotext";
-  let raw = await pdftotextRun(pdfPath);
+  let raw = opts.reExtract
+    ? ""
+    : await pdftotextRun(pdfPath, { firstPage });
   const charsPerPage = raw.length / Math.max(pageCount, 1);
 
-  if (!raw || charsPerPage < 50) {
-    // Fallback to ocrmypdf.
+  if (opts.reExtract || !raw || charsPerPage < 50) {
+    // Re-OCR with stricter flags.
     extractor = "ocrmypdf";
-    const ocrRes = await ocrmypdfRun(pdfPath, id);
+    const ocrRes = await ocrmypdfRun(pdfPath, id, { reExtract: opts.reExtract });
     if (ocrRes.error && (!ocrRes.text || ocrRes.text.length < 10)) {
       // OCR pipeline crashed entirely.
       const meta = {
@@ -476,6 +528,11 @@ async function main() {
     queue = eligible.slice(0, args.limit);
   }
 
+  if (args.reExtract && !args.sample) {
+    console.log("[pipeline] re-extract mode requires --sample <id-list> to scope.");
+    process.exit(1);
+  }
+
   console.log(
     `[pipeline] ${queue.length} docs queued (${eligible.length} eligible total, ${allDocs.length} in catalog)`,
   );
@@ -494,7 +551,10 @@ async function main() {
       const t0 = Date.now();
       let res;
       try {
-        res = await processDoc(doc, idx, { retryFailed: args.retryFailed });
+        res = await processDoc(doc, idx, {
+          retryFailed: args.retryFailed,
+          reExtract: args.reExtract,
+        });
       } catch (err) {
         res = { id: doc.id, extractor: "failed:exception", error: String(err?.message || err) };
         idx.docs[doc.id] = {

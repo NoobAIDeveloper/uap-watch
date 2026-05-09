@@ -809,26 +809,11 @@ FULL TEXT NOT YET INDEXED LOCALLY. DOWNLOAD ORIGINAL VIA SOURCE LINK BELOW.
 [[REDACT:CONTENT — PENDING TRANCHE 02 INDEXING]]`,
     sourceUrl: "https://www.war.gov/medialink/ufo/release_1/59_214434_sp_16_[7.18.1963].pdf",
   },
-  {
-    id: "DOC-037",
-    title: "59 64634 711.5612[7-2852",
-    source: "STATE",
-    date: "1952-07-18",
-    classification: "DECLASSIFIED",
-    redacted: false,
-    body: `DOCUMENT TITLE: 59_64634_711.5612[7-2852
-SOURCE: Department of State
-DATE: 7/18/52
-CLASSIFICATION: DECLASSIFIED
-
-OFFICIAL DESCRIPTION (DEPARTMENT OF WAR):
-This two page memorandum, dated July 18, 1952, relates to increased reports of unidentified flying objects (UFOs). Included in the record are possible explanations of increased sightings, such as technological improvements, historical records of UFOs, and U.S. Air Force opinions on UFOs.
-
-FULL TEXT NOT YET INDEXED LOCALLY. DOWNLOAD ORIGINAL VIA SOURCE LINK BELOW.
-
-[[REDACT:CONTENT — PENDING TRANCHE 02 INDEXING]]`,
-    sourceUrl: "https://www.war.gov/medialink/ufo/release_1/59_214434_sp_16_7.18.1963.pdf",
-  },
+  // DOC-037 was a duplicate of DOC-036 — its sourceUrl pointed to the same
+  // 1963 PDF (just with the brackets stripped from the filename). The body
+  // metadata described a different 1952 memo, but the linked file was the
+  // 1963 doc. Removed 2026-05-09 after the OCR audit surfaced byte-identical
+  // extractions for DOC-036 and DOC-037.
   {
     id: "DOC-038",
     title: "65 HS1-101634279 100-DE-18221 SERIAL 844",

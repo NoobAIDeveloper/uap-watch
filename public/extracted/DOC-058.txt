@@ -1,82 +1,82 @@
- •
-  MeasJN�o not �se . {tle,,.J?,-irp e
-  U., rsu6hirf  r
-  ·  IH0 cl  1tted  v Ml Ric {..;,. d (\  rr '>Of'
+Declassified by MG Richard A. Harrison
+USCENTCOM MDR 26-0028
+Declassified on 16 March 2026
+FOUO / Privacy Act applies
 
-  '&uf�� ��ov,e'":'� $aJJe and
-  [1 r I �sili , J,1
-  rH oltl  G: b If  r'Wri,'
-  \See ue ow.
-  Range Fouler Debrief Form f- 1uol1;<l!!'J"1eL_�)�q��p1l s  y
-  9 manua
+Please do not use the purple "submit" button above. Save and email the complete file manually (see below).
 
-  1
-Please complete this form to the best of your ability. If you do not have the requested information,
-please leave the fi�ld blank. If there was more t��n one "group!" � le�se rep�rt each on a separate
-form for data collection purposes. You should receive a response within 5 business days.
+Range Fouler Debrief Form
 
-  j482ATKS
-  Rank
+Please complete this form to the best of your ability. If you do not have the requested information, please leave the field blank. If there was more than one "group," please report each on a separate form for data collection purposes. You should receive a response within 5 business days.
 
-  Pilot
-  Last Name, First Name  Squadron  SfPR Email Address  Crew Position
-  0-2
-  This information is for contact only. SPEAR sanitizes all r�ports of identifying information.
-  Absolutely no identifying information for aircrew or squadr! n will be recorded for analysis.
+Last Name, First Name: [blank]
+Rank: O-2
+Squadron: 482 ATKS
+SIPR Email Address: [blank]
+Crew Position: Pilot
 
-08/31/20  Dusk  ISR  No
-Date (mmldd,YY)  Time of detection  Day I Ni;:,ht  Side No.  Buno  Mission Description (GAS, BFM, etc)  LFE?
-  {tlh:mm:ss Z)
+This information is for contact only. SPEAR sanitizes all reports of identifying information. Absolutely no identifying information for aircrew or squadron will be recorded for analysis.
 
-  {b)(1)Ua  118000  Yes
-  Contact Worl<ing Area  Contact Latitute  N/S  Contact Longitude  EMI  Contact Altitude  Altitude  Wind Dir at  Wind
-  (Ex: W-72 1A)  (DD:MM:SS)  (0D:MM:SS)  ( x: 22000)  Constant?  Contact Alt  Speed
-  (From)
+Date (mm/dd/yy): 08/31/20
+Time of detection (hh:mm:ss Z): Dusk
+Day / Night: [blank]
+Side No.: [blank]
+Buno: [blank]
+Mission Description (CAS, BFM, etc): ISR
+LFE?: No
 
-  Yes
-Please attempt to determine a Lat I Long for the contact at initial detection. We recommend
-using JMPS to reference the sensor-derived bearing· and range relative to the bullseye you had  Was the contact moving?
-in use. If that method is not available. any reasonafJ/e derivation of location will worl<, but please
+Contact Working Area (Ex: W-72 1A): (b)(1)1.1a
+Contact Latitude (DD:MM:SS): [blank]
+N/S: [blank]
+Contact Longitude (DD:MM:SS): [blank]
+E/W: [blank]
+Contact Altitude (Ex: 22000): 18000
+Altitude Constant?: Yes
+Wind Dir at Contact Alt (From): [blank]
+Wind Speed: [blank]
 
-  150/230
-be as specific as possible and make a note in the comments section. These locations may be
-used to cue other means of tracking.  Direction/Speed
+Please attempt to determine a Lat / Long for the contact at initial detection. We recommend using JMPS to reference the sensor-derived bearing and range relative to the bullseye you had in use. If that method is not available, any reasonable derivation of location will work, but please be as specific as possible and make a note in the comments section. These locations may be used to cue other means of tracking.
 
-  AIM-9x Self-Track:  Please check all that apply:
-  (Ex. 090/15)
+Was the contact moving?: Yes
+Direction/Speed (Ex. 090/15): 150/230
 
-  Radar Equipped: Other
-  A TFL/R Autotrack:
-  □
-# of Contacts in "Group":
-  Stable Trackfile?:
-  □
-  • Tally Achieved: □
-  Round:
-  Square: D
-  D  Moving Parts: D
-  Metallic: D
-  Balloon-shaped: D  Markings: D
-  EA Indications (Check af/ that apply):
-  Wings/Airframe: D  D
-  □ □ □ □
-  Translucent
-  Other Shape:[Z]  Opaque:  D
-  ECM  Letter  False  Other/  Apparent Propulsion.@  Reflective:  D
-  Plesse use the field below to describe the contact and any inte. action in your own words with as much
-  An:  tdenlifii,r  Trackfiles  Ambiguous
+Radar Equipped: Other
+Stable Trackfile?: [blank]
+# of Contacts in "Group": [blank]
 
-  detail as possible. Ple.ase be sure to include any detail not inc/ 1 ded in questions above.
-  MGRS Grid of initial contact: 39RWL2fijij.1:Mlm]a  I
- Saw the initial object fly through the screen and started tracking i . Initial object was surpassed by another
- object of same size and shape but much higher speed. At one p4int during tracking the objects, there were
- three on the screen at the same time moving amongst each other.
+EA Indications (Check all that apply):
+[ ] ECM Arc
+[ ] Letter Identifier
+[ ] False Trackfiles
+[ ] Other/ Ambiguous
 
-  I
- Don't use the purple "submit" button! Save this form with fl/enaml "Date_Squadron_RF.pdf" and email
- it to I  3.5c, (bl{6l  I (Also in the global)� For troubleshooting, call I 3.5c, <b)(6) I
- Thank you for your time. Please ensure all display tapes are ripJed for the entire time of interaction and
- saved as a . wmv (Example: 4 May VFA-106 HUD. wmv). Squa ron intel personnel shall upload those files
- to the repository located at this link.
- f  3.5c. {b)(6)  I
-  USCENTCOM MOR 26-0028  Approved for Release to MRO. FOUO / PA applies  03/16/26 000001
+AIM-9x Self-Track: [blank]
+ATFLIR Autotrack: [blank]
+Tally Achieved: [blank]
+
+Please check all that apply:
+Round: [ ]
+Square: [ ]
+Balloon-shaped: [ ]
+Wings/Airframe: [ ]
+Other Shape: [X]
+Apparent Propulsion: [X]
+Moving Parts: [ ]
+Metallic: [ ]
+Markings: [ ]
+Translucent: [ ]
+Opaque: [ ]
+Reflective: [ ]
+
+Please use the field below to describe the contact and any interaction in your own words with as much detail as possible. Please be sure to include any detail not included in questions above.
+
+MGRS Grid of initial contact: 39RWL2[REDACTED (b)(1)1.1a][REDACTED (b)(1)1.1a]
+
+Saw the initial object fly through the screen and started tracking it. Initial object was surpassed by another object of same size and shape but much higher speed. At one point during tracking the objects, there were three on the screen at the same time moving amongst each other.
+
+Don't use the purple "submit" button! Save this form with filename "Date_Squadron_RF.pdf" and email it to [3.5c, (b)(6)] (Also in the global). For troubleshooting, call [3.5c, (b)(6)].
+
+Thank you for your time. Please ensure all display tapes are ripped for the entire time of interaction and saved as a .wmv (Example: 4 May VFA-106 HUD.wmv). Squadron intel personnel shall upload those files to the repository located at this link.
+[3.5c, (b)(6)]
+
+USCENTCOM MDR 26-0028    Approved for Release to AARO - FOUO / PA applies    03/16/26    000001
