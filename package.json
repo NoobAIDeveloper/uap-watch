@@ -6,7 +6,9 @@
     "dev": "next dev",
     "prebuild": "node scripts/generate-llms-full.mjs",
     "build": "next build",
+    "postbuild": "node scripts/ping-indexnow.mjs",
     "llms": "node scripts/generate-llms-full.mjs",
+    "indexnow": "INDEXNOW_FORCE=1 node scripts/ping-indexnow.mjs",
     "start": "next start",
     "lint": "eslint"
   },

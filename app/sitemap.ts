@@ -48,9 +48,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ],
   }));
 
+  // Year coverage must match app/year/[year]/page.tsx — that page derives
+  // years from both incidents AND documents, so the sitemap must too or
+  // we'll under-list and the IndexNow ping will undercount.
   const years = Array.from(
-    new Set(incidents.map((i) => i.date.slice(0, 4))),
-  ).sort();
+    new Set([
+      ...incidents.map((i) => i.date.slice(0, 4)),
+      ...documents.map((d) => d.date.slice(0, 4)),
+    ]),
+  )
+    .filter((y) => /^\d{4}$/.test(y))
+    .sort();
   const yearEntries: MetadataRoute.Sitemap = years.map((y) => ({
     url: url.year(y),
     lastModified: now,
