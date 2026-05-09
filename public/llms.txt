@@ -1,0 +1,76 @@
+# UAP.WATCH
+
+> Independent visualization layer for the U.S. Department of War's PURSUE program — the 2026-05-08 declassified UAP (Unidentified Anomalous Phenomena, formerly UFO) file release. UAP.WATCH indexes 162 declassified files from war.gov/UFO/ — 120 PDFs, 28 videos, 14 images — covering 26 named incidents from 1947 through December 2025 across FBI, USAF, USN, NASA, State Department, and DoD sources. Built 2026-05-08, indexed 2026-05-09.
+
+This site is the most complete browsable index of the Pentagon's PURSUE Release 01. Every claim is grounded in primary-source government documents. Local PDF text is extracted for 113 of 118 unique PDFs (95.8% coverage). All source URLs link back to war.gov/UFO/ and DVIDS.
+
+## Key facts
+
+- Catalog: PURSUE Release 01 (Presidential Unsealing & Reporting System for UAP Encounters)
+- Released: 2026-05-08
+- Files: 162 total — 120 PDFs, 28 videos, 14 images
+- Indexed incidents: 26 (1 resolved, 8 unresolved, 12 anomalous, 5 corroborated)
+- Source agencies: FBI, USAF, USN, NASA, State Department, DoD
+- Time range: 1947–2025
+- Geographic coverage: Continental US, Atlantic, Mediterranean, Middle East, Indo-Pacific, Central Asia, Lunar surface
+- Live URL: https://uap-watch-flame.vercel.app
+- Source: https://www.war.gov/UFO/
+
+## Topical guides
+
+- [What are UAPs?](https://uap-watch-flame.vercel.app/q/what-are-uaps): Definition and statutory basis (50 U.S.C. § 3373).
+- [What is the PURSUE program?](https://uap-watch-flame.vercel.app/q/what-is-pursue-program): Pentagon framework for declassifying UAP records.
+- [What is AARO?](https://uap-watch-flame.vercel.app/q/what-is-aaro): All-domain Anomaly Resolution Office.
+- [How many UFO files did the Pentagon release in 2026?](https://uap-watch-flame.vercel.app/q/how-many-files-in-pursue): 162 files; full breakdown.
+- [GOFAST video explained](https://uap-watch-flame.vercel.app/q/gofast-video-explained): AARO's 2026 resolution of the 2017 Navy clip.
+- [The 'Eye of Sauron' UAP case](https://uap-watch-flame.vercel.app/q/eye-of-sauron-orbs): 2023 Western US federal-agent encounter.
+- [Has the U.S. government confirmed aliens are real?](https://uap-watch-flame.vercel.app/q/are-aliens-real): Honest summary of the public record.
+- [FBI UFO files](https://uap-watch-flame.vercel.app/q/fbi-ufo-files): 1947 Dallas memo through 2023 'Eye of Sauron'.
+- [Roswell incident](https://uap-watch-flame.vercel.app/q/roswell-incident): What the FBI memo actually says.
+- [Navy UAP encounters](https://uap-watch-flame.vercel.app/q/navy-uap-encounters): GOFAST, GIMBAL, Mediterranean 2024.
+- [UFO vs UAP](https://uap-watch-flame.vercel.app/q/ufo-vs-uap): Term history and statutory definitions.
+- [Famous UFO videos](https://uap-watch-flame.vercel.app/q/famous-ufo-videos): GIMBAL, GOFAST, FLIR1, PURSUE Greece clip.
+- [Are real UFO videos available to the public?](https://uap-watch-flame.vercel.app/q/ufo-videos-real): 28 declassified clips on DVIDS.
+- [Famous UFO incidents](https://uap-watch-flame.vercel.app/q/famous-ufo-incidents): The most-cited cases on the U.S. record.
+- [UFO sightings by U.S. state](https://uap-watch-flame.vercel.app/q/ufo-by-state): Federal-record geography.
+- [Map of declassified UFO sightings](https://uap-watch-flame.vercel.app/q/ufo-map): Interactive Natural Earth map.
+- [Apollo lunar UFO anomalies](https://uap-watch-flame.vercel.app/q/lunar-ufo-anomaly): Apollo 12 and Apollo 17.
+- [Phoenix Lights](https://uap-watch-flame.vercel.app/q/phoenix-lights): The 1997 Arizona V-formation event.
+
+## Long-form wiki pages
+
+- [UFO Sightings: The 2026 Pentagon Catalog](https://uap-watch-flame.vercel.app/wiki/ufo-sightings): Complete index by era and source.
+- [UFO Types and Shapes Reported in Government Files](https://uap-watch-flame.vercel.app/wiki/ufo-types-and-shapes): Orbs, triangles, cylinders, ellipsoids.
+- [Evidence for Aliens: What the U.S. Government Has and Hasn't Confirmed](https://uap-watch-flame.vercel.app/wiki/alien-evidence): Honest summary of the record.
+- [Pentagon UFO Files: The 2026 PURSUE Release](https://uap-watch-flame.vercel.app/wiki/pentagon-ufo-files): How to access the originals.
+
+## Incidents
+
+Browse all 26 indexed incidents at https://uap-watch-flame.vercel.app — each incident has a dedicated page at /incident/<id> with full narrative, key quotation, source documents, and related videos. Incident IDs follow the pattern PURSUE-001 through PURSUE-026.
+
+## Documents
+
+113 of 118 unique declassified PDFs are indexed with locally-extracted text at /document/<id>. Document IDs follow the pattern DOC-001 through DOC-136. Each page links to the original PDF on war.gov.
+
+## Videos
+
+28 PURSUE-released videos plus 16 supporting videos are indexed at /video/<id>. Each page links to the canonical DVIDS asset.
+
+## Programmatic indexes
+
+- /year/<YYYY> — incidents and documents grouped by year (1947, 1948, 1950, 1969, 1972, 1985, 1994, 1999, 2017, 2022, 2023, 2024, 2025).
+- /region/<slug> — incidents by geographic region (continental-us, atlantic, mediterranean, middle-east, indo-pacific, central-asia, moon, multi).
+- /agency/<slug> — incidents and documents grouped by source agency (fbi, dod, nasa, state-department, us-air-force, us-navy).
+
+## Source data
+
+All UAP.WATCH content derives from publicly-available U.S. government records:
+- war.gov/UFO/ — PURSUE Release 01 portal (https://www.war.gov/UFO/)
+- DoD press release (https://www.war.gov/News/Releases/Release/Article/4480582/)
+- The canonical CSV catalog (war.gov/Portals/1/Interactive/2026/UFO/uap-csv.csv)
+- DVIDS — Defense Visual Information Distribution Service (https://www.dvidshub.net/)
+- FBI Vault (https://vault.fbi.gov/UFO)
+
+## Citation policy
+
+UAP.WATCH content is citable. Site copyright is independent of U.S. government works (which remain in the public domain per https://www.usa.gov/government-works). Direct quotes from PURSUE source documents should attribute the originating agency and document ID.

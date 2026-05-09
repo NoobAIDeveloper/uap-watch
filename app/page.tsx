@@ -4,6 +4,7 @@ import SituationMap from "@/components/SituationMap";
 import DossierPanel from "@/components/DossierPanel";
 import IncidentTable from "@/components/IncidentTable";
 import BelowFoldSections from "@/components/BelowFoldSections";
+import BrowseHub from "@/components/BrowseHub";
 
 export default function Page() {
   return (
@@ -24,6 +25,11 @@ export default function Page() {
       {/* Below-fold sections are code-split and lazy-loaded — their data
           (documents.ts ~190KB, videos.ts ~30KB) doesn't block first paint. */}
       <BelowFoldSections />
+      {/* SEO/GEO browse hub — server-rendered into the HTML so AI crawlers and
+          search engines can discover the full pSEO route tree (incidents,
+          documents, videos, year/region/agency archives, FAQ, wiki) without
+          executing JS. */}
+      <BrowseHub />
     </div>
   );
 }
