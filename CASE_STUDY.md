@@ -2,7 +2,7 @@
 
 > **Live:** https://uap-watch-flame.vercel.app/
 > **Code:** https://github.com/NoobAIDeveloper/uap-watch
-> **Built:** 2026-05-08 → 2026-05-09 (~30 hours from idea to live + indexed)
+> **Built:** 2026-05-08 → 2026-05-09 (~30 hours to v1 + indexed; audit + vision-pass recovery on Day 2 evening)
 
 A trend-driven, news-cycle product. The Pentagon released 162 declassified UAP files at war.gov/UFO/ on the morning of May 8, 2026; I shipped a tactical-style mirror dashboard the same day, then kept iterating through the next 24 hours while the news cycle was hot. The site now hosts locally-extracted text for every PDF in the catalog so visitors don't have to bounce to the .gov listing to actually read anything.
 
@@ -48,6 +48,13 @@ All 162 files in the Pentagon's catalog are accounted for; 113 of the 118 unique
 - Performance pass: Lighthouse 100 desktop, 95 mobile
 - Recovered 100% catalog coverage after Akamai mid-pipeline 403s
 
+**Day 2 evening — quality audit + vision-based recovery**
+- Manually audited every extracted text file rather than trusting the pipeline's "100% coverage" report; surfaced 28 empty stubs, 17 degraded extractions, and 6–8 files of pure glyph soup
+- Hardened the pipeline (`SKIP_FIRST_PAGE_DOCS` for cover-stamp offenders, stricter `ocrmypdf` flags, lower concurrency, longer timeouts), re-ran on the top 20 worst — recovered 18 of 20
+- Spawned parallel Claude Code subagents to vision-transcribe the 7 documents OCR could not read; DOC-031 went from 551 chars to 33,831 chars (61× lift) and surfaced the previously-invisible Senator Richard Russell trans-Caucasus sighting
+- Caught and removed a duplicate catalog entry (DOC-037 was byte-identical to DOC-036)
+- Wrote `scripts/download-missing.mjs` — strict-sequential Wayback fallback after Akamai 403'd the IP again on the re-run
+
 ## Hard problems and how I solved them
 
 ### 1. War.gov is Akamai-fronted; my IP got 403'd mid-pipeline
@@ -84,6 +91,34 @@ I tried to babysit the long-running PDF pipeline with a polling subagent — it 
 
 **Fix:** wrote a real `nohup bash` loop with a `while ps -p $PID > /dev/null` guard, ran it via `Bash run_in_background:true`. Survived between agent sessions, polled every 120s, pushed at threshold, did a final push when the parent script exited.
 
+### 7. The "100% indexed" claim hid 50+ files of unreadable noise
+
+After v1 shipped, I did a manual eyeball audit of every extracted text file — and found that the pipeline's "all PDFs indexed" report was technically true but practically false. 28 files were empty stubs, 17 were degraded enough to be hard to read, and 6–8 were pure glyph soup. The worst offenders were predictable in hindsight: FBI 1947–68 cover-page declassification stamps that Tesseract reads as vertical char-by-char salad (`}.}.}.}»§=§=©=©=©®©=`), the NASA Apollo 17 stippled half-tone cover, and Navy Range Fouler forms whose top-of-page authority lines came out as `Deel d 11,1son` instead of "Declassified by MG Richard A. Harrison".
+
+**Fix — phase 1 (better OCR flags).** Adopted `ocrmypdf`'s quality stack (`--rotate-pages`, `--deskew`, `--redo-ocr`) and added a `SKIP_FIRST_PAGE_DOCS` set for the 12 known cover-stamp offenders so extraction starts at page 2 (the actual document body). Recovered 18 of 20 problem files. NASA Apollo 17 turned out clean once page 1 was stripped — the extracted text now starts at page 119 of the lunar science transcript instead of `iiii!` salad.
+
+**Fix — phase 2 (vision pass).** For the 7 files Tesseract still couldn't read, spawned parallel Claude Code subagents to do vision-based transcription against the cached PDFs. DOC-031 went from 551 chars → 33,831 chars and surfaced the previously-invisible Senator Russell / Lt. Col. Hathaway / Ruben Efron eyewitness account of two flying-disc ascents in the Trans-Caucasus USSR — a famous sighting that had been completely lost to OCR. DOC-039 (1957 FBI interview of Wladyslaw Krasuski about a 1944 Germany sighting) recovered similarly. The five Range Fouler forms got their declassification authority lines back — important for an archive where the metadata IS information.
+
+The vision pass ran *inside* Claude Code rather than against a paid API, so the cost was zero.
+
+### 8. The first quality-pass run crashed Tesseract and re-tripped Akamai
+
+Ambitious flags (`--clean`, `--oversample 600`) plus 3-way concurrency overloaded both ends. Tesseract OOM'd on M-series memory during the largest scans, and the parallel re-downloads tripped Akamai's rate-limit again. Out of 16 docs queued, 3 timed out and 11 download attempts failed.
+
+**Fix:** dropped `--clean` and `--oversample 600` (gains weren't worth the crashes), lowered concurrency 3 → 2, bumped per-doc timeout 15 → 30 min, and wrote `scripts/download-missing.mjs` — a separate strict-sequential downloader that goes straight to Wayback (skipping the war.gov direct attempt entirely once we know the IP is flagged). Caught a separate URL-encoding bug along the way: one filename in `documents.ts` had a literal space, which curl rejected as `Malformed input to a URL function`. Patched the script to URL-encode spaces transparently. Recovered 10 of 10 missing PDFs on the first sequential pass.
+
+### 9. Orphan grandchildren survived the kill
+
+When I killed the runaway first run, `kill <node-PID>` only stopped the parent. ocrmypdf, unpaper, and tesseract spawn separate process groups, so the grandchildren kept running — holding file handles on the cache and pegging CPU.
+
+**Fix (operational):** several rounds of `pkill -9 -f <name>` for each layer (unpaper, tesseract, ocrmypdf, index-pdfs). The proper fix for the next iteration is to spawn children in the same process group and forward signals explicitly, but for this session manual cleanup got us moving again.
+
+### 10. The audit caught a phantom duplicate
+
+DOC-036 and DOC-037 had different metadata (different titles, dates, descriptions) but pointed to the same PDF — DOC-037's `sourceUrl` was just DOC-036's URL with the brackets stripped from the filename. The extracted text was byte-identical. Effectively a phantom entry from a prior copy-edit pass.
+
+**Fix:** removed the DOC-037 entry from `data/documents.ts` with an inline comment documenting the discovery, deleted the extracted text file. Audit-driven housekeeping — the kind of thing that's invisible to most readers but matters for an archive that claims provenance accuracy.
+
 ## By the numbers
 
 | | Value |
@@ -95,15 +130,20 @@ I tried to babysit the long-running PDF pipeline with a polling subagent — it 
 | LCP (desktop / mobile observed) | 687 ms / ~140 ms |
 | First Load JS (initial HTML response) | 382 KB → 106 KB after lazy-loading below-fold |
 | Click-to-paint latency on incident selection (Playwright benchmark) | 27–32 ms (avg 29.5 ms) |
-| Total commits on `main` | 13 |
+| Total commits on `main` | 26 |
 | Components built | 16 |
 | PDFs extracted via pdftotext (digital-native) | 48 |
 | PDFs extracted via ocrmypdf (scanned, OCR'd) | 40 |
 | PDFs verified image-only (no extractable text) | 25 |
+| PDFs re-OCR'd in Day 2 quality pass with stricter flags | 20 |
+| PDFs recovered via Claude Code vision-pass subagents | 7 |
+| Largest single-document text recovery (DOC-031, Sen. Russell sighting) | 551 → 33,831 chars (61×) |
+| Duplicate catalog entries removed during audit | 1 (DOC-037 = DOC-036) |
 | Incidents indexed | 26 |
-| Documents indexed | 136 |
+| Documents indexed | 135 (after dedup) |
 | Videos indexed | 44 (28 PURSUE + 16 supporting) |
-| Per-PDF LLM token cost during extraction | 0 |
+| Vision-pass API spend | $0 (ran inside Claude Code, not via paid API) |
+| Per-PDF LLM token cost during initial extraction | 0 |
 | Recurring infrastructure cost | $0 (Vercel Hobby + free brew tools) |
 
 ## Tech stack
@@ -126,7 +166,7 @@ I tried to babysit the long-running PDF pipeline with a polling subagent — it 
 
 **Agentic engineering.** Most of the work was orchestrated through Claude Code subagents running in parallel waves: scaffold → 7 component agents in parallel → data backfill + UX rebuild in parallel → performance pass + screenshot agent in parallel → indexing pipeline + babysit watchdog. I worked as the orchestrator (decompose, define schemas, integrate) rather than the typer. This is the 2026-relevant version of "shipped fast."
 
-**Honest engineering.** When the war.gov network started 403'ing, I didn't fake the data — I dug for the canonical CSV via Wayback. When the synthetic memo bodies were ungrounded stubs, I built a real local OCR pipeline rather than asking an LLM to hallucinate plausible text. When 5 PDFs failed extraction even after retry, I logged them as failed and let the UI fall back gracefully.
+**Honest engineering.** When the war.gov network started 403'ing, I didn't fake the data — I dug for the canonical CSV via Wayback. When the synthetic memo bodies were ungrounded stubs, I built a real local OCR pipeline rather than asking an LLM to hallucinate plausible text. When 5 PDFs failed extraction even after retry, I logged them as failed and let the UI fall back gracefully. After v1 shipped and the news cycle moved on, I went back and audited every extracted file — re-OCR'd 20 docs with stricter flags, vision-recovered the 7 that were unreadable, and removed a duplicate catalog entry. The Senator Russell trans-Caucasus sighting (61× text recovery on DOC-031) wouldn't have been visible to any reader if the audit hadn't happened. Trend-driven ship dates don't excuse archive-quality lapses.
 
 **Production hygiene.** Strict TypeScript, prod build green on every commit, edge-runtime OG image with custom font loading, Lighthouse 100, no console errors, no hydration warnings, sub-100ms INP on every interaction. Vercel Analytics wired in. SEO + Twitter card meta complete. Auto-deploy from `main` so every push goes live within minutes.
 
