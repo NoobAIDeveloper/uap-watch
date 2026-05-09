@@ -1,22 +1,45 @@
 @import "tailwindcss";
 
+/* =============================================================================
+ *  Blueprint dark theme tokens
+ *
+ *  All chrome on this site uses Palantir Blueprint's color scale verbatim.
+ *  Page is BLACK (#111418), one shade darker than panels — every panel reads
+ *  as elevated against the canvas. Text uses Inter; mono is reserved for
+ *  IDs, dates, classification strings, and raw values.
+ * =========================================================================== */
+
 @theme {
-  --color-bg: #0e1116;
-  --color-panel: #1c2127;
-  --color-panel-2: #252a31;
-  --color-border: #2f343c;
-  --color-border-bright: #404854;
-  --color-text: #f6f7f9;
-  --color-text-dim: #abb3bf;
-  --color-text-mute: #5f6b7c;
-  --color-accent: #4c90f0;
-  --color-accent-dim: #2d72d2;
-  --color-status-unresolved: #f5498b;
-  --color-status-anomalous: #9881f3;
-  --color-status-corroborated: #13c9ba;
-  --color-status-resolved: #8abbff;
-  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
-  --font-display: "Space Mono", "JetBrains Mono", ui-monospace, monospace;
+  --color-bg:            #111418;  /* BLACK — page background */
+  --color-panel:         #1c2127;  /* DARK_GRAY1 — primary panel */
+  --color-panel-2:       #252a31;  /* DARK_GRAY2 — hover, elevated row */
+  --color-border:        #2f343c;  /* DARK_GRAY3 — default hairline */
+  --color-border-bright: #404854;  /* DARK_GRAY5 — bright divider */
+
+  --color-text:          #f6f7f9;  /* near-white primary */
+  --color-text-dim:      #abb3bf;  /* GRAY4 — secondary */
+  --color-text-mute:     #5f6b7c;  /* GRAY1 — muted labels */
+
+  --color-accent:        #4c90f0;  /* BLUE4 — text accent, links */
+  --color-accent-fill:   #2d72d2;  /* BLUE3 — solid intent fill */
+  --color-accent-tint:   rgba(45, 114, 210, 0.15); /* selected row */
+
+  --color-ok:            #238551;  /* GREEN3 */
+  --color-warn:          #ec9a3c;  /* ORANGE4 */
+  --color-viz-violet:    #9881f3;  /* VIOLET3 — viz-only */
+  --color-danger:        #cd4246;  /* RED3 */
+
+  /* Status semantic aliases — Blueprint intent tokens replace neon pink/violet */
+  --color-status-corroborated: var(--color-ok);
+  --color-status-unresolved:   var(--color-warn);
+  --color-status-anomalous:    var(--color-viz-violet);
+  --color-status-resolved:     var(--color-text-dim);
+
+  --font-sans: var(--font-sans-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono-plex), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --radius-tag:  2px;
+  --radius-card: 4px;
 }
 
 :root {
@@ -26,139 +49,63 @@
 html, body {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-mono);
-  font-variant-numeric: tabular-nums;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.286;
+  font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-body {
-  background-image:
-    radial-gradient(1200px 600px at 80% -10%, rgba(76, 144, 240, 0.06), transparent 60%),
-    radial-gradient(900px 500px at -10% 110%, rgba(152, 129, 243, 0.04), transparent 60%);
-  background-attachment: fixed;
+/* No grain. No scanlines. No radial-gradient body washes. The page is
+ * clinically flat — the way Foundry, Apollo, and Sentry are. Atmosphere
+ * comes from the data, not the chrome. */
+
+::selection {
+  background: var(--color-accent-fill);
+  color: #fff;
 }
 
-/* Film grain overlay */
-.grain::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 60;
-  background-image: url("/grain.svg");
-  opacity: 0.035;
-  mix-blend-mode: overlay;
+/* Utility classes ---------------------------------------------------------- */
+.tnum { font-variant-numeric: tabular-nums; }
+.mono { font-family: var(--font-mono); }
+
+/* The only allowed all-caps style anywhere on the site. Tracking maxes at
+ * 0.06em, size locked at 11px, weight 500. Anything bigger or wider-tracked
+ * is a tell. */
+.caps {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-dim);
 }
 
-/* Hairline borders */
-.hairline { border: 1px solid var(--color-border); }
+/* Hairlines — always 1px DARK_GRAY3 */
+.hairline   { border: 1px solid var(--color-border); }
 .hairline-b { border-bottom: 1px solid var(--color-border); }
 .hairline-t { border-top: 1px solid var(--color-border); }
 
-/* Bracket corners (used on hover/active panels) */
-.brackets { position: relative; }
-.brackets::before, .brackets::after,
-.brackets > .br-tl, .brackets > .br-tr, .brackets > .br-bl, .brackets > .br-br {
-  /* implementation handled in components */
-}
-
-/* Scanline header */
-.scanlines {
-  background-image: repeating-linear-gradient(
-    0deg,
-    transparent 0,
-    transparent 2px,
-    rgba(255, 255, 255, 0.02) 2px,
-    rgba(255, 255, 255, 0.02) 3px
-  );
-}
-
-/* Subtle blink for the LIVE indicator */
-@keyframes blink { 0%, 60% { opacity: 1; } 65%, 100% { opacity: 0.2; } }
-.blink { animation: blink 1.6s steps(1, end) infinite; }
-
-/* Hero intro animations — pure CSS so the SSR'd content paints immediately
-   (no opacity:0 on first paint) and the motion is layered on top via the
-   compositor. Critical for LCP on mobile. */
-@keyframes hero-fade-down {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes hero-fade-up {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes hero-fade {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-@keyframes hero-fade-up-sm {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-.hero-anim-fade-down { animation: hero-fade-down 0.4s ease-out both; }
-.hero-anim-fade-up   { animation: hero-fade-up   0.4s ease-out both; animation-delay: 0.1s; }
-.hero-anim-fade      { animation: hero-fade      0.4s ease-out both; animation-delay: 0.25s; }
-.hero-anim-fade-late { animation: hero-fade      0.4s ease-out both; animation-delay: 0.4s; }
-.hero-anim-stat      { animation: hero-fade-up-sm 0.4s ease-out both; }
-
-/* Source breakdown row entrance — staggered in place via animation-delay */
-@keyframes row-fade-right {
-  from { opacity: 0; transform: translateX(-6px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-.row-anim { animation: row-fade-right 0.4s ease-out both; }
-
-/* Stat numeral entrance — short CRT-style scan that never drops opacity below
-   1, so it never delays LCP detection. We pulse the text-shadow / glow
-   instead. The numeral itself is rendered server-side from the start. */
-@keyframes stat-flicker {
-  0%   { filter: brightness(1.6) drop-shadow(0 0 6px currentColor); }
-  35%  { filter: brightness(0.85); }
-  55%  { filter: brightness(1.4) drop-shadow(0 0 4px currentColor); }
-  100% { filter: none; }
-}
-.stat-flicker { animation: stat-flicker 0.7s steps(20, end) both; }
-@media (prefers-reduced-motion: reduce) {
-  .stat-flicker { animation: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-anim-fade-down,
-  .hero-anim-fade-up,
-  .hero-anim-fade,
-  .hero-anim-fade-late,
-  .hero-anim-stat { animation: none; }
-}
-
-::selection { background: var(--color-accent); color: #0e1116; }
-
-/* Tabular numerals helper */
-.tnum { font-variant-numeric: tabular-nums; }
-
 /* Long-form prose styles for programmatic SEO pages (incident, document,
-   FAQ, wiki). Tuned for legibility + GEO citation extraction — generous
-   line-length, scannable headings, clean paragraph spacing. */
+ * FAQ, wiki). Dashboard panels use direct Tailwind utilities; these are
+ * for /q, /wiki, /incident bodies that render markdown-shaped content. */
 .prose-uap { color: var(--color-text-dim); line-height: 1.7; }
 .prose-uap > * + * { margin-top: 1.1em; }
-.prose-uap p { font-size: 0.975rem; max-width: 72ch; }
+.prose-uap p { font-size: 0.95rem; max-width: 72ch; }
 .prose-uap h2 {
-  font-family: var(--font-display);
   color: var(--color-text);
   font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  letter-spacing: -0.005em;
   margin-top: 2.25em;
   margin-bottom: 0.5em;
   padding-bottom: 0.5em;
   border-bottom: 1px solid var(--color-border);
 }
 .prose-uap h3 {
-  font-family: var(--font-display);
   color: var(--color-text);
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 600;
   margin-top: 1.75em;
   margin-bottom: 0.4em;
 }

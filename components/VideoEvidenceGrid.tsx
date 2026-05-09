@@ -1,14 +1,31 @@
 "use client";
 
-import { useMemo, useRef } from "react";
-import { ArrowUpRight, Filter, X } from "lucide-react";
+import { useMemo } from "react";
+import { Filter, X, Play, ExternalLink } from "lucide-react";
 import { videos } from "@/data/videos";
 import { incidents } from "@/data/incidents";
 import type { EvidenceVideo } from "@/lib/types";
 import { useSelectedId, setSelectedId } from "@/lib/store";
+import { STATUS_TAG_CLASS, STATUS_LABEL, STATUS_COLOR } from "@/lib/classifications";
+import thumbMap from "@/data/video-thumb-map.json";
 
-const NOISE_SVG =
-  "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.7 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>";
+// Real-thumbnail video grid. Each tile uses the locally-mirrored DVIDS
+// thumbnail (scraped via scripts/index-video-thumbs.mjs) when available,
+// falling back to a styled sensor-frame background that still indicates
+// FLIR/EO/IR/COMBINED format. Both variants share the same chrome:
+//
+//   - Format badge top-left (FLIR / IR / EO / FMV)
+//   - Telemetry corners (location, time, status)
+//   - Duration pill bottom-right
+//   - Hover-revealed play button
+//   - Title + ID strip below the thumb
+
+const FORMAT_CLASS: Record<EvidenceVideo["format"], string> = {
+  IR: "text-accent",
+  EO: "text-warn",
+  RGB: "text-text-dim",
+  COMBINED: "text-viz-violet",
+};
 
 function formatDuration(seconds: number): string {
   const m = Math.floor(seconds / 60);
@@ -16,289 +33,202 @@ function formatDuration(seconds: number): string {
   return `${m}:${s.toString().padStart(2, "0")}`;
 }
 
-// Pseudo-coordinates for the bottom-right readout. We try to derive a sensible
-// label from the location string; otherwise we render [REDACTED].
-function coordsLabel(location: string): string {
+function locationCorner(location: string): string {
   const lower = location.toLowerCase();
-  if (lower.includes("greece")) return "+37.9°N // +23.7°E";
-  if (lower.includes("indo-pacific") || lower.includes("japan")) return "+35.6°N // +139.7°E";
-  if (lower.includes("syria")) return "+35.0°N // +38.0°E";
-  if (lower.includes("western united states")) return "+39.5°N // -111.5°W";
-  if (lower.includes("mediterranean")) return "+35.0°N // +18.0°E";
-  if (lower.includes("uae") || lower.includes("united arab emirates")) return "+24.4°N // +54.4°E";
-  if (lower.includes("centcom")) return "+33.3°N // +43.7°E";
-  if (lower.includes("middle east")) return "+27.0°N // +49.0°E";
-  if (lower.includes("east coast") || lower.includes("atlantic")) return "+32.5°N // -75.0°W";
-  if (lower.includes("lunar")) return "LUNAR // GRIMALDI";
-  return "[REDACTED]";
+  if (lower.includes("greece")) return "GRC";
+  if (lower.includes("indo-pacific") || lower.includes("japan")) return "INDOPAC";
+  if (lower.includes("syria")) return "SYR";
+  if (lower.includes("western united states")) return "W-US";
+  if (lower.includes("mediterranean")) return "MED";
+  if (lower.includes("uae") || lower.includes("united arab emirates")) return "UAE";
+  if (lower.includes("centcom") || lower.includes("middle east") || lower.includes("iraq")) return "CENTCOM";
+  if (lower.includes("east coast") || lower.includes("atlantic")) return "ATL";
+  if (lower.includes("lunar")) return "LUNAR";
+  return "REDACTED";
 }
 
-// Pick a positional preset so cards visually differ from one another.
-const ELLIPSE_PRESETS: { x: string; y: string }[] = [
-  { x: "60%", y: "40%" },
-  { x: "30%", y: "55%" },
-  { x: "75%", y: "30%" },
-  { x: "45%", y: "65%" },
-  { x: "20%", y: "30%" },
-];
-
-function viewportBackground(video: EvidenceVideo): string {
-  // pick a preset based on a stable index from the id
-  const idx = (video.id.charCodeAt(4) || 0) % ELLIPSE_PRESETS.length;
-  const { x, y } = ELLIPSE_PRESETS[idx];
-
-  switch (video.format) {
-    case "IR":
-      // Palantir-coded thermal — cyan-to-violet hot spot, no orange/red
-      return `radial-gradient(ellipse at ${x} ${y}, rgba(19,201,186,0.55) 0%, rgba(76,144,240,0.45) 18%, rgba(152,129,243,0.45) 40%, rgba(28,33,39,0.8) 70%, #0e1116 100%)`;
-    case "EO":
-      // dominantly slate-blue — electro-optical
-      return `radial-gradient(ellipse at ${x} ${y}, rgba(171,179,191,0.45) 0%, rgba(95,107,124,0.4) 25%, rgba(47,52,60,0.6) 60%, #0e1116 100%)`;
-    case "RGB":
-    case "COMBINED":
-      // neutral cool slate
-      return `radial-gradient(ellipse at ${x} ${y}, rgba(171,179,191,0.4) 0%, rgba(64,72,84,0.4) 25%, rgba(37,42,49,0.6) 60%, #0e1116 100%)`;
-  }
-}
-
-function VideoCard({ video }: { video: EvidenceVideo }) {
-  const bg = viewportBackground(video);
-  const coords = coordsLabel(video.location);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const hasLocal = Boolean(video.localPath);
-
-  // When a local file is available, clicking the card requests fullscreen
-  // playback. Otherwise (no local mirror) we fall back to opening the
-  // canonical war.gov URL in a new tab.
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!hasLocal) return; // let the anchor navigate to sourceUrl
-    e.preventDefault();
-    const el = videoRef.current;
-    if (!el) return;
-    if (el.requestFullscreen) {
-      el.requestFullscreen().catch(() => {
-        // ignore — fullscreen may be blocked, video keeps playing inline
-      });
-    }
-  };
-
-  return (
-    <a
-      href={video.sourceUrl}
-      target="_blank"
-      rel="noreferrer"
-      onClick={handleClick}
-      className="group relative block bg-panel-2 border border-border rounded-sm overflow-hidden hover:border-border-bright transition-colors"
-    >
-      {/* Viewport */}
-      <div className="relative aspect-[16/10] bg-black overflow-hidden">
-        {hasLocal ? (
-          <video
-            ref={videoRef}
-            src={video.localPath}
-            poster={video.localPosterPath}
-            muted
-            autoPlay
-            loop
-            playsInline
-            preload="metadata"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        ) : (
-          <>
-            {/* Base IR/EO gradient */}
-            <div
-              className="absolute inset-0"
-              style={{ backgroundImage: bg }}
-              aria-hidden
-            />
-            {/* Noise overlay */}
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `url("${NOISE_SVG}")`,
-                backgroundSize: "160px 160px",
-                opacity: 0.06,
-                mixBlendMode: "overlay",
-              }}
-              aria-hidden
-            />
-          </>
-        )}
-
-        {/* Scanlines (above video too — keeps the surveillance aesthetic) */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255,255,255,0.04) 3px)",
-          }}
-          aria-hidden
-        />
-        {/* Vignette */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%)",
-          }}
-          aria-hidden
-        />
-
-        {/* Crosshair reticle (visible on hover) */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-40 transition-opacity"
-          aria-hidden
-        >
-          {/* Vertical line */}
-          <span className="absolute left-1/2 top-[20%] bottom-[20%] w-px bg-accent -translate-x-1/2" />
-          {/* Horizontal line */}
-          <span className="absolute top-1/2 left-[20%] right-[20%] h-px bg-accent -translate-y-1/2" />
-          {/* Center gap markers (dashes) */}
-          <span className="absolute left-1/2 top-1/2 w-1.5 h-1.5 -translate-x-1/2 -translate-y-1/2 border border-accent" />
-        </div>
-
-        {/* Top-left format badge */}
-        <div className="absolute top-2 left-2 bg-bg/70 text-text-dim border border-border-bright px-1.5 py-0.5 text-[9px] tracking-widest backdrop-blur-sm font-mono uppercase">
-          {video.format}
-        </div>
-
-        {/* Top-right duration */}
-        <div className="absolute top-2 right-2 bg-bg/70 text-text-dim border border-border-bright px-1.5 py-0.5 text-[9px] tracking-widest backdrop-blur-sm font-mono uppercase tnum">
-          {formatDuration(video.durationSeconds)}
-        </div>
-
-        {/* Bottom-left REC */}
-        <div className="absolute bottom-2 left-2 flex items-center gap-1 text-status-unresolved text-[9px] tracking-widest font-mono">
-          <span className="blink">●</span>
-          <span>REC</span>
-        </div>
-
-        {/* Bottom-right coords */}
-        <div className="absolute bottom-2 right-2 text-text-mute text-[9px] tracking-widest font-mono">
-          {coords}
-        </div>
-      </div>
-
-      {/* Info strip */}
-      <div className="px-3 py-2 hairline-t flex items-center gap-2">
-        <div className="min-w-0 flex-1">
-          <div
-            className="text-sm tracking-wide uppercase truncate"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            {video.title}
-          </div>
-          <div className="text-[10px] tracking-widest text-text-mute truncate">
-            {video.location} // {video.date} // {video.format}
-          </div>
-        </div>
-        <ArrowUpRight
-          className="w-3.5 h-3.5 text-text-mute opacity-0 group-hover:opacity-100 group-hover:text-accent transition-opacity flex-shrink-0"
-          aria-hidden
-        />
-      </div>
-    </a>
-  );
-}
+const FALLBACK_BG: Record<EvidenceVideo["format"], string> = {
+  IR: "linear-gradient(180deg, #1a1a1a 0%, #0c0c0c 100%)",
+  EO: "linear-gradient(180deg, #1a1820 0%, #0f0e12 100%)",
+  RGB: "linear-gradient(180deg, #2c2924 0%, #0c0b09 100%)",
+  COMBINED: "linear-gradient(180deg, #1a1f25 0%, #0f1216 100%)",
+};
 
 export default function VideoEvidenceGrid() {
   const selectedId = useSelectedId();
-  const selectedIncident = useMemo(
-    () => (selectedId ? incidents.find((i) => i.id === selectedId) ?? null : null),
+
+  const incident = useMemo(
+    () => (selectedId ? incidents.find((i) => i.id === selectedId) : null),
     [selectedId],
   );
 
-  const visibleVideos = useMemo(() => {
+  const visible = useMemo(() => {
     if (!selectedId) return videos;
     return videos.filter((v) => v.incidentIds?.includes(selectedId));
   }, [selectedId]);
 
-  const total = videos.length;
-  const visibleCount = visibleVideos.length;
-  const filterActive = !!selectedIncident;
-  const counterColor = filterActive ? "text-accent" : "";
-
-  // Catalog-truth breakdown. The Pentagon's canonical CSV lists 28 PURSUE
-  // videos (DVIDS-hosted clips). Our local grid additionally renders alt-
-  // angle DVIDS dupes plus a handful of non-DVIDS entries (Apollo 17 NASA
-  // imagery, FBI photo cards, slide-deck mission reports paired with video
-  // events) — surfaced for browsing but flagged in data/videos.ts. We expose
-  // both numbers so the hero "28 VIDEO" stat still reconciles cleanly.
-  const pursueVideoCount = videos.filter((v) =>
-    /dvidshub\.net\/video\//i.test(v.sourceUrl),
-  ).length;
-  const CANONICAL_PURSUE_VIDEOS = 28;
-
-  if (total === 0) {
-    return (
-      <div className="bg-panel border border-border rounded-sm">
-        <div className="px-4 py-12 text-center text-text-mute text-xs tracking-widest">
-          // NO FOOTAGE INDEXED //
-        </div>
-      </div>
-    );
-  }
+  const filterActive = !!incident;
 
   return (
-    <div className="bg-panel border border-border rounded-sm">
-      {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 hairline-b">
-        <h2
-          className={[
-            "text-sm tracking-widest uppercase",
-            counterColor,
-          ].join(" ")}
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          VIDEO EVIDENCE //{" "}
-          {filterActive
-            ? `${visibleCount}/${total} CASES`
-            : `${pursueVideoCount}/${CANONICAL_PURSUE_VIDEOS} PURSUE · ${total - pursueVideoCount} ADDL`}
-        </h2>
-        <div className="text-text-mute text-[10px] tracking-widest uppercase">
-          FOOTAGE: WAR.GOV/UFO/ (CDN BLOCKS DIRECT MIRRORING)
-        </div>
-      </div>
-
-      {/* Filter banner */}
-      {selectedIncident && (
-        <div className="bg-panel-2 border-b border-border-bright px-3 py-2 flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2 text-accent text-[10px] tracking-widest uppercase">
-            <Filter className="w-3 h-3" aria-hidden />
-            <span>
-              FILTERED BY: {selectedIncident.id} //{" "}
-              {selectedIncident.location.toUpperCase()}
+    <section
+      id="videos"
+      className="bg-panel border border-border rounded-[4px]"
+      aria-label="Video evidence"
+    >
+      <div className="h-[40px] px-4 flex items-center justify-between border-b border-border">
+        <h2 className="text-[14px] font-semibold text-text">Video evidence</h2>
+        <div className="flex items-center gap-3">
+          {filterActive ? (
+            <span className="inline-flex items-center gap-2 text-[11px] font-medium tracking-[0.04em] uppercase text-accent">
+              <Filter size={11} strokeWidth={1.5} />
+              Filtered to <span className="mono normal-case tracking-normal">{incident?.id}</span>
+              <span className="text-text-mute mono normal-case tracking-normal">
+                {visible.length} clips
+              </span>
+              <button
+                type="button"
+                onClick={() => setSelectedId(null)}
+                className="ml-1 inline-flex items-center text-text-dim hover:text-text"
+                aria-label="Clear filter"
+              >
+                <X size={12} strokeWidth={1.5} />
+              </button>
             </span>
-          </div>
-          <button
-            type="button"
-            onClick={() => setSelectedId(null)}
-            className="flex items-center gap-1 text-text-dim hover:text-accent transition-colors text-[10px] tracking-widest uppercase"
-          >
-            <X className="w-3 h-3" aria-hidden />
-            CLEAR FILTER
-          </button>
+          ) : (
+            <span className="text-[11px] font-medium tracking-[0.04em] uppercase text-text-mute">
+              <span className="mono tnum normal-case tracking-normal">{videos.length}</span> clips
+              · DVIDS-hosted
+            </span>
+          )}
         </div>
-      )}
-
-      {/* Grid (or empty state) */}
-      {visibleCount === 0 ? (
-        <div className="px-4 py-16 mt-8 text-center text-text-mute text-xs tracking-widest uppercase">
-          // NO VIDEO EVIDENCE INDEXED FOR THIS INCIDENT //
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 p-4">
-          {visibleVideos.map((video) => (
-            <VideoCard key={video.id} video={video} />
-          ))}
-        </div>
-      )}
-
-      {/* Footer */}
-      <div className="hairline-t py-3 px-4 text-text-mute text-[10px] tracking-widest uppercase">
-        ALL FOOTAGE PUBLIC DOMAIN, RELEASED BY U.S. DEPARTMENT OF WAR — 2026-05-08
       </div>
-    </div>
+
+      <div className="p-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+        {visible.map((video) => {
+          const thumb = (thumbMap as Record<string, string>)[video.id];
+          const linkedIncidents = (video.incidentIds ?? [])
+            .map((id) => incidents.find((i) => i.id === id))
+            .filter((x): x is NonNullable<typeof x> => Boolean(x));
+          const primaryStatus = linkedIncidents[0]?.status;
+
+          return (
+            <a
+              key={video.id}
+              href={video.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-panel-2 border border-border rounded-[2px] overflow-hidden hover:border-accent transition-colors"
+            >
+              <div
+                className="relative aspect-[16/9]"
+                style={
+                  thumb
+                    ? undefined
+                    : { background: FALLBACK_BG[video.format] }
+                }
+              >
+                {thumb ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={thumb}
+                    alt={video.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                ) : (
+                  // Subtle grid overlay only on fallback chrome — when we have
+                  // a real frame we don't want to occlude it.
+                  <div
+                    aria-hidden
+                    className="absolute inset-0 opacity-30"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(transparent 49.5%, rgba(255,255,255,0.05) 49.5% 50%, transparent 50%), linear-gradient(90deg, transparent 49.5%, rgba(255,255,255,0.05) 49.5% 50%, transparent 50%)",
+                      backgroundSize: "32px 32px",
+                    }}
+                  />
+                )}
+
+                {/* Slight gradient bottom for text legibility */}
+                <div
+                  aria-hidden
+                  className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/30"
+                />
+
+                {/* Format badge */}
+                <span
+                  className={`absolute top-2 left-2 mono text-[10px] font-semibold tracking-[0.05em] ${FORMAT_CLASS[video.format]} bg-black/55 px-1.5 py-0.5 rounded-[1px]`}
+                >
+                  {video.format}
+                </span>
+
+                {/* Top-right: location code */}
+                <span className="absolute top-2 right-2 mono text-[10px] text-white/85 bg-black/55 px-1.5 py-0.5 rounded-[1px]">
+                  {locationCorner(video.location)}
+                </span>
+
+                {/* Bottom-left: status indicator */}
+                {primaryStatus && (
+                  <span
+                    className="absolute bottom-2 left-2 inline-flex items-center gap-1 text-[10px] mono text-white/85 bg-black/55 px-1.5 py-0.5 rounded-[1px]"
+                  >
+                    <span
+                      aria-hidden
+                      className="inline-block w-[5px] h-[5px] rounded-[1px]"
+                      style={{ backgroundColor: STATUS_COLOR[primaryStatus] }}
+                    />
+                    {STATUS_LABEL[primaryStatus]}
+                  </span>
+                )}
+
+                {/* Duration pill */}
+                <span className="absolute bottom-2 right-2 mono text-[10px] text-white bg-black/70 px-1.5 py-0.5 rounded-[1px]">
+                  {formatDuration(video.durationSeconds)}
+                </span>
+
+                {/* Hover play */}
+                <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="w-10 h-10 rounded-full border border-white/40 bg-black/50 inline-flex items-center justify-center">
+                    <Play size={16} strokeWidth={1.5} fill="currentColor" className="text-white ml-0.5" />
+                  </span>
+                </span>
+              </div>
+
+              <div className="p-3">
+                <div className="mono text-[11px] text-text-mute mb-1">
+                  {video.id} · {video.location}
+                </div>
+                <div className="text-[13px] font-medium text-text truncate">
+                  {video.title}
+                </div>
+                <div className="mt-2 flex items-center justify-between text-[11px] text-text-mute">
+                  <span>{video.date}</span>
+                  <span className="inline-flex items-center gap-1 text-text-dim group-hover:text-accent transition-colors">
+                    DVIDS
+                    <ExternalLink size={10} strokeWidth={1.5} />
+                  </span>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+
+      <div className="h-[32px] px-4 flex items-center justify-between border-t border-border text-[11px] text-text-mute">
+        <span>
+          Hosted by DVIDS · Defense Visual Information Distribution Service
+        </span>
+        <a
+          href="https://www.dvidshub.net/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-accent hover:text-text"
+        >
+          DVIDS catalog
+          <ExternalLink size={10} strokeWidth={1.5} />
+        </a>
+      </div>
+    </section>
   );
 }

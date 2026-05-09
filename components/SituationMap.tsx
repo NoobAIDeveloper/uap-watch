@@ -103,25 +103,22 @@ export default function SituationMap() {
   }, [worldGeo, pathGen]);
 
   return (
-    <div className="bg-panel border border-border rounded-sm relative overflow-hidden p-4 min-h-[300px] sm:min-h-[440px]">
-      {/* Header bar */}
-      <div className="flex items-center justify-between gap-3 flex-wrap">
-        <div
-          className="text-text-mute text-[10px] tracking-[0.2em]"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          GEOSPATIAL DISTRIBUTION
-        </div>
+    <div className="bg-panel border border-border rounded-[4px] relative overflow-hidden">
+      {/* Panel header — title + legend + count */}
+      <div className="h-[40px] px-4 flex items-center justify-between gap-3 flex-wrap border-b border-border">
+        <h2 className="text-[14px] font-semibold text-text">
+          Geospatial distribution
+        </h2>
         <div className="flex items-center gap-3 flex-wrap">
           <div className="flex items-center gap-3">
             {STATUS_ORDER.map((s) => (
               <div
                 key={s}
-                className="flex items-center gap-1.5 text-[10px] tracking-[0.18em] text-text-dim"
+                className="flex items-center gap-1.5 text-[11px] text-text-dim"
               >
                 <span
                   aria-hidden
-                  className="inline-block w-1.5 h-1.5 rounded-full"
+                  className="inline-block w-[6px] h-[6px] rounded-[1px]"
                   style={{ backgroundColor: STATUS_COLOR[s] }}
                 />
                 <span>{STATUS_LABEL[s]}</span>
@@ -129,13 +126,13 @@ export default function SituationMap() {
               </div>
             ))}
           </div>
-          <div className="text-[10px] tracking-[0.2em] text-text-dim pl-3 ml-1 border-l border-border">
-            <span className="text-text tnum">{terrestrial.length}</span>{" "}
-            <span className="text-text-mute">INCIDENTS PINNED</span>
+          <div className="text-[11px] text-text-dim pl-3 ml-1 border-l border-border">
+            <span className="text-text tnum mono">{terrestrial.length}</span>{" "}
+            <span className="text-text-mute">incidents pinned</span>
           </div>
         </div>
       </div>
-      <div className="mt-3 border-b border-border" />
+      <div className="p-4">
 
       {/* Map SVG */}
       <div className="relative mt-3">
@@ -369,12 +366,12 @@ export default function SituationMap() {
         lunar={lunar}
       />
 
+      </div>
+
       {/* Footer bar */}
-      <div className="mt-3 pt-3 border-t border-border flex items-center justify-between gap-3 flex-wrap">
-        <div className="text-text-mute text-[10px] tracking-[0.2em]">
-          MAP DATA: NATURAL EARTH // EQUAL EARTH PROJECTION
-        </div>
-        <div className="flex items-center gap-2 text-text-mute text-[10px] tracking-[0.2em]">
+      <div className="h-[32px] px-4 flex items-center justify-between gap-3 flex-wrap border-t border-border text-[11px] text-text-mute">
+        <span>Natural Earth · Equal Earth projection</span>
+        <div className="flex items-center gap-2">
           <svg width={60} height={6} aria-hidden>
             <line
               x1={0.5}
@@ -401,7 +398,7 @@ export default function SituationMap() {
               strokeWidth={1}
             />
           </svg>
-          <span>{"≈"} 2000 KM</span>
+          <span>{"≈"} 2000 km</span>
         </div>
       </div>
     </div>

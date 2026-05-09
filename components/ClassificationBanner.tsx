@@ -1,39 +1,35 @@
-import { Lock } from "lucide-react";
 import ZuluClock from "./ZuluClock";
 
-// Server component — only ZuluClock is interactive and it's already isolated
-// as its own client island. Keeping the banner shell server-rendered avoids
-// pulling Lock + the wrapper into the client bundle.
+// 28px sticky strip. Sentence-case sub, tracking 0.06em (was 0.25em).
+// Solid green dot replaces the blinking pink one. No scanlines.
 export default function ClassificationBanner() {
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-50 h-[30px] bg-black/95 border-b border-border-bright text-[10px] tracking-[0.25em] uppercase backdrop-blur-sm scanlines"
+      className="sticky top-0 z-50 h-[28px] bg-black border-b border-border-bright text-[11px] font-medium tracking-[0.04em] uppercase"
       role="banner"
       aria-label="Classification banner"
     >
-      <div className="flex h-full w-full items-center justify-between gap-3 px-4">
-        {/* Left zone */}
-        <div className="flex items-center gap-1.5 text-text-mute whitespace-nowrap">
-          <Lock size={10} aria-hidden="true" />
-          <span>// PURSUE / TRANCHE 01</span>
+      <div className="flex h-full w-full items-center justify-between gap-4 px-4">
+        <div className="flex items-center gap-2 text-text-mute whitespace-nowrap">
+          <span>PURSUE / Tranche 01</span>
         </div>
 
-        {/* Center zone */}
-        <div className="flex flex-1 items-center justify-center gap-1.5 text-text whitespace-nowrap overflow-hidden">
-          <span>// UNCLASSIFIED // FOR PUBLIC RELEASE //</span>
-          <span className="hidden sm:inline">UAP-WATCH //</span>
-          <span className="hidden sm:inline text-accent">
+        <div className="flex flex-1 items-center justify-center gap-2 text-text-dim whitespace-nowrap overflow-hidden">
+          <span>Unclassified</span>
+          <span className="text-text-mute">//</span>
+          <span>For public release</span>
+          <span className="text-text-mute">//</span>
+          <span className="hidden sm:inline mono text-text-mute normal-case tracking-normal">
             <ZuluClock />
           </span>
-          <span className="hidden sm:inline">//</span>
         </div>
 
-        {/* Right zone */}
-        <div className="flex items-center gap-1.5 text-text-mute whitespace-nowrap">
-          <span className="text-status-resolved blink" aria-hidden="true">
-            ●
-          </span>
-          <span>MIRROR DIST. / OBS-001</span>
+        <div className="flex items-center gap-2 text-text-mute whitespace-nowrap">
+          <span
+            className="inline-block w-[6px] h-[6px] bg-status-corroborated rounded-[1px]"
+            aria-hidden
+          />
+          <span>Mirror live</span>
         </div>
       </div>
     </div>

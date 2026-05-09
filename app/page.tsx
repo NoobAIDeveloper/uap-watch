@@ -6,21 +6,26 @@ import IncidentTable from "@/components/IncidentTable";
 import BelowFoldSections from "@/components/BelowFoldSections";
 import BrowseHub from "@/components/BrowseHub";
 
+// Layout — Foundry middle path.
+//   Hero (kept marketing pitch, but Foundry-disciplined chrome)
+//   StatsStrip (single-panel, 5-cell hairline-divided metric strip)
+//   SituationMap (full-width)
+//   IncidentTable (2/3) + DossierPanel (1/3) — sticky right rail
+//   BelowFoldSections — Photos, Videos, Documents, Lunar, Sources (lazy)
+//   BrowseHub — internal-link tree for SEO crawlers
 export default function Page() {
   return (
-    <div className="mx-auto max-w-[1480px] px-6 pt-16 pb-24">
+    <div className="mx-auto max-w-[1480px] px-6 pt-6 pb-24">
       <HeroHeader />
-      <StatsStrip />
-      <section className="mt-8">
+      <section className="mt-4">
+        <StatsStrip />
+      </section>
+      <section className="mt-4">
         <SituationMap />
       </section>
-      <section className="mt-8 grid grid-cols-12 gap-4">
-        <div className="col-span-12 lg:col-span-7">
-          <IncidentTable />
-        </div>
-        <div className="col-span-12 lg:col-span-5">
-          <DossierPanel />
-        </div>
+      <section className="mt-4 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4">
+        <IncidentTable />
+        <DossierPanel />
       </section>
       {/* Below-fold sections are code-split and lazy-loaded — their data
           (documents.ts ~190KB, videos.ts ~30KB) doesn't block first paint. */}

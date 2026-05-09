@@ -1,105 +1,96 @@
-// Server component — emits the final stat values directly so the LCP-eligible
-// numerals paint immediately from SSR HTML. Previously this was a client
-// component running a requestAnimationFrame count-up, which delayed LCP by
-// hundreds of ms on mobile while motion hydrated. Vibe is preserved via a
-// short CSS keyframe flicker on first paint.
-import { TrendingUp } from "lucide-react";
 import { incidents } from "@/data/incidents";
 
-type StatCard = {
-  label: string;
-  value: string;
-  sub: string;
-  colorVar: string;
-  textClass: string;
-};
+// Foundry-dense single-panel metric strip. 5 cells, hairline-divided.
+// No individual card chrome. No 3px side strips. No decorative icons.
+// Sentence-case labels at 11px, values in Inter 600 at 22px, sub at 11px
+// muted. Tone applied to the value color only — never to a chrome strip.
+//
+// LCP-eligible numerals render directly from SSR HTML (server component);
+// no count-up animation, no opacity:0 mount fade.
 
 const RELEASE_TOTAL_FILES = 162;
 
-const CARDS: StatCard[] = [
+type Tone = "default" | "warn" | "ok" | "muted";
+
+type Metric = {
+  label: string;
+  value: string;
+  sub: string;
+  tone?: Tone;
+};
+
+const METRICS: Metric[] = [
   {
-    label: "TOTAL FILES",
+    label: "Total files",
     value: RELEASE_TOTAL_FILES.toLocaleString(),
-    sub: "ACROSS PURSUE ARCHIVE",
-    colorVar: "var(--color-accent)",
-    textClass: "text-accent",
+    sub: "120 PDF · 28 video · 14 img",
   },
   {
-    label: "UNRESOLVED",
+    label: "Unresolved",
     value: (
       incidents.filter((i) => i.status === "unresolved").length + 47
     ).toLocaleString(),
-    sub: "PENDING DETERMINATION",
-    colorVar: "var(--color-status-unresolved)",
-    textClass: "text-status-unresolved",
+    sub: "Pending determination",
+    tone: "warn",
   },
   {
-    label: "ANOMALOUS",
+    label: "Anomalous",
     value: (
       incidents.filter((i) => i.status === "anomalous").length + 89
     ).toLocaleString(),
-    sub: "FLIGHT BEHAVIOR DEVIATION",
-    colorVar: "var(--color-status-anomalous)",
-    textClass: "text-status-anomalous",
+    sub: "Flight-behavior deviation",
   },
   {
-    label: "CORROBORATED",
+    label: "Corroborated",
     value: (
       incidents.filter((i) => i.status === "corroborated").length + 31
     ).toLocaleString(),
-    sub: "WITNESS-VALIDATED",
-    colorVar: "var(--color-status-corroborated)",
-    textClass: "text-status-corroborated",
+    sub: "Witness validated",
+    tone: "ok",
+  },
+  {
+    label: "Resolved",
+    value: incidents.filter((i) => i.status === "resolved").length.toLocaleString(),
+    sub: "Closed by AARO",
+    tone: "muted",
   },
 ];
 
-function StatCardView({ card }: { card: StatCard }) {
-  return (
-    <div className="bg-panel border border-border rounded-sm relative pl-4 pr-3 py-4 overflow-hidden">
-      <span
-        aria-hidden
-        className="absolute top-0 bottom-0 left-0 w-[3px]"
-        style={{ backgroundColor: card.colorVar }}
-      />
-      {/* Top-right indicator */}
-      <div
-        className="absolute top-3 right-3 flex items-center gap-1"
-        style={{ color: card.colorVar }}
-      >
-        <span
-          aria-hidden
-          className="block w-px h-2"
-          style={{ backgroundColor: card.colorVar }}
-        />
-        <TrendingUp size={10} />
-      </div>
-
-      <div className="text-text-mute text-[10px] tracking-[0.25em]">
-        {card.label}
-      </div>
-
-      <div
-        style={{ fontFamily: "var(--font-display)" }}
-        className={`text-4xl lg:text-5xl font-bold tabular-nums leading-none mt-3 ${card.textClass}`}
-      >
-        {card.value}
-      </div>
-
-      <div className="mt-3 border-t border-border pt-2">
-        <div className="text-text-mute text-[10px] tracking-widest">
-          {card.sub}
-        </div>
-      </div>
-    </div>
-  );
-}
+const toneClass: Record<Tone, string> = {
+  default: "text-text",
+  warn: "text-warn",
+  ok: "text-ok",
+  muted: "text-text-mute",
+};
 
 export default function StatsStrip() {
   return (
-    <div className="mt-6 grid grid-cols-2 lg:grid-cols-4 gap-3">
-      {CARDS.map((card) => (
-        <StatCardView key={card.label} card={card} />
+    <section
+      aria-label="Catalog metrics"
+      className="bg-panel border border-border rounded-[4px] grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
+    >
+      {METRICS.map((m, i) => (
+        <div
+          key={m.label}
+          className={`px-4 py-3.5 ${
+            i < METRICS.length - 1 ? "lg:border-r" : ""
+          } border-r border-b border-border lg:border-b-0 last:border-r-0 [&:nth-child(odd)]:sm:border-r [&:nth-last-child(2)]:sm:border-b-0 [&:nth-last-child(1)]:sm:border-b-0`}
+        >
+          <div className="text-[11px] font-medium leading-none text-text-dim mb-2">
+            {m.label}
+          </div>
+          <div
+            className={`text-[22px] font-semibold leading-none tnum ${
+              toneClass[m.tone ?? "default"]
+            }`}
+          >
+            {m.value}
+          </div>
+          <div className="mt-2 text-[11px] leading-tight text-text-mute">
+            {m.sub}
+          </div>
+        </div>
       ))}
-    </div>
+    </section>
   );
 }

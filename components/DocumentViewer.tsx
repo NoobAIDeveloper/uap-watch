@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Filter, X, Download } from "lucide-react";
+import { Filter, X, Download, ExternalLink } from "lucide-react";
 import { documents } from "@/data/documents";
 import { incidents } from "@/data/incidents";
 import { SOURCE_LABEL } from "@/lib/classifications";
@@ -44,7 +44,6 @@ export default function DocumentViewer() {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Reset active index whenever the visible list changes (filter on/off or change of incident).
   useEffect(() => {
     setActiveIndex(0);
   }, [selectedId]);
@@ -52,35 +51,12 @@ export default function DocumentViewer() {
   const total = documents.length;
   const visibleCount = visibleDocs.length;
   const filterActive = !!selectedIncident;
-  const counterColor = filterActive ? "text-accent" : "text-text-mute";
-
-  // Catalog-truth breakdown so users can reconcile the "162 FILES TOTAL" hero
-  // claim with what's loaded into this viewer. Of the 162 catalog rows in the
-  // Pentagon's PURSUE manifest, 134 are documents (120 PDF rows + 14 IMG rows)
-  // — the remaining 28 are videos rendered in VideoEvidenceGrid. The CSV's
-  // 120 PDF rows resolve to 117 unique URLs (D23 paired across 2 incidents,
-  // D32 across 3); we store those as single entries, so the displayed PDF
-  // count tops out around 117-118 even at full coverage. Counting URLs by
-  // file extension gives a stable per-render breakdown without bolting a
-  // Type field onto every GovDocument entry.
-  const pdfCount = documents.filter((d) =>
-    d.sourceUrl.toLowerCase().endsWith(".pdf"),
-  ).length;
-  const imgCount = documents.filter((d) =>
-    /\.(jpe?g|png|tiff?|gif)$/i.test(d.sourceUrl),
-  ).length;
-  const CANONICAL_PDFS = 120;
-  const CANONICAL_IMGS = 14;
 
   const safeIndex =
     visibleCount === 0 ? 0 : Math.min(activeIndex, visibleCount - 1);
   const doc = visibleCount > 0 ? visibleDocs[safeIndex] : null;
 
-  // Lazy-load extracted PDF transcripts. Synthetic memos (DOC-001..DOC-008)
-  // ship their own bodies; placeholder-stub docs ship a marker that we
-  // detect here and replace with the contents of /extracted/<id>.txt at
-  // runtime. The text files live under /public/extracted/ and are produced
-  // by scripts/index-pdfs.mjs.
+  // Lazy-load extracted PDF transcripts.
   const isStub = !!doc && doc.body.includes("FULL TEXT NOT YET INDEXED");
   const [extractedBody, setExtractedBody] = useState<string | null>(null);
   const [fetchingTranscript, setFetchingTranscript] = useState(false);
@@ -116,78 +92,75 @@ export default function DocumentViewer() {
   const parts = doc ? parseDocumentBody(renderBody) : [];
 
   return (
-    <div className="bg-panel border border-border rounded-sm flex flex-col">
-      {/* Header strip */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-border">
-        <h2
-          className="text-base uppercase tracking-widest text-text"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          DECLASSIFIED DOCUMENT VIEWER
+    <section
+      className="bg-panel border border-border rounded-[4px] flex flex-col"
+      aria-label="Document viewer"
+    >
+      {/* Panel header */}
+      <div className="h-[40px] px-4 flex items-center justify-between border-b border-border">
+        <h2 className="text-[14px] font-semibold text-text">
+          Declassified documents
         </h2>
-        <div
-          className={[
-            "text-[10px] tracking-widest uppercase",
-            counterColor,
-          ].join(" ")}
-        >
+        <span className="text-[11px] font-medium tracking-[0.04em] uppercase text-text-mute">
           {filterActive ? (
-            <>{visibleCount}/{total} INDEXED</>
+            <>
+              <span className="mono tnum normal-case tracking-normal">
+                {visibleCount}
+              </span>{" "}
+              / {total} indexed
+            </>
           ) : (
             <>
-              {pdfCount}/{CANONICAL_PDFS} PDF{" "}
-              <span className="text-text-mute">·</span> {imgCount}/
-              {CANONICAL_IMGS} IMG
+              <span className="mono tnum normal-case tracking-normal">
+                {total}
+              </span>{" "}
+              documents · 113 with full text
             </>
           )}
-        </div>
+        </span>
       </div>
 
-      {/* Filter banner */}
+      {/* Filter banner — only when an incident is selected */}
       {selectedIncident && (
-        <div className="bg-panel-2 border-b border-border-bright px-3 py-2 flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2 text-accent text-[10px] tracking-widest uppercase">
-            <Filter className="w-3 h-3" aria-hidden />
+        <div className="px-3 py-2 flex items-center justify-between gap-2 border-b border-border bg-panel-2">
+          <div className="flex items-center gap-2 text-[12px] text-accent">
+            <Filter size={12} strokeWidth={1.5} />
             <span>
-              FILTERED BY: {selectedIncident.id} //{" "}
-              {selectedIncident.location.toUpperCase()}
+              Filtered to{" "}
+              <span className="mono">{selectedIncident.id}</span>
+              {" — "}
+              {selectedIncident.location}
             </span>
           </div>
           <button
             type="button"
             onClick={() => setSelectedId(null)}
-            className="flex items-center gap-1 text-text-dim hover:text-accent transition-colors text-[10px] tracking-widest uppercase"
+            className="inline-flex items-center gap-1 text-[12px] text-text-dim hover:text-accent"
           >
-            <X className="w-3 h-3" aria-hidden />
-            CLEAR FILTER
+            <X size={12} strokeWidth={1.5} />
+            Clear filter
           </button>
         </div>
       )}
 
-      {/* Body — two-pane. The container has no fixed height; the right
-          pane grows with the document so the page (not the pane) handles
-          scrolling. The left rail is sticky-pinned just below the
-          classification banner and scrolls internally when its list is
-          taller than the viewport. */}
+      {/* Body — two-pane */}
       <div className="flex">
-        {/* Left rail — sticky, scrolls internally for long doc lists */}
+        {/* Left rail */}
         <div
-          className="w-[300px] shrink-0 border-r border-border overflow-y-auto"
+          className="w-[280px] shrink-0 border-r border-border overflow-y-auto"
           style={{
             position: "sticky",
-            top: "40px",
+            top: "76px",
             alignSelf: "flex-start",
-            maxHeight: "calc(100vh - 40px)",
+            maxHeight: "calc(100vh - 76px)",
           }}
         >
           {visibleCount === 0 ? (
             <div className="px-4 py-12 text-center">
-              <div className="text-text-mute text-[10px] tracking-widest uppercase">
-                // NO DOCUMENTS INDEXED FOR THIS INCIDENT
+              <div className="text-[12px] font-medium text-text-dim mb-1">
+                No documents indexed for this incident
               </div>
-              <div className="text-text-mute text-[9px] tracking-widest uppercase mt-2">
-                TRY CLEARING FILTER
-              </div>
+              <div className="text-[11px] text-text-mute">Try clearing the filter.</div>
             </div>
           ) : (
             visibleDocs.map((d, i) => {
@@ -198,34 +171,31 @@ export default function DocumentViewer() {
                   type="button"
                   onClick={() => setActiveIndex(i)}
                   className={[
-                    "w-full text-left border-b border-border hover:bg-panel-2 transition-colors group block",
-                    isActive
-                      ? "bg-panel-2 border-l-2 border-l-accent pl-[10px] pr-3 py-3"
-                      : "border-l-2 border-l-transparent pl-[10px] pr-3 py-3",
+                    "w-full text-left border-b border-border hover:bg-panel-2 transition-colors block px-3 py-2.5",
+                    isActive ? "bg-accent-tint" : "",
                   ].join(" ")}
                 >
                   <div className="flex items-center justify-between gap-2 mb-1">
-                    <span className="text-text-mute text-[10px] tracking-widest uppercase font-mono">
+                    <span className="mono text-[11px] text-text-mute">
                       {d.id}
                     </span>
-                    <span className="bg-bg border border-border px-1.5 py-0.5 text-[9px] tracking-widest uppercase text-text-dim">
+                    <span className="bg-panel border border-border px-1.5 py-0.5 text-[10px] font-medium text-text-dim rounded-[1px]">
                       {SOURCE_LABEL[d.source]}
                     </span>
                   </div>
                   <div
-                    className="text-sm text-text leading-tight uppercase tracking-wide overflow-hidden"
+                    className="text-[13px] text-text leading-tight"
                     style={{
-                      fontFamily: "var(--font-display)",
                       display: "-webkit-box",
                       WebkitLineClamp: 2,
                       WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
                     }}
                   >
                     {d.title}
                   </div>
-                  <div className="text-[10px] text-text-mute mt-1 tracking-widest uppercase font-mono">
-                    {d.date} <span className="text-text-mute">·</span>{" "}
-                    {d.classification}
+                  <div className="mono text-[11px] text-text-mute mt-1">
+                    {d.date} · {d.classification}
                   </div>
                 </button>
               );
@@ -233,8 +203,8 @@ export default function DocumentViewer() {
           )}
         </div>
 
-        {/* Right pane — grows with document; no inner scroll. */}
-        <div className="flex-1 bg-panel-2">
+        {/* Right pane */}
+        <div className="flex-1 bg-panel-2/40 min-w-0">
           <AnimatePresence mode="wait">
             {doc ? (
               <motion.div
@@ -243,78 +213,44 @@ export default function DocumentViewer() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.18 }}
-                className="p-6 max-w-4xl mx-auto relative"
+                className="p-6 max-w-4xl mx-auto"
               >
-                {/* DECLASSIFIED stamp top-right */}
-                <div
-                  className="absolute top-6 right-6 border-dashed border-2 border-status-unresolved text-status-unresolved px-3 py-1.5 tracking-widest text-xl uppercase pointer-events-none select-none"
-                  style={{
-                    transform: "rotate(-12deg)",
-                    opacity: 0.85,
-                    fontFamily: "var(--font-display)",
-                  }}
-                >
-                  <div className="leading-none">DECLASSIFIED</div>
-                  <div className="text-[8px] tracking-[0.2em] mt-1 leading-none">
-                    RELEASE 2026-05-08
-                  </div>
-                </div>
-
                 {/* Header block */}
-                <div className="flex flex-col gap-2 max-w-[70%]">
-                  <div className="flex items-center gap-2">
-                    <span className="bg-bg border border-border px-2 py-0.5 text-[10px] tracking-widest uppercase text-text-dim">
-                      {SOURCE_LABEL[doc.source]}
-                    </span>
-                    <a
-                      href={doc.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-text-dim hover:text-accent transition-colors text-[10px] tracking-widest uppercase"
-                    >
-                      VIEW ON WAR.GOV →
-                    </a>
-                  </div>
-                  <h3
-                    className="text-2xl text-text uppercase tracking-wide leading-tight mt-2"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {doc.title}
-                  </h3>
-                  <div className="text-xs text-text-dim tracking-widest uppercase">
-                    {doc.date} <span className="text-text-mute">·</span>{" "}
-                    {doc.classification}{" "}
-                    <span className="text-text-mute">·</span>{" "}
-                    {doc.pageCount ?? "—"} PAGES
-                  </div>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="bg-panel border border-border px-2 py-0.5 text-[11px] font-medium text-text-dim rounded-[2px]">
+                    {SOURCE_LABEL[doc.source]}
+                  </span>
+                  <span className="mono text-[11px] text-text-mute">
+                    {doc.id}
+                  </span>
+                  <span className="text-text-mute">·</span>
+                  <span className="mono text-[11px] text-text-mute">
+                    {doc.classification}
+                  </span>
+                </div>
+                <h3 className="text-[20px] font-semibold text-text leading-tight tracking-[-0.005em] mb-2">
+                  {doc.title}
+                </h3>
+                <div className="text-[12px] text-text-dim mb-5">
+                  <span className="mono">{doc.date}</span>
+                  <span className="text-text-mute mx-2">·</span>
+                  {doc.pageCount ?? "—"} pages
                 </div>
 
-                {/* Hairline divider */}
-                <div className="border-t border-border my-4" />
+                <div className="border-t border-border mb-5" />
 
-                {/* Transcript-fetch indicator: only visible while we're
-                    pulling the extracted text for a stub doc. Once the
-                    text lands, it swaps into the body block below. */}
                 {isStub && fetchingTranscript && (
-                  <div className="text-text-mute text-[10px] tracking-widest uppercase mt-2 mb-1 font-mono">
-                    // FETCHING TRANSCRIPT… //
+                  <div className="text-[11px] font-medium tracking-[0.04em] uppercase text-text-mute mb-3">
+                    Fetching transcript…
                   </div>
                 )}
 
-                {/* Synthetic memo body */}
-                <div
-                  className="bg-panel-2/40 border border-border-bright p-6 my-4 overflow-hidden"
-                  style={{
-                    backgroundImage:
-                      "repeating-linear-gradient(0deg, transparent 0, transparent 2px, rgba(255,255,255,0.015) 2px, rgba(255,255,255,0.015) 3px)",
-                  }}
-                >
-                  <div className="font-mono text-[13px] leading-relaxed text-text whitespace-pre-wrap">
+                {/* Document body */}
+                <div className="bg-bg border border-border-bright rounded-[2px] p-5 my-2 overflow-hidden">
+                  <div className="mono text-[12.5px] leading-[1.6] text-text-dim whitespace-pre-wrap">
                     {parts.map((p, i) =>
                       p.type === "text" ? (
-                        <span key={i} className="whitespace-pre-wrap">
-                          {p.value}
-                        </span>
+                        <span key={i}>{p.value}</span>
                       ) : (
                         <RedactionBar key={i} reason={p.value} />
                       ),
@@ -322,44 +258,43 @@ export default function DocumentViewer() {
                   </div>
                 </div>
 
-                {/* Embedded PDF if available */}
                 {doc.localPath && (
                   <div className="mt-6">
-                    <div className="text-text-mute text-[10px] tracking-widest uppercase mb-2">
-                      // EMBEDDED ORIGINAL //
+                    <div className="text-[11px] font-medium tracking-[0.04em] uppercase text-text-mute mb-2">
+                      Embedded original
                     </div>
                     <iframe
                       src={`${doc.localPath}#toolbar=0&navpanes=0`}
                       title={doc.title}
-                      className="w-full h-[600px] border border-border bg-bg"
+                      className="w-full h-[600px] border border-border bg-bg rounded-[2px]"
                     />
                   </div>
                 )}
 
-                {/* Footer button row */}
-                <div className="mt-4 flex items-center justify-between gap-3 border-t border-border pt-3 text-[10px] tracking-widest uppercase">
-                  <div className="text-text-mute font-mono">
-                    {doc.id} <span className="text-text-mute">//</span> PAGE 1
-                    OF {doc.pageCount ?? 1}
-                  </div>
+                {/* Footer */}
+                <div className="mt-5 pt-4 border-t border-border flex items-center justify-between gap-3 text-[12px]">
+                  <span className="mono text-text-mute">
+                    {doc.id} · Page 1 of {doc.pageCount ?? 1}
+                  </span>
                   <div className="flex items-center gap-3">
                     {doc.localPath && (
                       <a
                         href={doc.localPath}
                         download
-                        className="flex items-center gap-1 text-text-dim hover:text-accent transition-colors"
+                        className="inline-flex items-center gap-1 text-text-dim hover:text-accent"
                       >
-                        DOWNLOAD ORIGINAL
-                        <Download className="w-3 h-3" aria-hidden />
+                        Download
+                        <Download size={11} strokeWidth={1.5} />
                       </a>
                     )}
                     <a
                       href={doc.sourceUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-text-dim hover:text-accent transition-colors"
+                      className="inline-flex items-center gap-1 text-accent hover:text-text"
                     >
-                      VIEW ON WAR.GOV →
+                      View on war.gov
+                      <ExternalLink size={11} strokeWidth={1.5} />
                     </a>
                   </div>
                 </div>
@@ -373,17 +308,17 @@ export default function DocumentViewer() {
                 transition={{ duration: 0.18 }}
                 className="h-full flex flex-col items-center justify-center px-6 py-16 text-center"
               >
-                <div className="text-text-mute text-xs tracking-widest uppercase">
-                  // SELECT AN INCIDENT WITH INDEXED DOCUMENTS //
+                <div className="text-[14px] font-medium text-text-dim mb-1">
+                  No documents linked
                 </div>
-                <div className="text-text-mute text-[10px] tracking-widest uppercase mt-2">
-                  NO DOCUMENTS LINKED TO {selectedIncident?.id ?? "CURRENT FILTER"}
+                <div className="text-[12px] text-text-mute">
+                  Select an incident with indexed documents.
                 </div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

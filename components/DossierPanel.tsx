@@ -2,209 +2,168 @@
 
 import { useMemo } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Crosshair } from "lucide-react";
+import { Crosshair, ExternalLink, X } from "lucide-react";
 import { incidents } from "@/data/incidents";
 import type { Incident } from "@/lib/types";
-import { STATUS_COLOR, STATUS_LABEL, SOURCE_LABEL } from "@/lib/classifications";
-import { useSelectedId } from "@/lib/store";
+import { STATUS_COLOR, STATUS_LABEL, STATUS_TAG_CLASS, SOURCE_LABEL } from "@/lib/classifications";
+import { useSelectedId, setSelectedId } from "@/lib/store";
 
-function BracketCorner({
-  position,
-}: {
-  position: "tl" | "tr" | "bl" | "br";
-}) {
-  const base =
-    "pointer-events-none absolute text-accent w-2 h-2";
-  const placement = {
-    tl: "top-1.5 left-1.5",
-    tr: "top-1.5 right-1.5",
-    bl: "bottom-1.5 left-1.5",
-    br: "bottom-1.5 right-1.5",
-  }[position];
-
-  // Build the L-shape via two divs
-  const horizontal: Record<typeof position, string> = {
-    tl: "top-0 left-0 w-2 h-px bg-accent",
-    tr: "top-0 right-0 w-2 h-px bg-accent",
-    bl: "bottom-0 left-0 w-2 h-px bg-accent",
-    br: "bottom-0 right-0 w-2 h-px bg-accent",
-  };
-  const vertical: Record<typeof position, string> = {
-    tl: "top-0 left-0 w-px h-2 bg-accent",
-    tr: "top-0 right-0 w-px h-2 bg-accent",
-    bl: "bottom-0 left-0 w-px h-2 bg-accent",
-    br: "bottom-0 right-0 w-px h-2 bg-accent",
-  };
+// Right-rail dossier drawer. Always present in the layout (sticky), but
+// shows the "no incident selected" state when nothing is selected. Width
+// is now 1/3 of the table+dossier row (was 380px fixed, ~26% — too narrow
+// per user feedback).
+//
+// No bracket-corner decorations. No bg-bg classification strip header
+// (that's chrome theatrics). Title + status tag in the header, metadata
+// grid, summary/details/quote/source body.
+export default function DossierPanel() {
+  const selectedId = useSelectedId();
+  const incident = useMemo<Incident | undefined>(
+    () => incidents.find((i) => i.id === selectedId),
+    [selectedId],
+  );
 
   return (
-    <span className={`${base} ${placement}`} aria-hidden>
-      <span className={`absolute ${horizontal[position]}`} />
-      <span className={`absolute ${vertical[position]}`} />
-    </span>
+    <div className="bg-panel border border-border rounded-[4px] h-[640px] flex flex-col">
+      {/* Header */}
+      <div className="h-[40px] px-4 flex items-center justify-between border-b border-border">
+        <h2 className="text-[14px] font-semibold text-text">Dossier</h2>
+        {incident && (
+          <button
+            type="button"
+            onClick={() => setSelectedId(null)}
+            className="w-7 h-7 inline-flex items-center justify-center rounded-[2px] text-text-dim hover:text-text hover:bg-[rgba(143,153,168,0.12)]"
+            aria-label="Close dossier"
+          >
+            <X size={14} strokeWidth={1.5} />
+          </button>
+        )}
+      </div>
+
+      {!incident ? (
+        <div className="flex-1 flex items-center justify-center p-6">
+          <div className="text-center">
+            <Crosshair
+              size={28}
+              strokeWidth={1.5}
+              className="text-text-mute mx-auto mb-3"
+            />
+            <div className="text-[14px] font-medium text-text-dim mb-1">
+              No incident selected
+            </div>
+            <div className="text-[12px] text-text-mute">
+              Select a pin or row to load the dossier.
+            </div>
+          </div>
+        </div>
+      ) : (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={incident.id}
+            initial={{ opacity: 0, x: 8 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="flex-1 overflow-y-auto p-4"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <span className="mono text-[18px] font-semibold text-text">
+                {incident.id}
+              </span>
+              <span
+                className={`inline-flex items-center gap-1.5 h-5 px-2 rounded-[2px] text-[11px] font-medium ${STATUS_TAG_CLASS[incident.status]}`}
+              >
+                <span
+                  aria-hidden
+                  className="inline-block w-[6px] h-[6px] rounded-[1px]"
+                  style={{ backgroundColor: STATUS_COLOR[incident.status] }}
+                />
+                {STATUS_LABEL[incident.status]}
+              </span>
+            </div>
+
+            {/* Metadata grid — 2x2 with a single hairline grid */}
+            <div className="grid grid-cols-2 gap-px bg-border border border-border mb-4">
+              <Cell label="Date" value={incident.dateLabel} mono />
+              <Cell label="Location" value={incident.location} />
+              <Cell label="Region" value={incident.region} />
+              <Cell
+                label="Witnesses"
+                value={
+                  incident.witnessCount === "REDACTED" ? (
+                    <span className="inline-block w-16 h-3 bg-black/85 align-middle rounded-[1px]" />
+                  ) : (
+                    incident.witnessCount
+                  )
+                }
+                mono
+              />
+            </div>
+
+            <SectionLabel>Summary</SectionLabel>
+            <p className="text-[13px] text-text-dim leading-relaxed mb-4">
+              {incident.summary}
+            </p>
+
+            <SectionLabel>Details</SectionLabel>
+            <p className="text-[13px] text-text-dim leading-relaxed mb-4">
+              {incident.details}
+            </p>
+
+            {incident.keyQuote ? (
+              <>
+                <SectionLabel>Cited</SectionLabel>
+                <blockquote className="border-l-2 border-accent pl-3 py-1 mb-4 italic text-[14px] text-text leading-snug">
+                  {incident.keyQuote}
+                </blockquote>
+              </>
+            ) : null}
+
+            {/* Source */}
+            <div className="pt-3 border-t border-border flex items-center justify-between gap-3">
+              <span className="inline-flex items-center h-5 px-2 bg-[rgba(95,107,124,0.18)] rounded-[2px] text-[11px] font-medium text-text-dim">
+                {SOURCE_LABEL[incident.source]}
+              </span>
+              <a
+                href={incident.documentUrl ?? "https://www.war.gov/UFO/"}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 text-[12px] text-accent hover:text-text"
+              >
+                View source
+                <ExternalLink size={11} strokeWidth={1.5} />
+              </a>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      )}
+    </div>
   );
 }
 
-function MetaCell({ label, children }: { label: string; children: React.ReactNode }) {
+function Cell({
+  label,
+  value,
+  mono,
+}: {
+  label: string;
+  value: React.ReactNode;
+  mono?: boolean;
+}) {
   return (
-    <div className="border border-border p-2">
-      <div className="text-text-mute text-[9px] tracking-widest uppercase">
-        {label}
-      </div>
-      <div className="text-text text-xs mt-1 font-mono break-words">
-        {children}
+    <div className="bg-panel p-2.5">
+      <div className="text-[11px] font-medium text-text-dim mb-1">{label}</div>
+      <div className={`text-[13px] text-text ${mono ? "mono tnum" : ""}`}>
+        {value}
       </div>
     </div>
   );
 }
 
-function StatusBadge({ incident }: { incident: Incident }) {
+function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 px-2 py-1 border border-border rounded-sm">
-      <span
-        aria-hidden
-        className="inline-block"
-        style={{
-          width: "8px",
-          height: "8px",
-          backgroundColor: STATUS_COLOR[incident.status],
-        }}
-      />
-      <span className="uppercase tracking-widest text-[10px] text-text">
-        {STATUS_LABEL[incident.status]}
-      </span>
-    </span>
-  );
-}
-
-export default function DossierPanel() {
-  const selectedId = useSelectedId();
-  const incident = useMemo<Incident | undefined>(
-    () => incidents.find((i) => i.id === selectedId),
-    [selectedId]
-  );
-
-  return (
-    <div className="bg-panel border border-border rounded-sm overflow-hidden h-[640px] flex flex-col relative">
-      {!incident ? (
-        <div className="flex-1 flex items-center justify-center p-6">
-          <div className="border border-dashed border-border rounded-sm w-[70%] py-10 px-6 flex flex-col items-center text-center gap-3">
-            <Crosshair size={24} className="text-text-mute" />
-            <div
-              className="text-text-dim uppercase tracking-widest text-base"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              NO INCIDENT SELECTED
-            </div>
-            <div className="text-text-mute text-[10px] tracking-widest uppercase">
-              SELECT A PIN OR ROW TO LOAD DOSSIER
-            </div>
-          </div>
-        </div>
-      ) : (
-        <>
-          {/* Bracket corners */}
-          <BracketCorner position="tl" />
-          <BracketCorner position="tr" />
-          <BracketCorner position="bl" />
-          <BracketCorner position="br" />
-
-          {/* Top classification strip */}
-          <div className="bg-bg border-b border-border-bright px-3 py-1.5">
-            <span className="text-[10px] tracking-[0.2em] text-accent">
-              {`// ${incident.classification} // ${incident.id} // ${SOURCE_LABEL[incident.source]} //`}
-            </span>
-          </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={incident.id}
-              initial={{ opacity: 0, x: 12 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 12 }}
-              transition={{ duration: 0.25 }}
-              className="flex-1 overflow-y-auto p-4 space-y-4"
-            >
-              {/* Header line */}
-              <div className="flex items-center justify-between gap-3">
-                <h3
-                  className="text-text uppercase"
-                  style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", lineHeight: 1.1 }}
-                >
-                  {incident.id}
-                </h3>
-                <StatusBadge incident={incident} />
-              </div>
-
-              {/* Metadata grid */}
-              <div className="grid grid-cols-2 gap-2">
-                <MetaCell label="DATE">{incident.dateLabel}</MetaCell>
-                <MetaCell label="LOCATION">{incident.location}</MetaCell>
-                <MetaCell label="REGION">{incident.region}</MetaCell>
-                <MetaCell label="WITNESSES">
-                  {incident.witnessCount === "REDACTED" ? (
-                    <span
-                      aria-label="REDACTED"
-                      className="inline-block h-3 w-20 bg-black/80 align-middle"
-                    />
-                  ) : (
-                    incident.witnessCount
-                  )}
-                </MetaCell>
-              </div>
-
-              {/* SUMMARY */}
-              <div>
-                <div className="text-text-mute tracking-widest text-[10px] uppercase mb-1">
-                  // SUMMARY //
-                </div>
-                <p className="text-text text-sm leading-relaxed">
-                  {incident.summary}
-                </p>
-              </div>
-
-              {/* DETAILS */}
-              <div>
-                <div className="text-text-mute tracking-widest text-[10px] uppercase mb-1">
-                  // DETAILS //
-                </div>
-                <p className="text-text text-sm leading-relaxed">
-                  {incident.details}
-                </p>
-              </div>
-
-              {/* keyQuote */}
-              {incident.keyQuote ? (
-                <div>
-                  <div className="text-text-mute tracking-widest text-[10px] uppercase mb-1">
-                    // CITED //
-                  </div>
-                  <blockquote
-                    className="border-l-2 border-accent pl-3 py-1 italic text-text text-base"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {incident.keyQuote}
-                  </blockquote>
-                </div>
-              ) : null}
-
-              {/* Source link */}
-              <div className="pt-2 border-t border-border flex items-center justify-between gap-3">
-                <span className="inline-flex items-center gap-2 px-2 py-1 border border-border rounded-sm text-[10px] tracking-widest text-text-dim uppercase">
-                  {SOURCE_LABEL[incident.source]}
-                </span>
-                <a
-                  href={incident.documentUrl ?? "https://www.war.gov/UFO/"}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-accent hover:underline tracking-widest text-[10px] uppercase"
-                >
-                  VIEW SOURCE →
-                </a>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </>
-      )}
+    <div className="text-[11px] font-medium tracking-[0.04em] uppercase text-text-mute mb-1.5">
+      {children}
     </div>
   );
 }

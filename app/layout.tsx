@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Space_Mono } from "next/font/google";
+import { Inter, IBM_Plex_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import ClassificationBanner from "@/components/ClassificationBanner";
+import AppBar from "@/components/AppBar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import {
@@ -14,16 +15,17 @@ import {
   datasetJsonLd,
 } from "@/lib/seo";
 
-const jetbrains = JetBrains_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-mono",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans-inter",
   display: "swap",
 });
 
-const spaceMono = Space_Mono({
-  weight: ["400", "700"],
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-display",
+  weight: ["400", "500"],
+  variable: "--font-mono-plex",
   display: "swap",
 });
 
@@ -64,10 +66,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${jetbrains.variable} ${spaceMono.variable}`}>
-      <body className="grain bg-bg text-text antialiased">
+    <html lang="en" className={`${inter.variable} ${plexMono.variable}`}>
+      <body className="bg-bg text-text antialiased">
         <JsonLd data={[organizationJsonLd(), websiteJsonLd(), datasetJsonLd()]} />
         <ClassificationBanner />
+        <AppBar />
         <main className="min-h-screen">{children}</main>
         <Footer />
         <Analytics />

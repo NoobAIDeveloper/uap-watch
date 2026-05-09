@@ -4,13 +4,23 @@ import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { incidents } from "@/data/incidents";
 import type { Incident, SourceAgency } from "@/lib/types";
-import { X } from "lucide-react";
-import { STATUS_COLOR, STATUS_LABEL, SOURCE_LABEL } from "@/lib/classifications";
+import { Search, X } from "lucide-react";
+import { STATUS_COLOR, STATUS_LABEL, STATUS_TAG_CLASS, SOURCE_LABEL } from "@/lib/classifications";
 import { useSelectedId, setSelectedId } from "@/lib/store";
 
 type Filter = "ALL" | SourceAgency;
 
 const FILTER_ORDER: Filter[] = ["ALL", "FBI", "DOD", "NASA", "STATE", "USAF", "USN"];
+
+const FILTER_LABEL: Record<Filter, string> = {
+  ALL: "All",
+  FBI: "FBI",
+  DOD: "DOD",
+  NASA: "NASA",
+  STATE: "State",
+  USAF: "USAF",
+  USN: "USN",
+};
 
 const PLACEHOLDER_SOURCES: SourceAgency[] = ["FBI", "DOD", "STATE", "DOD", "FBI"];
 
@@ -66,87 +76,97 @@ export default function IncidentTable() {
   };
 
   return (
-    <div className="bg-panel border border-border rounded-sm flex flex-col h-[640px]">
-      {/* Top header strip */}
-      <div className="flex items-center justify-between px-4 py-3">
-        <h2
-          className="text-base text-text uppercase tracking-widest"
-          style={{ fontFamily: "var(--font-display)" }}
-        >
-          INCIDENT REGISTER
+    <div className="bg-panel border border-border rounded-[4px] flex flex-col h-[640px]">
+      {/* Panel header — title + meta on the right */}
+      <div className="h-[40px] px-4 flex items-center justify-between border-b border-border">
+        <h2 className="text-[14px] font-semibold text-text">
+          Incident register
         </h2>
-        <span className="text-text-mute text-[10px] tracking-widest">
-          REGISTRY UPDATED 2026-05-08 16:42:00Z
+        <span className="text-[11px] font-medium tracking-[0.04em] uppercase text-text-mute">
+          Updated <span className="mono normal-case tracking-normal">2026-05-08 16:42:00Z</span>
         </span>
       </div>
-      <div className="border-b border-border" />
 
-      {/* Filter strip */}
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2">
+      {/* Toolbar — chip filters + search */}
+      <div className="px-4 py-2.5 flex items-center gap-3 flex-wrap border-b border-border">
         <div className="flex items-center gap-1 flex-wrap">
           {FILTER_ORDER.map((f) => {
             const count = counts[f];
             if (count === 0 && f !== "ALL") return null;
             const active = filter === f;
-            const label = f === "ALL" ? "ALL" : SOURCE_LABEL[f];
             return (
               <button
                 key={f}
                 type="button"
                 onClick={() => setFilter(f)}
                 className={[
-                  "text-[10px] tracking-[0.2em] uppercase px-2 py-1 transition-colors",
+                  "h-6 px-2.5 inline-flex items-center gap-1.5 rounded-[2px] text-[12px] font-medium transition-colors",
                   active
-                    ? "text-accent border-b border-accent"
-                    : "text-text-dim hover:text-text border-b border-transparent",
+                    ? "bg-accent-fill text-white"
+                    : "bg-panel-2 text-text-dim hover:bg-[rgba(143,153,168,0.16)] hover:text-text",
                 ].join(" ")}
               >
-                {label} ({count})
+                <span>{FILTER_LABEL[f]}</span>
+                <span
+                  className={`tnum ${active ? "text-white/70" : "text-text-mute"}`}
+                >
+                  {count}
+                </span>
               </button>
             );
           })}
         </div>
-        <div className="ml-auto flex items-center gap-3 flex-1 min-w-[160px] justify-end">
+        <div className="ml-auto flex items-center gap-2">
           {selectedId && (
             <button
               type="button"
               onClick={() => setSelectedId(null)}
-              className="flex items-center gap-1 text-accent hover:text-text border border-accent/60 hover:border-accent px-2 py-1 rounded-sm text-[10px] tracking-widest uppercase transition-colors"
+              className="h-[26px] px-2 inline-flex items-center gap-1 text-[12px] text-accent hover:text-text border border-[rgba(76,144,240,0.5)] hover:border-accent rounded-[2px]"
             >
-              <X className="w-3 h-3" aria-hidden />
-              CLEAR FILTER
+              <X size={12} strokeWidth={1.5} />
+              Clear filter
             </button>
           )}
-          <div className="flex-1 max-w-[320px]">
+          <div className="relative">
+            <Search
+              size={12}
+              strokeWidth={1.5}
+              className="absolute left-2 top-1/2 -translate-y-1/2 text-text-mute pointer-events-none"
+            />
             <input
-              type="text"
+              type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="// QUERY //"
-              className="w-full bg-transparent text-xs text-text placeholder:text-text-mute font-mono py-1 border-b border-border focus:border-accent outline-none transition-colors"
-              style={{ fontFamily: "var(--font-mono)" }}
+              placeholder="Filter by ID, location, quote…"
+              className="h-[26px] w-[220px] pl-7 pr-2 bg-panel border border-border-bright rounded-[2px] text-[12px] text-text placeholder:text-text-mute focus:outline-2 focus:outline-[rgba(76,144,240,0.5)] focus:border-accent"
             />
           </div>
         </div>
       </div>
-      <div className="border-b border-border" />
 
-      {/* Table — flex-1 + overflow-auto so the rows scroll while the
-          header strip + filter strip stay pinned at the top of the panel.
-          Sticky <thead> keeps column labels visible during scroll. */}
+      {/* Table — flex-1 + overflow-auto so rows scroll while header stays pinned */}
       <div className="flex-1 overflow-auto">
-        <table
-          className="w-full border-collapse"
-          style={{ minWidth: "640px" }}
-        >
-          <thead className="sticky top-0 bg-panel z-10">
-            <tr className="text-text-mute text-[10px] tracking-[0.2em] uppercase border-b border-border">
-              <th className="text-left font-normal py-2 px-3" style={{ width: "110px" }}>ID</th>
-              <th className="text-left font-normal py-2 px-3" style={{ width: "90px" }}>DATE</th>
-              <th className="text-left font-normal py-2 px-3">LOCATION</th>
-              <th className="text-left font-normal py-2 px-3" style={{ width: "90px" }}>SOURCE</th>
-              <th className="text-left font-normal py-2 px-3" style={{ width: "160px" }}>CLASSIFICATION</th>
-              <th className="text-left font-normal py-2 px-3" style={{ width: "120px" }}>STATUS</th>
+        <table className="w-full border-collapse" style={{ minWidth: "640px" }}>
+          <thead className="sticky top-0 bg-panel-2 z-10">
+            <tr className="text-text-dim text-[12px] font-medium">
+              <th className="text-left px-3 py-0 h-[32px] border-b border-border" style={{ width: "120px" }}>
+                Id
+              </th>
+              <th className="text-left px-3 py-0 h-[32px] border-b border-border" style={{ width: "100px" }}>
+                Date
+              </th>
+              <th className="text-left px-3 py-0 h-[32px] border-b border-border">
+                Location
+              </th>
+              <th className="text-left px-3 py-0 h-[32px] border-b border-border" style={{ width: "80px" }}>
+                Source
+              </th>
+              <th className="text-left px-3 py-0 h-[32px] border-b border-border" style={{ width: "150px" }}>
+                Class.
+              </th>
+              <th className="text-left px-3 py-0 h-[32px] border-b border-border" style={{ width: "130px" }}>
+                Status
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -163,8 +183,8 @@ export default function IncidentTable() {
 
             {visible.length === 0 ? (
               <tr>
-                <td colSpan={6} className="text-center text-text-mute py-12 tracking-widest">
-                  // NO MATCHES //
+                <td colSpan={6} className="text-center text-text-mute py-12 text-[13px]">
+                  No matches.
                 </td>
               </tr>
             ) : (
@@ -178,34 +198,36 @@ export default function IncidentTable() {
                     transition={{ duration: 0.18 }}
                     onClick={() => handleRowClick(incident)}
                     className={[
-                      "text-xs text-text cursor-pointer border-b border-border transition-colors",
-                      selected
-                        ? "bg-accent/10 border-l-2 border-l-accent"
-                        : "hover:bg-panel-2 border-l-2 border-l-transparent",
+                      "text-[13px] cursor-pointer transition-colors",
+                      selected ? "bg-accent-tint" : "hover:bg-panel-2",
                     ].join(" ")}
                     style={{ height: "36px" }}
                   >
-                    <td className="px-3 py-1 font-mono tabular-nums">{incident.id}</td>
-                    <td className="px-3 py-1 tabular-nums">{incident.dateLabel}</td>
-                    <td className="px-3 py-1">{incident.location}</td>
-                    <td className="px-3 py-1">{SOURCE_LABEL[incident.source]}</td>
-                    <td className="px-3 py-1 font-mono text-text-dim">
+                    <td className="px-3 mono text-[12px] text-text-dim border-b border-border">
+                      {incident.id}
+                    </td>
+                    <td className="px-3 mono text-[12px] text-text-dim border-b border-border">
+                      {incident.dateLabel}
+                    </td>
+                    <td className="px-3 text-text border-b border-border">
+                      {incident.location}
+                    </td>
+                    <td className="px-3 text-text-dim border-b border-border">
+                      {SOURCE_LABEL[incident.source]}
+                    </td>
+                    <td className="px-3 mono text-[11px] text-text-dim border-b border-border">
                       {incident.classification}
                     </td>
-                    <td className="px-3 py-1">
-                      <span className="inline-flex items-center gap-2">
+                    <td className="px-3 border-b border-border">
+                      <span
+                        className={`inline-flex items-center gap-1.5 h-5 px-2 rounded-[2px] text-[11px] font-medium ${STATUS_TAG_CLASS[incident.status]}`}
+                      >
                         <span
                           aria-hidden
-                          className="inline-block"
-                          style={{
-                            width: "8px",
-                            height: "8px",
-                            backgroundColor: STATUS_COLOR[incident.status],
-                          }}
+                          className="inline-block w-[6px] h-[6px] rounded-[1px]"
+                          style={{ backgroundColor: STATUS_COLOR[incident.status] }}
                         />
-                        <span className="uppercase tracking-widest text-[10px]">
-                          {STATUS_LABEL[incident.status]}
-                        </span>
+                        {STATUS_LABEL[incident.status]}
                       </span>
                     </td>
                   </motion.tr>
@@ -214,29 +236,38 @@ export default function IncidentTable() {
             )}
 
             {/* Tranche divider */}
-            <tr className="bg-panel-2/40">
+            <tr className="bg-bg">
               <td
                 colSpan={6}
-                className="text-center text-text-mute text-[10px] tracking-widest py-2"
+                className="text-center text-text-mute text-[11px] font-medium tracking-[0.06em] uppercase py-2 border-b border-border"
               >
-                // TRANCHE 02 — PENDING DECLASSIFICATION REVIEW //
+                Tranche 02 · pending declassification review
               </td>
             </tr>
 
-            {/* Ghost / placeholder rows */}
             {GHOST_ROWS.map((g) => (
               <tr
                 key={g.id}
-                className="text-xs text-text-mute italic border-b border-border"
-                style={{ height: "36px" }}
+                className="text-[13px]"
+                style={{ height: "36px", opacity: 0.45 }}
               >
-                <td className="px-3 py-1 font-mono">{g.id}</td>
-                <td className="px-3 py-1">PENDING</td>
-                <td className="px-3 py-1">[[CLASSIFIED]]</td>
-                <td className="px-3 py-1">{g.source}</td>
-                <td className="px-3 py-1 font-mono">REDACTED</td>
-                <td className="px-3 py-1 tracking-widest text-[10px]">
-                  [[QUEUED]]
+                <td className="px-3 mono text-[12px] text-text-mute border-b border-border">
+                  {g.id}
+                </td>
+                <td className="px-3 mono text-[12px] text-text-mute border-b border-border">
+                  Pending
+                </td>
+                <td className="px-3 text-text-mute border-b border-border">
+                  [[Classified]]
+                </td>
+                <td className="px-3 text-text-mute border-b border-border">
+                  {g.source}
+                </td>
+                <td className="px-3 mono text-[11px] text-text-mute border-b border-border">
+                  Redacted
+                </td>
+                <td className="px-3 text-text-mute border-b border-border">
+                  [[Queued]]
                 </td>
               </tr>
             ))}

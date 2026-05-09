@@ -1,0 +1,2458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1440, initial-scale=1" />
+    <title>UAP.WATCH — Dashboard Redesign Mockup (Foundry middle path)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* =====================================================================
+       *  Tokens — Blueprint dark theme
+       * ===================================================================== */
+      :root {
+        --bg: #111418;
+        --panel: #1c2127;
+        --panel-2: #252a31;
+        --border: #2f343c;
+        --border-bright: #404854;
+        --text: #f6f7f9;
+        --text-dim: #abb3bf;
+        --text-mute: #5f6b7c;
+        --accent: #4c90f0;
+        --accent-fill: #2d72d2;
+        --accent-tint: rgba(45, 114, 210, 0.15);
+        --ok: #238551;
+        --warn: #ec9a3c;
+        --viz-violet: #9881f3;
+        --viz-rose: #db2c6f;
+        --viz-turq: #00b3a4;
+        --danger: #cd4246;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+        font-size: 14px;
+        line-height: 1.286;
+        font-feature-settings: "ss01", "cv11";
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button {
+        background: transparent;
+        border: 0;
+        font: inherit;
+        color: inherit;
+        cursor: pointer;
+      }
+      ::selection {
+        background: var(--accent-fill);
+        color: #fff;
+      }
+
+      .mono {
+        font-family: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+      }
+      .tnum {
+        font-variant-numeric: tabular-nums;
+      }
+      .caps {
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--text-dim);
+      }
+
+      /* =====================================================================
+       *  Reusable chrome
+       * ===================================================================== */
+      .panel {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+      }
+      .panel-header {
+        height: 40px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-bottom: 1px solid var(--border);
+      }
+      .panel-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .panel-actions {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: var(--text-dim);
+      }
+      .icon-btn {
+        width: 28px;
+        height: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+        color: var(--text-dim);
+        transition: background-color 120ms;
+      }
+      .icon-btn:hover {
+        background: rgba(143, 153, 168, 0.12);
+        color: var(--text);
+      }
+      .panel-body {
+        padding: 16px;
+      }
+      .panel-body.flush {
+        padding: 0;
+      }
+      .panel-footer {
+        height: 32px;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-top: 1px solid var(--border);
+        font-size: 11px;
+        color: var(--text-mute);
+      }
+
+      /* Tag / status pill */
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        height: 20px;
+        padding: 0 8px;
+        border-radius: 2px;
+        font-size: 11px;
+        font-weight: 500;
+        background: rgba(143, 153, 168, 0.12);
+        color: var(--text-dim);
+      }
+      .tag .dot {
+        width: 6px;
+        height: 6px;
+        background: var(--text-dim);
+        border-radius: 1px;
+      }
+      .tag.ok {
+        background: rgba(35, 133, 81, 0.15);
+        color: #6fb38b;
+      }
+      .tag.ok .dot {
+        background: var(--ok);
+      }
+      .tag.warn {
+        background: rgba(236, 154, 60, 0.15);
+        color: #d49152;
+      }
+      .tag.warn .dot {
+        background: var(--warn);
+      }
+      .tag.viz {
+        background: rgba(152, 129, 243, 0.15);
+        color: #b1a0f0;
+      }
+      .tag.viz .dot {
+        background: var(--viz-violet);
+      }
+      .tag.muted {
+        background: rgba(95, 107, 124, 0.18);
+        color: var(--text-dim);
+      }
+      .tag.muted .dot {
+        background: var(--text-mute);
+      }
+      .tag.danger {
+        background: rgba(205, 66, 70, 0.18);
+        color: #de7173;
+      }
+      .tag.danger .dot {
+        background: var(--danger);
+      }
+      .tag.solid-secret {
+        background: var(--danger);
+        color: #fff;
+        font-family: "IBM Plex Mono", monospace;
+        letter-spacing: 0.04em;
+      }
+
+      /* Filter chip */
+      .chip {
+        height: 24px;
+        padding: 0 10px;
+        border-radius: 2px;
+        background: var(--panel-2);
+        color: var(--text-dim);
+        font-size: 12px;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid transparent;
+      }
+      .chip:hover {
+        background: rgba(143, 153, 168, 0.16);
+        color: var(--text);
+      }
+      .chip.active {
+        background: var(--accent-fill);
+        color: #fff;
+      }
+      .chip.active .count {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .chip .count {
+        color: var(--text-mute);
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Button */
+      .btn {
+        height: 30px;
+        padding: 0 12px;
+        border-radius: 2px;
+        font-size: 13px;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--text-dim);
+      }
+      .btn:hover {
+        background: rgba(143, 153, 168, 0.12);
+        color: var(--text);
+      }
+      .btn.outlined {
+        border: 1px solid var(--border-bright);
+      }
+      .btn.outlined:hover {
+        background: rgba(143, 153, 168, 0.08);
+      }
+      .btn.primary {
+        background: var(--accent-fill);
+        color: #fff;
+      }
+      .btn.primary:hover {
+        background: #215db0;
+      }
+
+      /* Input */
+      .input {
+        height: 30px;
+        padding: 0 10px 0 32px;
+        border-radius: 2px;
+        background: var(--panel);
+        border: 1px solid var(--border-bright);
+        font-size: 13px;
+        color: var(--text);
+        width: 280px;
+        position: relative;
+      }
+      .input::placeholder {
+        color: var(--text-mute);
+      }
+      .input:focus {
+        outline: 2px solid rgba(76, 144, 240, 0.5);
+        outline-offset: 0;
+        border-color: var(--accent);
+      }
+      .input-wrap {
+        position: relative;
+        display: inline-block;
+      }
+      .input-wrap svg {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-mute);
+      }
+
+      .hairline-b {
+        border-bottom: 1px solid var(--border);
+      }
+      .hairline-t {
+        border-top: 1px solid var(--border);
+      }
+
+      /* =====================================================================
+       *  1. Classification banner — 28px, sticky
+       * ===================================================================== */
+      .banner {
+        height: 28px;
+        background: #000;
+        border-bottom: 1px solid var(--border-bright);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 0 16px;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-mute);
+        font-weight: 500;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .banner .center {
+        flex: 1;
+        text-align: center;
+        color: var(--text-dim);
+      }
+      .banner .right {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .banner .live-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 1px;
+        background: var(--ok);
+      }
+
+      /* =====================================================================
+       *  2. App bar — 48px, sticky below banner
+       * ===================================================================== */
+      .appbar {
+        height: 48px;
+        background: var(--panel);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 28px;
+        z-index: 40;
+      }
+      .appbar-inner {
+        max-width: 1440px;
+        margin: 0 auto;
+        height: 100%;
+        padding: 0 16px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--text);
+      }
+      .brand-glyph {
+        width: 18px;
+        height: 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--accent-fill);
+        border-radius: 2px;
+        color: #fff;
+      }
+      .brand .domain {
+        color: var(--text-mute);
+        font-weight: 400;
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        margin-left: 8px;
+      }
+      .nav a {
+        height: 32px;
+        padding: 0 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 13px;
+        color: var(--text-dim);
+        border-radius: 2px;
+      }
+      .nav a:hover {
+        background: rgba(143, 153, 168, 0.1);
+        color: var(--text);
+      }
+      .nav a.active {
+        color: var(--text);
+        background: rgba(76, 144, 240, 0.12);
+      }
+      .nav .caret {
+        opacity: 0.6;
+      }
+      .appbar .right {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* =====================================================================
+       *  3. Hero (cleaned, marketing-y but Foundry-disciplined)
+       * ===================================================================== */
+      .hero {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 32px 16px 24px;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 32px;
+        border-bottom: 1px solid var(--border);
+      }
+      .hero-eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: var(--accent);
+        margin-bottom: 12px;
+      }
+      .hero h1 {
+        font-size: 36px;
+        line-height: 1.05;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--text);
+        margin-bottom: 12px;
+      }
+      .hero h1 .punct {
+        color: var(--accent);
+      }
+      .hero p {
+        font-size: 15px;
+        line-height: 1.55;
+        color: var(--text-dim);
+        max-width: 56ch;
+        margin-bottom: 16px;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 8px;
+      }
+      .hero-meta {
+        align-self: end;
+      }
+      .release-card {
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        background: var(--panel);
+      }
+      .release-card .h {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+      }
+      .release-card .h .title {
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .release-card .h .sub {
+        font-size: 11px;
+        color: var(--text-mute);
+      }
+      .release-card .body {
+        padding: 8px 0;
+      }
+      .release-row {
+        display: grid;
+        grid-template-columns: 100px 1fr auto;
+        align-items: center;
+        gap: 12px;
+        padding: 6px 14px;
+        font-size: 13px;
+      }
+      .release-row .k {
+        color: var(--text-mute);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      .release-row .v {
+        color: var(--text);
+      }
+      .release-row .v .mono {
+        color: var(--text-dim);
+        font-size: 12px;
+      }
+
+      /* =====================================================================
+       *  4. Stats strip — Foundry-dense, hairline-divided cells
+       * ===================================================================== */
+      .stats {
+        max-width: 1440px;
+        margin: 16px auto 0;
+        padding: 0 16px;
+      }
+      .stats-strip {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .stats-cell {
+        padding: 14px 16px;
+        border-right: 1px solid var(--border);
+      }
+      .stats-cell:last-child {
+        border-right: 0;
+      }
+      .stats-cell .label {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--text-dim);
+        margin-bottom: 8px;
+        letter-spacing: 0.02em;
+      }
+      .stats-cell .value {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1;
+        color: var(--text);
+        font-variant-numeric: tabular-nums;
+      }
+      .stats-cell .sub {
+        margin-top: 8px;
+        font-size: 11px;
+        color: var(--text-mute);
+      }
+      .stats-cell.warn .value {
+        color: var(--warn);
+      }
+      .stats-cell.ok .value {
+        color: var(--ok);
+      }
+
+      /* =====================================================================
+       *  Page wrap (everything below stats)
+       * ===================================================================== */
+      .main {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 16px 16px 64px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      /* =====================================================================
+       *  5. Map — full-width with lunar inset
+       * ===================================================================== */
+      .map-panel .panel-body {
+        padding: 0;
+        position: relative;
+      }
+      .map-canvas {
+        height: 480px;
+        background: radial-gradient(
+            1200px 800px at 50% 60%,
+            #1a2030 0%,
+            #14181f 50%,
+            #0f1216 100%
+          ),
+          var(--panel);
+        position: relative;
+        overflow: hidden;
+      }
+      /* Hatched continent silhouette to suggest a basemap without faking real geography */
+      .map-canvas::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(transparent 49.5%, rgba(64, 72, 84, 0.18) 49.5% 50%, transparent 50%),
+          linear-gradient(90deg, transparent 49.5%, rgba(64, 72, 84, 0.18) 49.5% 50%, transparent 50%);
+        background-size: 80px 80px;
+        opacity: 0.5;
+      }
+      .map-svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .map-marker-ring {
+        fill: none;
+        stroke-width: 1.2;
+      }
+      .map-marker-dot {
+        stroke: var(--bg);
+        stroke-width: 1;
+      }
+      .map-legend {
+        position: absolute;
+        left: 16px;
+        bottom: 16px;
+        background: rgba(28, 33, 39, 0.9);
+        border: 1px solid var(--border);
+        padding: 8px 12px;
+        font-size: 11px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      .map-legend .item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--text-dim);
+      }
+      .map-legend .swatch {
+        width: 8px;
+        height: 8px;
+        border-radius: 1px;
+      }
+      .map-scale {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        font-size: 11px;
+        color: var(--text-mute);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .map-scale-bar {
+        width: 80px;
+        height: 6px;
+        border-left: 1px solid var(--text-mute);
+        border-right: 1px solid var(--text-mute);
+        border-bottom: 1px solid var(--text-mute);
+      }
+      .lunar-inset {
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        width: 200px;
+        height: 130px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .lunar-inset .h {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        color: var(--text-dim);
+      }
+      .lunar-inset .moon {
+        flex: 1;
+        position: relative;
+        background: radial-gradient(
+          circle at 35% 35%,
+          #4a5260 0%,
+          #2a2f37 50%,
+          #1a1d22 90%
+        );
+        border: 1px solid var(--border-bright);
+        border-radius: 50%;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+      }
+      .lunar-inset .moon::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 25% 70%, rgba(0, 0, 0, 0.35) 0 6px, transparent 8px),
+          radial-gradient(circle at 70% 35%, rgba(0, 0, 0, 0.4) 0 5px, transparent 7px),
+          radial-gradient(circle at 60% 75%, rgba(0, 0, 0, 0.25) 0 3px, transparent 5px);
+      }
+      .lunar-inset .pin {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--viz-violet);
+        border-radius: 1px;
+        box-shadow: 0 0 0 1px var(--bg);
+      }
+
+      /* =====================================================================
+       *  6. Incident table — full-width below map
+       * ===================================================================== */
+      .table-panel .panel-body {
+        padding: 0;
+      }
+      .table-toolbar {
+        padding: 10px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        border-bottom: 1px solid var(--border);
+      }
+      .chip-group {
+        display: flex;
+        gap: 4px;
+        flex-wrap: wrap;
+      }
+      .table-toolbar .right {
+        margin-left: auto;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+      table.incidents {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+      }
+      table.incidents thead {
+        background: var(--panel-2);
+      }
+      table.incidents th {
+        height: 32px;
+        padding: 0 12px;
+        text-align: left;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-dim);
+        border-bottom: 1px solid var(--border);
+      }
+      table.incidents th.right,
+      table.incidents td.right {
+        text-align: right;
+      }
+      table.incidents td {
+        height: 36px;
+        padding: 0 12px;
+        border-bottom: 1px solid var(--border);
+        color: var(--text);
+        white-space: nowrap;
+      }
+      table.incidents tr:hover td {
+        background: var(--panel-2);
+      }
+      table.incidents tr.selected td {
+        background: var(--accent-tint);
+      }
+      table.incidents td.id {
+        color: var(--text-dim);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 12px;
+      }
+      table.incidents td.dim {
+        color: var(--text-dim);
+      }
+      table.incidents td.location {
+        color: var(--text);
+      }
+      table.incidents td.classification {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 11px;
+        color: var(--text-dim);
+      }
+      .tranche-divider {
+        background: var(--bg) !important;
+      }
+      .tranche-divider td {
+        height: 28px;
+        text-align: center;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-mute);
+        background: var(--bg);
+      }
+      .ghost td {
+        opacity: 0.45;
+        color: var(--text-mute);
+      }
+
+      /* =====================================================================
+       *  7. Dossier drawer — right-rail, shown open in this mockup
+       * ===================================================================== */
+      .table-and-dossier {
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 16px;
+      }
+      .dossier-drawer {
+        align-self: start;
+        position: sticky;
+        top: 96px;
+      }
+      .dossier-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        background: var(--border);
+        border: 1px solid var(--border);
+      }
+      .dossier-meta .cell {
+        background: var(--panel);
+        padding: 8px 10px;
+      }
+      .dossier-meta .k {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--text-dim);
+        margin-bottom: 4px;
+      }
+      .dossier-meta .v {
+        font-size: 13px;
+        color: var(--text);
+      }
+      .section-label {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--text-dim);
+        margin: 16px 0 6px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .section-body {
+        font-size: 13px;
+        line-height: 1.55;
+        color: var(--text-dim);
+      }
+      .quote {
+        margin-top: 16px;
+        padding: 8px 12px;
+        border-left: 2px solid var(--accent);
+        background: rgba(76, 144, 240, 0.05);
+        font-size: 14px;
+        color: var(--text);
+        font-style: italic;
+        line-height: 1.5;
+      }
+      .dossier-source {
+        margin-top: 16px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* =====================================================================
+       *  8. Photo gallery — NEW
+       * ===================================================================== */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 8px;
+        padding: 12px;
+      }
+      .photo-tile {
+        position: relative;
+        aspect-ratio: 4 / 3;
+        background: var(--panel-2);
+        border: 1px solid var(--border);
+        overflow: hidden;
+      }
+      .photo-tile:hover {
+        border-color: var(--accent);
+      }
+      .photo-tile .img {
+        position: absolute;
+        inset: 0;
+      }
+      /* Fake photographic content via layered gradients — gives each tile a
+         distinct character without bundling real images. In production these
+         become <img> tags pointing at NASA / FBI / DoD assets we already
+         host in public/files/. */
+      .img.lunar {
+        background:
+          radial-gradient(circle at 60% 35%, #c2bdb3 0 12%, #a4988b 14%, #5d544a 35%, #2a2620 70%, #0f0d0a 100%);
+      }
+      .img.lunar.alt {
+        background:
+          radial-gradient(circle at 40% 55%, #d6cdc0 0 18%, #a59885 22%, #5b524a 50%, #1a1714 100%);
+      }
+      .img.fbi {
+        background:
+          linear-gradient(180deg, #232020 0%, #100e0d 100%),
+          repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 3px);
+        position: relative;
+      }
+      .img.fbi::after {
+        content: "";
+        position: absolute;
+        inset: 25% 35% 35% 25%;
+        background: radial-gradient(ellipse at center, #d4d4d4 0 18%, #777 30%, #2a2a2a 80%, transparent 100%);
+        filter: blur(0.4px);
+      }
+      .img.dod-bronze {
+        background:
+          radial-gradient(ellipse at 50% 55%, #ddc093 0 14%, #b6864c 25%, #4a3826 55%, #181210 100%);
+      }
+      .img.helo-fir {
+        background:
+          linear-gradient(180deg, #1a1a1a 0%, #0c0c0c 100%);
+        position: relative;
+      }
+      .img.helo-fir::after {
+        content: "";
+        position: absolute;
+        inset: 30% 30% 30% 30%;
+        background: radial-gradient(ellipse at center, #b8b8b8 0 25%, #666 50%, transparent 80%);
+        filter: blur(0.6px);
+      }
+      .img.orb {
+        background:
+          radial-gradient(ellipse at 45% 45%, #ffb46a 0 6%, #c46f1c 14%, #3b1d09 38%, #0f0a07 100%);
+      }
+      .img.cylinder {
+        background:
+          linear-gradient(120deg, #1a1f25 0%, #2a3038 50%, #1a1f25 100%);
+        position: relative;
+      }
+      .img.cylinder::after {
+        content: "";
+        position: absolute;
+        left: 22%;
+        right: 22%;
+        top: 45%;
+        height: 8%;
+        background: linear-gradient(90deg, #4a5060, #98a4b6 30% 70%, #4a5060);
+        border-radius: 50%;
+      }
+      .img.terrain {
+        background:
+          linear-gradient(180deg, #2c2924 0%, #1a1813 60%, #0c0b09 100%);
+      }
+      .img.terrain::after {
+        content: "";
+        position: absolute;
+        left: 10%;
+        right: 10%;
+        top: 30%;
+        bottom: 30%;
+        background: radial-gradient(ellipse at 30% 70%, rgba(255,255,255,0.08), transparent 60%);
+      }
+      .img.atfltir {
+        background: #050505;
+        position: relative;
+      }
+      .img.atfltir::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(transparent 49.5%, rgba(255, 255, 255, 0.04) 49.5% 50%, transparent 50%),
+          linear-gradient(90deg, transparent 49.5%, rgba(255, 255, 255, 0.04) 49.5% 50%, transparent 50%);
+        background-size: 20px 20px;
+      }
+      .img.atfltir::after {
+        content: "";
+        position: absolute;
+        left: 48%;
+        top: 46%;
+        width: 8px;
+        height: 12px;
+        background: #fff;
+        border-radius: 2px;
+        box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.45);
+      }
+
+      .photo-meta {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 6px 8px;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+        font-size: 11px;
+        line-height: 1.3;
+      }
+      .photo-meta .pid {
+        color: var(--text-dim);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 10px;
+      }
+      .photo-meta .pl {
+        color: var(--text);
+        margin-top: 1px;
+      }
+      .photo-corner {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        font-size: 10px;
+        font-family: "IBM Plex Mono", monospace;
+        color: rgba(255, 255, 255, 0.85);
+        background: rgba(0, 0, 0, 0.55);
+        padding: 1px 5px;
+        border-radius: 1px;
+        letter-spacing: 0.04em;
+      }
+      .photo-tag-source {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+      }
+
+      /* =====================================================================
+       *  9. Video grid — real-thumbnail style
+       * ===================================================================== */
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        padding: 12px;
+      }
+      .video-tile {
+        background: var(--panel-2);
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      .video-tile:hover {
+        border-color: var(--accent);
+      }
+      .video-thumb {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        background: #000;
+        overflow: hidden;
+      }
+      /* Each video thumb is a styled simulation of FLIR/EO sensor footage:
+         grid overlay + a UAP shape + telemetry corners. In production the
+         <img src> here points at the DVIDS API thumbnail for each clip. */
+      .vt-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(transparent 49.5%, rgba(255, 255, 255, 0.05) 49.5% 50%, transparent 50%),
+          linear-gradient(90deg, transparent 49.5%, rgba(255, 255, 255, 0.05) 49.5% 50%, transparent 50%);
+        background-size: 32px 32px;
+      }
+      .vt-bg-ir {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse at 50% 70%, #2a2a2a 0%, #0f0f0f 70%);
+      }
+      .vt-bg-eo {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, #1a1820 0%, #2c2a30 60%, #0f0e12 100%);
+      }
+      .vt-bg-thermal {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse at 35% 30%, #3a1f0a 0%, #170a04 70%);
+      }
+      .vt-uap {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 0 18px 6px rgba(255, 255, 255, 0.4);
+      }
+      .vt-uap.cold {
+        background: #2a2a2a;
+        box-shadow: 0 0 0 1px #fff;
+      }
+      .vt-uap.tic-tac {
+        width: 24px;
+        height: 10px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 0 14px 3px rgba(255, 255, 255, 0.35);
+      }
+      .vt-uap.football {
+        width: 18px;
+        height: 12px;
+        border-radius: 50%;
+        background: #ddd;
+        transform: rotate(-12deg);
+      }
+      .vt-uap.orange {
+        background: #ffb46a;
+        box-shadow: 0 0 18px 8px rgba(255, 142, 36, 0.5);
+      }
+      .vt-uap.triangle {
+        width: 0;
+        height: 0;
+        background: transparent;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 14px solid #cdd6e3;
+        box-shadow: none;
+      }
+      .vt-crosshair {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px;
+        height: 60px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+      }
+      .vt-crosshair::before,
+      .vt-crosshair::after {
+        content: "";
+        position: absolute;
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .vt-crosshair::before {
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 1px;
+      }
+      .vt-crosshair::after {
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 1px;
+      }
+      .vt-corner {
+        position: absolute;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 9px;
+        color: rgba(255, 255, 255, 0.65);
+        letter-spacing: 0.04em;
+      }
+      .vt-corner.tl {
+        top: 6px;
+        left: 8px;
+      }
+      .vt-corner.tr {
+        top: 6px;
+        right: 8px;
+      }
+      .vt-corner.bl {
+        bottom: 6px;
+        left: 8px;
+      }
+      .vt-corner.br {
+        bottom: 6px;
+        right: 8px;
+      }
+      .vt-format {
+        position: absolute;
+        top: 6px;
+        left: 8px;
+        font-size: 10px;
+        font-weight: 600;
+        font-family: "IBM Plex Mono", monospace;
+        color: var(--accent);
+        letter-spacing: 0.05em;
+      }
+      .vt-duration {
+        position: absolute;
+        bottom: 6px;
+        right: 8px;
+        background: rgba(0, 0, 0, 0.7);
+        padding: 1px 6px;
+        font-size: 11px;
+        font-family: "IBM Plex Mono", monospace;
+        color: #fff;
+        border-radius: 2px;
+      }
+      .vt-play {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 36px;
+        height: 36px;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 120ms;
+      }
+      .video-tile:hover .vt-play {
+        opacity: 1;
+      }
+      .vt-meta {
+        padding: 10px 12px;
+      }
+      .vt-meta .vid {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 11px;
+        color: var(--text-mute);
+      }
+      .vt-meta .vt-title {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text);
+        margin-top: 2px;
+        margin-bottom: 6px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .vt-meta .vt-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--text-mute);
+      }
+
+      /* =====================================================================
+       *  10. Document viewer (two-pane)
+       * ===================================================================== */
+      .docviewer {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        height: 480px;
+      }
+      .doc-list {
+        border-right: 1px solid var(--border);
+        overflow-y: auto;
+      }
+      .doc-list .row {
+        padding: 8px 12px;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+      }
+      .doc-list .row:hover {
+        background: var(--panel-2);
+      }
+      .doc-list .row.active {
+        background: var(--accent-tint);
+      }
+      .doc-list .row .id {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 11px;
+        color: var(--text-mute);
+      }
+      .doc-list .row .title {
+        font-size: 13px;
+        color: var(--text);
+        margin-top: 2px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .doc-content {
+        padding: 16px 20px;
+        overflow-y: auto;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 12.5px;
+        line-height: 1.6;
+        color: var(--text-dim);
+        white-space: pre-wrap;
+      }
+      .redact {
+        display: inline-block;
+        height: 14px;
+        background: #000;
+        vertical-align: text-bottom;
+        border-radius: 1px;
+        margin: 0 1px;
+      }
+
+      /* =====================================================================
+       *  11. Source breakdown
+       * ===================================================================== */
+      .source-bar {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px 16px;
+        font-size: 13px;
+      }
+      .source-bar .label {
+        width: 80px;
+        font-size: 12px;
+        color: var(--text-dim);
+        font-weight: 500;
+      }
+      .source-bar .track {
+        flex: 1;
+        height: 6px;
+        background: var(--panel-2);
+        border-radius: 1px;
+        overflow: hidden;
+      }
+      .source-bar .fill {
+        height: 100%;
+        background: var(--accent);
+      }
+      .source-bar .num {
+        width: 36px;
+        text-align: right;
+        color: var(--text);
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* =====================================================================
+       *  12. Footer
+       * ===================================================================== */
+      .footer {
+        margin-top: 32px;
+        padding: 32px 16px 24px;
+        border-top: 1px solid var(--border);
+        max-width: 1440px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 32px;
+      }
+      .footer h4 {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--text-dim);
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .footer .links a {
+        display: block;
+        font-size: 13px;
+        color: var(--text-dim);
+        padding: 4px 0;
+      }
+      .footer .links a:hover {
+        color: var(--accent);
+      }
+      .footer .disclaimer {
+        font-size: 12px;
+        line-height: 1.55;
+        color: var(--text-mute);
+      }
+      .footer-bottom {
+        margin-top: 24px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: var(--text-mute);
+      }
+
+      /* Annotations — only visible in this mockup, not production */
+      .anno {
+        max-width: 1440px;
+        margin: 24px auto 0;
+        padding: 0 16px;
+        color: var(--text-mute);
+        font-size: 12px;
+        font-style: italic;
+      }
+      .anno strong {
+        color: var(--accent);
+        font-weight: 500;
+        font-style: normal;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =================================================================
+       1. Classification banner — 28px sticky strip
+     ================================================================= -->
+    <div class="banner">
+      <span>PURSUE / Tranche 01</span>
+      <span class="center">Unclassified // For Public Release // UAP.WATCH // 14:42:08Z</span>
+      <span class="right"><span class="live-dot"></span> Mirror live</span>
+    </div>
+
+    <!-- =================================================================
+       2. App bar — 48px Foundry-style nav
+     ================================================================= -->
+    <div class="appbar">
+      <div class="appbar-inner">
+        <a class="brand" href="#">
+          <span class="brand-glyph" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M2 5 L5 1 L8 5 L5 9 Z" fill="currentColor" />
+            </svg>
+          </span>
+          uap<span class="domain">.watch</span>
+        </a>
+
+        <nav class="nav">
+          <a class="active" href="#"
+            >Dashboard
+            <svg
+              class="caret"
+              width="10"
+              height="10"
+              viewBox="0 0 10 10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <path d="M2.5 4 L5 6.5 L7.5 4" />
+            </svg>
+          </a>
+          <a href="#">Map</a>
+          <a href="#">Documents</a>
+          <a href="#">Photos</a>
+          <a href="#">Videos</a>
+          <a href="#">Compare</a>
+          <a href="#">Wiki</a>
+        </nav>
+
+        <div class="right">
+          <span class="input-wrap">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="7" cy="7" r="4.5" />
+              <path d="M11 11 L14 14" />
+            </svg>
+            <input class="input" placeholder="Search incidents, documents, videos…" />
+          </span>
+          <button class="btn outlined">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 5 L8 11 L13 5" />
+            </svg>
+            Source
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================================================================
+       3. Hero — kept marketing pitch, but disciplined
+     ================================================================= -->
+    <header class="hero">
+      <div>
+        <div class="hero-eyebrow">Presidential Unsealing &amp; Reporting System for UAP Encounters</div>
+        <h1>
+          Browse the Pentagon's<br />declassified UAP file release<span class="punct">.</span>
+        </h1>
+        <p>
+          Independent visualization layer for the U.S. Department of War's PURSUE
+          program — Tranche 01, released 2026-05-08. 162 files, 26 indexed
+          incidents, full-text PDFs, and DVIDS-hosted video evidence.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#">
+            View source on war.gov
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M3 9 L9 3 M5 3 L9 3 L9 7" />
+            </svg>
+          </a>
+          <a class="btn outlined" href="#">About this mirror</a>
+          <a class="btn" href="#">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 8 L8 2 L14 8 M4 8 L4 14 L12 14 L12 8" />
+            </svg>
+            Read the case study
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-meta">
+        <div class="release-card">
+          <div class="h">
+            <span class="title">Release 01 manifest</span>
+            <span class="sub mono">PURSUE-2026-05-08</span>
+          </div>
+          <div class="body">
+            <div class="release-row">
+              <span class="k">Released</span>
+              <span class="v"
+                >May 8, 2026 <span class="mono">· 13:00Z</span></span
+              >
+              <span class="tag muted"><span class="dot"></span>Live</span>
+            </div>
+            <div class="release-row">
+              <span class="k">Files</span>
+              <span class="v">162 total</span>
+              <span class="mono" style="color: var(--text-mute); font-size: 12px"
+                >120 PDF · 28 video · 14 img</span
+              >
+            </div>
+            <div class="release-row">
+              <span class="k">Agencies</span>
+              <span class="v">FBI · DOD · NASA · State · USAF · USN</span>
+              <span></span>
+            </div>
+            <div class="release-row">
+              <span class="k">Last update</span>
+              <span class="v"
+                >May 9, 2026 <span class="mono">· r2.36 deploy</span></span
+              >
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- =================================================================
+       4. Stats strip — Foundry-dense, single panel, 5 cells
+     ================================================================= -->
+    <section class="stats">
+      <div class="stats-strip">
+        <div class="stats-cell">
+          <div class="label">Total files</div>
+          <div class="value">162</div>
+          <div class="sub">120 PDF · 28 video · 14 img</div>
+        </div>
+        <div class="stats-cell warn">
+          <div class="label">Unresolved</div>
+          <div class="value">55</div>
+          <div class="sub">Pending determination</div>
+        </div>
+        <div class="stats-cell">
+          <div class="label">Anomalous</div>
+          <div class="value">101</div>
+          <div class="sub">Flight-behavior deviation</div>
+        </div>
+        <div class="stats-cell ok">
+          <div class="label">Corroborated</div>
+          <div class="value">36</div>
+          <div class="sub">Witness validated</div>
+        </div>
+        <div class="stats-cell">
+          <div class="label">Resolved</div>
+          <div class="value" style="color: var(--text-mute)">1</div>
+          <div class="sub">Closed by AARO</div>
+        </div>
+      </div>
+    </section>
+
+    <main class="main">
+      <!-- =================================================================
+           5. Situation map — full-width
+         ================================================================= -->
+      <section class="panel map-panel">
+        <div class="panel-header">
+          <span class="panel-title">Geospatial distribution</span>
+          <div class="panel-actions">
+            <span class="caps" style="margin-right: 8px"
+              >26 incidents · <span class="tnum mono">2026-05-08</span></span
+            >
+            <button class="icon-btn" title="Filter">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 4 L14 4 M4 8 L12 8 M6 12 L10 12" />
+              </svg>
+            </button>
+            <button class="icon-btn" title="Settings">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="8" cy="8" r="2.5" />
+                <path d="M8 1 L8 3 M8 13 L8 15 M1 8 L3 8 M13 8 L15 8 M3 3 L4.5 4.5 M11.5 11.5 L13 13 M3 13 L4.5 11.5 M11.5 4.5 L13 3" />
+              </svg>
+            </button>
+            <button class="icon-btn" title="Expand">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M2 6 L2 2 L6 2 M14 10 L14 14 L10 14 M2 10 L2 14 L6 14 M14 6 L14 2 L10 2" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="panel-body flush">
+          <div class="map-canvas">
+            <!-- Decorative SVG marker overlay (positions are illustrative, not real coords) -->
+            <svg class="map-svg" viewBox="0 0 1200 480" preserveAspectRatio="none">
+              <!-- Terminator dashed line -->
+              <line
+                x1="0"
+                x2="1200"
+                y1="240"
+                y2="240"
+                stroke="#404854"
+                stroke-width="0.5"
+                stroke-dasharray="2 4"
+                opacity="0.5"
+              />
+
+              <!-- Markers -->
+              <!-- Roswell, NM -->
+              <g transform="translate(280,240)">
+                <circle class="map-marker-ring" r="9" stroke="#238551" />
+                <circle class="map-marker-dot" r="3" fill="#238551" />
+              </g>
+              <!-- Idaho -->
+              <g transform="translate(255,205)">
+                <circle class="map-marker-ring" r="9" stroke="#238551" />
+                <circle class="map-marker-dot" r="3" fill="#238551" />
+              </g>
+              <!-- Wright Field, OH -->
+              <g transform="translate(355,210)">
+                <circle class="map-marker-ring" r="9" stroke="#238551" />
+                <circle class="map-marker-dot" r="3" fill="#238551" />
+              </g>
+              <!-- Western US (Eye of Sauron) -->
+              <g transform="translate(238,230)">
+                <circle class="map-marker-ring" r="11" stroke="#9881F3" />
+                <circle class="map-marker-dot" r="3.5" fill="#9881F3" />
+              </g>
+              <!-- Atlantic / GOFAST -->
+              <g transform="translate(420,260)">
+                <circle class="map-marker-ring" r="9" stroke="#ABB3BF" />
+                <circle class="map-marker-dot" r="3" fill="#ABB3BF" />
+              </g>
+              <!-- Iraq MISREP -->
+              <g transform="translate(710,260)">
+                <circle class="map-marker-ring" r="9" stroke="#EC9A3C" />
+                <circle class="map-marker-dot" r="3" fill="#EC9A3C" />
+              </g>
+              <!-- Greece IR -->
+              <g transform="translate(660,235)">
+                <circle class="map-marker-ring" r="9" stroke="#9881F3" />
+                <circle class="map-marker-dot" r="3" fill="#9881F3" />
+              </g>
+              <!-- Mediterranean Triangle -->
+              <g transform="translate(640,250)">
+                <circle class="map-marker-ring" r="9" stroke="#EC9A3C" />
+                <circle class="map-marker-dot" r="3" fill="#EC9A3C" />
+              </g>
+              <!-- UAE -->
+              <g transform="translate(750,275)">
+                <circle class="map-marker-ring" r="9" stroke="#EC9A3C" />
+                <circle class="map-marker-dot" r="3" fill="#EC9A3C" />
+              </g>
+              <!-- Indo-Pacific -->
+              <g transform="translate(900,280)">
+                <circle class="map-marker-ring" r="9" stroke="#9881F3" />
+                <circle class="map-marker-dot" r="3" fill="#9881F3" />
+              </g>
+              <!-- Japan -->
+              <g transform="translate(960,225)">
+                <circle class="map-marker-ring" r="9" stroke="#9881F3" />
+                <circle class="map-marker-dot" r="3" fill="#9881F3" />
+              </g>
+              <!-- Tajikistan PanAm -->
+              <g transform="translate(770,220)">
+                <circle class="map-marker-ring" r="11" stroke="#EC9A3C" />
+                <circle class="map-marker-dot" r="3.5" fill="#EC9A3C" />
+                <!-- Selected ring -->
+                <circle r="16" fill="none" stroke="#4C90F0" stroke-width="1.2" />
+              </g>
+            </svg>
+
+            <!-- Lunar inset -->
+            <div class="lunar-inset">
+              <div class="h">
+                <span style="font-weight: 500">Lunar · 2 pins</span>
+                <span style="color: var(--text-mute)">Detail ›</span>
+              </div>
+              <div style="position: relative; flex: 1">
+                <div class="moon"></div>
+                <span class="pin" style="left: 38%; top: 48%"></span>
+                <span class="pin" style="left: 60%; top: 32%"></span>
+              </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="map-legend">
+              <span class="item"><span class="swatch" style="background: var(--ok)"></span>Corroborated · 5</span>
+              <span class="item"><span class="swatch" style="background: var(--warn)"></span>Unresolved · 8</span>
+              <span class="item"><span class="swatch" style="background: var(--viz-violet)"></span>Anomalous · 12</span>
+              <span class="item"><span class="swatch" style="background: var(--text-dim)"></span>Resolved · 1</span>
+            </div>
+
+            <!-- Scale -->
+            <div class="map-scale">
+              <span class="map-scale-bar"></span>
+              <span>≈ 2000 km</span>
+            </div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <span>Natural Earth · Equal Earth projection</span>
+          <span><span class="mono tnum">26</span> markers · last sync 14:42:08Z</span>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           6. Incident table + 7. Dossier drawer (right rail open)
+         ================================================================= -->
+      <section class="table-and-dossier">
+        <div class="panel table-panel">
+          <div class="panel-header">
+            <span class="panel-title">Incident register</span>
+            <div class="panel-actions">
+              <span class="caps">Updated <span class="mono">2026-05-08 16:42:00Z</span></span>
+              <button class="icon-btn" title="Density">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M2 4 L14 4 M2 8 L14 8 M2 12 L14 12" />
+                </svg>
+              </button>
+              <button class="icon-btn" title="Export">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M8 2 L8 11 M5 8 L8 11 L11 8 M3 13 L13 13" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="table-toolbar">
+            <div class="chip-group">
+              <button class="chip active">All <span class="count">26</span></button>
+              <button class="chip">FBI <span class="count">6</span></button>
+              <button class="chip">DOD <span class="count">9</span></button>
+              <button class="chip">NASA <span class="count">2</span></button>
+              <button class="chip">State <span class="count">2</span></button>
+              <button class="chip">USAF <span class="count">4</span></button>
+              <button class="chip">USN <span class="count">3</span></button>
+            </div>
+            <div class="right">
+              <span class="input-wrap">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="7" cy="7" r="4.5" />
+                  <path d="M11 11 L14 14" />
+                </svg>
+                <input class="input" style="width: 240px" placeholder="Filter by ID, location, quote…" />
+              </span>
+            </div>
+          </div>
+
+          <table class="incidents">
+            <thead>
+              <tr>
+                <th style="width: 110px">Id</th>
+                <th style="width: 110px">Date</th>
+                <th>Location</th>
+                <th style="width: 80px">Source</th>
+                <th style="width: 160px">Classification</th>
+                <th style="width: 130px">Status</th>
+                <th style="width: 80px" class="right">Witnesses</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="id">PURSUE-001</td>
+                <td class="dim mono">1947-07-08</td>
+                <td class="location">Roswell, New Mexico</td>
+                <td class="dim">FBI</td>
+                <td class="classification">DECL</td>
+                <td><span class="tag ok"><span class="dot"></span>Corroborated</span></td>
+                <td class="dim mono right">REDACTED</td>
+              </tr>
+              <tr>
+                <td class="id">PURSUE-002</td>
+                <td class="dim mono">1969-11</td>
+                <td class="location">Lunar surface</td>
+                <td class="dim">NASA</td>
+                <td class="classification">DECL</td>
+                <td><span class="tag viz"><span class="dot"></span>Anomalous</span></td>
+                <td class="dim mono right">3</td>
+              </tr>
+              <tr>
+                <td class="id">PURSUE-003</td>
+                <td class="dim mono">1972-12</td>
+                <td class="location">Lunar sky · Grimaldi crater</td>
+                <td class="dim">NASA</td>
+                <td class="classification">DECL</td>
+                <td><span class="tag warn"><span class="dot"></span>Unresolved</span></td>
+                <td class="dim mono right">3</td>
+              </tr>
+              <tr>
+                <td class="id">PURSUE-004</td>
+                <td class="dim mono">1994-03</td>
+                <td class="location">Tajikistan / Kazakhstan border</td>
+                <td class="dim">State</td>
+                <td class="classification">DECL</td>
+                <td><span class="tag viz"><span class="dot"></span>Anomalous</span></td>
+                <td class="dim mono right">4</td>
+              </tr>
+              <tr class="selected">
+                <td class="id">PURSUE-022</td>
+                <td class="dim mono">2017</td>
+                <td class="location">Off East Coast · USS Theodore Roosevelt</td>
+                <td class="dim">USN</td>
+                <td class="classification">DECL</td>
+                <td><span class="tag muted"><span class="dot"></span>Resolved</span></td>
+                <td class="dim mono right">2</td>
+              </tr>
+              <tr>
+                <td class="id">PURSUE-005</td>
+                <td class="dim mono">2023-06</td>
+                <td class="location">Western United States</td>
+                <td class="dim">FBI</td>
+                <td class="classification">DECL</td>
+                <td><span class="tag warn"><span class="dot"></span>Unresolved</span></td>
+                <td class="dim mono right">REDACTED</td>
+              </tr>
+              <tr>
+                <td class="id">PURSUE-019</td>
+                <td class="dim mono">2023-09</td>
+                <td class="location">Western US · Eye of Sauron</td>
+                <td class="dim">FBI</td>
+                <td class="classification">DECL</td>
+                <td><span class="tag viz"><span class="dot"></span>Anomalous</span></td>
+                <td class="dim mono right">2</td>
+              </tr>
+              <tr>
+                <td class="id">PURSUE-012</td>
+                <td class="dim mono">2022-05</td>
+                <td class="location">Iraq · CENTCOM AOR</td>
+                <td class="dim">USAF</td>
+                <td class="classification">
+                  <span class="tag solid-secret">SECRET//DECL</span>
+                </td>
+                <td><span class="tag warn"><span class="dot"></span>Unresolved</span></td>
+                <td class="dim mono right">REDACTED</td>
+              </tr>
+              <tr class="tranche-divider">
+                <td colspan="7">Tranche 02 · Pending declassification review</td>
+              </tr>
+              <tr class="ghost">
+                <td class="id">PURSUE-027</td>
+                <td class="mono">PENDING</td>
+                <td>[[CLASSIFIED]]</td>
+                <td>FBI</td>
+                <td class="mono">REDACTED</td>
+                <td>[[QUEUED]]</td>
+                <td class="mono right">—</td>
+              </tr>
+              <tr class="ghost">
+                <td class="id">PURSUE-028</td>
+                <td class="mono">PENDING</td>
+                <td>[[CLASSIFIED]]</td>
+                <td>DOD</td>
+                <td class="mono">REDACTED</td>
+                <td>[[QUEUED]]</td>
+                <td class="mono right">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Dossier drawer -->
+        <aside class="panel dossier-drawer">
+          <div class="panel-header">
+            <span class="panel-title">Dossier</span>
+            <div class="panel-actions">
+              <button class="icon-btn" title="Open as page">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M9 3 L13 3 L13 7 M13 3 L8 8 M3 5 L3 13 L11 13 L11 9" />
+                </svg>
+              </button>
+              <button class="icon-btn" title="Close">
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M4 4 L12 12 M12 4 L4 12" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px">
+              <span class="mono" style="font-size: 18px; font-weight: 600">PURSUE-022</span>
+              <span class="tag muted"><span class="dot"></span>Resolved</span>
+            </div>
+
+            <div class="dossier-meta">
+              <div class="cell">
+                <div class="k">Date</div>
+                <div class="v mono tnum">2017-01 (resolved 2026)</div>
+              </div>
+              <div class="cell">
+                <div class="k">Location</div>
+                <div class="v">Off East Coast</div>
+              </div>
+              <div class="cell">
+                <div class="k">Region</div>
+                <div class="v">Atlantic</div>
+              </div>
+              <div class="cell">
+                <div class="k">Witnesses</div>
+                <div class="v mono tnum">2</div>
+              </div>
+            </div>
+
+            <div class="section-label">Summary</div>
+            <p class="section-body">
+              GOFAST footage resolved: object actually at ~13,000 ft; parallax illusion explained low-altitude appearance.
+            </p>
+
+            <div class="section-label">Details</div>
+            <p class="section-body">
+              AARO Director Dr. Jon Kosloski announced resolution of the 2017 GOFAST F/A-18 ATFLIR clip from the USS Theodore Roosevelt strike group. Geospatial-intelligence analysis using trigonometry placed the object at approximately 13,000 feet altitude.
+            </p>
+
+            <blockquote class="quote">
+              Through a very careful geospatial intelligence analysis and using trigonometry, we assess with high confidence that the object is not actually close to the water, but is rather closer to 13,000 feet.
+            </blockquote>
+
+            <div class="dossier-source">
+              <span class="tag muted">USN</span>
+              <a class="btn" style="height: 26px; padding: 0 8px" href="#">
+                View source
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 9 L9 3 M5 3 L9 3 L9 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <p class="anno">
+        <strong>Note —</strong> in production the dossier is a <strong>collapsible right-rail drawer</strong> that
+        appears only when an incident is selected; in this mockup it's shown open to demonstrate its anatomy. When closed, the
+        table fills the full width.
+      </p>
+
+      <!-- =================================================================
+           8. PHOTO GALLERY (NEW)
+         ================================================================= -->
+      <section class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Photographic evidence</span>
+          <div class="panel-actions">
+            <span class="caps">14 images · 4 sources</span>
+            <div class="chip-group" style="margin-left: 12px">
+              <button class="chip active">All</button>
+              <button class="chip">NASA</button>
+              <button class="chip">FBI</button>
+              <button class="chip">DOD</button>
+            </div>
+            <button class="icon-btn" title="Grid density" style="margin-left: 8px">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="5" height="5" />
+                <rect x="9" y="2" width="5" height="5" />
+                <rect x="2" y="9" width="5" height="5" />
+                <rect x="9" y="9" width="5" height="5" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="panel-body flush">
+          <div class="gallery-grid">
+            <a class="photo-tile" href="#">
+              <span class="img lunar"></span>
+              <span class="photo-corner mono">A12 · 1969</span>
+              <span class="photo-tag-source"><span class="tag viz" style="background: rgba(0,0,0,0.55); color: #b1a0f0"><span class="dot"></span>NASA</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-001 · AS12-46-6832</span>
+                <span class="pl">Apollo 12 lunar plate · areas of interest</span>
+              </span>
+            </a>
+            <a class="photo-tile" href="#">
+              <span class="img lunar alt"></span>
+              <span class="photo-corner mono">A17 · 1972</span>
+              <span class="photo-tag-source"><span class="tag viz" style="background: rgba(0,0,0,0.55); color: #b1a0f0"><span class="dot"></span>NASA</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-002 · as17-152-23272</span>
+                <span class="pl">Apollo 17 sky · 3 dots, north of Grimaldi</span>
+              </span>
+            </a>
+            <a class="photo-tile" href="#">
+              <span class="img dod-bronze"></span>
+              <span class="photo-corner mono">SEP 2023</span>
+              <span class="photo-tag-source"><span class="tag warn" style="background: rgba(0,0,0,0.55); color: #d49152"><span class="dot"></span>DOD</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-003 · DOW-UAP-IMG14</span>
+                <span class="pl">Ellipsoid bronze metallic object</span>
+              </span>
+            </a>
+            <a class="photo-tile" href="#">
+              <span class="img helo-fir"></span>
+              <span class="photo-corner mono">SEP 2025</span>
+              <span class="photo-tag-source"><span class="tag muted" style="background: rgba(0,0,0,0.55); color: var(--text-dim)"><span class="dot"></span>FBI</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-004 · BLK-HOT</span>
+                <span class="pl">Black-hot IR · object below helicopter</span>
+              </span>
+            </a>
+            <a class="photo-tile" href="#">
+              <span class="img helo-fir"></span>
+              <span class="photo-corner mono">DEC 2025</span>
+              <span class="photo-tag-source"><span class="tag muted" style="background: rgba(0,0,0,0.55); color: var(--text-dim)"><span class="dot"></span>FBI</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-005 · BLK-HOT</span>
+                <span class="pl">Black-hot IR · western US (undisclosed)</span>
+              </span>
+            </a>
+            <a class="photo-tile" href="#">
+              <span class="img orb"></span>
+              <span class="photo-corner mono">2023</span>
+              <span class="photo-tag-source"><span class="tag muted" style="background: rgba(0,0,0,0.55); color: var(--text-dim)"><span class="dot"></span>FBI</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-006 · WUS-EOS</span>
+                <span class="pl">Orange orb · "Eye of Sauron"</span>
+              </span>
+            </a>
+            <a class="photo-tile" href="#">
+              <span class="img cylinder"></span>
+              <span class="photo-corner mono">SEP 2023</span>
+              <span class="photo-tag-source"><span class="tag warn" style="background: rgba(0,0,0,0.55); color: #d49152"><span class="dot"></span>DOD</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-007 · SE-US</span>
+                <span class="pl">Metallic cylinder · airliner-sized</span>
+              </span>
+            </a>
+            <a class="photo-tile" href="#">
+              <span class="img fbi"></span>
+              <span class="photo-corner mono">DEC 1999</span>
+              <span class="photo-tag-source"><span class="tag muted" style="background: rgba(0,0,0,0.55); color: var(--text-dim)"><span class="dot"></span>FBI</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-008 · NYE-1999</span>
+                <span class="pl">UAP framed alongside U.S. aircraft</span>
+              </span>
+            </a>
+            <a class="photo-tile" href="#">
+              <span class="img terrain"></span>
+              <span class="photo-corner mono">2023</span>
+              <span class="photo-tag-source"><span class="tag warn" style="background: rgba(0,0,0,0.55); color: #d49152"><span class="dot"></span>DOD</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-009 · WUS-PRIUS</span>
+                <span class="pl">"Blacker than black" object · 40-60m</span>
+              </span>
+            </a>
+            <a class="photo-tile" href="#">
+              <span class="img atfltir"></span>
+              <span class="photo-corner mono">2024</span>
+              <span class="photo-tag-source"><span class="tag warn" style="background: rgba(0,0,0,0.55); color: #d49152"><span class="dot"></span>DOD</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-010 · INDOPAC</span>
+                <span class="pl">Misshapen ball of white light · halo</span>
+              </span>
+            </a>
+            <a class="photo-tile" href="#">
+              <span class="img dod-bronze"></span>
+              <span class="photo-corner mono">SEP 2023</span>
+              <span class="photo-tag-source"><span class="tag muted" style="background: rgba(0,0,0,0.55); color: var(--text-dim)"><span class="dot"></span>FBI</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-011 · LAB-OVERLAY</span>
+                <span class="pl">FBI lab graphic · ellipsoid corroboration</span>
+              </span>
+            </a>
+            <a class="photo-tile" href="#">
+              <span class="img lunar"></span>
+              <span class="photo-corner mono">A12 · 1969</span>
+              <span class="photo-tag-source"><span class="tag viz" style="background: rgba(0,0,0,0.55); color: #b1a0f0"><span class="dot"></span>NASA</span></span>
+              <span class="photo-meta">
+                <span class="pid">IMG-012 · AS12-46-6833</span>
+                <span class="pl">Apollo 12 plate · alt. AOI</span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <span>12 of 14 shown · 2 high-res restricted to local mirror</span>
+          <span><a href="#" style="color: var(--accent)">View all 14 →</a></span>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           9. Video grid — real thumbnails
+         ================================================================= -->
+      <section class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Video evidence</span>
+          <div class="panel-actions">
+            <span class="caps">28 PURSUE clips · 16 supporting</span>
+            <div class="chip-group" style="margin-left: 12px">
+              <button class="chip active">All</button>
+              <button class="chip">IR / FLIR</button>
+              <button class="chip">EO</button>
+              <button class="chip">Combined</button>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body flush">
+          <div class="video-grid">
+            <!-- 1. Greece IR — 90deg turn -->
+            <a class="video-tile" href="#">
+              <div class="video-thumb">
+                <div class="vt-bg-ir"></div>
+                <div class="vt-grid"></div>
+                <div class="vt-crosshair"></div>
+                <span class="vt-uap" style="left: 56%; top: 48%"></span>
+                <span class="vt-format">FLIR</span>
+                <span class="vt-corner tr">37.98 N · 23.7 E</span>
+                <span class="vt-corner bl">14:08:22Z</span>
+                <span class="vt-corner br" style="color: var(--ok)">TRK</span>
+                <span class="vt-duration">0:14</span>
+                <span class="vt-play">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="#fff"><path d="M5 3 L13 8 L5 13 Z"/></svg>
+                </span>
+              </div>
+              <div class="vt-meta">
+                <div class="vid">VID-001 · GREECE</div>
+                <div class="vt-title">90° turn at 80 mph · IR</div>
+                <div class="vt-row">
+                  <span>2023</span>
+                  <span class="tag viz" style="height: 18px; padding: 0 6px; font-size: 10px"><span class="dot"></span>Anomalous</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 2. Indo-Pacific Football -->
+            <a class="video-tile" href="#">
+              <div class="video-thumb">
+                <div class="vt-bg-ir"></div>
+                <div class="vt-grid"></div>
+                <div class="vt-crosshair"></div>
+                <span class="vt-uap football" style="left: 47%; top: 50%"></span>
+                <span class="vt-format">IR</span>
+                <span class="vt-corner tr">INDOPAC</span>
+                <span class="vt-corner bl">18:42:11Z</span>
+                <span class="vt-corner br" style="color: var(--warn)">UNK</span>
+                <span class="vt-duration">0:22</span>
+              </div>
+              <div class="vt-meta">
+                <div class="vid">VID-002 · INDO-PACIFIC</div>
+                <div class="vt-title">Football-shaped object</div>
+                <div class="vt-row">
+                  <span>2024</span>
+                  <span class="tag viz" style="height: 18px; padding: 0 6px; font-size: 10px"><span class="dot"></span>Anomalous</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 3. Syria Orange Orbs -->
+            <a class="video-tile" href="#">
+              <div class="video-thumb">
+                <div class="vt-bg-thermal"></div>
+                <div class="vt-grid"></div>
+                <span class="vt-uap orange" style="left: 38%; top: 55%; opacity: 0.6"></span>
+                <span class="vt-uap orange" style="left: 56%; top: 48%; opacity: 0.5"></span>
+                <span class="vt-format" style="color: var(--warn)">EO</span>
+                <span class="vt-corner tr">SYR</span>
+                <span class="vt-corner bl">02:14:09Z</span>
+                <span class="vt-corner br">2.0s</span>
+                <span class="vt-duration">0:08</span>
+              </div>
+              <div class="vt-meta">
+                <div class="vid">VID-003 · SYRIA</div>
+                <div class="vt-title">Semi-transparent orange · 2 secs</div>
+                <div class="vt-row">
+                  <span>OCT 2024</span>
+                  <span class="tag viz" style="height: 18px; padding: 0 6px; font-size: 10px"><span class="dot"></span>Anomalous</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 4. Western US Orb Formation -->
+            <a class="video-tile" href="#">
+              <div class="video-thumb">
+                <div class="vt-bg-eo"></div>
+                <span class="vt-uap orange" style="left: 44%; top: 36%"></span>
+                <span class="vt-uap" style="left: 38%; top: 60%; width: 6px; height: 6px; background: #ff5b3a; box-shadow: 0 0 6px 2px rgba(255,91,58,0.6)"></span>
+                <span class="vt-uap" style="left: 50%; top: 64%; width: 6px; height: 6px; background: #ff5b3a; box-shadow: 0 0 6px 2px rgba(255,91,58,0.6)"></span>
+                <span class="vt-format" style="color: var(--warn)">EO</span>
+                <span class="vt-corner tr">W-US</span>
+                <span class="vt-corner bl">21:33:05Z</span>
+                <span class="vt-corner br">FORM</span>
+                <span class="vt-duration">0:47</span>
+              </div>
+              <div class="vt-meta">
+                <div class="vid">VID-004 · WESTERN US</div>
+                <div class="vt-title">Orange orb · red orb formation</div>
+                <div class="vt-row">
+                  <span>2023</span>
+                  <span class="tag warn" style="height: 18px; padding: 0 6px; font-size: 10px"><span class="dot"></span>Unresolved</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 5. Mediterranean Triangle -->
+            <a class="video-tile" href="#">
+              <div class="video-thumb">
+                <div class="vt-bg-ir"></div>
+                <div class="vt-grid"></div>
+                <div class="vt-crosshair"></div>
+                <span class="vt-uap triangle" style="left: 47%; top: 44%"></span>
+                <span class="vt-format">IR</span>
+                <span class="vt-corner tr">MED</span>
+                <span class="vt-corner bl">25,000 FT</span>
+                <span class="vt-corner br" style="color: var(--warn)">UNK</span>
+                <span class="vt-duration">0:31</span>
+              </div>
+              <div class="vt-meta">
+                <div class="vid">VID-005 · MEDITERRANEAN</div>
+                <div class="vt-title">Metallic triangle · 25k ft</div>
+                <div class="vt-row">
+                  <span>2024</span>
+                  <span class="tag warn" style="height: 18px; padding: 0 6px; font-size: 10px"><span class="dot"></span>Unresolved</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 6. Apollo 17 lunar (EO) -->
+            <a class="video-tile" href="#">
+              <div class="video-thumb" style="background: #000">
+                <span class="img lunar" style="position: absolute; inset: 0; opacity: 0.85"></span>
+                <span class="vt-uap" style="left: 60%; top: 30%; width: 4px; height: 4px"></span>
+                <span class="vt-uap" style="left: 64%; top: 32%; width: 4px; height: 4px"></span>
+                <span class="vt-uap" style="left: 62%; top: 34%; width: 4px; height: 4px"></span>
+                <span class="vt-format" style="color: var(--viz-violet)">EO</span>
+                <span class="vt-corner tr">A17</span>
+                <span class="vt-corner bl">DEC 1972</span>
+                <span class="vt-corner br">GRIMALDI</span>
+                <span class="vt-duration">0:12</span>
+              </div>
+              <div class="vt-meta">
+                <div class="vid">VID-006 · APOLLO 17</div>
+                <div class="vt-title">Lunar anomaly · Grimaldi vicinity</div>
+                <div class="vt-row">
+                  <span>DEC 1972</span>
+                  <span class="tag warn" style="height: 18px; padding: 0 6px; font-size: 10px"><span class="dot"></span>Unresolved</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 7. Iraq MISREP -->
+            <a class="video-tile" href="#">
+              <div class="video-thumb">
+                <div class="vt-bg-ir"></div>
+                <div class="vt-grid"></div>
+                <div class="vt-crosshair"></div>
+                <span class="vt-uap cold" style="left: 49%; top: 50%"></span>
+                <span class="vt-format">IR</span>
+                <span class="vt-corner tl" style="color: var(--danger); top: 6px; left: 8px">SECRET // DECL</span>
+                <span class="vt-corner tr">IRQ</span>
+                <span class="vt-corner bl">15:14:00Z</span>
+                <span class="vt-corner br">SIG</span>
+                <span class="vt-duration">1:08</span>
+              </div>
+              <div class="vt-meta">
+                <div class="vid">VID-007 · IRAQ</div>
+                <div class="vt-title">DOW-UAP-D14 · CENTCOM ISR</div>
+                <div class="vt-row">
+                  <span>MAY 2022</span>
+                  <span class="tag warn" style="height: 18px; padding: 0 6px; font-size: 10px"><span class="dot"></span>Unresolved</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 8. INDOPACOM White Light Halo -->
+            <a class="video-tile" href="#">
+              <div class="video-thumb">
+                <div class="vt-bg-eo"></div>
+                <span class="vt-uap" style="left: 50%; top: 50%; width: 22px; height: 22px; background: #fff; box-shadow: 0 0 22px 10px rgba(255,255,255,0.4), 0 0 40px 18px rgba(76,144,240,0.18)"></span>
+                <span class="vt-format">FMV</span>
+                <span class="vt-corner tr">INDOPAC</span>
+                <span class="vt-corner bl">JAN 2024</span>
+                <span class="vt-corner br">HALO</span>
+                <span class="vt-duration">0:54</span>
+              </div>
+              <div class="vt-meta">
+                <div class="vid">VID-008 · INDOPACOM</div>
+                <div class="vt-title">Misshapen ball of white light</div>
+                <div class="vt-row">
+                  <span>2024</span>
+                  <span class="tag viz" style="height: 18px; padding: 0 6px; font-size: 10px"><span class="dot"></span>Anomalous</span>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <span>Hosted via DVIDS · Defense Visual Information Distribution Service</span>
+          <span><a href="#" style="color: var(--accent)">View all 44 clips →</a></span>
+        </div>
+      </section>
+
+      <p class="anno">
+        <strong>Note —</strong> these video tiles are CSS-rendered <strong>simulations</strong> of FLIR/EO sensor footage to
+        demonstrate the chrome. In production each thumbnail will be the real DVIDS poster frame (or a locally-hosted
+        first-second extract). The chrome — sensor type badge, telemetry corners, duration pill, hover-play affordance — is the
+        same.
+      </p>
+
+      <!-- =================================================================
+           10. Document viewer
+         ================================================================= -->
+      <section class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Document viewer</span>
+          <div class="panel-actions">
+            <span class="caps">136 documents · 113 indexed</span>
+            <button class="icon-btn">
+              <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="7" cy="7" r="4.5" />
+                <path d="M11 11 L14 14" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="panel-body flush">
+          <div class="docviewer">
+            <div class="doc-list">
+              <div class="row">
+                <div class="id">DOC-001 · 1947-07-08</div>
+                <div class="title">FBI Dallas field memo · object recovery</div>
+              </div>
+              <div class="row active">
+                <div class="id">DOC-002 · 2022-05-15</div>
+                <div class="title">DOW-UAP-D14 · USCENTCOM MISREP · Iraq</div>
+              </div>
+              <div class="row">
+                <div class="id">DOC-003 · 2024-01-01</div>
+                <div class="title">DOW-UAP-D54 · Mediterranean</div>
+              </div>
+              <div class="row">
+                <div class="id">DOC-004 · 1948-11</div>
+                <div class="title">USAF Intelligence Top Secret memo</div>
+              </div>
+              <div class="row">
+                <div class="id">DOC-005 · 1947-12</div>
+                <div class="title">Wright Field AMC memorandum</div>
+              </div>
+              <div class="row">
+                <div class="id">DOC-006 · 1994-03</div>
+                <div class="title">State Dept cable · Tajikistan</div>
+              </div>
+              <div class="row">
+                <div class="id">DOC-014 · 1950</div>
+                <div class="title">Idaho FBI memo · "hysteria, or panic"</div>
+              </div>
+              <div class="row">
+                <div class="id">DOC-019 · 2023-09</div>
+                <div class="title">FBI WUS · Eye of Sauron event</div>
+              </div>
+              <div class="row">
+                <div class="id">DOC-022 · 2017</div>
+                <div class="title">USS T. Roosevelt GOFAST · resolved 2026</div>
+              </div>
+            </div>
+            <div class="doc-content">SECRET//REL TO USA, FVEY
+MISREP undefined-7561279 NARRATIVE
+
+ORIGINATOR: <span class="redact" style="width: 88px"></span>, OPERATING FROM SIGONELLA AB
+MISSION: ISR // OPERATION INHERENT RESOLVE
+DATE: 15 MAY 2022
+DECLAS BY: MAJOR GENERAL RICHARD A. HARRISON, USCENTCOM CHIEF OF STAFF, 07 OCT 2025
+
+1. (S//REL) AT 1514Z, <span class="redact" style="width: 64px"></span> OBSERVED 1X UAP (SEE OBSERVATION 1).
+
+2. (S//REL) OBSERVATION 1: <span class="redact" style="width: 184px"></span>
+
+3. (S//REL) AIRCRAFT POSITION AT TIME OF CONTACT: <span class="redact" style="width: 124px"></span>. ALTITUDE <span class="redact" style="width: 70px"></span>. SENSOR: <span class="redact" style="width: 70px"></span>.
+
+4. (S//REL) UAP CHARACTERISTICS: SMALL, <span class="redact" style="width: 168px"></span>. NO RF EMISSIONS DETECTED. NO TRANSPONDER. CORRELATION WITH SCHEDULED AIR ACTIVITY: NEGATIVE.
+
+5. (S//REL) AIRCREW ASSESSMENT: ANOMALOUS. RECOMMEND ROUTING TO AARO PER DEPSECDEF MEMO 14 SEP 2024.
+
+END NARRATIVE
+</div>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <span>Page 1 of 6 · DOW-UAP-D14</span>
+          <span><a href="#" style="color: var(--accent)">View original on war.gov →</a></span>
+        </div>
+      </section>
+
+      <!-- =================================================================
+           11. Source breakdown
+         ================================================================= -->
+      <section class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Source agency breakdown</span>
+          <div class="panel-actions">
+            <span class="caps">26 indexed incidents</span>
+          </div>
+        </div>
+        <div class="panel-body" style="padding: 8px 0">
+          <div class="source-bar">
+            <span class="label">DOD</span>
+            <span class="track"><span class="fill" style="width: 35%"></span></span>
+            <span class="num">9</span>
+          </div>
+          <div class="source-bar">
+            <span class="label">FBI</span>
+            <span class="track"><span class="fill" style="width: 23%"></span></span>
+            <span class="num">6</span>
+          </div>
+          <div class="source-bar">
+            <span class="label">USAF</span>
+            <span class="track"><span class="fill" style="width: 15%"></span></span>
+            <span class="num">4</span>
+          </div>
+          <div class="source-bar">
+            <span class="label">USN</span>
+            <span class="track"><span class="fill" style="width: 12%"></span></span>
+            <span class="num">3</span>
+          </div>
+          <div class="source-bar">
+            <span class="label">NASA</span>
+            <span class="track"><span class="fill" style="width: 8%"></span></span>
+            <span class="num">2</span>
+          </div>
+          <div class="source-bar">
+            <span class="label">State</span>
+            <span class="track"><span class="fill" style="width: 8%"></span></span>
+            <span class="num">2</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =================================================================
+         12. Footer
+       ================================================================= -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div class="disclaimer">
+          UAP.WATCH is an independent visualization layer for public records released by the U.S. Department of War on
+          2026-05-08 under the Presidential Unsealing &amp; Reporting System for UAP Encounters (PURSUE) program. Source
+          material remains hosted at war.gov/UFO/. Not affiliated with any U.S. government agency.
+        </div>
+        <div>
+          <h4>Source</h4>
+          <div class="links">
+            <a href="#">war.gov/UFO/</a>
+            <a href="#">DoD press release</a>
+            <a href="#">DVIDS · Defense video</a>
+            <a href="#">FBI Vault · UFO files</a>
+          </div>
+        </div>
+        <div>
+          <h4>Browse</h4>
+          <div class="links">
+            <a href="#">All incidents</a>
+            <a href="#">All documents</a>
+            <a href="#">Photos</a>
+            <a href="#">Videos</a>
+            <a href="#">Compare</a>
+          </div>
+        </div>
+        <div>
+          <h4>About</h4>
+          <div class="links">
+            <a href="#">Case study</a>
+            <a href="#">GitHub</a>
+            <a href="#">llms.txt</a>
+            <a href="#">Sitemap</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© Independently operated · 2026 · No affiliation claimed</span>
+        <span>Unclassified · UAP-WATCH mirror · OBS-001</span>
+      </div>
+    </footer>
+  </body>
+</html>

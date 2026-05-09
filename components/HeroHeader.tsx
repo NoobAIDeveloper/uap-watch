@@ -1,140 +1,102 @@
 import { ExternalLink } from "lucide-react";
 
 const RELEASE = {
-  totalFiles: 162,
+  date: "2026-05-08",
+  tranche: 1,
+  files: 162,
   pdfs: 120,
   videos: 28,
   images: 14,
-  totalIncidents: 400,
-  redacted: 108,
-  releaseDate: "2026-05-08",
-  trancheNumber: 1,
+  agencies: ["FBI", "DOD", "NASA", "State", "USAF", "USN"],
+  lastUpdate: "2026-05-09",
 };
 
-type MicroStat = {
-  label: string;
-  value: string;
-  sub: React.ReactNode;
-  numberClass?: string;
-  prefix?: React.ReactNode;
-  stripColor: string;
-};
-
-const MICRO_STATS: MicroStat[] = [
-  {
-    label: "FILES TOTAL",
-    value: String(RELEASE.totalFiles),
-    sub: `${RELEASE.pdfs} PDF · ${RELEASE.videos} VIDEO · ${RELEASE.images} IMG`,
-    stripColor: "var(--color-accent)",
-  },
-  {
-    label: "INCIDENTS",
-    value: `${RELEASE.totalIncidents}+`,
-    sub: "GLOBAL DISTRIBUTION",
-    stripColor: "var(--color-accent)",
-  },
-  {
-    label: "REDACTED",
-    value: String(RELEASE.redacted),
-    sub: "WITNESS PROTECTION ACTIVE",
-    numberClass: "text-status-unresolved",
-    stripColor: "var(--color-status-unresolved)",
-  },
-  {
-    label: "STATUS",
-    value: "ACTIVE",
-    sub: "LIVE FEED 02 PENDING",
-    numberClass: "text-accent",
-    prefix: <span className="blink text-status-anomalous mr-2">●</span>,
-    stripColor: "var(--color-accent)",
-  },
-];
-
-// Server component: HeroHeader is the page's LCP target. Keeping it on the
-// server side (and using CSS keyframes for the entrance vibe) means the SSR
-// HTML paints with content visible — no waiting for motion/react to hydrate
-// before the LCP <p> appears. CSS animations layer on top via the compositor
-// without delaying first paint.
+// Cleaned hero. Two columns: brand pitch + CTAs left, "Release 01 manifest"
+// fact card right. Inter throughout. No 4-card stat grid (those are now in
+// the Foundry stats strip below). No theatrical chrome (`▸ //`). No
+// colored side strips.
 export default function HeroHeader() {
   return (
-    <header className="relative pt-8 pb-10 hairline-b">
-      <div className="grid grid-cols-12 gap-4">
-        {/* LEFT */}
-        <div className="col-span-12 lg:col-span-7 flex flex-col">
-          <div className="hero-anim-fade-down text-accent text-[10px] tracking-[0.3em] mb-4">
-            // PRESIDENTIAL UNSEALING & REPORTING SYSTEM //
-          </div>
-
-          <h1
-            className="hero-anim-fade-up text-[2.25rem] sm:text-5xl lg:text-6xl font-bold leading-none tracking-tight text-text"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
-            UAP.WATCH
-            <span className="relative inline-block ml-[-0.05em]">
-              <span className="text-accent">.</span>
-              <span
-                aria-hidden
-                className="absolute left-0 right-0 -bottom-1 h-[3px] bg-accent"
-              />
-            </span>
-          </h1>
-
-          <p className="hero-anim-fade text-text-dim text-sm tracking-wide mt-3 max-w-[60ch]">
-            INDEPENDENT VISUALIZATION LAYER FOR THE U.S. DEPARTMENT OF WAR&apos;S
-            DECLASSIFIED UAP FILE RELEASE — TRANCHE {RELEASE.trancheNumber}.
-          </p>
-
-          <div className="hero-anim-fade-late flex flex-wrap gap-2 mt-6">
-            <a
-              href="https://www.war.gov/UFO/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-dim hover:text-accent border border-border hover:border-accent px-3 py-1.5 text-[10px] tracking-[0.2em] inline-flex items-center gap-2 transition-colors"
-            >
-              <span>▸ VIEW SOURCE: WAR.GOV/UFO/</span>
-              <ExternalLink size={12} />
-            </a>
-            <a
-              href="#footer"
-              className="text-text-dim hover:text-accent border border-border hover:border-accent px-3 py-1.5 text-[10px] tracking-[0.2em] inline-flex items-center gap-2 transition-colors"
-            >
-              <span>▸ ABOUT THIS MIRROR</span>
-            </a>
-          </div>
+    <header className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-8 pt-8 pb-6 border-b border-border">
+      {/* Pitch */}
+      <div className="flex flex-col">
+        <div className="text-[11px] font-medium tracking-[0.06em] uppercase text-accent mb-3">
+          Presidential Unsealing &amp; Reporting System for UAP Encounters
         </div>
+        <h1 className="text-[28px] sm:text-[36px] lg:text-[40px] font-semibold leading-[1.05] tracking-[-0.005em] text-text mb-3">
+          Browse the Pentagon&rsquo;s
+          <br />
+          declassified UAP file release
+          <span className="text-accent">.</span>
+        </h1>
+        <p className="text-[15px] leading-relaxed text-text-dim max-w-[60ch] mb-5">
+          Independent visualization layer for the U.S. Department of War&rsquo;s
+          PURSUE program — Tranche {RELEASE.tranche}, released {RELEASE.date}.
+          {" "}{RELEASE.files} files, 26 indexed incidents, full-text PDFs, and
+          DVIDS-hosted video evidence.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <a
+            href="https://www.war.gov/UFO/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="h-[30px] px-3 inline-flex items-center gap-1.5 text-[13px] font-medium bg-accent-fill hover:bg-[#215db0] text-white rounded-[2px]"
+          >
+            View source on war.gov
+            <ExternalLink size={12} strokeWidth={1.5} />
+          </a>
+          <a
+            href="#footer"
+            className="h-[30px] px-3 inline-flex items-center text-[13px] text-text-dim hover:text-text border border-border-bright hover:bg-[rgba(143,153,168,0.08)] rounded-[2px]"
+          >
+            About this mirror
+          </a>
+        </div>
+      </div>
 
-        {/* RIGHT */}
-        <div className="col-span-12 lg:col-span-5">
-          <div className="grid grid-cols-2 gap-3">
-            {MICRO_STATS.map((stat, i) => (
-              <div
-                key={stat.label}
-                className="hero-anim-stat relative bg-panel border border-border rounded-sm pl-4 pr-3 py-3 overflow-hidden"
-                style={{ animationDelay: `${0.5 + i * 0.07}s` }}
-              >
-                <span
-                  aria-hidden
-                  className="absolute top-0 bottom-0 left-0 w-[3px]"
-                  style={{ backgroundColor: stat.stripColor }}
-                />
-                <div className="text-text-mute text-[10px] tracking-[0.25em]">
-                  {stat.label}
-                </div>
-                <div
-                  style={{ fontFamily: "var(--font-display)" }}
-                  className={`text-3xl font-bold tabular-nums leading-none mt-2 flex items-baseline ${stat.numberClass ?? "text-text"}`}
-                >
-                  {stat.prefix}
-                  {stat.value}
-                </div>
-                <div className="text-text-mute text-[10px] tracking-widest mt-2">
-                  {stat.sub}
-                </div>
-              </div>
-            ))}
+      {/* Release manifest card */}
+      <div className="flex items-end">
+        <div className="w-full bg-panel border border-border rounded-[4px]">
+          <div className="h-[40px] px-4 flex items-center justify-between border-b border-border">
+            <span className="text-[13px] font-semibold text-text">
+              Release 01 manifest
+            </span>
+            <span className="mono text-[11px] text-text-mute">
+              PURSUE-{RELEASE.date}
+            </span>
           </div>
+          <dl className="py-2">
+            <Row label="Released">
+              <span className="text-text">May 8, 2026</span>
+              <span className="mono text-[12px] text-text-mute ml-2">· 13:00Z</span>
+            </Row>
+            <Row label="Files">
+              <span className="text-text tnum">{RELEASE.files} total</span>
+              <span className="mono text-[12px] text-text-mute ml-2">
+                {RELEASE.pdfs} PDF · {RELEASE.videos} video · {RELEASE.images} img
+              </span>
+            </Row>
+            <Row label="Agencies">
+              <span className="text-text">{RELEASE.agencies.join(" · ")}</span>
+            </Row>
+            <Row label="Last update">
+              <span className="text-text">May 9, 2026</span>
+              <span className="mono text-[12px] text-text-mute ml-2">· r2.36</span>
+            </Row>
+          </dl>
         </div>
       </div>
     </header>
+  );
+}
+
+function Row({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="grid grid-cols-[88px_1fr] gap-3 items-center px-4 py-1.5 text-[13px]">
+      <dt className="text-[11px] font-medium tracking-[0.04em] uppercase text-text-mute">
+        {label}
+      </dt>
+      <dd className="text-text-dim">{children}</dd>
+    </div>
   );
 }
