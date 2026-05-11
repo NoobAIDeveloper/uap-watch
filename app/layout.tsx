@@ -6,6 +6,7 @@ import ClassificationBanner from "@/components/ClassificationBanner";
 import AppBar from "@/components/AppBar";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+import ChatWidget from "@/components/ChatWidget";
 import {
   SITE_URL,
   SITE_NAME,
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AppBar />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <ChatWidget />
         <Analytics />
       </body>
     </html>
