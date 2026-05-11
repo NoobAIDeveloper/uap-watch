@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Bot, MessageCircle, Send, Sparkles, X } from "lucide-react";
+import { Bot, MessageCircle, Send, X } from "lucide-react";
 
 // Floating "Ask the archive" chat widget. Streams Server-Sent Events from
 // POST /api/chat (parsed manually — EventSource only supports GET). Three
@@ -296,10 +296,16 @@ export default function ChatWidget() {
           type="button"
           onClick={() => setOpen(true)}
           aria-label="Ask the archive"
-          className="fixed bottom-6 right-6 z-50 h-10 pl-3 pr-4 inline-flex items-center gap-2 bg-panel border border-border-bright rounded-[2px] text-[13px] font-medium text-text hover:bg-panel-2 hover:-translate-y-px transition-[transform,background-color] shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
+          title="Ask the archive"
+          className="group fixed bottom-6 right-6 z-50 size-11 inline-flex items-center justify-center bg-panel border border-border-bright rounded-[2px] text-text hover:bg-panel-2 hover:-translate-y-px transition-[transform,background-color] shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
         >
-          <Sparkles size={14} strokeWidth={1.5} className="text-accent" />
-          Ask the archive
+          <UfoIcon className="size-6 text-accent" />
+          <span
+            role="tooltip"
+            className="pointer-events-none absolute right-[calc(100%+8px)] top-1/2 -translate-y-1/2 -translate-x-1 px-2 py-1 bg-panel border border-border-bright rounded-[2px] mono text-[11px] font-medium tracking-[0.06em] uppercase text-text whitespace-nowrap opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-focus-visible:opacity-100 group-focus-visible:translate-x-0 transition-[opacity,transform] duration-150"
+          >
+            Ask the archive
+          </span>
         </button>
       )}
 
@@ -499,5 +505,33 @@ function PulsingDot() {
       <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
       <span className="text-[11px] text-text-mute">Searching archive…</span>
     </div>
+  );
+}
+
+// Minimal flying-saucer silhouette in line art. Strokes use currentColor so
+// the icon picks up whatever text color the trigger button sets.
+function UfoIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      {/* dome */}
+      <path d="M7.5 12 Q12 5 16.5 12" />
+      {/* dome window */}
+      <circle cx="12" cy="9" r="0.7" fill="currentColor" stroke="none" />
+      {/* disc */}
+      <ellipse cx="12" cy="12.6" rx="9" ry="2.2" />
+      {/* under-disc lights */}
+      <path d="M8.5 14.5 v1" />
+      <path d="M12 14.8 v1.5" />
+      <path d="M15.5 14.5 v1" />
+    </svg>
   );
 }
