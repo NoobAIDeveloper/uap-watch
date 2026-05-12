@@ -297,9 +297,9 @@ export default function ChatWidget() {
           onClick={() => setOpen(true)}
           aria-label="Ask the archive"
           title="Ask the archive"
-          className="group fixed bottom-6 right-6 z-50 size-11 inline-flex items-center justify-center bg-panel border border-border-bright rounded-[2px] text-text hover:bg-panel-2 hover:-translate-y-px transition-[transform,background-color] shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
+          className="group fixed bottom-8 right-8 z-50 size-14 inline-flex items-center justify-center bg-panel border border-border-bright rounded-[2px] text-text hover:bg-panel-2 hover:-translate-y-px transition-[filter,transform,background-color] shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
         >
-          <UfoIcon className="size-6 text-accent" />
+          <UfoIcon className="size-7 text-accent drop-shadow-[0_0_10px_rgba(76,144,240,0.55)] drop-shadow-[0_0_20px_rgba(76,144,240,0.25)] group-hover:drop-shadow-[0_0_12px_rgba(76,144,240,0.75)] group-hover:drop-shadow-[0_0_24px_rgba(76,144,240,0.4)] transition-[filter]" />
           <span
             role="tooltip"
             className="pointer-events-none absolute right-[calc(100%+8px)] top-1/2 -translate-y-1/2 -translate-x-1 px-2 py-1 bg-panel border border-border-bright rounded-[2px] mono text-[11px] font-medium tracking-[0.06em] uppercase text-text whitespace-nowrap opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-focus-visible:opacity-100 group-focus-visible:translate-x-0 transition-[opacity,transform] duration-150"
