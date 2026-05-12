@@ -1,3 +1,11 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+The image displays a grayscale chart with a crosshair marker indicating the origin (0,0). There are four rectangular shapes, two on the left and two on the right, positioned symmetrically.
+
+On the left side:
+- The top rectangle spans approximately from x=1 to x=9 and y=12 to y=14.
+- The bottom rectangle spans approximately from x=1 to x=9 and y=-14 to y=-12.
+
+On the right side:
+- The top rectangle spans approximately from x=10 to x=14 and y=12 to y=14.
+- The bottom rectangle spans approximately from x=10 to x=14 and y=-14 to y=-12.
+
+The x-axis is marked from -15 to 15, and the y-axis is also marked from approximately -15 to 15. The scale increments on both axes appear to be 1.

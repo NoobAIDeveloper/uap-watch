@@ -42,6 +42,12 @@ export default function Footer() {
             <FooterLink href="https://vault.fbi.gov/UFO" external>
               FBI Vault · UFO files
             </FooterLink>
+            <FooterLink
+              href="https://huggingface.co/datasets/reducto/ufocr"
+              external
+            >
+              OCR · Reducto UFOCR (CC BY 4.0)
+            </FooterLink>
           </FooterColumn>
 
           <FooterColumn heading="Browse">

@@ -48,3 +48,7 @@ next-env.d.ts
 # Only public/extracted/*.txt ships to the repo.
 /data/pdfs-cache
 /data/extracted/*.json
+
+# Reducto OCR JSON downloads. ~80MB of source-of-truth; we ship only the
+# flattened text in public/extracted/*.txt.
+/data/reducto-cache

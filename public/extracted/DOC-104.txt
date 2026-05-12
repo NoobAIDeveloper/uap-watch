@@ -1,3 +1,1 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+This image displays a greyscale representation of a target or calibration pattern. It features a central crosshair with a small black dot at its intersection. Horizontal and vertical scales marked with numbers (ranging from 0 to 15) are present on either side of the crosshair. Additionally, several black and grey rectangular shapes are positioned around the scales, likely serving as reference points or markers.

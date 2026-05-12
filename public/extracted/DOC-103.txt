@@ -1,3 +1,16 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+The image is entirely black, making it impossible to extract any data or information.
+This image is not a chart. It contains a black rectangle on the left side and a speckled gray area on the right.
+The image is a solid black rectangle. There is no chart, text, or discernible information present.
+| Measurement | Value |
+|---|---|
+| -1.5 | -15 |
+| -1.0 | -10 |
+| -0.5 | -5 |
+| 0.0 | 0 |
+| 0.5 | 5 |
+| 1.0 | 10 |
+| 1.5 | 15 |
+The image is not a chart. It is a photograph of a black rectangle on the left side of the image, with a textured gray background on the right.
+The image appears to be a black rectangle on a grey, noisy background. There is no discernible chart, text, or any other specific information to extract.
+The image contains two distinct regions: a solid black rectangle on the left and a textured, gray area on the right.
+The image is entirely black, with no discernible charts, text, or visual information present. Therefore, no data can be extracted.

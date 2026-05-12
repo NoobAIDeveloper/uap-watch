@@ -1,3 +1,11 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+| Position | Value |
+|---|---|
+| Top Left Black Bar | Extends from approximately 15 to 10 on the scale. |
+| Top Left Gray Bar | Extends from approximately 10 to 8 on the scale. |
+| Bottom Left Black Bar | Extends from approximately 15 to 11 on the scale. |
+| Bottom Left Gray Bar | Extends from approximately 11 to 9 on the scale. |
+| Top Right Black Bar | Extends from approximately 5 to 15 on the scale. |
+| Top Right Gray Bar | Extends from approximately 5 to 10 on the scale. |
+| Bottom Right Black Bar | Extends from approximately 5 to 15 on the scale. |
+| Bottom Right Gray Bar | Extends from approximately 5 to 10 on the scale. |
+| Center Dot | Located at the origin of the crosshairs. |

@@ -1,81 +1,46 @@
-  2b4 ye  1g L
+2641
+PNMDENIAL
+MSC-07631
+NASA
+NATIONAL AERONAUTICS AND SPACE ADMINISTRATION
 
-  MSC -07631
+APOLLO 17
+TECHNICAL
+CREW DEBRIEFING
+(U)
 
-NATIONAL  AERONAUTICS  AND  SPACE  ADMINISTRATION
-
-  APOLLO 17
-  TECHNICAL
-  CREW DEBRIEFING
-  (U)
-  JANUARY 4, 1973
-
-  PREPARED BY
-  TRAINING OFFICE
+JANUARY 4, 1973
+PREPARED BY
+TRAINING OFFICE
 CREW TRAINING AND SIMULATION DIVISION
+This document will automatically become declassified 90 days from the published date.
+NOTICE: This document may be exempt from public disclosure under the Freedom of Information Act (5 U.S.C. 552). Requests for its release to persons outside the U.S. Government should be handled under the provisions of NASA Policy Directive 1382.2.
+The image is a graphic representing data indexing. It shows a stylized globe connected to an oval shape with an arrow. The oval contains a pattern of dots and shapes that transition from sparse to dense, with the label "INDEXING DATA" below it. The text surrounding the image indicates it is from the Manned Spacecraft Center in Houston, Texas, and contains a notice regarding public disclosure exemptions.
+MANNED SPACECRAFT CENTER
+HOUSTON,TEXAS
+INDEXING DATA
+DATE: <empty>
+OPR: <empty>
+#: <empty>
+T: <empty>
+PGM: <empty>
+SUBJECT: <empty>
+SIGNATOR: <empty>
+LOC: <empty>
+01 14 73 MIL MK 07631 K
+DECLASSIFIED
+E.O. 13526, Sec 3.3(a)
+NASA Declassification Guide
+Date of Guide:
+(M): 05
+(Y): 2026
+Reviewer:: VS
+Date: 5/6/2026
 
-  This document will automatically become declassified
-  90 days from the published date.
-
-  NOTICE: This document may be exempt from
-  public disclosure under the Freedom of Infor-
-  mation Act (5 U.S.C. 552). Requests for its
-  release to persons outside the  U.S. Govern-
-  ment should be handled under the provisions
-  of NASA Policy Directive 1382.2.
-
-  MANNED SPACECRAFT CENTER
-  HOUSTON, TEXAS
-
-  eyStATOR  LOC
-
-  DECLASSIFIED
-  E.O. 13526, Sec 3. 3(a)
-  ‘NASA Declassification Guide
-  of
-  Date  Guide: (05 _(¥) 2026
-  Reviewer.  +=
-
-  ‘Dates6/2026,
-eh-4
-
-EVANS  after the brightness of the fireball decreased, I could look
-(CONT'D)
-  back up through the rendezvous window and see what to me was
-
-  kind of like a tunnel witha bright spot in the middle of the
-
-  tunnel.  Way down the tunnel, way back behind, I could see
-
-  the fireball.
-
-CERNAN  The only unusual sighting I can recall during landing or
-
-  recovery is when the CMP looked out the window and saw the
-
-  superstructure of an aircraft carrier and said, "Oh, we've
-  got a tin can with us."
-
-EVANS  Well, it was kind of foggy on the windows.
-
-SCHMITT  Transearth we had only a small crescent of an Earth and it was
-
-  not feasible to do any extensive weather observations.  We
-
-  had light flashes just about continuously during the whole
-
-  flight when we were dark adapted.  I had one which I thought
-
-  was a flash on the lunar surface.  That one period of time
-
-  when we had the blindfolds on for the ALFMED experiment there
-
-  were just no visible flashes, although that evening, that
-
-  night, before I went to sleep I noticed that I was seeing the
-
-  light flashes again.  So, it just seemed to be that one
-
-  interval either side of it where the light flash was not
-
-  visible to myself or to the other two crewmen.
+24-4
+CONFIDENTI
+EVANS (CONT'D) after the brightness of the fireball decreased, I could look back up through the rendezvous window and see what to me was kind of like a tunnel with a bright spot in the middle of the tunnel. Way down the tunnel, way back behind, I could see the fireball.
+CERNAN The only unusual sighting I can recall during landing or recovery is when the CMP looked out the window and saw the superstructure of an aircraft carrier and said, "Oh, we've got a tin can with us."
+EVANS: Well, it was kind of foggy on the windows.
+SCHMITT Transearth we had only a small crescent of an Earth and it was not feasible to do any extensive weather observations. We had light flashes just about continuously during the whole flight when we were dark adapted. I had one which I thought was a flash on the lunar surface. That one period of time when we had the blindfolds on for the ALF MED experiment there were just no visible flashes, although that evening, that night, before I went to sleep I noticed that I was seeing the light flashes again. So, it just seemed to be that one interval either side of it where the light flash was not visible to myself or to the other two crewmen.
+ONFID RADENTIAL

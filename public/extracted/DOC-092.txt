@@ -1,3 +1,1 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+The image displays a grayscale chart with a crosshair at the center. Horizontal bars of black and gray are positioned symmetrically on the left and right sides of the chart, at different vertical levels. Numerical scales are present along the horizontal axis, ranging from 5 to 15 on both the left and right sides, indicating measurements. The overall impression is of a calibration or measurement grid with visual markers.

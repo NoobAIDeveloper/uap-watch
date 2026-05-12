@@ -1,3 +1,1 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+This image contains a grayscale representation of a calibration target. It features a crosshair in the center with numerical markers along the horizontal and vertical axes, indicating a measurement scale. The numerical scale ranges from 0 to 15 on both axes. Several black and gray rectangular bars are positioned symmetrically around the central crosshair, likely serving as reference points or targets for calibration. There's a small, dark anomaly near the center of the crosshair, which might be a defect or a specific point of interest on the target.

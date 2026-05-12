@@ -1,50 +1,36 @@
-  Declassified by MG Richard A. Harrison
-  USCENTCOM Chief of Staff
-  SECRET//REL TO USA, FVEY  Declassified on: 24 October 2025
+Declassified by MG Richard A. Harrison
+USCENTCOM Chief of Staff
+Declassified on: 24 October 2025
 
 Misrep undefined-9629373
+
 Narrative
+
 (SECRET//REL TO USA, FVEY)
-AT 0109Z, [[REDACT:FOIA-B1]]1.4a  CONDUCTED SLR TAKE OFF FROM LGLR. [[REDACT:FOIA-B1]]1.4a PROCEEDED TO
-FRAGGED TASKING TO SUPPORT [[REDACT:FOIA-B1]]1.4a
-
-AT 0509Z, [[REDACT:FOIA-B1]]1.4a OBSERVED AN UNIDENTIFIED AERIAL PHENOMENON (SEE UAP 1).
-
-AT 0135Z, [[REDACT:FOIA-B1]]1.4a WAS 7-LINED TO SUPPORT [[REDACT:FOIA-B1]]1.4a [[REDACT:FOIA-B1]]1.4a ARRIVED ON-STATION AT 0635Z,
-CHECKED IN WITH [[REDACT:FOIA-B1]]1.4a AND PERFORMED FMV/SIGINT COLLECTION AT 36R XV 19  [[REDACT:FOIA-B1]]1.4a
-63  (SEE
-[[REDACT:FOIA-B1]]1.4a  ISR  1).
-
-AT 1504Z, [[REDACT:FOIA-B1]]1.4a RETURNED TO BASE. AT 2149Z, [[REDACT:FOIA-B1]]1.4a LANDED AT LGLR. FULL MOTION
-VIDEO WAS EXPLOITED BY GET. 20:40 MISSION HOURS, 08:29 FMV HOURS, 1X FMV
-TASKINGS PROSECUTED, 08:27 SIGINT HOURS, 1X SIGINT TASKINGS.
-(SECRET//REL TO USA, FVEY)
+AT 0109Z, (b)(1)1.4a CONDUCTED SLR TAKE OFF FROM LGLR. (b)(1)1.4a PROCEEDED TO FRAGGED TASKING TO SUPPORT (b)(1)1.4a|
+AT 0509Z, (b)(1)1.4a OBSERVED AN UNIDENTIFIED AERIAL PHENOMENON (SEE UAP 1).
+AT 0135Z, (b)(1)1.4a WAS 7-LINED TO SUPPORT (b)(1)1.4a (b)(1)1.4a ARRIVED ON-STATION AT 0635Z, CHECKED IN WITH (b)(1)1.4a AND PERFORMED FMV/SIGINT COLLECTION AT 36R XV 19 (1)1.4a 63 (1)1.4a (SEE ISR 1).
+AT 1504Z, (b)(1)1.4a RETURNED TO BASE. AT 2149Z, (b)(1)1.4a LANDED AT LGLR. FULL MOTION VIDEO WAS EXPLOITED BY GET. 20:40 MISSION HOURS, 08:29 FMV HOURS, 1X FMV TASKINGS PROSECUTED, 08:27 SIGINT HOURS, 1X SIGINT TASKINGS.
 
 (S/RELIDO) Mission Narrative
-
 Admin
-
 CLASSIFICATION
 • Classification: SECRET
-• Associated Caveats: REL TO USA, FVEY
+• Associated Caveats:
 • Classification Source (MS or Classification Guide ID): MS
 • Declassification Date (YYYYMMDD): 20490125
 
 OPERATION
-• Operation:  [[REDACT:FOIA-B1]]1.4a
+• Operation: (b)(1)1.4a
 • Domain: AIR
 • Operations Center: 603rd
 • Major Command (MAJCOM): AFSOC
 • Combatant Command (COCOM): USCENTCOM
+3.5c, FOIA Exemption (b)(6)
 
-  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-
-  SECRET//REL TO USA, FVEY
-USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S  10/28/25 001
-  Approved for Release to AARO
-  Declassified by MG Richard A. Harrison
-  USCENTCOM Chief of Staff
-  SECRET//REL TO USA, FVEY  Declassified on: 24 October 2025
+Declassified by MG Richard A. Harrison
+USCENTCOM Chief of Staff
+Declassified on: 24 October 2025
 
 MSGID
 • Report Type: MISREP
@@ -59,67 +45,57 @@ MSNID
 • Service Tasked: A - AIR FORCE
 
 Poc
-
 POC
 • Rank: A1C
-• Full Name:
-  3.5c, FOIA Exemptions [[REDACT:FOIA-B3]], 130b, [[REDACT:FOIA-B6]]
+• Full Name: Exemptions (b)(3), 130b, (b)(6)
 • Unit: 56 SOIS
 • Wing: 27 SOW
 • Phone Number:
-  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-• Email:  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
+• Email: 3.5c, FOIA Exemption (b)(6)
 • Service: Air Force
 • Operations Center: 609 AOC Det 1
 
-QC
+qc
 • Rank: SrA
-• Full3.5c,
-  Name:
-  FOIA Exemptions [[REDACT:FOIA-B3]], 130b, [[REDACT:FOIA-B6]]
+- Full Name: Exemptions (b)(3), 130b, (b)(6)
 • Unit: Unavailable
 • Wing: 27 SOW
-• Phone Number:3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-• Email:  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
+• Phone Number:
+• Email: 3.5c, FOIA Exemption (b)(6)
 • Service: Air Force
 • Operations Center: 609 CAOC
 
 APPROVER
 • Rank: A1C
-• Full 3.5c,
-  Name: FOIA Exemptions [[REDACT:FOIA-B3]], 130b, [[REDACT:FOIA-B6]]
+• Full Name: 3.3d, FOIA Exemptions (b)(3), 130b, (b)(6)
 • Unit: Unavailable
+3.5c, FOIA Exemption (b)(6)
 
-  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-
-  SECRET//REL TO USA, FVEY
-USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S  10/28/25 002
-  Approved for Release to AARO
-  Declassified by MG Richard A. Harrison
-  USCENTCOM Chief of Staff
-  SECRET//REL TO USA, FVEY  Declassified on: 24 October 2025
-
-• Wing: Other
-• Phone Number:
-  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-• Email:  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-• Service: Air Force
-• Operations Center: 603 AOC
+USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S
+Approved for Release to AARO
+10/28/25 002
+Declassified by MG Richard A. Harrison
+USCENTCOM Chief of Staff
+Declassified on: 24 October 2025
+Wing: Other
+Phone Number: 3.5c, FOIA Exemption (b)(6)
+Email: 3.5c, FOIA Exemption (b)(6)
+Service: Air Force
+Operations Center: 603 AOC
 
 INGEST
-• Rank:
-• Full Name:
-• Unit:
-• Wing:
-• Phone Number:
-• Email:
-• Service:
-• Operations Center:
+• Rank: <empty>
+• Full Name: <empty>
+• Unit: <empty>
+• Wing: <empty>
+• Phone Number: <empty>
+• Email: <empty>
+• Service: <empty>
+• Operations Center: <empty>
 
 ACEQUIP
-
 ACEQUIP
-• Aircraft Callsign: [[REDACT:FOIA-B1]]1.4a
+• Aircraft Callsign: (b)(1)1.4a
 • Radar Name or Destination:
 • Radar Software Load or Mission Data:
 • Radar Warning Receiver (RWR) Name or Designator:
@@ -140,16 +116,16 @@ ACEQUIP
 • Num Towed Decoys:
 • Type of Radar-Guided AAM:
 • Num Radar-Guided AAM:
+3.5c, FOIA Exemption (b)(6)
 
-  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-
-  SECRET//REL TO USA, FVEY
-USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S  10/28/25 003
-  Approved for Release to AARO
-  Declassified by MG Richard A. Harrison
-  USCENTCOM Chief of Staff
-  SECRET//REL TO USA, FVEY  Declassified on: 24 October 2025
-
+USCENTCOM MDR 25-0100 thru 25-0103 / JS.
+SECRET//REL TO USAF, T-7
+250710-TM8S
+Approved for Release to AARO
+10/28/25 003
+Declassified by MG Richard A. Harrison
+USCENTCOM Chief of Staff
+Declassified on: 24 October 2025
 • Type of IR-Guided AAM:
 • Num IR-Guided AAM:
 • Gun Name or Designator:
@@ -161,15 +137,11 @@ USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S  10/28/25 003
 • Gentext:
 
 Timeline
-
 Takeoff
-  [[REDACT:FOIA-B1]]1.4a
 • Callsign:
 • Number of Aircraft: 1
-• Asset Type (Aircraft):
-  [[REDACT:FOIA-B1]]1.4a, [[REDACT:FOIA-B1]]1.4g
-• Aircraft Tail Number(s):
-  [[REDACT:FOIA-B1]]1.4a, [[REDACT:FOIA-B1]]1.4g
+• Asset Type (Aircraft); 1.4a, (b)(1) 1.4g
+• Aircraft Tail Number(s):  4a, (b)(1)1.4g
 • Takeoff Location (ICAO Code): LGLR
 • Takeoff Time DTG: 250109:00ZJAN24
 • Mode 3 (IFF Codes): 4055
@@ -185,22 +157,21 @@ Landing
 
 On Station
 • Time On Station DTG: 250635:00ZJAN24
-• Callsign: [[REDACT:FOIA-B1]]1.4a
+• Callsign: (b)(1)1.4a
 • JTAR Number: -
 • Killbox (Location): -
 • Mission Type: ISR
-• JTAC Callsign: [[REDACT:FOIA-B1]]1.4a
+• JTAC Callsign: (b)(1)1.4a
 • Gentext/Additional Details:
 • Did not Arrive On Station:
+3.5c, FOIA Exemption (b)(6)
 
-  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-
-  SECRET//REL TO USA, FVEY
-USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S  10/28/25 004
-  Approved for Release to AARO
-  Declassified by MG Richard A. Harrison
-  USCENTCOM Chief of Staff
-  SECRET//REL TO USA, FVEY  Declassified on: 24 October 2025
+USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S
+10/28/25 004
+Approved for Release to AARO
+Declassified by MG Richard A. Harrison
+USCENTCOM Chief of Staff
+Declassified on: 24 October 2025
 
 Off Station
 • Time Off Station DTG: 251504:00ZJAN24
@@ -210,16 +181,14 @@ Off Station
 ISR
 • Time-on Station DTG: 250635:00ZJAN24
 • Time-off Station DTG: 251504:00ZJAN24
-• Aircraft Callsign: [[REDACT:FOIA-B1]]1.4a
+• Aircraft Callsign: (b)(1)1.4a
 • Msn Type: AREC
 • Primary Sensor: FMV
 • Sensors Available: BLASPHEMY
 • Tasking Type: Planned
 • Tasking or Request Number (JTAR#, AEM#, PRI#, or TIC#): DATA MASKED
 • BE Number (if NTISR): -
-• Tasked Start Point: 36RXV19  3
-  [[REDACT:FOIA-B1]]1.4a
-  [[REDACT:FOIA-B1]]1.4a
+• Tasked Start Point: 36RXV19(1)1.4a(1)1.4a
 • Activity Description: ISR
 • FMV or Image File Name (if NTISR): -
 • EEIs Observed: Yes
@@ -228,36 +197,26 @@ ISR
 
 GENTEXT/ISR
 • Gentext: (SECRET//REL TO USA, FVEY)
-UPON ARRIVAL TO THE SP AT 0635Z, [[REDACT:FOIA-B1]]1.4a OBSERVED NO EEI RELATED ACTIVITY. FROM
-0635Z- 1353Z, [[REDACT:FOIA-B1]]1.4a CONDUCTED POL AND OBSERVED NSTR. FROM 1353Z-1500Z, [[REDACT:FOIA-B1]]1.4a
-CONDUCTED A 1X STOP FOLLOW ON 1X ADM IN A SILVER SUV. AT 1400Z, [[REDACT:FOIA-B1]]1.4a OBSERVED
-A LARGE WHITE BOX BEING TRANSFERRED FROM BLACK SUV TO WHITE VAN.
-(SECRET//REL TO USA, FVEY)
+UPON ARRIVAL TO THE SP AT 0635Z, (b)(1)1.4a OBSERVED NO EEI RELATED ACTIVITY. FROM 0635Z- 1353Z, (b)(1)1.4a CONDUCTED POL AND OBSERVED NSTR. FROM 1353Z-1500Z, (b)(1)1.4a CONDUCTED A 1X STOP FOLLOW ON 1X ADM IN A SILVER SUV. AT 1400Z, (b)(1)1.4a OBSERVED A LARGE WHITE BOX BEING TRANSFERRED FROM BLACK SUV TO WHITE VAN.
 
 ISR ASSET UTILIZATION
-• Supported Unit: [[REDACT:FOIA-B1]]1.4a
-• Supported Operation:  [[REDACT:FOIA-B1]]1.4a
+• Supported Unit: (b)(1)1.4a
+• Supported Operation: (b)(1)1.4a
 • Precoord Time: -
 • Precoord Effectiveness: -
 
 WEATHER
 • Weather: (UNCLASSIFIED)
 
-  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-
-  SECRET//REL TO USA, FVEY
-USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S  10/28/25 005
-  Approved for Release to AARO
-  Declassified by MG Richard A. Harrison
-  USCENTCOM Chief of Staff
-  SECRET//REL TO USA, FVEY  Declassified on: 24 October 2025
-
+Declassified by MG Richard A. Harrison
+USCENTCOM Chief of Staff
+Declassified on: 24 October 2025
 CLEAR WX
 (UNCLASSIFIED)
 
 EFFECTIVENESS
 • Tasker:
-• Intel Gap Filled?: Yes
+• Intel Gap Filled? : Yes
 • Gentext: (UNCLASSIFIED)
 SATISFACTORY
 (UNCLASSIFIED)
@@ -267,12 +226,9 @@ UAP
 • UAP Event Type: UAP Incident
 • UAP Maneuverability Observations: NONE
 • UAP Response to Observer Actions: NONE
-• MDS Type / Asset Type:  [[REDACT:FOIA-B1]]1.4a, [[REDACT:FOIA-B1]]1.4g
+• MDS Type / Asset Type: (a)(1)1.4a, (b)(1)1.4g
 • Tail Number:
-  [[REDACT:FOIA-B1]]1.4a, [[REDACT:FOIA-B1]]1.4g
-• Friendly Aircraft Location: 35SQT67  8
-  [[REDACT:FOIA-B1]]1.4a
-  [[REDACT:FOIA-B1]]1.4a
+• Friendly Aircraft Location: 35SQT67(b)(1).48(1).4a
 • Friendly Aircraft Altitude/Depth: FL250
 • Friendly Aircraft Trajectory: 162
 • Observer Assessment of UAP: Benign
@@ -295,30 +251,23 @@ UAP
 • UAP Effects on Persons: NO
 • UAP Objects/Material Recovered (yes/no; if yes, describe): NO
 • UAP Effects on Equipment: NONE
-• Full  Name:
-  3.5c, FOIA Exemptions [[REDACT:FOIA-B3]], 130b, [[REDACT:FOIA-B6]]
+• Full Name:
+3.5c, FOIA Exemption (b)(6)
 
-  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-
-  SECRET//REL TO USA, FVEY
-USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S  10/28/25 006
-  Approved for Release to AARO
-  Declassified by MG Richard A. Harrison
-  USCENTCOM Chief of Staff
-  SECRET//REL TO USA, FVEY  Declassified on: 24 October 2025
-
+USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S
+10/28/25 006
+Approved for Release to AARO
+Declassified by MG Richard A. Harrison
+USCENTCOM Chief of Staff
+Declassified on: 24 October 2025
 • Rank/Grade: SENIOR AIRMAN/E-4
-• Email:  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-• Phone Number (VOSIP/STE):  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
+Email:: 3.5c, FOIA Exemption (b)(6)
+• Phone Number (VOSIP/STE):
 • Observer Engagement of UAP (yes/no; if yes, describe): NONE
-• First Coordinate: 35SQT44  7
-  [[REDACT:FOIA-B1]]1.4a
-  [[REDACT:FOIA-B1]]1.4a
+• First Coordinate: 35SQT44(b)(1).4a)(1).4a
 • First Seen Radius: 20
 • Last Accuracy: Estimated
-• Last Coordinate: 35SPT63  5
-  [[REDACT:FOIA-B1]]1.4a
-  [[REDACT:FOIA-B1]]1.4a
+• Last Coordinate: 35SPT63(1)1.45(1)1.4a
 • Last Seen Radius: 20
 • Kinetic Altitude Accuracy: Estimated
 • Kinetic Altitude: FL200
@@ -330,27 +279,20 @@ USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S  10/28/25 006
 • Kinetic Trajectory: W
 • UAP Date of DoD Acquisition: 250509:00ZJAN24
 • UAP Reaction to Observation, Interrogation, Engagement (yes/no; if yes, describe): NO
-• UAP Anomalous Characteristics/ Behaviors: MAINTAINED STEADY FLIGHT PATH,
-INCREASED AND DECREASED ALTITUDE PROFILE, DID NOT CHANGE TRAJECTORY
+• UAP Anomalous Characteristics/ Behaviors: MAINTAINED STEADY FLIGHT PATH, INCREASED AND DECREASED ALTITUDE PROFILE, DID NOT CHANGE TRAJECTORY
 • First Accuracy: Estimated
-• Call Sign: [[REDACT:FOIA-B1]]1.4a
+• Call Sign: (b)(1)1.4a
 • UAP First Seen Location:
 • UAP Last Seen Location:
 • UAP Altitude, Depth, Velocity, and Trajectory (indicate estimated or measured):
 
 GENTEXT/UAP
-• UAP Description (e.g., size, shape, color, markings, recognizable features): ROUND DIAMOND
-SHAPE WITH STRAIGHT, NON MANUEVERABLE "TAIL"
+• UAP Description (e.g., size, shape, color, markings, recognizable features): ROUND DIAMOND SHAPE WITH STRAIGHT, NON MANUEVERABLE "TAIL"
 • Gentext (UAP Event Description): (SECRET//REL TO USA, FVEY)
-AT 0509Z, [[REDACT:FOIA-B1]]1.4a OBSERVED 1X UAP WHILE IN TRANSIT. UPON INITIAL OBSERVATION, THE
+AT 0509Z, (b)(1)1.4a OBSERVED 1X UAP WHILE IN TRANSIT. UPON INITIAL OBSERVATION, THE
 UAP WAS FLYING AT A SPEED OF APPROX 434 KNOTS. THE UAP APPEARED DIAMOND IN
-SHAPE WITH A NON-MANUEVERING PROBE AT THE BOTTOM. THE UAP ONLY APPEARED
+SHAPE WITH A NON-MANEUVERING PROBE AT THE BOTTOM. THE UAP ONLY APPEARED
 ON THE SWIR CAMERA. THE EVENT LASTED APPROX 2 MINUTES ENDING AT 0511Z,
 WITHOUT ANY OTHER INCIDENT OCCURING.
 (SECRET//REL TO USA, FVEY)
-
-  3.5c, FOIA Exemption [[REDACT:FOIA-B6]]
-
-  SECRET//REL TO USA, FVEY
-USCENTCOM MDR 25-0100 thru 25-0103 / JS-250710-TM8S  10/28/25 007
-  Approved for Release to AARO
+3.5c, FOIA Exemption (b)(6)

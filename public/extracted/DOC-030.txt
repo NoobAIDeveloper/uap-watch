@@ -1,170 +1,254 @@
-  Authority:
+DECLASSIFIED
+Authority: NND 843014
+1
 
-  NND 843014
+TOP SECRET
+SECURITY INFORMATION
+Directorate of Intelligence
+Headquarters, U. S. Air Force
+4B-854 Pentagon
+Washington 25, D. C.
+=
+All documents filed in numerical sequence according to Top Secret Control Number.
 
-NW 90307
-Docld:34714985 Page 1
-  ‘APOIN-4 (Rev 5 Dee 47)  COVER SHEET
-
-  a.  RECORD OF BASIC CORRESPONDENCE OR REQUEST  == + +—=S*<Y;C' bj. CLASSIFICATION:
-
-  SUMMARY:
-
-  Eytrects  SUSPENSE
-
-  | DATE  —
-
-  |  ASGD BY
-
-  OTE RECEIVED ORT  (“st .
-  SPECIAL INSTRUCTIONS - REMARKS
-  \. Sa“ : “  oe
-
-  3: Dhe SAFE W
-  USE OTHER $ IDE THI 5 SHEET FOR ADDITIONAL REMARKS  C 6-12.
-  6  6  To.  CDW.  io  TO  DIR/INT  TO
-  DOWN  uP  DOWN  uP.  .  DOWN  UP
-  O1P-PP  SO
-  01P-FL  ee rr—“‘“‘RO#RO*RRCOC
-  ADMIN  LO
-
-  OIR-CO Vu  ASST EXEC  __-¢@
-  O1R-DD
-  O1R-AA
-  OlR-CM  EXECUTIVE
-  OIR-RC  .
-
-  OAI-0A  .  |
-  OAL-DA
-  OAL -AE  AFOA)
-
-  OAI-AF
-  OAI~SV
-
-  ____. 0 l-1s
-  OCI-RR  AFOCI
-  oci-Cl
-
-  8
-  og 6 ew
-
-  ee ee  eee
-
-  © ae
-  eee
-
-  IV  Coordination
-  e.  DATE REC'D BR  i DISPATCH
-  |  _ ACTION ASGD To _  |  DISPATCHED BY.=“ CTO
-  SIGNED  DATEDISPATCHED
-
-  Be cary, ar
+TOP SECRET
+SECURITY INFORMATION
+TS CONT. NO. 2-5300 - 2-5399
+Nov 48
 
 NW 90307
-Docld:34714985 Page 2
-  USAFE 2  TT 152k
+DocId:34714985 Page 1
+2-5317
+AFDIN-4 (Rev 5 Dec 47)
+[ ]
 
-  To Gen Cabell
+COVER SHEET
+[ ]
 
-  We now have one complete set of all reports prepared by special
-  intelligence organization of the European
-  Co ve from its conception to
-  present date. We are forwarding these reports ie your inspection and
-  final disposition. We are of the Spiaion that inspection of these reports
-  will lend weight to arguments for allocating
-  Air Force funds to this
+T.S. Cont. #:
+D.I.-Hq, USAF
+*
+*
+*
+a. RECORD OF BASIC CORRESPONDENCE OR REQUEST
+FROM:
+AFOIR-CO
+DATE:
+8 Nov 48
+TYPE:
+<empty>
+b. CLASSIFICATION:
+TOP SECRET
+SUMMARY:
+Extracts from TT #1524
+D/1, HQ. USAF vs A-2, USAFE
+DATE RECEIVED DIR/INT: <empty>
+SUSPENSE
+DATE: <empty>
+ASGD BY: <empty>
+NO.: <empty>
+*
+c. TO: AFOIR
+SPECIAL INSTRUCTIONS - REMARKS
+1. Submitted for information,
+DATE: 8 Nov 48
+NO.: 1
+2. All items have been distributed to AFOAI branches.
+3. Item USAFE 14 has been distributed to CIA, AMC, + armament Intelligence Branch, DCS/M.
+4. Item USAFE 16 has been distributed to OIR-SR.
+USE OTHER SIDE THIS SHEET FOR ADDITIONAL REMARKS
+CO-12
+d.: <empty>
+TO DOWN: <empty>
+BR.: OIP-PP
+TO UP: <empty>
 
-  organization.  Advise caution in utilizing these reports as most of them.
+TO DOWN: <empty>
+DIV.: AFOIP
+TO UP: <empty>
 
-  were forwarded as received,
+TO DOWN: <empty>
+DIR/INT: ASST EXEC
+TO UP: <empty>
 
-  (END OF ITEM)
+TO DOWN: <empty>
+BR.: OIP-FL
+TO UP: <empty>
 
+TO DOWN: <empty>
+BR.: ADMIN
+TO UP: <empty>
+
+TO DOWN: <empty>
+BR.: OIR-CO
+TO UP: <signature>
+
+TO DOWN: <empty>
+DIR/INT: ASST EXEC
+TO UP: <signature>
+
+TO DOWN: <empty>
+BR.: OIR-DD
+TO UP: <empty>
+
+TO DOWN: <empty>
+BR.: OIR-AA
+TO UP: <empty>
+
+TO DOWN: <signature>
+DIV.: AFOIR
+TO UP: <signature>
+
+TO DOWN: <empty>
+BR.: OIR-CM
+TO UP: <empty>
+
+TO DOWN: <empty>
+DIR/INT: EXECUTIVE
+TO UP: <signature>
+
+TO DOWN: <empty>
+BR.: OIR-RC
+TO UP: <empty>
+
+TO DOWN: <empty>
+BR.: OAI-OA
+TO UP: <empty>
+
+TO DOWN: <empty>
+DIR/INT: DIR/INT
+TO UP: <signature>
+
+TO DOWN: <empty>
+BR.: OAI-DA
+TO UP: <empty>
+
+TO DOWN: <empty>
+BR.: OAI-AE
+TO UP: <empty>
+
+TO DOWN: <empty>
+DIV.: AFOAI
+TO UP: <empty>
+
+TO DOWN: <empty>
+BR.: OAI-AF
+TO UP: <empty>
+
+TO DOWN: <empty>
+BR.: OAI-SV
+TO UP: <empty>
+
+TO DOWN: <empty>
+BR.: OCI-IS
+TO UP: <empty>
+
+TO DOWN: <empty>
+BR.: OCI-RR
+TO UP: <empty>
+
+TO DOWN: <empty>
+DIV.: AFOCI
+TO UP: <empty>
+
+TO DOWN: <empty>
+BR.: OCI-CI
+TO UP: <empty>
+
+TO DOWN: <empty>
+BR.: ......
+TO UP: <empty>
+
+[x] Action
+
+TO DOWN: <empty>
+BR.: ......
+TO UP: <empty>
+
+[x] Coordination
+
+TO DOWN: <empty>
+BR.: ......
+TO UP: <empty>
+
+TO DOWN: <empty>
+BR.: ......
+TO UP: <empty>
+e. DATE REC'D BR: <empty>
+ACTION ASGD TO: <empty>
+DATE: <empty>
+SIGNED: <signature>
+DATE: <empty>
+f. DISPATCH: <empty>
+FILE: Vp
+DISPATCHED BY: <empty>
+TO: <empty>
+DATE DISPATCHED: <empty>
+
+8-3477, AF
 NW 90307
-Docld:34714985 Page 3
-  MA
-  EAA NMR  OANA  a
+DocId:34714985 Page 2
+SECRET
+O.I. - Hq. USAF
+USAFE 2 TT 1524
+SECRET
+4 Nov 48
+To Gen Cabell
+We now have one complete set of all reports prepared by special intelligence organization of the European Command from its conception to present date. We are forwarding these reports for your inspection and final disposition. We are of the opinion that inspection of these reports will lend weight to arguments for allocating Air Force funds to this organization. Advise caution in utilizing these reports as most of them were forwarded as received.
+(END OF ITEM)
 
-  USAFE 10  .—s-«*TT 1524  4 Nov 1948
+CONFIDENTIAL
+USAFE 10
+TT 1524
+CONFIDENTIAL
+4 Nov 1948
+From OI OB
+Following report on unidentified aircraft sighting comes from 307th Bomb Group which participated in operation daggar. Unidentified aircraft was sighted by three crews of the group at 1402Z 5 Sep 48 off west coast of Holland, 5155N/0355E. Altitude of all aircraft was 30,000 feet. When first sighted the unidentified A/C was cruising at a normal jet speed, heading 120 degrees. Soon after first seen, A/C began leaving smoke trails and condensation trails accompanied by sudden acceleration and then climb. Generall agreed by observers that it was a single jet propelled A/C employing probably rocket assists with tremendous reserve power, more than normal curising speed for jets of the 1947 variety. Never within identification range; its course did not indicate its purpose.
 
-  From OL OB
+Our evaluation of the above: B-2.
+(END OF ITEM)
 
-  Following report on unidentified aircraft sighting comes from 307th Bomb
-
-  Group which participated in operation daggar, Unidentified aircraft was
-
-  sighted by three crews of the group at 14052Z Sep 48 off west coast of Holland,
-
-  5155N/0355E. Altitude of all aircraft was 30,000 feet. When first sighted
-  the unidentified A/C was cruising at a normal jet speed, heading 12) degrees.
-
-  Soon after first seen, A/C began leaving smoke trails and condensation trails
-  accompanied by sudden acceleration and then climb.  Generall agreed by
-
-  observers that it was a single jet propelled A/C employing probably rocket
-  assists with tremendous reserve power, more than normal curising speed for
-
-  jets of the 1947 variety. Never within inntitieation cane: its course
-  did not indicate its purpose.
-
-  Our evaluation of the above:  Bd.
-
-  (END OF ITEM)
-
+CONFIDENTIAL
 NW 90307
-Docld:34714985 Page 4
-  USAFE 14  TY 152k.  k Nov 1948
+DocId:34714985 Page 4
+2-5317
+U.S. Cont. # 1
+U.L.-Hg, USAE
+TOP SECRET
+USAFE 14
+TT 1524
+TOP SECRET
+4 Nov 1948
+From OI OB
+For some time we have been concerned by the recurring reports on flying saucers. They periodically continue to cop up; during the last week, one was observed hovering over Neubiberg Air Base for about thirty minutes. They have been reported by so many sources and from such a variety of places that we are convinced that they cannot be disregarded and must be explained on some basis which is perhaps slightly beyond the scope of our present intelligence thinking.
+When officers of this Directorate recently visited the Swedish Air Intelligence Service. This question was put to the Swedes. Their answer was that some reliable and fully technically qualified people have reached the conclusion that "these phenomena are obviously the result of a high technical skill which cannot be credited to any presently known culture on earth." They are therefore assuming that these objects originate from some previously unknown or unidentified technology, possibly outside the earth.
+One of these objects was observed by a Swedish technical expert near his home on the edge of a lake. The object crashed or landed in the lake and he carefully noted its azimuth from his point of observation. Swedish intelligence was sufficiently confident in his observation that a naval salvage team was sent to the lake. Operations were underway during the visit of USAFE officers. Divers had discovered a previosuly uncharted crater on the floor of the lake. No further information is available, but we have been promised knowledge of the results. In their opinion, the observation was reliable, and they believe that the depression on the floor of the lake, which did not appear on current hydrographic charts, was in fact caused by a flying saucer.
+Although accepting this theory of the origin of these objects poses a whole new group of questions and puts much of our thinking in a changed light, we are inclined not to discredit entirely this somewhat spectacular theory, meantime keeping an open mind on the subject. What are your reactions?
 
-  From OI OB
-
-  For some time we have been concerned by the recurring reports on flying
-  saucers,  They periodically continue to cop up; during the last week, one was
-  observed hovering over Neubiberg Air Base for about thirty minutes, They
-  have been reported by so many sources and from such a variety of places that
-  we are convinced that they cannot be disregarded and must be explained on some
-  basis which is perhaps slightly beyond the scope of our present subelligesee
-  _—
-
-  When officers of this Directorate recently visited the Swedish Air
-  Intelligence Service. This question was put to the Swedes. fheir answer
-  was that some reliable and fully technically qualified people have reached
-  the conclusion that "these phenomena are obviously the result of a high|
-  #echnical skill which cannot be credited to any presently known culture on
-  earth," They are therefore assuming that these objects originate from some
-  previously unknown or unidentified technology, eeeed outside the earth,
-
-  One of these objects was observed by a Swedish technical expert near
-  his home on the edge of a lake. The object crashed or landed  in the lake
-  and he caréfully noted its azimuth from his point of observation. Swedish
-  intelligence was sufficiently confident in his observation that a naval
-  salvage team was sent to the lake. Operationswere wmderway during the
-  visit of USAF officers.  Divers had  discovered a previosuly uncharted
-  crater on the floor of the lake.  No further information is available, but
-  we have been promised knowledge of the results. in their opinion, the
-  observatio  n reliable, and they believe that the depression on the floor
-  was
-  of the lake, which did not appear on current  Hydrographic charts, was ir
-  fact caused
-  by a flying saucer.
-
-  of the origin of these objects poses a
-  Although accepting this theory
-  whole new group of Questions and puts much of our thinking in achanged
-  light, we are inclined not to discredit entirely this somewhat spectacular
-  theory, meantime keeping an open mind on the subject.  What are your
-  reactions?
-
-  END OF USAFE ITEM 14).
-
+TOP SECRET
+(END OF USAFE ITEM 14)
+TOP SECRET
 NW 90307
-Docld:34714985 Page 5
+DocId:34714985 Page 5
+TOP SECRET
+He also knows of a Soviet-built radar set located near Kholomia Airfield (5 KM W of Airfield, near the town of Kholomia). This type set is called "Redut". He believes personnel of this set to be army, assigned to PVO, but is not certain. His regiment conducted flying cooperation exercises with the set, presumably to train the set operators, since the set was first located at Kholomia in Spring 1947. His aircraft, in October 1948, lost the set on such an exercise at a distance of 150 kilometers and altitude of 1200 meters. Following instructions, he then climbed to 3000 meters, when the set again picked him up. he states he believes this type set is standard throughout the PVO, and that he believes its maximum range to be 150 kilometers, because no training flights of greater distances were ever undertaken. Further details will be sought.
+All TU-2 of 63 Regt are fitted with IFF type S. CH. (C-4), located in the tail of the aircraft and operated by a switch in the radio operator's compartment. Further, experiments with airborne radar (A tail warning device) were carried out in 1947 and TU-2 of his regiment. This equipment involved the installation of a small external array. Sets were removed after a few days of testing, but results were understood to have been satisfactory.
+On the subject of Kholomia Airfield, this field is currently apparently simply a level pasture, 600 meters N/S by 1400 meters E/W, but a paved runway is being constructed outside the north boundary of the airfield. No details are known to subject, as work has just commenced. The airfield currently has no installations; aircraft are parked in the open, and fuel is brought directly to the aircraft from the town of Kholomia (7 kilometers to the W) by tank trucks.
+Another interesting fact is the arrival of the TU-2 with only a crew of three, and without the dorsal turret machine gun in place (nor anyplace on the aircraft). Subject states that the air gunner sergeants who should occupy this fourth position are on duty with the regiment, but are engaged in fatigue details, and XXXX rarely carried on training flights.
+Subject believes the TU-2 to be manufactured in a factory in Moscow, and it is noted that a plaque in the aircraft stated that it had been produced in Factory No. 19.
+A fuller report will shortly be underway, based on interrogation conducted so far, and many more details are expected to be obtained in the next week or two, with both pilot and navigator being interrogated.
+(IND USFA-1)
+
+TOP SECRET
 NW 90307
-Docld:34714985 Page 6
-  CIC x6
+DocId:34714985 Page 6
+SECRET
+USAFE 16 TT 1524
+4 Nov 48
+CIC source reports that the Russians have ordered CSR Missions in foreign countries to purchase radar tubes in large quantities regardless of costs. Mission also instructed to purchase a complete radar set.
+(Eval C-3)
+(END OF ITEM)
 
-  countries
-
-  ecion aleo  inetructed
-
+SECRET
 NW 90307
-Docld:34714985 Page 7?
+DocId:34714985 Page 7

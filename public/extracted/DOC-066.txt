@@ -1,39 +1,31 @@
-  Declassified by MG Richard A. Hamson
-  USCENTCOM Chief of Staff
-  Declassified on: 20 M~
-  67.1 P-8A OBSERVES UNIDENTIFIED LOW-FLYING OBJECT 55 NM
-  NORTHWEST OF LATAKIA, SYRIA
-  18 NOV 2016
+Declassified by MG Richard A. Harrison
+USCENTCOM Chief of Staff
+Declassified on: 20 March 2026
+SECRET//REL TO USA, NATO
 
-J!!Jlf: Whtie monitoring KCTG activity In the Ea•tem  FLIGHT PATH
-Mediterranean, P-IA, obe•rved an unidentified low-ftylng
-object 86 nm northweet of Latakla from an unknown
-origin, traveling at approx SOOK.TS on a •outheut•rly
-heading outbound from KCTG, for ~2 minutes.
-  Timeline (Z):
-(D (°ell P'IEl!sto18/131 OZ: P-8 observed a possible missile launch
-  IVQ  1.4a  I from an origin unknown detected via
-  the EO/IR sensor. The possible missile appeared to be in
-  sea skim mode traveling at approximately 500KTS on a
-  southeasterly heading outbound from KCTG. P-8 position
-  . was 26NM S of object detection at 16121 F~  1.4a
+67.1 P-8A OBSERVES UNIDENTIFIED LOW-FLYING OBJECT 55 NM NORTHWEST OF LATAKIA, SYRIA
 
-f2' (911 P't!I!) 18/13122: - P-8 lost visual of the object IVO
-~  1.4a  Iapprox. 40 NM northwest of Latakia. The
-  missile was observed to pass between (RUS) INGUL ARS
-  and 1x U/1 vessel.
-  Weather:
-  Uf P-8 aircrew charactenzeavisioilfty as clear, no range
-  limitations .
+18 NOV 2016
+BLUF: While monitoring KCTG activity in the Eastern Mediterranean, P-8A, observed an unidentified low-flying object 55 nm northwest of Latakia from an unknown origin, traveling at approx 500KTS on a southeasterly heading outbound from KCTG, for ~2 minutes.
 
-  .~!~
-  (RUS) INGUL ARS  US P-8A Location
-  13102:--
+Timeline (Z):
+- 1 (SIREL) 18/1310Z: P-8 observed a possible missile launch IVO 1.4a from an origin unknown detected via the EO/IR sensor. The possible missile appeared to be in sea skim mode traveling at approximately 500KTS on a southeasterly heading outbound from KCTG. P-8 position was 26NM S of object detection at 16121 FT 1.4a
+- 2 (CNRREL) 18/1312Z: - P-8 lost visual of the object IVO 1.4a approx. 40 NM northwest of Latakia. The missile was observed to pass between (RUS) INGUL ARS and 1x U/I vessel.
 
-CTG 67.1 Comment§: The mission commander for P~8 characterized the interaction as safe. VVhile this was the first observed occurrence of
-possible missile activity by P-8 aircraft in the Eastern Mediterranean it is assessed to be standard activity consistent with the assessed activity of
-fhe KCTG. Video footage can be found at this link.  (b)(6l
+Weather:
+(U) P-8 aircrew characterized visibility as clear, no range limitations.
+The image is not a chart. It is a thermal image showing:
 
-  81!8PU!!•1~1PU!L ,8 UOilt, UM8
+*   A bright object labeled "(RUS) INGUL ARS".
+*   A faint object labeled "U/I OBJ".
+*   A faint object labeled "U/I VESSEL".
+*   Crosshairs in the center of the image.
+*   A red line at the top left, likely indicating a horizon or reference line.
+The image depicts a flight path with several Russian naval vessels identified by their hull numbers and names, such as (RUS) UDALOY GD-619, (RUS) KUZNETSOV DV-063, and (RUS) KALININGRADNEFT AD. It also marks the location of a "KTG" at 1310Z, with associated data "1.4a". Another point labeled "2" is noted around 1312Z with similar data "1.4a". A US P-8A aircraft's location is also indicated at 1310Z with data "1.4a". The distance of 26 NM is marked. Two inset images show aerial views with red lines, possibly indicating observed missile activity.
+CTG 67.1 Comments: The mission commander for P-8 characterized the interaction as safe. While this was the first observed occurrence of possible missile activity by P-8 aircraft in the Eastern Mediterranean it is assessed to be standard activity consistent with the assessed activity of the KCTG. Video footage can be found at this link: 
+(b)(6)
 
-  USCENTCOM MOR 26~038 to MOR 26~046  Approved for Release to AARO  03/27/26 000001
+SECRET//REL TO USA, NATO
+USCENTCOM MDR 26-0038 to MDR 26-0046
+Approved for Release to AARO
+03/27/26 000001

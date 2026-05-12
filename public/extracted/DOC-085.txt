@@ -1,3 +1,7 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+| Item | Value |
+|---|---|
+| X-axis scale | 0 to 15 (increments of 1) |
+| Y-axis scale | Not explicitly labeled, but appears to have a center origin. |
+| Objects | Black horizontal bars of varying lengths at different positions. |
+| Small dark spot | Located above and to the right of the Y-axis origin. |
+| Background | Textured, gray, with what appears to be a mountainous landscape at the bottom. |

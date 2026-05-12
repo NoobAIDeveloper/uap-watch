@@ -119,6 +119,14 @@ DOC-036 and DOC-037 had different metadata (different titles, dates, description
 
 **Fix:** removed the DOC-037 entry from `data/documents.ts` with an inline comment documenting the discovery, deleted the extracted text file. Audit-driven housekeeping — the kind of thing that's invisible to most readers but matters for an archive that claims provenance accuracy.
 
+### 11. The OCR was good enough to ship, but not good enough to ground a chatbot
+
+Tesseract on 1949-era typewriter scans produced text like `"Office Memor. dum"` and `"FROM : A. He Belielop"`. Fine for full-text search where the user is already looking at the source PDF. Hostile for a RAG system trying to extract a clean fact.
+
+**Fix:** when Reducto open-sourced their layout-aware VLM parse of the same war.gov + FBI Vault collection under CC BY 4.0, I swapped our extraction pipeline's output rather than rebuilding the pipeline itself. Filename mapping was 1:1 (their `<basename>.json` ↔ our `<basename>.pdf`), so a 150-line ingestor (`scripts/ingest-reducto.mjs`) walks `data/documents.ts`, fetches each JSON, flattens block-level chunks back to plain text, and rewrites `public/extracted/*.txt` in place. 111 of 113 files swapped cleanly (two filename-date mismatches we kept on the original); total text body went from 4.6M → 6.6M chars (+43%). Embeddings rebuilt to 6,908 chunks. Attribution added to the Footer.
+
+The lesson isn't "OCR is hard" — that's table stakes. It's "your data layer is replaceable; build the pipeline around the schema you want, not the source you happen to have today." Our existing layout treated `public/extracted/*.txt` as the canonical input — the upstream OCR engine was an implementation detail. So when a better one appeared, the swap was a config change rather than a refactor.
+
 ## By the numbers
 
 | | Value |
@@ -139,6 +147,8 @@ DOC-036 and DOC-037 had different metadata (different titles, dates, description
 | PDFs recovered via Claude Code vision-pass subagents | 7 |
 | Largest single-document text recovery (DOC-031, Sen. Russell sighting) | 551 → 33,831 chars (61×) |
 | Duplicate catalog entries removed during audit | 1 (DOC-037 = DOC-036) |
+| Day 3 OCR swap (Reducto VLM, CC BY 4.0) — PDFs replaced / total body delta | 111 / +1.99M chars (+43%) |
+| RAG chunks after swap | 5,106 → 6,908 (+35%) |
 | Incidents indexed | 26 |
 | Documents indexed | 135 (after dedup) |
 | Videos indexed | 44 (28 PURSUE + 16 supporting) |

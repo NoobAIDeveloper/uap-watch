@@ -1,3 +1,1 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+This image is a scientific chart with a crosshair overlay. The horizontal axis is marked with numbers from 5 to 15 in increments of 5, and the vertical axis has tick marks but no visible numbers. There are six black rectangular bars distributed across the image, with some partially overlapping the tick marks on the horizontal axis.

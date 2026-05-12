@@ -1,3 +1,19 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+The image contains a grid with tick marks and numbers indicating a scale from 5 to 15 on both the x and y axes. There are six black rectangular shapes distributed symmetrically around the origin. Each rectangle is partially superimposed with a lighter gray rectangle.
+
+The black rectangles are located at approximately:
+- Top left: x between 15 and 11, y between 13 and 15.
+- Top right: x between 9 and 13, y between 13 and 15.
+- Middle left: x between 15 and 11, y between 5 and 7.
+- Middle right: x between 9 and 13, y between 5 and 7.
+- Bottom left: x between 15 and 11, y between 1 and 3.
+- Bottom right: x between 9 and 13, y between 1 and 3.
+
+The lighter gray rectangles extend slightly beyond the black rectangles on the right for the top and middle pairs, and on the left for the bottom pairs, with approximate extents:
+- Top left: x between 11 and 9, y between 13 and 15.
+- Top right: x between 13 and 15, y between 13 and 15.
+- Middle left: x between 11 and 9, y between 5 and 7.
+- Middle right: x between 13 and 15, y between 5 and 7.
+- Bottom left: x between 11 and 9, y between 1 and 3.
+- Bottom right: x between 13 and 15, y between 1 and 3.
+
+A small dark spot is visible slightly to the right of the origin, near the y-axis. The background appears noisy with some subtle landscape features at the bottom.

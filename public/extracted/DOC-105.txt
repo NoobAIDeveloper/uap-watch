@@ -1,3 +1,1 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+The image displays a grayscale chart with a Cartesian coordinate system. A small black dot is positioned slightly left of the origin. Two sets of horizontal black rectangles are present, mirrored symmetrically on the left and right sides of the image. Each set consists of three rectangles of varying lengths, aligned vertically. Horizontal scales marked with tick intervals and numbers (5, 10, 15) are visible below the rectangles on both sides, and also on the right side, below the corresponding rectangles. A vertical scale is also present, indicated by tick marks along the y-axis.

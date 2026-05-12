@@ -1,3 +1,7 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+This image is a grayscale photograph showing a target with a crosshair in the center and horizontal bars on the left and right sides. The crosshair has tick marks and numerical labels along its horizontal and vertical axes, indicating a coordinate system. The horizontal axis is labeled from 15 to 5 on the left and from 5 to 15 on the right. The vertical axis has tick marks but no numerical labels visible. Black rectangular bars are positioned symmetrically around the center.
+
+| Axis      | Position | Value |
+| :-------- | :------- | :---- |
+| Horizontal | Left     | 15, 10, 5 |
+| Horizontal | Right    | 5, 10, 15 |
+| Vertical  | Center   | 0 (implied by crosshair) |

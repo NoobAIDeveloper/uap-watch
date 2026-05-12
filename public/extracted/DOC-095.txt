@@ -1,3 +1,7 @@
-// OCR FOUND NO RECOGNIZABLE TEXT IN THIS DOCUMENT.
-// LIKELY AN IMAGE-ONLY PHOTOGRAPH OR HEAVILY REDACTED PAGE.
-// VIEW ORIGINAL VIA SOURCE LINK BELOW.
+The image displays a grayscale graphic with a central crosshair and several horizontal black rectangles of varying lengths. There are numerical scales along the bottom edges, indicating values from 0 to 15, with tick marks at intervals. A small, dark, irregular shape is positioned slightly to the right and below the center of the crosshair.
+
+The key entities are:
+*   Crosshair
+*   Horizontal black rectangles
+*   Numerical scales (0-15)
+*   Small dark shape

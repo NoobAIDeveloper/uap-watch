@@ -1,81 +1,69 @@
 Declassified by MG Richard A. Harrison
 USCENTCOM Chief of Staff
-Declassified on: 10 March 2026
+Declassified on: 16 March 2026
 FOUO / Privacy Act applies
+(see below).
 
-[Top-right note next to title:] Please do not use the purple "submit" button above. Save and email the complete file manually (see below).
-
-Range Fouler Reporting Form
-
+Please do not use the purple "submit" button above. Save and email the complete file manually
 Please complete this form to the best of your ability. If you do not have the requested information, please leave the field blank. If there was more than one "group," please report each on a separate form for data collection purposes. You should receive a response within 5 business days.
-
-Last Name, First Name: [REDACTED]
+Last Name, First Name: <empty>
 Rank: O-3
 Squadron: 172 ATKS
-SIPR Email Address: [REDACTED]
+SIPR Email Address: <empty>
 Crew Position: Other
-
 This information is for contact only. SPEAR sanitizes all reports of identifying information. Absolutely no identifying information for aircrew or squadron will be recorded for analysis.
-
 Date (mm/dd/yy): 09/04/20
 Time of detection (hh:mm:ss Z): 21:09:00
 Day / Night: Night
-Side No.: [blank]
-Buno: [blank]
+Side No.: <empty>
+Buno: <empty>
 Mission Description (CAS, BFM, etc): ISR
-LFE?: [blank]
-
-Contact Working Area (Ex: W-72 1A): [blank]
-Contact Latitude (DD:MM:SS): [blank]
-N/S: N
-Contact Longitude (DD:MM:SS): [blank]
-E/W: E
-Contact Altitude (Ex: 22000): 23819
-Altitude Constant?: [blank]
-Wind Dir at Contact Alt (From): [blank]
-Wind Speed: [blank]
-
-Please attempt to determine a Lat / Long for the contact at initial detection. We recommend using JMPS to reference the sensor-derived bearing and range relative to the bullseye you had in use. If that method is not available, any reasonable derivation of location will work, but please be as specific as possible and make a note in the comments section. These locations may be used to cue other means of tracking.
-
+LFE?: <empty>
+N E 23819
+Contact Working Area (Ex: W-72 1A): <empty>
+Contact Latitute (DD:MM:SS): <empty>
+N/S: <empty>
+Contact Longitude (DD:MM:SS): <empty>
+E/W: <empty>
+Contact Altitude (Ex: 22000): <empty>
+Altitude Constant?: <empty>
+Wind Dir at Contact Alt: <empty>
+Wind Speed: <empty>
+Please attempt to determine a Lat / Long for the contact at initial detection. We recommend using JMPs to reference the sensor-derived bearing and range relative to the bullseye you had in use. If that method is not available, any reasonable derivation of location will work, but please be as specific as possible and make a note in the comments section. These locations may be used to cue other means of tracking.
 Was the contact moving?: Yes
 Direction/Speed (Ex. 090/15): 168/277
-
-Radar Equipped: [blank]
-Stable Trackfile?: [blank]
+Radar Equipped: <empty>
+AIM-9x Self-Track: [ ]
+Stable Trackfile?: <empty>
+ATFLIR Autotrack: [ ]
 # of Contacts in "Group": 1
-
-AIM-9x Self-Track: [blank]
-ATFLIR Autotrack: [blank]
-Tally Achieved: [blank]
-
-EA Indications (Check all that apply):
-ECM Arc: [blank]
-Letter Identifier: [blank]
-False Trackfiles: [blank]
-Other/Ambiguous: [blank]
-
+Tally Achieved: [ ]
 Please check all that apply:
-Round: [checked]
-Square: [blank]
-Balloon-shaped: [blank]
-Wings/Airframe: [blank]
-Other Shape: [blank]
-Apparent Propulsion: [blank]
-Moving Parts: [blank]
-Metallic: [blank]
-Markings: [blank]
-Translucent: [blank]
-Opaque: [blank]
-Reflective: [blank]
-
+Round:: [x]
+Moving Parts:: [ ]
+Square:: [ ]
+Metallic:: [ ]
+Balloon-shaped:: [ ]
+Markings:: [ ]
+Wings/Airframe:: [ ]
+Translucent:: [ ]
+Other Shape:: [ ]
+Opaque:: [ ]
+Apparent Propulsion:: [ ]
+Reflective:: [ ]
+EA Indications (Check all that apply):
+[ ] ECM Arc
+[ ] Letter Identifier
+[ ] False Trackfiles
+[ ] Other/Ambiguous
 Please use the field below to describe the contact and any interaction in your own words with as much detail as possible. Please be sure to include any detail not included in questions above.
-
-Contact at 21:09z to 21:17z 04SEP2020. MGRS location 38P LT 7[REDACTED (b)(1)1.4a]42[REDACTED (b)(1)1.4a] (estimated lat/long [REDACTED (b)(1)1.4a]). While at 23,819 HAT over the Gulf of Aden we tracked a round, cold object in IR traveling 168 degrees at 277 mph. It made a few abrupt directional changes during the 8 minute contact. Our sensor was aimed -39 degrees below our altitude with a slant range of 6.17NM and ground range of 8.81 KM. The IR sensor was set to black hot and the object in question was a bright white.
-
-Don't use the purple "submit" button! Save this form with filename "Date_Squadron_RF.pdf" and email it to [REDACTED 3.5c, (b)(6)] (Also in the global). For troubleshooting, call [REDACTED 3.5c, (b)(6)]
-
+Contact at 21:09z to 21:17z 04SEP2020. MGRS location 38P LT 7(b)(1)1.4a38(b)(1)1.4a(estimated lat/long
+(b)(1)1.4a). While at 23,819 HAT over the Gulf of Aden we tracked a round, cold object
+in IR traveling 168 degrees at 277 mph. It made a few abrupt directional changes during the 8 minute
+contact. Our sensor was aimed -39 degrees below our altitude with a slant range of 6.17NM and ground
+range of 8.81KM. The IR sensor was set to black hot and the object in question was a bright white.
+Don't use the purple "submit" button! Save this form with filename "Date_Squadron_RF.pdf" and email
+it to: 3.5c, (b)(6)
+(Also in the global). For troubleshooting, call: 3.5c, (b)(6)
 Thank you for your time. Please ensure all display tapes are ripped for the entire time of interaction and saved as a .wmv (Example: 4 May VFA-106 HUD.wmv). Squadron intel personnel shall upload those files to the repository located at this link.
-
-[REDACTED 3.5c, (b)(6)]
-
-USCENTCOM 26-0028          Approved for Release to AARO - FOUO / PA applies          03/16/26 000001
+3.5c, (b)(6)
