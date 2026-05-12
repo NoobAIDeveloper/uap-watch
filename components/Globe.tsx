@@ -5,7 +5,53 @@ import { Maximize2 } from "lucide-react";
 import createGlobe from "cobe";
 import { incidents } from "@/data/incidents";
 import type { Incident } from "@/lib/types";
+import { setSelectedId } from "@/lib/store";
 import LunarModal from "./LunarModal";
+
+// Sphere radius used by cobe internally for the lit globe surface.
+// Markers sit slightly above this at `SPHERE_R + MARKER_ELEV`.
+const SPHERE_R = 0.8;
+const MARKER_ELEV = 0.05;
+const THETA = 0.25; // matches createGlobe option
+const HIT_RADIUS_PX = 18;
+
+// Replicates cobe's lat/lon → unit-sphere transform so we can project
+// marker positions ourselves for click detection (cobe's <canvas>
+// doesn't surface hit events natively).
+function latLonToUnit([lat, lon]: [number, number]): [number, number, number] {
+  const r = (lat * Math.PI) / 180;
+  const a = (lon * Math.PI) / 180 - Math.PI;
+  const cr = Math.cos(r);
+  return [-cr * Math.cos(a), Math.sin(r), cr * Math.sin(a)];
+}
+
+// Rotates a unit-sphere point by phi (Y axis) + theta (X axis), then
+// returns canvas-CSS coordinates and a front-facing flag. Mirrors the
+// projection in cobe's vertex shader so overlay hit tests line up with
+// what the user sees.
+function projectMarker(
+  p: [number, number, number],
+  phi: number,
+  theta: number,
+  cssW: number,
+  cssH: number,
+): { x: number; y: number; front: boolean } {
+  const cp = Math.cos(phi);
+  const sp = Math.sin(phi);
+  const ct = Math.cos(theta);
+  const st = Math.sin(theta);
+  const c = cp * p[0] + sp * p[2];
+  const s = sp * st * p[0] + ct * p[1] - cp * st * p[2];
+  const zFinal = -sp * ct * p[0] + st * p[1] + cp * ct * p[2];
+  const aspect = cssW / cssH;
+  const nx = (c / aspect + 1) / 2;
+  const ny = (-s + 1) / 2;
+  return {
+    x: nx * cssW,
+    y: ny * cssH,
+    front: zFinal >= 0 && c * c + s * s <= SPHERE_R * SPHERE_R + 0.02,
+  };
+}
 
 // cobe-rendered orthographic globe with slow Y-rotation. Replaces the
 // previous flat Natural-Earth situation map on the homepage. Plots
@@ -40,6 +86,8 @@ const STATUS_TINT: Record<string, [number, number, number]> = {
 export default function Globe() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const phiRef = useRef(0);
+  const pausedRef = useRef(false);
   const [lunarOpen, setLunarOpen] = useState(false);
 
   const terrestrial = useMemo<Incident[]>(
@@ -51,15 +99,37 @@ export default function Globe() {
     [],
   );
 
+  // Precompute each marker's unit-sphere position once — used both by
+  // cobe (via `location: [lat, lon]`) and by the click handler (via
+  // unit vector → projection).
+  const markerData = useMemo(
+    () =>
+      terrestrial.map((i) => {
+        const latLon: [number, number] = [i.coordinates[1], i.coordinates[0]];
+        const unit = latLonToUnit(latLon);
+        return {
+          id: i.id,
+          latLon,
+          unit: [
+            unit[0] * (SPHERE_R + MARKER_ELEV),
+            unit[1] * (SPHERE_R + MARKER_ELEV),
+            unit[2] * (SPHERE_R + MARKER_ELEV),
+          ] as [number, number, number],
+          size: i.status === "unresolved" ? 0.055 : 0.04,
+          color: STATUS_TINT[i.status] ?? COLOR_MARKER,
+        };
+      }),
+    [terrestrial],
+  );
+
   const markers = useMemo(
     () =>
-      terrestrial.map((i) => ({
-        // incidents store [lon, lat]; cobe wants [lat, lon].
-        location: [i.coordinates[1], i.coordinates[0]] as [number, number],
-        size: i.status === "unresolved" ? 0.055 : 0.04,
-        color: STATUS_TINT[i.status] ?? COLOR_MARKER,
+      markerData.map((m) => ({
+        location: m.latLon,
+        size: m.size,
+        color: m.color,
       })),
-    [terrestrial],
+    [markerData],
   );
 
   useEffect(() => {
@@ -71,7 +141,6 @@ export default function Globe() {
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    let phi = 0;
     let raf = 0;
     let destroyed = false;
     let globe: ReturnType<typeof createGlobe> | null = null;
@@ -93,8 +162,8 @@ export default function Globe() {
         devicePixelRatio: dpr,
         width: w * dpr,
         height: h * dpr,
-        phi,
-        theta: 0.25,
+        phi: phiRef.current,
+        theta: THETA,
         dark: 1,
         diffuse: 1.2,
         mapSamples: 16000,
@@ -125,8 +194,8 @@ export default function Globe() {
     const tick = () => {
       if (destroyed) return;
       if (globe) {
-        if (!reduceMotion) phi += 0.0028;
-        globe.update({ phi });
+        if (!reduceMotion && !pausedRef.current) phiRef.current += 0.0028;
+        globe.update({ phi: phiRef.current });
       }
       raf = requestAnimationFrame(tick);
     };
@@ -139,6 +208,28 @@ export default function Globe() {
       if (globe) globe.destroy();
     };
   }, [markers]);
+
+  // Hit test on click: project every marker with the *current* phi,
+  // keep front-facing ones, pick the closest within HIT_RADIUS_PX.
+  const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const cx = e.clientX - rect.left;
+    const cy = e.clientY - rect.top;
+    const phi = phiRef.current;
+    let best: { id: string; d2: number } | null = null;
+    for (const m of markerData) {
+      const proj = projectMarker(m.unit, phi, THETA, rect.width, rect.height);
+      if (!proj.front) continue;
+      const dx = proj.x - cx;
+      const dy = proj.y - cy;
+      const d2 = dx * dx + dy * dy;
+      if (d2 > HIT_RADIUS_PX * HIT_RADIUS_PX) continue;
+      if (!best || d2 < best.d2) best = { id: m.id, d2 };
+    }
+    if (best) setSelectedId(best.id);
+  };
 
   return (
     <section
@@ -163,12 +254,20 @@ export default function Globe() {
       >
         <canvas
           ref={canvasRef}
-          className="block w-full h-full"
+          className="block w-full h-full cursor-pointer"
           style={{
             opacity: 0,
             transition: "opacity 600ms ease-out",
           }}
-          aria-hidden
+          onClick={handleCanvasClick}
+          onMouseEnter={() => {
+            pausedRef.current = true;
+          }}
+          onMouseLeave={() => {
+            pausedRef.current = false;
+          }}
+          aria-label="Click a marker to filter the incident register"
+          role="img"
         />
 
         {/* Lunar sub-widget */}

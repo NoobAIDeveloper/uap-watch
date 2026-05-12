@@ -16,13 +16,12 @@ export default function Page() {
   return (
     <div className="mx-auto max-w-[1480px] px-6 pt-6 pb-24">
       <ReleaseBanner />
-      <section className="mt-4 grid grid-cols-1 lg:grid-cols-5 gap-4 lg:min-h-[480px]">
-        <div className="lg:col-span-3">
-          <Globe />
-        </div>
-        <div className="lg:col-span-2">
-          <StatsStack />
-        </div>
+      {/* Top row column ratio mirrors the IncidentTable / DossierPanel row
+          below (2fr / 1fr) so the right rail stays visually aligned across
+          both sections. */}
+      <section className="mt-4 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 lg:min-h-[480px]">
+        <Globe />
+        <StatsStack />
       </section>
       <section className="mt-4 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4">
         <IncidentTable />

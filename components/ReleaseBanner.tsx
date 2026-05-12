@@ -26,7 +26,7 @@ export default function ReleaseBanner() {
           uap<span className="text-accent">.</span>watch<span className="text-accent">.</span>
         </h1>
       </div>
-      <div className="flex-1 flex items-center px-5 py-3 sm:py-0 sm:h-[56px] mono text-[11px] font-medium tracking-[0.06em] uppercase text-text-dim overflow-x-auto whitespace-nowrap">
+      <div className="flex-1 flex items-center justify-end px-5 py-3 sm:py-0 sm:h-[56px] mono text-[11px] font-medium tracking-[0.06em] uppercase text-text-dim overflow-x-auto whitespace-nowrap">
         {meta}
       </div>
     </section>
