@@ -292,21 +292,30 @@ export default function ChatWidget() {
   return (
     <>
       {!open && (
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          aria-label="Ask the archive"
-          title="Ask the archive"
-          className="group fixed bottom-8 right-8 z-50 size-14 inline-flex items-center justify-center bg-panel border border-border-bright rounded-[2px] text-text hover:bg-panel-2 hover:-translate-y-px transition-[filter,transform,background-color] shadow-[0_8px_24px_rgba(0,0,0,0.45)]"
-        >
-          <UfoIcon className="size-7 text-accent drop-shadow-[0_0_10px_rgba(76,144,240,0.55)] drop-shadow-[0_0_20px_rgba(76,144,240,0.25)] group-hover:drop-shadow-[0_0_12px_rgba(76,144,240,0.75)] group-hover:drop-shadow-[0_0_24px_rgba(76,144,240,0.4)] transition-[filter]" />
+        <div className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50">
+          {/* Slow halo pulse to draw the eye without strobing. */}
           <span
-            role="tooltip"
-            className="pointer-events-none absolute right-[calc(100%+8px)] top-1/2 -translate-y-1/2 -translate-x-1 px-2 py-1 bg-panel border border-border-bright rounded-[2px] mono text-[11px] font-medium tracking-[0.06em] uppercase text-text whitespace-nowrap opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-focus-visible:opacity-100 group-focus-visible:translate-x-0 transition-[opacity,transform] duration-150"
+            aria-hidden
+            className="pointer-events-none absolute inset-0 rounded-full bg-accent opacity-50 animate-[chatHalo_2.4s_ease-out_infinite]"
+          />
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label="Ask the archive — chatbot grounded in 162 declassified files"
+            className="group relative inline-flex items-center gap-2 h-11 pl-3 pr-3.5 bg-accent-fill hover:bg-[#215db0] border border-[#4c90f0] rounded-full text-white hover:-translate-y-px transition-[transform,background-color] shadow-[0_8px_28px_rgba(45,114,210,0.55),0_0_0_1px_rgba(76,144,240,0.4)]"
           >
-            Ask the archive
-          </span>
-        </button>
+            <span
+              aria-hidden
+              className="absolute -top-1.5 -right-1.5 bg-warn text-bg text-[9px] leading-none font-bold tracking-[0.08em] px-1.5 py-1 rounded-[2px] shadow-[0_2px_6px_rgba(0,0,0,0.5)]"
+            >
+              NEW
+            </span>
+            <UfoIcon className="size-6 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+            <span className="mono text-[10px] font-semibold tracking-[0.08em] uppercase text-white whitespace-nowrap hidden sm:inline">
+              Ask the archive
+            </span>
+          </button>
+        </div>
       )}
 
       {open && (

@@ -83,12 +83,29 @@ const STATUS_TINT: Record<string, [number, number, number]> = {
   resolved: [0.671, 0.702, 0.749], // #abb3bf
 };
 
+// Hex equivalents for the legend swatches and hover tooltip — kept in sync
+// with STATUS_TINT (which is normalized 0–1 for cobe's WebGL markers).
+const STATUS_HEX: Record<string, string> = {
+  corroborated: "#238551",
+  unresolved: "#ec9a3c",
+  anomalous: "#9881f3",
+  resolved: "#abb3bf",
+};
+
+const STATUS_LABEL: Record<string, string> = {
+  corroborated: "Corroborated",
+  unresolved: "Unresolved",
+  anomalous: "Anomalous",
+  resolved: "Resolved",
+};
+
 export default function Globe() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const phiRef = useRef(0);
   const pausedRef = useRef(false);
   const [lunarOpen, setLunarOpen] = useState(false);
+  const [hovered, setHovered] = useState<{ id: string; x: number; y: number } | null>(null);
 
   const terrestrial = useMemo<Incident[]>(
     () => incidents.filter((i) => !i.isLunar),
@@ -97,6 +114,10 @@ export default function Globe() {
   const lunar = useMemo<Incident[]>(
     () => incidents.filter((i) => i.isLunar),
     [],
+  );
+  const incidentById = useMemo(
+    () => new Map(terrestrial.map((i) => [i.id, i])),
+    [terrestrial],
   );
 
   // Precompute each marker's unit-sphere position once — used both by
@@ -209,18 +230,13 @@ export default function Globe() {
     };
   }, [markers]);
 
-  // Hit test on click: project every marker with the *current* phi,
-  // keep front-facing ones, pick the closest within HIT_RADIUS_PX.
-  const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const rect = canvas.getBoundingClientRect();
-    const cx = e.clientX - rect.left;
-    const cy = e.clientY - rect.top;
+  // Hit test: project every marker with the *current* phi, keep front-facing
+  // ones, return the id of the closest within HIT_RADIUS_PX (or null).
+  const hitTest = (cx: number, cy: number, w: number, h: number): string | null => {
     const phi = phiRef.current;
     let best: { id: string; d2: number } | null = null;
     for (const m of markerData) {
-      const proj = projectMarker(m.unit, phi, THETA, rect.width, rect.height);
+      const proj = projectMarker(m.unit, phi, THETA, w, h);
       if (!proj.front) continue;
       const dx = proj.x - cx;
       const dy = proj.y - cy;
@@ -228,8 +244,34 @@ export default function Globe() {
       if (d2 > HIT_RADIUS_PX * HIT_RADIUS_PX) continue;
       if (!best || d2 < best.d2) best = { id: m.id, d2 };
     }
-    if (best) setSelectedId(best.id);
+    return best?.id ?? null;
   };
+
+  const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const id = hitTest(e.clientX - rect.left, e.clientY - rect.top, rect.width, rect.height);
+    if (id) setSelectedId(id);
+  };
+
+  const handleCanvasMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const rect = canvas.getBoundingClientRect();
+    const cx = e.clientX - rect.left;
+    const cy = e.clientY - rect.top;
+    const id = hitTest(cx, cy, rect.width, rect.height);
+    if (id) {
+      if (!hovered || hovered.id !== id || hovered.x !== cx || hovered.y !== cy) {
+        setHovered({ id, x: cx, y: cy });
+      }
+    } else if (hovered) {
+      setHovered(null);
+    }
+  };
+
+  const hoveredIncident = hovered ? incidentById.get(hovered.id) ?? null : null;
 
   return (
     <section
@@ -254,21 +296,72 @@ export default function Globe() {
       >
         <canvas
           ref={canvasRef}
-          className="block w-full h-full cursor-pointer"
+          className="block w-full h-full"
           style={{
             opacity: 0,
             transition: "opacity 600ms ease-out",
+            cursor: hovered ? "pointer" : "grab",
           }}
           onClick={handleCanvasClick}
+          onMouseMove={handleCanvasMouseMove}
           onMouseEnter={() => {
             pausedRef.current = true;
           }}
           onMouseLeave={() => {
             pausedRef.current = false;
+            setHovered(null);
           }}
           aria-label="Click a marker to filter the incident register"
           role="img"
         />
+
+        {/* Hover tooltip — positioned next to cursor; only when a marker is hit. */}
+        {hovered && hoveredIncident && (
+          <div
+            role="tooltip"
+            className="pointer-events-none absolute z-20 bg-panel-2/95 backdrop-blur border border-border-bright rounded-[2px] px-2.5 py-1.5 shadow-[0_6px_18px_rgba(0,0,0,0.55)] min-w-[180px] max-w-[240px]"
+            style={{
+              left: Math.min(hovered.x + 14, (containerRef.current?.clientWidth ?? 1000) - 250),
+              top: Math.max(hovered.y - 44, 8),
+            }}
+          >
+            <div className="mono text-[11px] font-semibold tracking-[0.06em] text-text">
+              {hoveredIncident.id}
+            </div>
+            <div className="text-[11px] text-text-dim truncate" title={hoveredIncident.location}>
+              {hoveredIncident.location}
+            </div>
+            <div className="mt-1 flex items-center gap-1.5">
+              <span
+                className="inline-block w-1.5 h-1.5 rounded-full shrink-0"
+                style={{ backgroundColor: STATUS_HEX[hoveredIncident.status] ?? "#abb3bf" }}
+                aria-hidden
+              />
+              <span className="mono text-[10px] uppercase tracking-[0.08em] text-text-mute">
+                {STATUS_LABEL[hoveredIncident.status] ?? hoveredIncident.status}
+              </span>
+            </div>
+          </div>
+        )}
+
+        {/* Status legend — bottom-left corner of the globe panel. */}
+        <div
+          aria-label="Marker status legend"
+          className="pointer-events-none absolute bottom-3 left-3 z-10 flex flex-wrap items-center gap-x-3 gap-y-1 bg-panel-2/85 backdrop-blur border border-border rounded-[2px] px-2.5 py-1.5"
+        >
+          {(["corroborated", "unresolved", "anomalous", "resolved"] as const).map((s) => (
+            <div key={s} className="flex items-center gap-1.5">
+              <span
+                className="inline-block w-2 h-2 rounded-full shrink-0"
+                style={{ backgroundColor: STATUS_HEX[s] }}
+                aria-hidden
+              />
+              <span className="mono text-[10px] uppercase tracking-[0.08em] text-text-dim">
+                {STATUS_LABEL[s]}
+              </span>
+            </div>
+          ))}
+        </div>
 
         {/* Lunar sub-widget */}
         <LunarInset lunar={lunar} onExpand={() => setLunarOpen(true)} />

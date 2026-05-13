@@ -127,6 +127,22 @@ Tesseract on 1949-era typewriter scans produced text like `"Office Memor. dum"` 
 
 The lesson isn't "OCR is hard" — that's table stakes. It's "your data layer is replaceable; build the pipeline around the schema you want, not the source you happen to have today." Our existing layout treated `public/extracted/*.txt` as the canonical input — the upstream OCR engine was an implementation detail. So when a better one appeared, the swap was a config change rather than a refactor.
 
+### 12. Steady traffic to the site, zero LLM API calls to the chatbot
+
+A few days after the RAG widget shipped, Vercel Analytics showed a healthy daily session count but the upstream LLM dashboard showed zero requests — nobody was opening the chatbot. The trigger was a 56×56 icon-only square with `bg-panel` (#1c2127) — the same color as every other panel on the page. The UFO icon was the accent blue but at low size, and the "Ask the archive" label was hidden inside a hover-only tooltip. On a dashboard already packed with globes, tables, and animated stats, the trigger read as inert chrome.
+
+**Fix:** redesigned the trigger as a pill with the bright `accent-fill` (Blueprint BLUE3 #2d72d2) background, an always-visible mono caps label, a white drop-shadow on the UFO icon, and an orange `warn` (#ec9a3c) NEW badge in the top-right — currently the only orange element on the homepage, so the eye lands there immediately. Added a slow `chatHalo` keyframe ring that pulses every 2.4s at 50% opacity (subtle enough to read as ambient, not strobing — and `prefers-reduced-motion` disables it). On mobile, the text label collapses to icon-only via a `hidden sm:inline` so the trigger doesn't crowd a 390px viewport. Total change was ~12 lines in `ChatWidget.tsx` plus a single `@keyframes` block in `globals.css`.
+
+The deeper lesson: discoverability is a build artifact, not a runtime property. The widget was technically present and technically reachable, but the user signal (zero API calls against a real traffic count) said "absent." Watch the funnel, not just the deploy.
+
+### 13. Globe markers were color-coded but the colors were unlabelled
+
+The orthographic globe plots terrestrial incidents tinted by `status` — `corroborated` green, `unresolved` orange, `anomalous` violet, `resolved` gray. The tints are computed in WebGL via `cobe`'s marker color array, which is fine for rendering but doesn't surface anywhere visible. A first-time visitor saw a globe peppered with three different-colored dots and no way to know what they meant. Hovering a dot showed no tooltip either; the only feedback was a click that filtered the incident register below.
+
+**Fix:** two overlays on the globe panel, both rendered as absolutely-positioned siblings of the `<canvas>` so they sit above the WebGL surface without re-rendering it. A static legend strip in the bottom-left with four chips (colored dot + mono caps label) and a hover tooltip in the upper layer that follows the cursor. The tooltip reuses the existing canvas hit-test logic — extracted from the click handler into a shared `hitTest(cx, cy, w, h)` helper — and fires on `onMouseMove` to set a `hovered = { id, x, y }` state. When `hovered` is non-null, an overlay renders next to the cursor with the PURSUE ID, the incident location, and a status indicator dot + label. Edge-clamping (`Math.min(x + 14, panelWidth - 250)`) keeps the tooltip from spilling off the right edge of the panel, and the cursor toggles between `grab` and `pointer` based on whether a marker is currently under it.
+
+The tint constants needed to stay in sync between cobe's WebGL marker buffer (normalized 0–1 RGB triplets) and the legend/tooltip overlays (hex strings), so I added a parallel `STATUS_HEX` and `STATUS_LABEL` map next to the existing `STATUS_TINT` table — drift between the two now requires editing both maps in the same file, which is the right friction level.
+
 ## By the numbers
 
 | | Value |
