@@ -463,6 +463,143 @@ export const faqEntries: FaqEntry[] = [
     ],
     related: ["bob-lazar-claims", "grusch-testimony", "ufo-crash-retrievals"],
   },
+  {
+    slug: "war-gov-ufo",
+    q: "What is war.gov/UFO?",
+    pull:
+      "war.gov/UFO is the U.S. Department of War's official public UAP disclosure portal, launched 2026-05-08 with 162 declassified files from FBI, USAF, USN, NASA, and State Department records.",
+    a: "war.gov/UFO is the official U.S. Department of War public-disclosure portal for declassified Unidentified Anomalous Phenomena (UAP) records. The site was launched on 2026-05-08 with PURSUE Release 01 — the first batch under the Presidential Unsealing & Reporting System for UAP Encounters. It hosts 162 files: 120 PDFs, 28 videos (most on DVIDS), and 14 images. Source agencies include the FBI, U.S. Air Force, U.S. Navy, NASA, the State Department, and several DoD components. The catalog spans from a 1947 FBI Dallas field memo on a recovered hexagonal object through black-hot infrared imagery captured in December 2025. The portal is administered alongside AARO (the All-domain Anomaly Resolution Office). The DoD published a formal press release at war.gov/News/Releases/Release/Article/4480582/ confirming the release. UAP.WATCH mirrors the entire catalog with locally-extracted full-text search across 113 of the 118 unique PDFs.",
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "DoD press release on Release 01", url: "https://www.war.gov/News/Releases/Release/Article/4480582/" },
+    ],
+    related: ["is-war-gov-ufo-real", "how-to-download-pursue-files", "what-is-pursue-program"],
+  },
+  {
+    slug: "is-war-gov-ufo-real",
+    q: "Is war.gov/UFO a real, official U.S. government website?",
+    pull:
+      "Yes. war.gov is the official domain of the U.S. Department of War, and /UFO/ is its public-facing UAP disclosure portal — the DoD published a formal press release confirming the launch on 2026-05-08.",
+    a: "Yes. war.gov is the official internet domain of the U.S. Department of War (the rebranded name of the Department of Defense), and /UFO/ is its public-facing UAP disclosure portal. The portal was formally launched on 2026-05-08, when the Pentagon published a press release at war.gov/News/Releases/Release/Article/4480582/ announcing the release of 162 declassified UAP files. All hosted documents are served from the canonical war.gov domain and DVIDS (the Defense Visual Information Distribution Service, dvidshub.net), both of which are authoritative U.S. government channels. The portal is administered as part of the Presidential Unsealing & Reporting System for UAP Encounters (PURSUE), which works alongside the All-domain Anomaly Resolution Office (AARO). UAP records released through war.gov/UFO are subject to AARO technical review before declassification. UAP.WATCH provides an independent, mirrored index of the catalog so researchers can search the full-text of every PDF.",
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "DoD press release", url: "https://www.war.gov/News/Releases/Release/Article/4480582/" },
+    ],
+    related: ["war-gov-ufo", "what-is-pursue-program", "what-is-aaro"],
+  },
+  {
+    slug: "how-to-download-pursue-files",
+    q: "How do I download files from war.gov/UFO?",
+    pull:
+      "Every PURSUE file is hosted as a direct PDF or DVIDS-video link on war.gov. The canonical CSV catalog is at war.gov/Portals/1/Interactive/2026/UFO/uap-csv.csv; UAP.WATCH mirrors each entry with a direct source URL.",
+    a: "All 162 files in the Pentagon's PURSUE Release 01 are available as direct downloads. PDFs follow the URL pattern war.gov/medialink/ufo/release_1/<filename>.pdf — clicking any document title on war.gov/UFO opens the original file in your browser. The 28 declassified videos are hosted on DVIDS (Defense Visual Information Distribution Service, dvidshub.net); each is downloadable in original FLIR/IR or EO formats. The 14 image files are served as PNG or JPG from war.gov directly. The canonical machine-readable catalog is a CSV at war.gov/Portals/1/Interactive/2026/UFO/uap-csv.csv. For researchers who want full-text search, UAP.WATCH publishes locally-extracted text for 113 of the 118 unique PDFs (the remaining five are FBI image-only scans). The Wayback Machine has archived the entire catalog if any war.gov URL becomes unavailable.",
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "DVIDS", url: "https://www.dvidshub.net/" },
+    ],
+    related: ["war-gov-ufo", "what-is-pursue-program", "ufo-videos-real"],
+  },
+  {
+    slug: "aatip-program",
+    q: "What was AATIP (the Advanced Aerospace Threat Identification Program)?",
+    pull:
+      "AATIP was a Pentagon program operating from 2007 to 2012 under the Defense Intelligence Agency, focused on investigating UAP encounters with U.S. military assets — the direct organizational ancestor of today's AARO.",
+    a: "AATIP — the Advanced Aerospace Threat Identification Program — was a U.S. Department of Defense effort that ran from 2007 to 2012 under the Defense Intelligence Agency (DIA). It was originally championed by Senator Harry Reid (D-NV), Senator Ted Stevens (R-AK), and Senator Daniel Inouye (D-HI) and funded at approximately $22 million across its operating period. AATIP investigated UAP encounters with U.S. military assets — most notably the 2004 USS Nimitz \"Tic Tac\" encounter — and is the direct organizational ancestor of the modern All-domain Anomaly Resolution Office (AARO). The program was disclosed publicly in a December 2017 New York Times investigation by Helene Cooper, Ralph Blumenthal, and Leslie Kean. Luis Elizondo, who has stated he led AATIP from 2010 to 2017, resigned from the DoD in 2017 and has been a central public figure in subsequent disclosure efforts. AARO's 2024 Historical Record Report reviewed AATIP's activities and found no evidence of any classified retrieval program operating under the AATIP umbrella.",
+    sources: [
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["aawsap-program", "what-is-aaro", "luis-elizondo"],
+  },
+  {
+    slug: "aawsap-program",
+    q: "What was AAWSAP (the Advanced Aerospace Weapon System Applications Program)?",
+    pull:
+      "AAWSAP was a $22 million DIA contract awarded in 2008 to Bigelow Aerospace Advanced Space Studies for UAP and paranormal research — most controversially including investigations at Skinwalker Ranch in Utah.",
+    a: "AAWSAP — the Advanced Aerospace Weapon System Applications Program — was a $22 million U.S. Defense Intelligence Agency (DIA) contract awarded in 2008 to Bigelow Aerospace Advanced Space Studies (BAASS), an entity owned by businessman Robert Bigelow. AAWSAP operated from 2008 to roughly 2010 and is widely confused with AATIP, although they were technically distinct: AAWSAP was the contract vehicle; AATIP was the DIA's internal program. AAWSAP commissioned 38 Defense Intelligence Reference Documents (DIRDs) on exotic propulsion, warp drives, and \"advanced aerospace weapon systems\" — most are theoretical physics papers, several authored by Eric Davis. AAWSAP also funded BAASS investigations at Skinwalker Ranch in Utah, examining alleged paranormal phenomena on the property. AARO's 2024 Historical Record Report addressed AAWSAP and concluded no evidence emerged of confirmed extraterrestrial material or reverse-engineering activity from the program.",
+    sources: [
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["aatip-program", "skinwalker-ranch", "what-is-aaro"],
+  },
+  {
+    slug: "uap-disclosure-act",
+    q: "What is the UAP Disclosure Act?",
+    pull:
+      "The UAP Disclosure Act is the working name for a bipartisan amendment to the FY2024 National Defense Authorization Act, introduced by Senator Chuck Schumer and Senator Mike Rounds, that would create a federal review board to declassify UAP records.",
+    a: "The UAP Disclosure Act is the working name for the Schumer-Rounds amendment to the FY2024 National Defense Authorization Act (NDAA). Introduced in July 2023 by Senate Majority Leader Chuck Schumer (D-NY) and Senator Mike Rounds (R-SD), the amendment was modeled on the 1992 President John F. Kennedy Assassination Records Collection Act. It would have created an independent UAP Records Review Board with subpoena authority to declassify and release government UAP records, including any \"non-human intelligence\" or \"technologies of unknown origin\" material. The full amendment was substantially narrowed in House-Senate conference before passing as part of the FY2024 NDAA: the Review Board was stripped, but reporting requirements and protections for whistleblowers were retained. Schumer and Rounds reintroduced an expanded version in 2024. The PURSUE program at war.gov/UFO operates under the surviving statutory disclosure framework, including 50 U.S.C. § 3373.",
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "50 U.S.C. § 3373", url: "https://www.law.cornell.edu/uscode/text/50/3373" },
+    ],
+    related: ["schumer-rounds-amendment", "what-is-pursue-program", "grusch-testimony"],
+  },
+  {
+    slug: "schumer-rounds-amendment",
+    q: "What is the Schumer-Rounds UAP amendment?",
+    pull:
+      "The Schumer-Rounds amendment is a 2023 bipartisan proposal to the National Defense Authorization Act that would establish a UAP Records Review Board with subpoena authority — modeled on the 1992 JFK Records Act.",
+    a: "The Schumer-Rounds amendment is the formal Senate UAP-disclosure legislation introduced in July 2023 by Senate Majority Leader Chuck Schumer (D-NY) and Senator Mike Rounds (R-SD). Drafted with explicit reference to the President John F. Kennedy Assassination Records Collection Act of 1992, it would have established an independent UAP Records Review Board appointed by the President with subpoena authority over executive-branch agencies. The board would be empowered to compel disclosure of records concerning \"unidentified anomalous phenomena, technologies of unknown origin, and non-human intelligence.\" The original text passed the Senate as an amendment to the FY2024 NDAA but was largely stripped during House-Senate conference: the Review Board was removed; reporting requirements, eminent-domain authority over recovered material, and whistleblower protections survived in narrower form. Schumer and Rounds reintroduced an updated version in 2024. The amendment provides the statutory backdrop for the 2026 PURSUE Release 01 disclosures.",
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["uap-disclosure-act", "what-is-pursue-program", "grusch-testimony"],
+  },
+  {
+    slug: "luis-elizondo",
+    q: "Who is Luis Elizondo?",
+    pull:
+      "Luis Elizondo is a former U.S. Army counterintelligence officer who has stated he led the Pentagon's AATIP UAP program from 2010 to 2017 — his 2017 resignation triggered the New York Times disclosure that brought UAP back into public discourse.",
+    a: "Luis Elizondo is a former U.S. Army counterintelligence officer and Department of Defense civilian official. Elizondo has publicly stated that he led the Advanced Aerospace Threat Identification Program (AATIP) — a Defense Intelligence Agency UAP investigation effort — from 2010 until his resignation from the Pentagon in October 2017. His resignation letter to then-Defense Secretary James Mattis cited concerns over how the U.S. government was handling UAP information. Two months later, in December 2017, the New York Times published the investigation by Helene Cooper, Ralph Blumenthal, and Leslie Kean that disclosed AATIP's existence to the public — using Elizondo's on-record cooperation as a primary source. Elizondo joined the To The Stars Academy and has since testified before Congress, published a 2024 book titled \"Imminent,\" and become one of the most public faces of U.S. UAP disclosure. AARO has not formally confirmed the scope of his AATIP leadership role.",
+    sources: [
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["aatip-program", "grusch-testimony", "what-is-aaro"],
+  },
+  {
+    slug: "skinwalker-ranch",
+    q: "What is Skinwalker Ranch?",
+    pull:
+      "Skinwalker Ranch is a 512-acre property in northeastern Utah investigated under the Pentagon's AAWSAP program from 2008 to about 2010 for alleged UAP and paranormal phenomena — the program produced no confirmed extraterrestrial evidence.",
+    a: "Skinwalker Ranch is a 512-acre property in the Uintah Basin of northeastern Utah, near the town of Ballard. It became publicly notable after businessman Robert Bigelow purchased the property in 1996 and stood up the National Institute for Discovery Science (NIDS) to investigate reports of UAP, animal mutilations, and other anomalous phenomena alleged on the site. From 2008 to approximately 2010, the U.S. Defense Intelligence Agency funded investigations at Skinwalker Ranch through the AAWSAP contract, awarded to Bigelow Aerospace Advanced Space Studies (BAASS). The ranch was sold in 2016 to Adamantium Real Estate, which has continued private investigations and licensed a television series. AARO's 2024 Historical Record Report addressed the federally-funded Skinwalker Ranch work and stated AARO \"found no empirical evidence\" of any confirmed extraterrestrial or non-human-intelligence material recovered from the property. The ranch is privately owned and closed to the public.",
+    sources: [
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["aawsap-program", "are-aliens-real", "ufo-crash-retrievals"],
+  },
+  {
+    slug: "1952-washington-flap",
+    q: "What was the 1952 Washington DC UFO incident?",
+    pull:
+      "On July 19 and July 26, 1952, multiple unidentified radar targets were tracked over restricted airspace around Washington DC — including the White House and the Capitol — by Andrews AFB, Bolling AFB, and Washington National air-traffic-control radar.",
+    a: "The 1952 Washington DC UFO incident — sometimes called the \"Washington flap\" or the \"Invasion of Washington\" — is one of the most-documented mass radar-and-visual UAP events in U.S. history. On the nights of July 19-20 and July 26-27, 1952, multiple unidentified objects were tracked on radar by air-traffic controllers at Washington National Airport, Andrews Air Force Base, and Bolling Air Force Base. The objects appeared to violate restricted airspace over the White House and the U.S. Capitol; F-94 Starfire interceptors were scrambled in response. The incident received front-page coverage in the Washington Post and prompted the largest U.S. Air Force press conference held to that point in history. Project Blue Book later attributed the radar returns to temperature inversions and the visual sightings to atmospheric phenomena, though many witnesses disputed the explanation. The case is referenced in AARO's 2024 Historical Record Report as one of the foundational pre-1969 mass-sighting events.",
+    sources: [
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+      { label: "National Archives — Project Blue Book", url: "https://www.archives.gov/research/military/air-force/ufos" },
+    ],
+    related: ["project-blue-book", "famous-ufo-incidents", "kenneth-arnold-sighting"],
+  },
+  {
+    slug: "chicago-ohare-2006",
+    q: "What was the 2006 Chicago O'Hare Airport UFO incident?",
+    pull:
+      "On November 7, 2006, a dozen United Airlines employees at Chicago O'Hare International Airport reported a metallic disc hovering above Gate C-17 for several minutes before shooting straight up through the cloud deck, leaving a circular hole in the clouds.",
+    a: "The Chicago O'Hare Airport UFO incident occurred on November 7, 2006, at approximately 4:30 PM local time, when at least twelve United Airlines employees — including pilots, mechanics, and ramp workers — observed a dark gray, disc-shaped object hovering at low altitude above Gate C-17 of Concourse C at O'Hare International Airport. After several minutes of static hover, witnesses reported the object accelerated vertically through the overcast cloud layer at high speed, allegedly leaving a circular hole in the clouds. The Federal Aviation Administration (FAA) initially denied receiving any reports, then acknowledged the eyewitness accounts after the Chicago Tribune published a major story by reporter Jon Hilkevitch on January 1, 2007. The FAA attributed the sighting to a \"weather phenomenon.\" No radar return is on the public record. The case is not in PURSUE Release 01 but is one of the most-cited modern civilian-witness commercial-aviation UAP events.",
+    sources: [
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["famous-ufo-incidents", "phoenix-lights", "ufo-by-state"],
+  },
+  {
+    slug: "who-runs-aaro",
+    q: "Who runs AARO?",
+    pull:
+      "Dr. Jon Kosloski, a former National Security Agency intelligence officer with a Ph.D. in physics, is the Director of AARO — appointed by the Secretary of Defense in July 2024.",
+    a: "AARO — the All-domain Anomaly Resolution Office — is led by Dr. Jon Kosloski, who was appointed Director by the Secretary of Defense in July 2024. Kosloski holds a Ph.D. in physics from the Catholic University of America and previously served as an intelligence officer at the National Security Agency, where he led work in quantum information science. He replaced Dr. Sean Kirkpatrick, AARO's founding Director (2022-2023), and Tim Phillips, who served as Acting Director during the transition. Kosloski has been the public voice for AARO's most-recent resolutions, including the 2026 finding on the 2017 USS Theodore Roosevelt GOFAST video: \"Through a very careful geospatial intelligence analysis and using trigonometry, we assess with high confidence that the object is not actually close to the water, but is rather closer to 13,000 feet.\" AARO reports through the Office of the Under Secretary of Defense for Intelligence and Security.",
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["what-is-aaro", "gofast-video-explained", "what-is-pursue-program"],
+  },
 ];
 
 export const faqBySlug: Record<string, FaqEntry> = Object.fromEntries(

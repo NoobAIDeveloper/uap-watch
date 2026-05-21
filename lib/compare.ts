@@ -341,6 +341,124 @@ export const compareEntries: CompareEntry[] = [
       { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
     ],
   },
+  {
+    slug: "pursue-vs-fbi-vault",
+    title: "PURSUE vs FBI Vault — The Two Main U.S. Government UFO Document Repositories",
+    description:
+      "The Pentagon's 2026 PURSUE Release at war.gov/UFO and the FBI Vault are the two primary official U.S. UFO document repositories. They differ in scope, era, format, and how to search them.",
+    lead:
+      "The Pentagon's PURSUE Release 01 at war.gov/UFO and the FBI Vault at vault.fbi.gov are the two principal official U.S. government repositories of declassified UFO/UAP records. They overlap less than most researchers expect. PURSUE is a curated 2026 release of 162 files from the FBI, USAF, USN, NASA, State, and DoD, centered on the modern military UAP record (2004-2025) with selected historical FBI and USAF anchors from 1947-1950. The FBI Vault, by contrast, is the Bureau's running FOIA reading room: it hosts the 1949 Hottel memo (the famous \"Guy Hottel\" Roswell memo) and a 1,600-page general UFO file but no modern Navy ATFLIR videos or AARO assessments. PURSUE is curated and AARO-classified; FBI Vault is raw FOIA. Researchers typically use both in parallel: PURSUE for modern military encounters, FBI Vault for 1947-1965 civilian-FBI correspondence.",
+    pullQuote:
+      "PURSUE is curated and AARO-classified; FBI Vault is raw FOIA.",
+    left: {
+      name: "PURSUE Release 01 (war.gov/UFO)",
+      facts: [
+        { label: "Launched", value: "2026-05-08" },
+        { label: "Total files", value: "162 (120 PDFs, 28 videos, 14 images)" },
+        { label: "Source agencies", value: "FBI, USAF, USN, NASA, State, DoD" },
+        { label: "Era coverage", value: "1947 to 2025, weighted modern (2004+)" },
+        { label: "Curation", value: "Curated, AARO-classified" },
+        { label: "Video content", value: "28 FLIR/IR/EO clips on DVIDS" },
+        { label: "Full-text search", value: "Via UAP.WATCH mirror" },
+      ],
+      links: [{ href: "/wiki/pentagon-ufo-files", label: "PURSUE catalog overview" }],
+    },
+    right: {
+      name: "FBI Vault (vault.fbi.gov/UFO)",
+      facts: [
+        { label: "Launched", value: "Reading room — running FOIA reads since 2011" },
+        { label: "Total files", value: "1,600+ pages across multiple files" },
+        { label: "Source agencies", value: "FBI only" },
+        { label: "Era coverage", value: "1947 to ~1990, weighted historical" },
+        { label: "Curation", value: "Raw FOIA — no classification or assessment" },
+        { label: "Video content", value: "None" },
+        { label: "Full-text search", value: "FBI Vault search box (limited)" },
+      ],
+      links: [{ href: "/q/fbi-ufo-files", label: "FBI UFO files explainer" }],
+    },
+    sections: [
+      {
+        heading: "What's in PURSUE but not in FBI Vault",
+        body:
+          "PURSUE Release 01 contains 28 declassified video clips on DVIDS — Greek airspace UAP, INDOPACOM \"football-shaped object,\" Mediterranean January 2024 metallic triangle, and Syria 2024 orange-area video — none of which are in the FBI Vault. PURSUE also contains modern AARO classifications (corroborated, anomalous, unresolved, resolved) and U.S. Navy ATFLIR sensor clips from F/A-18 Super Hornet aircrew. The FBI Vault has no aerial sensor data and no modern military encounters.",
+      },
+      {
+        heading: "What's in FBI Vault but not in PURSUE",
+        body:
+          "The FBI Vault contains a much broader 1947-1965 civilian-FBI correspondence record — citizen complaint letters, J. Edgar Hoover personal annotations, regional field-office memos, and the 1949 Hottel memo on three flying-disc recoveries in New Mexico (the so-called \"Guy Hottel memo\"). PURSUE includes only a small curated subset of FBI material — the 1947 Dallas hexagonal-object memo and the 1950 Idaho \"hysteria, or panic\" memo are the two highest-profile FBI items in PURSUE.",
+      },
+      {
+        heading: "How to use both together",
+        body:
+          "Modern military UAP research starts with PURSUE: it is the only repository with current AARO classifications and aerial sensor data. Historical FBI research starts with the FBI Vault: it has the broadest 1947-1965 raw record. For a comprehensive look at any one incident, UAP.WATCH cross-references both repositories — the 1947 Roswell debris memo appears in both PURSUE (as PURSUE-001) and the FBI Vault (as the Hottel memo), with subtly different metadata.",
+      },
+    ],
+    keywords: ["PURSUE vs FBI Vault", "FBI UFO files", "war.gov/UFO", "government UFO repositories"],
+    related: ["pentagon-ufo-files", "fbi-ufo-files", "what-is-pursue-program"],
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "FBI Vault — UFO", url: "https://vault.fbi.gov/UFO" },
+    ],
+  },
+  {
+    slug: "aatip-vs-aawsap",
+    title: "AATIP vs AAWSAP — The Two Confused Pentagon UAP Programs",
+    description:
+      "AATIP and AAWSAP are the two Pentagon UAP programs of the late-2000s era. They are routinely confused but were technically distinct: AATIP was the DIA program; AAWSAP was the $22M Bigelow Aerospace contract that funded AATIP and Skinwalker Ranch.",
+    lead:
+      "AATIP and AAWSAP are the two Pentagon UAP investigation efforts of the 2007-2012 era, routinely conflated in public reporting but technically distinct. AAWSAP — the Advanced Aerospace Weapon System Applications Program — was a $22 million Defense Intelligence Agency contract awarded in 2008 to Bigelow Aerospace Advanced Space Studies (BAASS). AATIP — the Advanced Aerospace Threat Identification Program — was the internal DIA program (also approximately $22 million across roughly the same period) that consumed the AAWSAP contract's output. AAWSAP produced 38 Defense Intelligence Reference Documents (DIRDs) on theoretical physics topics and funded BAASS investigations at Skinwalker Ranch in Utah. AATIP focused on military UAP encounters, most notably the 2004 USS Nimitz Tic Tac event. Both programs ended by 2012; AARO is their organizational successor. AARO's 2024 Historical Record Report addressed both and found no evidence of any classified retrieval activity under either.",
+    pullQuote:
+      "AATIP was the program; AAWSAP was the contract.",
+    left: {
+      name: "AATIP",
+      facts: [
+        { label: "Full name", value: "Advanced Aerospace Threat Identification Program" },
+        { label: "Type", value: "DIA internal program" },
+        { label: "Period", value: "2007 to 2012 (per AARO Historical Record)" },
+        { label: "Funding", value: "~$22M (consumed via AAWSAP contract)" },
+        { label: "Focus", value: "Military UAP encounters, most notably 2004 USS Nimitz Tic Tac" },
+        { label: "Public exposure", value: "December 2017 New York Times investigation" },
+        { label: "Most-cited leader", value: "Luis Elizondo (per Elizondo, 2010-2017)" },
+      ],
+      links: [{ href: "/q/aatip-program", label: "AATIP explainer" }],
+    },
+    right: {
+      name: "AAWSAP",
+      facts: [
+        { label: "Full name", value: "Advanced Aerospace Weapon System Applications Program" },
+        { label: "Type", value: "DIA contract vehicle" },
+        { label: "Period", value: "2008 to ~2010" },
+        { label: "Funding", value: "$22M awarded to BAASS (Bigelow Aerospace)" },
+        { label: "Focus", value: "Theoretical physics DIRDs + Skinwalker Ranch investigation" },
+        { label: "Public exposure", value: "Disclosed by James Lacatski (former DIA) in 2021" },
+        { label: "Most-cited leaders", value: "James Lacatski (DIA), Robert Bigelow (BAASS)" },
+      ],
+      links: [{ href: "/q/aawsap-program", label: "AAWSAP explainer" }],
+    },
+    sections: [
+      {
+        heading: "Why they get confused",
+        body:
+          "AATIP and AAWSAP overlap in time (both active circa 2008-2010), funding scale (both ~$22M), and home agency (DIA). Critically, the AAWSAP contract was the primary funding vehicle for AATIP investigators — the contract paid BAASS subcontractors who performed work consumed by AATIP. Many of the most-cited Pentagon UAP \"program\" documents (the 38 DIRDs, the Skinwalker Ranch reports) are technically AAWSAP deliverables that were used by AATIP. Press reporting has frequently treated them as a single program, and Luis Elizondo's public discussion of \"AATIP\" effectively bundles both.",
+      },
+      {
+        heading: "Where they differ in scope",
+        body:
+          "AAWSAP was wider: it commissioned theoretical physics papers on warp drives, propulsion alternatives, and \"advanced aerospace weapon systems\" — most authored by Eric Davis and other contracted physicists. AAWSAP also funded paranormal-phenomena investigations at Skinwalker Ranch that were not the kind of work AATIP staff focused on. AATIP, narrower, focused on operational military UAP encounters with U.S. assets and produced incident-level threat assessments rather than physics papers.",
+      },
+      {
+        heading: "AARO's 2024 review",
+        body:
+          "AARO's 2024 Historical Record Report reviewed both programs as part of its comprehensive look at 80 years of U.S. government UAP activity. The report concluded that no evidence emerged from either AATIP or AAWSAP of any confirmed extraterrestrial material, reverse-engineering activity, or \"non-human intelligence\" program. Bob Lazar-style \"S-4\" reverse-engineering claims and David Grusch-style crash-retrieval claims were addressed and found unsupported by the AATIP/AAWSAP record.",
+      },
+    ],
+    keywords: ["AATIP", "AAWSAP", "Pentagon UAP program", "DIA UFO", "Skinwalker Ranch"],
+    related: ["aatip-program", "aawsap-program", "luis-elizondo"],
+    sources: [
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  },
 ];
 
 export const compareBySlug: Record<string, CompareEntry> = Object.fromEntries(

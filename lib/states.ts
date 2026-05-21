@@ -286,6 +286,96 @@ export const stateEntries: StateEntry[] = [
       { label: "Project Blue Book archive (NARA)", url: "https://www.archives.gov/research/military/air-force/ufos" },
     ],
   },
+  {
+    slug: "new-york",
+    name: "New York",
+    abbr: "NY",
+    lead:
+      "New York's UAP record is dominated by the Hudson Valley wave of 1982-1986 — one of the largest sustained sighting concentrations in modern U.S. history, with thousands of witnesses across Westchester, Putnam, and Dutchess counties reporting a massive, slow-moving, V-shaped or boomerang-shaped formation of lights. The Pentagon's PURSUE Release 01 (2026-05-08) does not contain any incidents publicly geolocated to New York. Hudson Valley sightings were investigated by Project Blue Book successor groups and by J. Allen Hynek and his successor researchers; the U.S. Air Force at the time attributed the formation to ultralight aircraft flying in pre-planned wedge configuration out of Stormville Airport. The explanation remains contested by witnesses. New York's broader UAP record also includes scattered Long Island and Catskills reports, with no federal-record presence in the modern AARO catalog.",
+    pullQuote:
+      "Massive, slow-moving boomerang of lights crossed the Hudson Valley for years.",
+    pursueIncidents: [],
+    historicalSightings: [
+      {
+        title: "Hudson Valley wave",
+        year: "1982–1986",
+        description:
+          "Sustained mass-sighting event across Westchester, Putnam, and Dutchess counties. Thousands of witnesses reported a slow-moving boomerang formation of lights. USAF attributed to ultralight aircraft flying in formation from Stormville Airport — explanation disputed by witnesses. Investigated by J. Allen Hynek and successor researchers.",
+      },
+      {
+        title: "Long Island and Catskills sightings",
+        year: "various",
+        description:
+          "Scattered civilian UAP reports across Long Island and the Catskills over several decades. None individually elevated to the federal record; not in PURSUE Release 01.",
+      },
+    ],
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "pennsylvania",
+    name: "Pennsylvania",
+    abbr: "PA",
+    lead:
+      "Pennsylvania's signature UAP event is the December 9, 1965 Kecksburg incident — one of the best-documented modern civilian-witness UFO cases in U.S. history. On the evening of December 9, hundreds of witnesses across six U.S. states and Ontario observed a fireball streak across the sky; in Kecksburg, Westmoreland County, witnesses reported an acorn-shaped metallic object with hieroglyphic-style markings around its base resting in a wooded ravine. The U.S. Army cordoned off the site for several hours, and townspeople reported a flatbed truck departing the area carrying a covered object. The U.S. Air Force officially attributed the event to a meteor or possibly a re-entering Soviet Kosmos 96 probe. PURSUE Release 01 does not contain any incidents geolocated to Pennsylvania. The Kecksburg case has been the subject of multiple FOIA lawsuits, including a 2007 NASA settlement that produced additional records.",
+    pullQuote:
+      "Acorn-shaped object with hieroglyphic markings in a Westmoreland County ravine.",
+    pursueIncidents: [],
+    historicalSightings: [
+      {
+        title: "Kecksburg incident",
+        year: "1965",
+        description:
+          "December 9, 1965. Hundreds of multi-state witnesses observed a fireball; Kecksburg witnesses reported an acorn-shaped metallic object with hieroglyphic markings in a wooded ravine. U.S. Army cordoned the site; a covered object reportedly departed on a flatbed. USAF attributed the event to a meteor or Soviet Kosmos 96. Subject of multiple FOIA lawsuits; a 2007 NASA settlement produced additional records.",
+      },
+      {
+        title: "Pittsburgh-area sightings",
+        year: "various",
+        description:
+          "Scattered civilian UAP reports from western Pennsylvania since the 1960s. Not in PURSUE Release 01.",
+      },
+    ],
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "illinois",
+    name: "Illinois",
+    abbr: "IL",
+    lead:
+      "Illinois has two of the most-cited modern multi-witness UAP encounters on the U.S. civilian record: the January 5, 2000 Lebanon, Illinois police-officer chase and the 2006 Chicago O'Hare International Airport hovering-disc incident. In the Lebanon case, multiple police officers across five Illinois towns — Highland, Lebanon, Shiloh, Millstadt, and Dupo — reported pursuing a massive, triangular, low-altitude object with brightly-lit panels over the course of approximately 90 minutes. In the O'Hare case (November 7, 2006), at least twelve United Airlines employees reported a metallic disc hovering above Gate C-17 before accelerating vertically through the cloud deck. Neither incident is in the Pentagon's PURSUE Release 01, but both have been independently documented by the National Institute for Discovery Science (NIDS) and by major news outlets including the Chicago Tribune. The FAA attributed the O'Hare event to a \"weather phenomenon.\"",
+    pullQuote:
+      "Multiple Illinois police officers chased a massive triangular craft across five towns.",
+    pursueIncidents: [],
+    historicalSightings: [
+      {
+        title: "Lebanon triangle chase",
+        year: "2000",
+        description:
+          "January 5, 2000. Police officers in Highland, Lebanon, Shiloh, Millstadt, and Dupo reported pursuing a massive triangular craft with lit panels at low altitude for ~90 minutes. Multi-witness, multi-jurisdiction. Investigated by NIDS. Not in PURSUE Release 01.",
+      },
+      {
+        title: "Chicago O'Hare disc",
+        year: "2006",
+        description:
+          "November 7, 2006. Twelve United Airlines employees reported a disc-shaped object hovering above Gate C-17 at O'Hare International Airport before accelerating vertically through the cloud deck. FAA attributed to weather phenomenon. Not in PURSUE Release 01.",
+      },
+      {
+        title: "Tinley Park lights",
+        year: "2004–2005",
+        description:
+          "Three separate Chicago-area mass-sighting events (Aug 2004, Oct 2004, Oct 2005) of red lights in triangular formation drifting slowly across the southern Chicago suburbs. Hundreds of witnesses. No federal record.",
+      },
+    ],
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+    ],
+  },
 ];
 
 export const stateBySlug: Record<string, StateEntry> = Object.fromEntries(

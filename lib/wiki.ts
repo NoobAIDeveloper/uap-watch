@@ -174,6 +174,122 @@ export const wikiEntries: WikiEntry[] = [
       { label: "DoD press release", url: "https://www.war.gov/News/Releases/Release/Article/4480582/" },
     ],
   },
+  {
+    slug: "war-gov-ufo-hub",
+    title: "war.gov/UFO: The Pentagon's Official UAP Disclosure Hub",
+    description:
+      "Complete guide to war.gov/UFO, the U.S. Department of War's official UAP disclosure portal — launched 2026-05-08 with 162 declassified files from FBI, USAF, USN, NASA, and State Department.",
+    lead:
+      "war.gov/UFO is the U.S. Department of War's official public-disclosure portal for declassified Unidentified Anomalous Phenomena (UAP) records. The portal launched on 2026-05-08 with PURSUE Release 01 — the first batch under the Presidential Unsealing & Reporting System for UAP Encounters. It hosts 162 files (120 PDFs, 28 videos, 14 images) drawn from the FBI, U.S. Air Force, U.S. Navy, NASA, the State Department, and several DoD components. The catalog spans from a 1947 FBI Dallas field memo on a recovered hexagonal object through black-hot infrared imagery captured in December 2025. The portal is administered alongside AARO (the All-domain Anomaly Resolution Office) under 50 U.S.C. § 3373. UAP.WATCH provides an independent index of the catalog with locally-extracted full-text search across 113 of the 118 unique PDFs.",
+    pullQuote:
+      "The site went from launch to over one billion total visits in its first weeks.",
+    keywords: ["war.gov/UFO", "Pentagon UFO website", "DoD UAP disclosure", "PURSUE", "AARO"],
+    sections: [
+      {
+        heading: "What's on the portal",
+        body:
+          "The portal landing page links to four main resources: the PURSUE Release 01 file catalog, the AARO Historical Record Report, a statutory disclosure overview citing 50 U.S.C. § 3373, and direct DVIDS-hosted video clips. The file catalog is browsable by source agency (FBI, USAF, USN, NASA, State, DoD), by year, and by AARO classification status (resolved, anomalous, unresolved, corroborated). A canonical CSV is available at war.gov/Portals/1/Interactive/2026/UFO/uap-csv.csv for researchers who want a machine-readable index.",
+      },
+      {
+        heading: "How to navigate the file catalog",
+        body:
+          "Every file in PURSUE Release 01 has a unique DOW-UAP identifier (e.g., DOW-UAP-D14 for the Iraq May 2022 mission report) and a classification status — DECLASSIFIED, SECRET//DECLASSIFIED, or UNCLASSIFIED. PDFs follow the war.gov/medialink/ufo/release_1/ URL pattern; videos are hosted on dvidshub.net. For full-text search across the catalog, UAP.WATCH mirrors all 162 entries with extracted text for 113 of the 118 PDFs — the remaining five are image-only FBI scans. AARO assigns each named incident one of four statuses: corroborated, anomalous, unresolved, or resolved.",
+      },
+      {
+        heading: "What's NOT on the portal",
+        body:
+          "war.gov/UFO does not contain recovered material, alleged \"non-human biologics,\" or any content corroborating the 2023 Grusch congressional testimony's claims of a multi-decade crash-retrieval and reverse-engineering program. AARO's 2024 Historical Record Report — linked from the portal — directly addressed the retrieval narrative and stated AARO \"found no empirical evidence\" for any such program. The portal also does not host pre-1947 records, civilian-only NUFORC reports, or non-U.S. government UFO records (which are the domain of the UK National Archives, the French CNES/GEIPAN, and other foreign repositories).",
+      },
+      {
+        heading: "Subsequent releases",
+        body:
+          "PURSUE Release 01 is the first batch published under the framework. The Department of War has not publicly committed to a release cadence for subsequent batches as of mid-2026. Schumer-Rounds and follow-on legislation would, if enacted in expanded form, establish a UAP Records Review Board with subpoena authority to drive ongoing disclosures. UAP.WATCH monitors the war.gov/UFO catalog for additions and re-publishes any changes.",
+      },
+    ],
+    related: ["pentagon-ufo-files", "ufo-sightings", "alien-evidence"],
+    sources: [
+      { label: "war.gov/UFO/ — PURSUE Release 01", url: "https://www.war.gov/UFO/" },
+      { label: "DoD press release on Release 01", url: "https://www.war.gov/News/Releases/Release/Article/4480582/" },
+      { label: "50 U.S.C. § 3373", url: "https://www.law.cornell.edu/uscode/text/50/3373" },
+    ],
+  },
+  {
+    slug: "uap-disclosure-act-history",
+    title: "The UAP Disclosure Act: Legislative History and Current Status",
+    description:
+      "Full legislative history of the UAP Disclosure Act — the Schumer-Rounds amendment first introduced in 2023, narrowed in conference, and reintroduced in 2024 — and how it connects to the 2026 war.gov/UFO disclosure.",
+    lead:
+      "The UAP Disclosure Act is the working name for a sequence of U.S. Senate amendments — primarily authored by Senate Majority Leader Chuck Schumer (D-NY) and Senator Mike Rounds (R-SD) — that propose a federal records-review board with subpoena authority to declassify UAP material. The first version was introduced as an amendment to the FY2024 National Defense Authorization Act in July 2023, modeled explicitly on the 1992 President John F. Kennedy Assassination Records Collection Act. The Senate version passed; the House-Senate conference substantially narrowed the language, stripping the independent Review Board but retaining reporting requirements, whistleblower protections, and a narrower eminent-domain authority over recovered material. Schumer and Rounds reintroduced an expanded version in 2024. The PURSUE Release 01 disclosure at war.gov/UFO operates under the surviving statutory framework, including 50 U.S.C. § 3373.",
+    pullQuote:
+      "Modeled explicitly on the 1992 President John F. Kennedy Assassination Records Collection Act.",
+    keywords: ["UAP Disclosure Act", "Schumer-Rounds amendment", "NDAA UAP", "UAP Records Review Board"],
+    sections: [
+      {
+        heading: "The 2023 Senate amendment",
+        body:
+          "In July 2023, Senate Majority Leader Chuck Schumer (D-NY) and Senator Mike Rounds (R-SD) introduced an amendment to the FY2024 NDAA that would have established an independent UAP Records Review Board, appointed by the President and confirmed by the Senate, with subpoena authority over executive-branch agencies. The board would compel disclosure of records concerning \"unidentified anomalous phenomena, technologies of unknown origin, and non-human intelligence.\" The amendment passed the Senate with broad bipartisan support.",
+      },
+      {
+        heading: "What was stripped in conference",
+        body:
+          "The House-Senate FY2024 NDAA conference, finalized in December 2023, substantially narrowed the Senate-passed text. The independent UAP Records Review Board was removed entirely. Eminent-domain authority over recovered \"technologies of unknown origin\" — a key provision — was struck. Whistleblower protections, narrower reporting requirements, and a Comptroller General review survived. Senator Schumer publicly criticized the conference outcome as a victory for a small group of senators who had blocked the broader text.",
+      },
+      {
+        heading: "The 2024 reintroduction",
+        body:
+          "Schumer and Rounds reintroduced an expanded version of the amendment in 2024, again as an NDAA amendment. The 2024 version included tightened definitions of \"non-human intelligence\" and additional federal-records preservation requirements. Passage status remained contested in conference at the time of the 2026 PURSUE Release 01.",
+      },
+      {
+        heading: "Connection to PURSUE",
+        body:
+          "PURSUE — the Presidential Unsealing & Reporting System for UAP Encounters — is the executive-branch program that produced the 2026-05-08 war.gov/UFO disclosure. PURSUE operates under the surviving statutory framework, including 50 U.S.C. § 3373 and the narrower disclosure provisions retained in the FY2024 NDAA. The 162 files released under PURSUE Release 01 are the first formal output of the framework. Researchers can monitor war.gov/UFO and UAP.WATCH for subsequent releases.",
+      },
+    ],
+    related: ["pentagon-ufo-files", "war-gov-ufo-hub", "alien-evidence"],
+    sources: [
+      { label: "war.gov/UFO/ — PURSUE Release 01", url: "https://www.war.gov/UFO/" },
+      { label: "50 U.S.C. § 3373", url: "https://www.law.cornell.edu/uscode/text/50/3373" },
+    ],
+  },
+  {
+    slug: "aaro-investigations-process",
+    title: "How AARO Investigates UAP: Inside the Pentagon's Anomaly Resolution Office",
+    description:
+      "How the All-domain Anomaly Resolution Office (AARO) investigates UAP cases — from initial military intake through technical assessment, geospatial analysis, and the four-status classification (corroborated, anomalous, unresolved, resolved).",
+    lead:
+      "The All-domain Anomaly Resolution Office (AARO) is the U.S. Department of War body responsible for receiving, investigating, and resolving UAP reports. Established by Congress in 2022 under the National Defense Authorization Act, AARO replaced the earlier UAP Task Force (UAPTF) and unifies investigation across the Air Force, Navy, intelligence community, and NASA. AARO's case workflow runs from raw military intake through technical assessment to one of four formal status classifications: corroborated, anomalous, unresolved, or resolved. AARO's most-cited 2026 resolution was the U.S. Navy GOFAST clip from 2017, formally resolved as a parallax artifact at approximately 13,000 feet altitude. Director Dr. Jon Kosloski reports through the Office of the Under Secretary of Defense for Intelligence and Security. UAP.WATCH indexes all PURSUE Release 01 cases with their assigned AARO status.",
+    pullQuote:
+      "Through a very careful geospatial intelligence analysis and using trigonometry, we assess with high confidence that the object is not actually close to the water.",
+    keywords: ["AARO", "UAP investigation", "anomaly resolution", "PURSUE", "Kosloski"],
+    sections: [
+      {
+        heading: "How a UAP report enters AARO",
+        body:
+          "AARO receives UAP reports from multiple intake channels: U.S. military aircrew via Hazard Reports (HAZREPs) and Operational Reports (OPREPs); intelligence-community partners via classified channels; whistleblower reports under the protections established by the FY2024 NDAA; and direct civilian-pilot reports via an online portal at aaro.mil/Report. Each intake report is logged with a unique tracking ID, witness credentials, sensor data (if available), and geographic metadata before being routed for technical review.",
+      },
+      {
+        heading: "The four AARO statuses",
+        body:
+          "AARO assigns every reviewed case one of four status labels. CORROBORATED means the report is supported by multiple credible witnesses or sensors with no clear conventional explanation. ANOMALOUS means the report exhibits flight characteristics or signatures that depart from known aerospace performance — the case is not necessarily extraterrestrial, but is genuinely unexplained. UNRESOLVED means the report cannot yet be assigned to either anomalous or resolved due to insufficient data. RESOLVED means AARO has identified a conventional explanation (parallax, sensor artifact, balloon, drone, atmospheric phenomenon, classified U.S. or foreign aircraft).",
+      },
+      {
+        heading: "Technical assessment methods",
+        body:
+          "AARO technical staff include physicists, geospatial-intelligence analysts, sensor-systems engineers, and atmospheric scientists. Standard analysis includes geospatial trigonometry to reconstruct the actual altitude and trajectory of imaged objects (used decisively to resolve GOFAST in 2026); FLIR/IR sensor artifact analysis; radar cross-section modelling; and comparison against known foreign-state aerospace platforms. Where applicable, AARO consults the FAA, NASA, NOAA, and allied intelligence services. AARO has stated it does not have authority to compel external testimony but does have authority to request voluntary cooperation.",
+      },
+      {
+        heading: "Public communication and PURSUE",
+        body:
+          "AARO communicates findings publicly through formal reports — including the 2024 Historical Record Report Volume I — and through the PURSUE disclosure framework at war.gov/UFO. Cases declassified under PURSUE Release 01 are published with their AARO status. Director Dr. Jon Kosloski has held formal press briefings since taking office in July 2024; these are mirrored on the war.gov/UFO portal. UAP.WATCH provides an independent visualization layer showing every PURSUE-released case with its AARO status, source agency, and underlying primary document.",
+      },
+    ],
+    related: ["pentagon-ufo-files", "war-gov-ufo-hub", "ufo-sightings"],
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "AARO Historical Record Report (2024)", url: "https://www.war.gov/UFO/" },
+      { label: "50 U.S.C. § 3373", url: "https://www.law.cornell.edu/uscode/text/50/3373" },
+    ],
+  },
 ];
 
 export const wikiBySlug: Record<string, WikiEntry> = Object.fromEntries(
