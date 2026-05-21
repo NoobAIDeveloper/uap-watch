@@ -19,8 +19,14 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
 
-const HOST = "uap-watch-flame.vercel.app";
-const SITE_URL = `https://${HOST}`;
+// Mirror lib/seo.ts SITE_URL resolution so the IndexNow submission targets
+// the same canonical host as the sitemap / robots.txt / JSON-LD canonicals.
+// When NEXT_PUBLIC_SITE_URL flips to https://uap.watch in Vercel env, this
+// follows automatically.
+const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://uap-watch-flame.vercel.app"
+).replace(/\/$/, "");
+const HOST = new URL(SITE_URL).host;
 const KEY = "cf4436398d8a6801e52b8d5c293e536d";
 const KEY_LOCATION = `${SITE_URL}/${KEY}.txt`;
 

@@ -9,10 +9,19 @@
 import type { Metadata } from "next";
 import type { Incident, GovDocument, EvidenceVideo, SourceAgency } from "./types";
 
-export const SITE_URL = "https://uap-watch-flame.vercel.app";
+// Canonical site origin. Override at build time with NEXT_PUBLIC_SITE_URL
+// (Vercel env var) — required for the cutover to https://uap.watch once
+// the apex domain is pointed at this project. The sitemap, robots.txt,
+// JSON-LD canonicals, and IndexNow pings all read from here, so a single
+// env-var change flips the whole site to the production domain.
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://uap-watch-flame.vercel.app"
+).replace(/\/$/, "");
 export const SITE_NAME = "UAP.WATCH";
 export const SITE_TAGLINE = "Declassified UAP Files — Pentagon PURSUE Program Dashboard";
 export const RELEASE_DATE = "2026-05-08";
+// Stable "content last touched" date for human-facing copy. Distinct from
+// sitemap <lastmod>, which uses build time so Google re-crawls fresh.
 export const LAST_UPDATED = "2026-05-09";
 
 // ───────────────────────────────────────────────────────────────────────────

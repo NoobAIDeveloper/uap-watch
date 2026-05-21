@@ -2,21 +2,32 @@ import type { MetadataRoute } from "next";
 import { incidents } from "@/data/incidents";
 import { documents } from "@/data/documents";
 import { videos } from "@/data/videos";
-import { url, regionSlug, AGENCY_SLUGS, LAST_UPDATED, SITE_URL } from "@/lib/seo";
+import { url, regionSlug, AGENCY_SLUGS, SITE_URL } from "@/lib/seo";
 import { faqEntries } from "@/lib/faq";
 import { wikiEntries } from "@/lib/wiki";
 import { stateEntries } from "@/lib/states";
 import { compareEntries } from "@/lib/compare";
 
 // Programmatic sitemap. Every entity in the dataset gets a canonical URL.
-// Next.js inlines this into /sitemap.xml at build time, so it stays in sync
-// with the data without any external generator.
+// Next.js inlines this into /sitemap.xml at build time, so it stays in
+// sync with the data without any external generator.
+//
+// Notes for Google Search Console fetch reliability:
+//   - <lastmod> uses build time, not a hardcoded date — frozen lastmod
+//     suppresses re-crawl signals.
+//   - Homepage <loc> ends with a trailing slash; bare-domain locs have
+//     caused canonical-resolution issues in Search Console reports.
+//   - The Google video sitemap extension is intentionally NOT used. It
+//     requires <video:content_loc> or <video:player_loc> per entry, and
+//     our sourceUrls are a mix of DVIDS landing pages, PDFs, and JPGs —
+//     a partial video extension can fail validation for the whole file.
+//     Video pages still appear as ordinary <url> entries.
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date(LAST_UPDATED);
+  const now = new Date();
 
   const homepage: MetadataRoute.Sitemap[number] = {
-    url: url.home(),
+    url: `${SITE_URL}/`,
     lastModified: now,
     changeFrequency: "daily",
     priority: 1,
@@ -48,13 +59,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.7,
-    videos: [
-      {
-        title: v.title,
-        thumbnail_loc: `${url.home()}/opengraph-image`,
-        description: v.description,
-      },
-    ],
   }));
 
   // Year coverage must match app/year/[year]/page.tsx — that page derives
