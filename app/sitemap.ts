@@ -22,6 +22,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1,
   };
 
+  const browseArchive: MetadataRoute.Sitemap[number] = {
+    url: `${SITE_URL}/browse`,
+    lastModified: now,
+    changeFrequency: "daily",
+    priority: 0.9,
+  };
+
   const incidentEntries: MetadataRoute.Sitemap = incidents.map((i) => ({
     url: url.incident(i.id),
     lastModified: now,
@@ -114,6 +121,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     homepage,
+    browseArchive,
     ...incidentEntries,
     ...documentEntries,
     ...videoEntries,

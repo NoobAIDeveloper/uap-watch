@@ -51,11 +51,11 @@ export default function Footer() {
           </FooterColumn>
 
           <FooterColumn heading="Browse">
-            <FooterLink href="/wiki/ufo-sightings">All sightings</FooterLink>
+            <FooterLink href="/browse">Complete archive</FooterLink>
+            <FooterLink href="/wiki/war-gov-ufo-hub">war.gov/UFO hub</FooterLink>
             <FooterLink href="/wiki/pentagon-ufo-files">PURSUE catalog</FooterLink>
             <FooterLink href="/agency/fbi">By agency</FooterLink>
-            <FooterLink href="/year/2023">By year</FooterLink>
-            <FooterLink href="/compare/gofast-vs-gimbal">Compare</FooterLink>
+            <FooterLink href="/compare/gofast-vs-gimbal">Compare pages</FooterLink>
           </FooterColumn>
 
           <div>
