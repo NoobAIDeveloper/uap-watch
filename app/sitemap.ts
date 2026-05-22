@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { incidents } from "@/data/incidents";
 import { documents } from "@/data/documents";
 import { videos } from "@/data/videos";
+import { audio } from "@/data/audio";
 import { url, regionSlug, AGENCY_SLUGS, SITE_URL } from "@/lib/seo";
 import { faqEntries } from "@/lib/faq";
 import { wikiEntries } from "@/lib/wiki";
@@ -56,6 +57,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const videoEntries: MetadataRoute.Sitemap = videos.map((v) => ({
     url: url.video(v.id),
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  }));
+
+  const audioEntries: MetadataRoute.Sitemap = audio.map((a) => ({
+    url: url.audio(a.id),
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.7,
@@ -129,6 +137,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...incidentEntries,
     ...documentEntries,
     ...videoEntries,
+    ...audioEntries,
     ...yearEntries,
     ...regionEntries,
     ...agencyEntries,

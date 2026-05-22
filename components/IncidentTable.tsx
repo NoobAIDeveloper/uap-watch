@@ -10,7 +10,7 @@ import { useSelectedId, setSelectedId } from "@/lib/store";
 
 type Filter = "ALL" | SourceAgency;
 
-const FILTER_ORDER: Filter[] = ["ALL", "FBI", "DOD", "NASA", "STATE", "USAF", "USN"];
+const FILTER_ORDER: Filter[] = ["ALL", "FBI", "DOD", "NASA", "STATE", "USAF", "USN", "CIA", "ODNI", "DOE"];
 
 const FILTER_LABEL: Record<Filter, string> = {
   ALL: "All",
@@ -20,6 +20,9 @@ const FILTER_LABEL: Record<Filter, string> = {
   STATE: "State",
   USAF: "USAF",
   USN: "USN",
+  CIA: "CIA",
+  ODNI: "ODNI",
+  DOE: "DOE",
 };
 
 const PLACEHOLDER_SOURCES: SourceAgency[] = ["FBI", "DOD", "STATE", "DOD", "FBI"];
@@ -48,6 +51,9 @@ export default function IncidentTable() {
       STATE: 0,
       USAF: 0,
       USN: 0,
+      CIA: 0,
+      ODNI: 0,
+      DOE: 0,
     };
     for (const inc of incidents) c[inc.source]++;
     return c;

@@ -33,4 +33,7 @@ export const SOURCE_LABEL: Record<SourceAgency, string> = {
   STATE: "State",
   USAF: "USAF",
   USN: "USN",
+  CIA: "CIA",
+  ODNI: "ODNI",
+  DOE: "DOE",
 };

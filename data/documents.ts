@@ -3062,6 +3062,119 @@ FULL TEXT NOT YET INDEXED LOCALLY. VIEW ORIGINAL IMAGE VIA SOURCE LINK BELOW.
 [[REDACT:LOCATION — REDACTED PER PURSUE GUIDANCE]]`,
     sourceUrl: "https://www.war.gov/medialink/ufo/release_1/nasa-uap-vm6-apollo-17-1972.jpg",
     incidentIds: ["PURSUE-003"],
-  }
+  },
+{
+    id: "DOC-137",
+    title: "CIA-UAP-D001, INTELLIGENCE INFORMATION REPORT, USSR, 1973",
+    source: "CIA",
+    date: "1973-12-20",
+    classification: "DECLASSIFIED",
+    redacted: true,
+    body: `DOCUMENT TITLE: CIA-UAP-D001, Intelligence Information Report, USSR, 1973
+SOURCE: Central Intelligence Agency
+DATE: 12/20/73
+LOCATION: USSR
+CLASSIFICATION: DECLASSIFIED
 
+OFFICIAL DESCRIPTION (DEPARTMENT OF WAR):
+This document is a Central Intelligence Agency (CIA) intelligence information report (IIR) that describes human intelligence gathering activities in the Union of Soviet Socialist Republics (USSR). This report characterizes its content as informational, not as finally evaluated intelligence. In section 14 of this document, the source describes an incident occurring in summer of 1973, where he allegedly observed an airborne, luminous, bright green, unidentified object. The source described concentric circles forming around the phenomenon over a period of several minutes, before it dissipated. The source also stated that no sound attended the observation. The source offered no opinion on the nature of the phenomenon and was unable to provide further details regarding the incident.
+
+[Source PDF mirrored locally — see Source link below for original.]`,
+    sourceUrl: "https://www.war.gov/medialink/ufo/052226/release_02/documents/CIA-UAP-D001_Intelligence_Information_Report_USSR_1973.pdf",
+  },
+  {
+    id: "DOC-138",
+    title: "DOE-UAP-D001, ENHANCED PANTEX IMAGERY",
+    source: "DOE",
+    date: "2026-05-22",
+    classification: "DECLASSIFIED",
+    redacted: true,
+    body: `DOCUMENT TITLE: DOE-UAP-D001, Enhanced PANTEX Imagery
+SOURCE: Department of Energy
+DATE: 2026-05-22
+LOCATION: Undisclosed
+CLASSIFICATION: DECLASSIFIED
+
+OFFICIAL DESCRIPTION (DEPARTMENT OF WAR):
+A Pantex Unidentified Object Incident Report that includes an enhanced image from ground surveillance radar tower.
+
+[Source PDF mirrored locally — see Source link below for original.]`,
+    sourceUrl: "https://www.war.gov/medialink/ufo/052226/release_02/documents/DOE-UAP-D001_PANTEX_Image.pdf",
+  },
+  {
+    id: "DOC-139",
+    title: "DOE-UAP-D002, JAMES TUCK CORRESPONDENCE, 1970S",
+    source: "DOE",
+    date: "1970",
+    classification: "DECLASSIFIED",
+    redacted: true,
+    body: `DOCUMENT TITLE: DOE-UAP-D002, James Tuck Correspondence, 1970s
+SOURCE: Department of Energy
+DATE: 1970s
+LOCATION: Undisclosed
+CLASSIFICATION: DECLASSIFIED
+
+OFFICIAL DESCRIPTION (DEPARTMENT OF WAR):
+Personal correspondence to and from James Tuck, a Los Alamos National Laboratory-affiliated physicist, regarding his interest in unidentified anomalous phenomena circa 1970s.
+
+[Source PDF mirrored locally — see Source link below for original.]`,
+    sourceUrl: "https://www.war.gov/medialink/ufo/052226/release_02/documents/DOE-UAP-D002_JamesTuck_Correspondence.pdf",
+  },
+  {
+    id: "DOC-140",
+    title: "DOE-UAP-D003, PAJARITO ASTRONOMERS INVITATION, 1986",
+    source: "DOE",
+    date: "1986-05-20",
+    classification: "DECLASSIFIED",
+    redacted: true,
+    body: `DOCUMENT TITLE: DOE-UAP-D003, Pajarito Astronomers Invitation, 1986
+SOURCE: Department of Energy
+DATE: 5/20/86
+LOCATION: New Mexico
+CLASSIFICATION: DECLASSIFIED
+
+OFFICIAL DESCRIPTION (DEPARTMENT OF WAR):
+A letter to the members of the Pajarito Astronomers club regarding an upcoming meeting featuring a presentation from a Los Alamos National Laboratory-affiliated physicist, Dr. John Warren, titled “Why Should a Scientist be Concerned about UFOs?” The referenced event was not officially hosted by Los Alamos. The laboratory has no record of the subject matter discussed at the meeting.
+
+[Source PDF mirrored locally — see Source link below for original.]`,
+    sourceUrl: "https://www.war.gov/medialink/ufo/052226/release_02/documents/DOE-UAP-D003_Pajarito_Astronomers.pdf",
+  },
+  {
+    id: "DOC-141",
+    title: "DOW-UAP-D017, UAP REPORTED AT SANDIA BASE, 1948-1950",
+    source: "DOD",
+    date: "1948",
+    classification: "DECLASSIFIED",
+    redacted: false,
+    body: `DOCUMENT TITLE: DOW-UAP-D017, UAP Reported at Sandia Base, 1948-1950
+SOURCE: Department of War
+DATE: 1948-1950
+LOCATION: New Mexico
+CLASSIFICATION: DECLASSIFIED
+
+OFFICIAL DESCRIPTION (DEPARTMENT OF WAR):
+This file contains 116 pages of documentation from the Armed Forces Special Weapons Program (AFSWP) – the direct, post-World War II successor to the Manhattan Project – and from the U.S. Air Force – relating to a series of sightings and investigations in Sandia, New Mexico, from 1948-1950. This file contains 209 sightings of “green orbs,” “discs,” and “fireballs” reported near the military base. Witnesses reported unidentified anomalous phenomena (UAP) maneuvering, flying out of sight, disappearing, or exploding. The documents also include the results of contemporary investigations into residual copper powder found in some areas where sightings were reported. A few of these investigations became the basis for Project Grudge, which collected reports of unidentified flying objects from various other military installations – also included in this collection.
+
+[Source PDF mirrored locally — see Source link below for original.]`,
+    sourceUrl: "https://www.war.gov/medialink/ufo/052226/release_02/documents/DOW-UAP-D017_General_Correspondence_Of_Sandia.pdf",
+  },
+  {
+    id: "DOC-142",
+    title: "ODNI-UAP-D001, USPER NARRATIVE, SENIOR USIC OFFICIAL",
+    source: "ODNI",
+    date: "2025",
+    classification: "DECLASSIFIED",
+    redacted: false,
+    body: `DOCUMENT TITLE: ODNI-UAP-D001, USPER Narrative, Senior USIC Official
+SOURCE: Office of the Director of National Intelligence
+DATE: 2025
+LOCATION: Western United States
+CLASSIFICATION: DECLASSIFIED
+
+OFFICIAL DESCRIPTION (DEPARTMENT OF WAR):
+This document is a first-hand account written by a currently serving (May 2026) senior U.S. intelligence official. The official was part of a team investigating reports of unusual noises and sightings of unidentified anomalous phenomena in and near a sensitive U.S. military facility in late 2025. From the official’s vantage point as a helicopter passenger, the official recounts encountering unidentified “glowing orbs” both at close range and at a distance. The account describes an apparent high-speed object moving low to the ground, which appeared to split in two and accelerate away in two different directions. It also describes numerous higher-altitude “orbs,” some of which the official assessed to be in close proximity to the helicopter. This account is accompanied by infrared imagery taken during the same exercise by other federal officials from the ground, originally released on war.gov/UFO on May 8, 2026.
+
+[Source PDF mirrored locally — see Source link below for original.]`,
+    sourceUrl: "https://www.war.gov/medialink/ufo/052226/release_02/documents/ODNI-UAP-D001_USPER_Narrative_Senior_USIC.pdf",
+  }
 ];

@@ -7,7 +7,7 @@
 // can extract structured facts without ambiguity.
 
 import type { Metadata } from "next";
-import type { Incident, GovDocument, EvidenceVideo, SourceAgency } from "./types";
+import type { Incident, GovDocument, EvidenceVideo, EvidenceAudio, SourceAgency } from "./types";
 
 // Canonical site origin. Override at build time with NEXT_PUBLIC_SITE_URL
 // (Vercel env var) — required for the cutover to https://uap.watch once
@@ -35,6 +35,9 @@ export const AGENCY_NAMES: Record<SourceAgency, string> = {
   STATE: "U.S. Department of State",
   USAF: "United States Air Force",
   USN: "United States Navy",
+  CIA: "Central Intelligence Agency",
+  ODNI: "Office of the Director of National Intelligence",
+  DOE: "Department of Energy",
 };
 
 export const AGENCY_SLUGS: Record<SourceAgency, string> = {
@@ -44,6 +47,9 @@ export const AGENCY_SLUGS: Record<SourceAgency, string> = {
   STATE: "state-department",
   USAF: "us-air-force",
   USN: "us-navy",
+  CIA: "cia",
+  ODNI: "odni",
+  DOE: "doe",
 };
 
 // ───────────────────────────────────────────────────────────────────────────
@@ -56,6 +62,7 @@ export const url = {
   incident: (id: string) => `${SITE_URL}/incident/${id.toLowerCase()}`,
   document: (id: string) => `${SITE_URL}/document/${id.toLowerCase()}`,
   video: (id: string) => `${SITE_URL}/video/${id.toLowerCase()}`,
+  audio: (id: string) => `${SITE_URL}/audio/${id.toLowerCase()}`,
   year: (year: number | string) => `${SITE_URL}/year/${year}`,
   region: (slug: string) => `${SITE_URL}/region/${slug}`,
   agency: (slug: string) => `${SITE_URL}/agency/${slug}`,
@@ -297,6 +304,25 @@ export function videoJsonLd(video: EvidenceVideo) {
     publisher: organizationJsonLd(),
     contentLocation: { "@type": "Place", name: video.location },
     keywords: ["UAP", "UFO", "infrared", "thermal", video.format, video.location].join(", "),
+  };
+}
+
+export function audioJsonLd(audio: EvidenceAudio) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "AudioObject",
+    name: audio.title,
+    description: audio.description,
+    uploadDate: typeof audio.date === "string" ? audio.date : LAST_UPDATED,
+    ...(audio.durationSeconds > 0
+      ? { duration: `PT${audio.durationSeconds}S` }
+      : {}),
+    contentUrl: audio.sourceUrl,
+    inLanguage: "en-US",
+    isAccessibleForFree: true,
+    publisher: organizationJsonLd(),
+    contentLocation: { "@type": "Place", name: audio.location },
+    keywords: ["UAP", "UFO", "NASA", "Apollo", "Mercury", "astronaut audio", audio.location].join(", "),
   };
 }
 

@@ -133,6 +133,7 @@ function buildUrlList() {
   const incidents = parseIncidents();
   const docIds = parseIds(readSource("data/documents.ts"), /DOC-\d+/);
   const vidIds = parseIds(readSource("data/videos.ts"), /VID-\d+/);
+  const audIds = parseIds(readSource("data/audio.ts"), /AUD-\d+/);
   const faqSlugs = parseFaqSlugs();
   const wikiSlugs = parseWikiSlugs();
   const stateSlugs = parseStateSlugs();
@@ -151,6 +152,7 @@ function buildUrlList() {
   for (const i of incidents) urls.add(`${SITE_URL}/incident/${i.id.toLowerCase()}`);
   for (const id of docIds) urls.add(`${SITE_URL}/document/${id.toLowerCase()}`);
   for (const id of vidIds) urls.add(`${SITE_URL}/video/${id.toLowerCase()}`);
+  for (const id of audIds) urls.add(`${SITE_URL}/audio/${id.toLowerCase()}`);
   for (const y of years) urls.add(`${SITE_URL}/year/${y}`);
   for (const r of regions) urls.add(`${SITE_URL}/region/${slugify(r)}`);
   for (const a of agencies) {

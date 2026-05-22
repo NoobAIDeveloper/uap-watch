@@ -9,6 +9,7 @@ import { ChevronRight } from "lucide-react";
 import { incidents } from "@/data/incidents";
 import { documents } from "@/data/documents";
 import { videos } from "@/data/videos";
+import { audio } from "@/data/audio";
 import {
   AGENCY_NAMES,
   AGENCY_SLUGS,
@@ -88,8 +89,9 @@ export default function BrowsePage() {
             {compareEntries.length} compare pages, {stateEntries.length} state
             pages, {years.length} year archives, {regions.length} region
             archives, {agencies.length} agency archives, and {incidents.length}{" "}
-            incident dossiers, plus {documents.length} primary documents and{" "}
-            {videos.length} videos.
+            incident dossiers, plus {documents.length} primary documents,{" "}
+            {videos.length} videos, and {audio.length} NASA mission audio
+            recordings (Release 02, May 22, 2026).
           </p>
         </header>
 
@@ -186,6 +188,25 @@ export default function BrowsePage() {
               />
             ))}
           </HubColumn>
+        </section>
+
+        <section id="audio" className="mt-16 pt-12 hairline-t scroll-mt-24">
+          <div className="text-text-mute text-[10px] tracking-[0.25em] mb-6">
+            // NASA MISSION AUDIO ({audio.length}) //
+          </div>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-1.5">
+            {audio.map((a) => (
+              <li key={a.id}>
+                <Link
+                  href={`/audio/${a.id.toLowerCase()}`}
+                  className="text-text-dim hover:text-accent text-xs tracking-wide block py-0.5"
+                >
+                  <span className="text-text-mute mr-2">{a.id}</span>
+                  {a.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section id="incidents" className="mt-16 pt-12 hairline-t scroll-mt-24">

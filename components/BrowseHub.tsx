@@ -10,6 +10,7 @@ import Link from "next/link";
 import { incidents } from "@/data/incidents";
 import { documents } from "@/data/documents";
 import { videos } from "@/data/videos";
+import { audio } from "@/data/audio";
 import { AGENCY_SLUGS } from "@/lib/seo";
 import { faqEntries, faqBySlug } from "@/lib/faq";
 import { wikiEntries, wikiBySlug } from "@/lib/wiki";
@@ -129,7 +130,7 @@ export default function BrowseHub() {
       <p className="text-text-dim text-sm max-w-[72ch] leading-relaxed">
         Featured questions, guides, and entry points into the catalog.{" "}
         {incidents.length} indexed incidents, {documents.length} documents,{" "}
-        {videos.length} videos. For the full index of every FAQ, wiki entry,
+        {videos.length} videos, {audio.length} NASA audio recordings. For the full index of every FAQ, wiki entry,
         state page, year/region/agency archive, and incident dossier, see the{" "}
         <Link href="/browse" className="text-accent hover:underline">
           complete archive

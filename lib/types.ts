@@ -1,4 +1,4 @@
-export type SourceAgency = "FBI" | "DOD" | "NASA" | "STATE" | "USAF" | "USN";
+export type SourceAgency = "FBI" | "DOD" | "NASA" | "STATE" | "USAF" | "USN" | "CIA" | "ODNI" | "DOE";
 export type IncidentStatus = "unresolved" | "anomalous" | "corroborated" | "resolved";
 export type IncidentClassification = "UNCLASSIFIED" | "DECLASSIFIED" | "CONFIDENTIAL//DECLASSIFIED" | "SECRET//DECLASSIFIED";
 
@@ -59,5 +59,23 @@ export type EvidenceVideo = {
   // Optional poster image (public-relative) shown before video plays.
   localPosterPath?: string;
   // Incident IDs this video relates to. Empty/missing means unlinked.
+  incidentIds?: string[];
+};
+
+// Tranche 2 (2026-05-22) introduced NASA Apollo / Mercury audio recordings —
+// astronaut debriefs and on-mission voice loops that don't fit the video schema
+// (no visual track) and aren't documents (no readable body). Mirrors
+// EvidenceVideo intentionally so /audio/[id] can share the DVIDS embed path.
+export type EvidenceAudio = {
+  id: string;
+  title: string;
+  location: string;
+  date: string;
+  durationSeconds: number;
+  sourceUrl: string;
+  description: string;
+  // Public-relative path to a locally hosted audio file. Optional.
+  localPath?: string;
+  // Incident IDs this audio relates to. Empty/missing means unlinked.
   incidentIds?: string[];
 };

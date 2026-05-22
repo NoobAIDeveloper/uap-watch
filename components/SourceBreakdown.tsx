@@ -7,7 +7,7 @@ import { documents } from "@/data/documents";
 import { SOURCE_LABEL } from "@/lib/classifications";
 import type { SourceAgency } from "@/lib/types";
 
-const ORDER: SourceAgency[] = ["DOD", "FBI", "USAF", "USN", "NASA", "STATE"];
+const ORDER: SourceAgency[] = ["DOD", "FBI", "USAF", "USN", "NASA", "STATE", "CIA", "ODNI", "DOE"];
 
 function computeCounts() {
   const c: Record<SourceAgency, number> = {
@@ -17,6 +17,9 @@ function computeCounts() {
     STATE: 0,
     USAF: 0,
     USN: 0,
+    CIA: 0,
+    ODNI: 0,
+    DOE: 0,
   };
   const tally = (rows: Array<{ source: SourceAgency }>) => {
     for (const r of rows) c[r.source]++;

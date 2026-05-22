@@ -25,6 +25,9 @@ const FILTER_LABEL: Record<Filter, string> = {
   STATE: "State",
   USAF: "USAF",
   USN: "USN",
+  CIA: "CIA",
+  ODNI: "ODNI",
+  DOE: "DOE",
 };
 
 export default function PhotoGallery() {
@@ -49,6 +52,9 @@ export default function PhotoGallery() {
       STATE: 0,
       USAF: 0,
       USN: 0,
+      CIA: 0,
+      ODNI: 0,
+      DOE: 0,
     };
     for (const p of photos) c[p.source]++;
     return c;

@@ -7,10 +7,11 @@ import { RELEASE } from "@/lib/release";
 // app/layout.tsx so the keyword surface survives the visual cut.
 export default function ReleaseBanner() {
   const meta = [
-    `RELEASE ${RELEASE.tranche.toString().padStart(2, "0")} MANIFEST`,
+    `RELEASE ${RELEASE.tranche.toString().padStart(2, "0")} LIVE`,
     `${RELEASE.files} FILES`,
     `${RELEASE.pdfs} PDF`,
     `${RELEASE.videos} VIDEO`,
+    `${RELEASE.audio} AUDIO`,
     `${RELEASE.images} IMG`,
     `${RELEASE.agencies.length} AGENCIES`,
     RELEASE.manifestId,

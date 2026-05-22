@@ -21,7 +21,7 @@ const METRICS: Metric[] = [
   {
     label: "Total files",
     value: RELEASE.files.toLocaleString(),
-    sub: `${RELEASE.pdfs} PDF · ${RELEASE.videos} video · ${RELEASE.images} img`,
+    sub: `${RELEASE.pdfs} PDF · ${RELEASE.videos} video · ${RELEASE.audio} audio · ${RELEASE.images} img`,
   },
   {
     label: "Unresolved",

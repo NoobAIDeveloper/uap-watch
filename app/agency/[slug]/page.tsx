@@ -38,6 +38,12 @@ const AGENCY_CONTEXT: Record<SourceAgency, string> = {
     "U.S. Air Force UAP records span the foundational era (1947 Wright Field AMC memorandum, 1948 Top Secret Air Force Intelligence report) through modern CENTCOM mission reports including DOW-UAP-D14 (Iraq, May 2022), declassified by Major General Richard A. Harrison, USCENTCOM Chief of Staff, on 7 October 2025.",
   USN:
     "U.S. Navy contributions include the 2017 GOFAST video from the USS Theodore Roosevelt strike group (resolved 2026 by AARO as a parallax artifact at ~13,000 ft altitude), the January 2024 Mediterranean 'triangular and metallic UAP at 25,000 feet' mission report, and historical Tic Tac material.",
+  CIA:
+    "The Central Intelligence Agency entered PURSUE in Tranche 2 (May 2026) with a 1973 intelligence information report from the USSR — an unevaluated human-source observation of a luminous green airborne object surrounded by concentric circles, dissipating without sound. CIA's UAP-relevant holdings are predominantly Cold War foreign-collection cables of this type.",
+  ODNI:
+    "The Office of the Director of National Intelligence's first PURSUE contribution (Tranche 2) is a 2025 USPER (U.S. Person) narrative authored by a senior U.S. Intelligence Community official describing a personal UAP encounter in the Western United States. ODNI's role under PURSUE is interagency coordination across CIA, DIA, NSA, and ODNI's own UAP cell.",
+  DOE:
+    "The Department of Energy joined PURSUE in Tranche 2 with three records tied to the U.S. nuclear-weapons complex: a Pantex Plant ground-radar imagery report, James Tuck (Los Alamos physicist) correspondence from the 1970s, and a 1986 Pajarito Astronomers Club invitation referencing a Los Alamos UAP presentation. DOE's UAP record concentrates on incidents near nuclear-handling facilities.",
 };
 
 export async function generateMetadata({
