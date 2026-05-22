@@ -89,7 +89,7 @@ export default function IncidentTable() {
           Incident register
         </h2>
         <span className="text-[11px] font-medium tracking-[0.04em] uppercase text-text-mute">
-          Updated <span className="mono normal-case tracking-normal">2026-05-08 16:42:00Z</span>
+          Updated <span className="mono normal-case tracking-normal">2026-05-22 15:30:00Z</span>
         </span>
       </div>
 
@@ -212,16 +212,16 @@ export default function IncidentTable() {
                     <td className="px-3 mono text-[12px] text-text-dim border-b border-border">
                       {incident.id}
                     </td>
-                    <td className="px-3 mono text-[12px] text-text-dim border-b border-border">
+                    <td className="px-3 mono text-[12px] text-text-dim border-b border-border whitespace-nowrap">
                       {incident.dateLabel}
                     </td>
                     <td className="px-3 text-text border-b border-border">
                       {incident.location}
                     </td>
-                    <td className="px-3 text-text-dim border-b border-border">
+                    <td className="px-3 text-text-dim border-b border-border whitespace-nowrap">
                       {SOURCE_LABEL[incident.source]}
                     </td>
-                    <td className="px-3 mono text-[11px] text-text-dim border-b border-border">
+                    <td className="px-3 mono text-[11px] text-text-dim border-b border-border whitespace-nowrap">
                       {incident.classification}
                     </td>
                     <td className="px-3 border-b border-border">
