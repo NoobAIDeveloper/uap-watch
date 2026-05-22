@@ -459,6 +459,81 @@ export const compareEntries: CompareEntry[] = [
       { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
     ],
   },
+  {
+    slug: "release-01-vs-release-02",
+    title: "PURSUE Release 01 vs Release 02 — Side-by-Side Comparison",
+    description:
+      "Side-by-side comparison of the Pentagon's two declassified UAP file releases: Release 01 (2026-05-08, 162 files) and Release 02 (2026-05-22, 64 files). Records, agencies, media types, and headline cases.",
+    lead:
+      "The U.S. Department of War has published two tranches of declassified UAP records under PURSUE since the program launched in May 2026. Release 01 on 2026-05-08 contained 162 files (120 PDFs, 28 videos, 14 images) drawn from six agencies — FBI, DoD, NASA, State Department, USAF, USN. Release 02 on 2026-05-22 added 64 records (6 PDFs, 51 videos, 7 NASA audio recordings) from five agencies, including three new ones: CIA, ODNI, and DOE. The combined PURSUE catalog now contains 226 records spanning nine agencies and 79 years (1947 to 2026). Release 01 weighted heavily toward modern military video; Release 02 introduces NASA mission audio as a new media type and pulls historical content forward via the 116-page Sandia Base 1948-1950 green-fireball bundle.",
+    pullQuote:
+      "Release 01 weighted modern; Release 02 broadens to CIA, ODNI, DOE and adds historical depth via the 116-page Sandia bundle.",
+    left: {
+      name: "PURSUE Release 01 (May 8, 2026)",
+      facts: [
+        { label: "Date published", value: "2026-05-08" },
+        { label: "Total records", value: "162 files" },
+        { label: "PDFs", value: "120" },
+        { label: "Videos", value: "28" },
+        { label: "Images", value: "14" },
+        { label: "Audio", value: "0 (audio not yet introduced)" },
+        { label: "Agencies", value: "FBI, DoD, NASA, State, USAF, USN (6 total)" },
+        { label: "Bundle size", value: "1.2GB docs + 1.3GB videos" },
+        { label: "Headline doc", value: "DOC-001 FBI Dallas 1947 hexagonal-object memo" },
+        { label: "Headline video", value: "VID-001 Greece 90-deg turn @ 80mph (2023)" },
+      ],
+      links: [
+        { href: "/wiki/pentagon-ufo-files", label: "PURSUE catalog overview" },
+      ],
+    },
+    right: {
+      name: "PURSUE Release 02 (May 22, 2026)",
+      facts: [
+        { label: "Date published", value: "2026-05-22" },
+        { label: "Total records", value: "64 files" },
+        { label: "PDFs", value: "6" },
+        { label: "Videos", value: "51" },
+        { label: "Images", value: "0" },
+        { label: "Audio", value: "7 (new media type: NASA Apollo + Mercury voice loops)" },
+        { label: "Agencies", value: "DoW, NASA, CIA, ODNI, DOE (3 of these are new: CIA, ODNI, DOE)" },
+        { label: "Bundle size", value: "70MB docs + 5.6GB videos" },
+        { label: "Headline doc", value: "DOC-141 Sandia Base 1948-50 green fireballs (116 pages)" },
+        { label: "Headline video", value: "PR051 Syrian UAP 'instant acceleration' (2021)" },
+      ],
+      links: [
+        { href: "/wiki/pursue-release-02-overview", label: "Release 02 overview" },
+      ],
+    },
+    sections: [
+      {
+        heading: "What changed in Release 02",
+        body:
+          "Release 02 adds three previously-absent agencies to the PURSUE catalog: the Central Intelligence Agency (one 1973 Sary Shagan intelligence report), the Office of the Director of National Intelligence (one 2025 senior-USIC helicopter narrative), and the Department of Energy (three records tied to the Pantex Plant and Los Alamos National Laboratory). It also adds audio as a new media type, with seven NASA Apollo and Mercury voice loops covering the 'fireflies' and 'streaks of lights' astronaut reports. Modern military video coverage expanded by 51 clips — primarily CENTCOM and INDOPACOM infrared captures.",
+      },
+      {
+        heading: "Why Release 02 has fewer total files but a similar story",
+        body:
+          "Although Release 02 contains 64 files versus Release 01's 162, the second tranche's video count alone (51) is nearly double Release 01's (28). The PDF count dropped because Release 02 concentrated on a single 116-page mega-document — the Sandia Base 1948-1950 bundle — rather than dozens of smaller mission reports. The DoW press release for Release 02 confirms additional tranches are 'actively' in preparation, with a third release planned 'in the near future.'",
+      },
+      {
+        heading: "Headline incidents introduced in Release 02",
+        body:
+          "Release 02's most-discussed records: DOW-UAP-PR050 (four-UAP infrared formation over Iran, August 26 2022), DOW-UAP-PR051 (the uploader-titled 'Syrian UAP instant acceleration' clip), DOW-UAP-PR071 (the February 12 2023 USAF F-16C engagement over Lake Huron, depicting 'a kinetic interaction... fragmenting in a radial displacement pattern'), DOC-141 (Sandia Base 1948-1950 green fireballs, 116 pages including Lincoln LaPaz reports), and DOC-142 (the ODNI senior intelligence officer's 2025 helicopter narrative — 'We were virtually speechless after these observations').",
+      },
+      {
+        heading: "How to research both releases together",
+        body:
+          "UAP.WATCH indexes both releases under the same schema so you can cross-reference. Filter by year (1947-2026), agency (now 9 in the dropdown), region (Continental US, CENTCOM, INDOPACOM, NORTHCOM, USSR, lunar, low Earth orbit), and status (corroborated, anomalous, unresolved, resolved). The full Release 01 + Release 02 file index is at /browse. Document-level full-text search runs against the locally-mirrored OCR'd text for both tranches — including the Release 02 records that were OCR'd via Claude vision before Reducto's bulk HuggingFace publication.",
+      },
+    ],
+    keywords: ["PURSUE Release 01", "PURSUE Release 02", "Pentagon UFO files comparison", "Tranche 2", "war.gov/UFO"],
+    related: ["pursue-release-02-overview", "whats-new-in-pursue-release-02", "pursue-vs-fbi-vault"],
+    sources: [
+      { label: "Department of War — Release 02 announcement", url: "https://www.war.gov/News/Releases/Release/Article/4499305/" },
+      { label: "Department of War — Release 01 announcement", url: "https://www.war.gov/News/Releases/Release/Article/4480582/" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  }
 ];
 
 export const compareBySlug: Record<string, CompareEntry> = Object.fromEntries(

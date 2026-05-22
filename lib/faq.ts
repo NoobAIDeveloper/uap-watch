@@ -600,6 +600,110 @@ export const faqEntries: FaqEntry[] = [
     ],
     related: ["what-is-aaro", "gofast-video-explained", "what-is-pursue-program"],
   },
+  {
+    slug: "whats-new-in-pursue-release-02",
+    q: "What's new in the Pentagon's PURSUE Release 02?",
+    pull:
+      "PURSUE Release 02, published on 2026-05-22, adds 64 declassified UAP records — 51 videos, 6 PDFs, and 7 NASA Apollo and Mercury audio recordings — from five agencies: the Department of War, NASA, CIA, ODNI, and Department of Energy.",
+    a:
+      "PURSUE Release 02 was published by the U.S. Department of War on 2026-05-22 at war.gov/UFO/. It adds 64 declassified files to the original 162-file Release 01 catalog, bringing the running total to 226 records. The Tranche 2 breakdown is 51 videos (all hosted on DVIDS, mostly U.S. Central Command and INDOPACOM infrared captures from 2019 to 2024), 6 PDFs (CIA, ODNI, DOE, and DOW), and 7 NASA mission-audio recordings from Apollo 12, Apollo 17, Mercury-Atlas 7/8/9, and Mercury-Redstone 4. Release 02 introduces three new participating agencies — Central Intelligence Agency, Office of the Director of National Intelligence, and Department of Energy — and a new media type (audio) the PURSUE catalog had not previously contained. The Department of War's official statement notes that war.gov/UFO has received over one billion hits since the May 8 launch.",
+    sources: [
+      { label: "Department of War press release — Release 02", url: "https://www.war.gov/News/Releases/Release/Article/4499305/" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["what-is-pursue-program", "syria-uap-instant-acceleration", "war-gov-ufo"],
+  },
+  {
+    slug: "syria-uap-instant-acceleration",
+    q: "What is the 'Syrian UAP instant acceleration' video?",
+    pull:
+      "DOW-UAP-PR051 is a 5-minute 2-second infrared video captured by a U.S. military sensor over Syria in 2021. Its uploader-supplied title 'Syrian UAP instant acceleration' is not endorsed by AARO — the clip's apparent rapid exit from frame coincides with the sensor ceasing to track.",
+    a:
+      "The 'Syrian UAP instant acceleration' video is catalog entry DOW-UAP-PR051 in PURSUE Release 02. It is 5 minutes and 2 seconds of footage from a U.S. military infrared sensor operating in the United States Central Command area of responsibility in 2021, uploaded to a classified network in June 2024. AARO's published description notes: 'the sensor stops tracking the area of contrast, causing it to rapidly exit the right side of the frame' — meaning the apparent 'instant acceleration' is what the camera does, not necessarily what the object does. The clip was digitally altered before its classified upload, containing labeled replays at 100%, 50%, and 25% speed, with B/W threshold inversion and edge enhancement. The user-supplied title is preserved verbatim in the catalog but is not an AARO assessment of the object's behavior.",
+    sources: [
+      { label: "DVIDS — DOW-UAP-PR051 source clip", url: "https://www.dvidshub.net/video/1007707" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["whats-new-in-pursue-release-02", "f16-shot-down-ufo-lake-huron-2023", "ufo-videos-real"],
+  },
+  {
+    slug: "f16-shot-down-ufo-lake-huron-2023",
+    q: "Did an F-16 shoot down a UFO over Lake Huron in 2023?",
+    pull:
+      "AARO's published description of the February 12, 2023 USAF Air National Guard F-16C engagement over Lake Huron describes 'a kinetic interaction between two distinct areas of contrast, with the initial subject of the footage fragmenting in a radial displacement pattern that suggests a high-energy event.'",
+    a:
+      "Catalog entry DOW-UAP-PR071 in PURSUE Release 02 is a 46-second infrared video from a USAF Air National Guard F-16C captured on February 12, 2023 over Lake Huron, in the U.S. Northern Command area of responsibility. AARO's video description states that at approximately the 20-second mark, 'the footage appears to depict a kinetic interaction between two distinct areas of contrast, with the initial subject of the footage fragmenting in a radial displacement pattern that suggests a high-energy event.' The clip is the U.S. military's declassified gun-camera record of the publicly-reported Lake Huron shootdown of an unidentified object during the February 2023 high-altitude-object incidents. The video was uploaded to a classified network in February 2023 — the same month the engagement occurred — and was declassified under PURSUE on 2026-05-22.",
+    sources: [
+      { label: "DVIDS — DOW-UAP-PR071 source clip", url: "https://www.dvidshub.net/video/1007727" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["whats-new-in-pursue-release-02", "syria-uap-instant-acceleration", "navy-uap-encounters"],
+  },
+  {
+    slug: "senior-intel-officer-helicopter-ufo",
+    q: "What did the senior U.S. intelligence officer see from a helicopter in 2025?",
+    pull:
+      "We were virtually speechless after these observations.",
+    a:
+      "PURSUE Release 02 includes a first-person USPER narrative (ODNI-UAP-D001, catalog entry DOC-142) written by a senior U.S. Intelligence Community official describing a late-2025 helicopter encounter on a Western United States test range. After radar detected hits up-range from the witness's position, the helicopter intercepted a 'super-hot' Forward-Looking Infrared (FLIR) target that, according to the ground team, rose from the ground, approached within 10 feet of the helicopter, dropped, split into two, and accelerated away. Later, at 700 feet AGL, the witness and pilots observed two large oval orange orbs flare up beside the rotor disk, joined by additional orbs in a 'T' formation. When fighter jets entered the airspace, similar orbs appeared above them at approximately 2,300 feet AGL, matching the jets' speed in horizontal formation. The narrative contains zero redactions.",
+    sources: [
+      { label: "UAP.WATCH — full transcribed narrative (DOC-142)", url: "https://uap-watch-flame.vercel.app/document/doc-142" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["whats-new-in-pursue-release-02", "eye-of-sauron-orbs", "what-is-aaro"],
+  },
+  {
+    slug: "apollo-12-fireflies-explained",
+    q: "What did the Apollo 12 astronauts see — and was it really UFOs?",
+    pull:
+      "Apollo 12 Commander Pete Conrad, Command Module Pilot Dick Gordon, and Lunar Module Pilot Alan Bean described 'streaks of lights' visible in the dark while trying to sleep. NASA later attributed the phenomenon to cosmic-ray flashes on the retina — internal to the astronauts' vision, not external objects.",
+    a:
+      "The Apollo 12 'streaks of lights' audio is catalog entry NASA-UAP-D008 in PURSUE Release 02 (UAP.WATCH ID AUD-001). The recording is a post-mission medical debriefing of Apollo 12's three astronauts — Commander Charles 'Pete' Conrad, Command Module Pilot Richard F. Gordon, and Lunar Module Pilot Alan L. Bean — describing instances of 'streaks of lights' visible in the dark as they tried to sleep during the November 1969 mission. NASA's medical team initially considered whether the phenomenon matched what Apollo 11 LM Pilot Buzz Aldrin had reported and whether retinal exposure to cosmic rays might explain it. NASA's final assessment, recorded in PURSUE: 'the phenomena reported by the Apollo 12 flight crew were internal to the astronauts' vision rather than external light sources' — galactic cosmic rays striking the retina at high speed.",
+    sources: [
+      { label: "DVIDS — Apollo 12 medical debrief audio (AUD-001)", url: "https://www.dvidshub.net/video/1007870" },
+      { label: "UAP.WATCH — full audio page", url: "https://uap-watch-flame.vercel.app/audio/aud-001" },
+    ],
+    related: ["mercury-astronauts-fireflies", "lunar-ufo-anomaly", "apollo-mission-uap-records"],
+  },
+  {
+    slug: "mercury-astronauts-fireflies",
+    q: "What are John Glenn's 'fireflies' and the Mercury astronaut sightings?",
+    pull:
+      "Mercury astronauts described 'fireflies,' 'snowflakes,' 'lathe shavings,' and 'particles' drifting near their spacecraft. NASA later attributed the phenomena to frozen condensation reflecting sunlight as it separated from the spacecraft body.",
+    a:
+      "Project Mercury's six crewed flights (1961–1963) produced repeated astronaut reports of unidentified luminous particles drifting alongside the capsule. The phrase 'John's fireflies' was coined by John Glenn during Mercury-Atlas 6 (February 1962). PURSUE Release 02 declassifies four follow-on Mercury audio recordings: MA-7 pilot Scott Carpenter (May 1962) describing 'white particles' moving at 'random' that 'look exactly like snowflakes'; MA-8 pilot Wally Schirra (October 1962) describing 'little white objects' he later called 'particles' and 'lathe shavings'; MA-9 pilot Gordon Cooper (May 1963) referring back to 'John's fireflies' approximately 1 hour 41 minutes into his flight; and Mercury-Redstone 4 (July 1961) recovery audio. NASA's published conclusion in PURSUE attributes the phenomenon to 'frozen condensation separating from the spacecraft body,' with the white green-hued appearance caused by 'sunlight reflecting off frozen condensation.'",
+    sources: [
+      { label: "UAP.WATCH — Mercury audio archive", url: "https://uap-watch-flame.vercel.app/browse#audio" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["apollo-12-fireflies-explained", "mercury-program-uap-audio", "lunar-ufo-anomaly"],
+  },
+  {
+    slug: "cia-ufo-soviet-union-1973",
+    q: "What is the 1973 CIA UFO report from the Soviet Union?",
+    pull:
+      "On a late-summer evening in 1973, a source at the Sary Shagan Soviet weapons testing range observed 'an unidentified sharp (bright) green circular object or mass' that widened into 'several green concentric circles' before fading — without sound.",
+    a:
+      "Catalog entry CIA-UAP-D001 (UAP.WATCH ID DOC-137) is a Central Intelligence Agency Intelligence Information Report from December 1973 describing human-source intelligence on the Sary Shagan Soviet anti-ballistic-missile testing range. In paragraph 14 of the report, the source describes stepping outside Site 7 during a televised Canada-USSR hockey match and observing an 'unidentified sharp (bright) green circular object or mass in the sky' at an angle of sighting of approximately 70 degrees. Within 10 to 15 seconds, 'the green circle widened and within a brief period of time several green concentric circles formed around the mass. Within minutes the coloring disappeared. There was no sound, such as an explosion, associated with the phenomenon.' The report is rated CONFIDENTIAL and notes the source 'had no opinion as to what this phenomenon was.' Paragraphs 1 through 9 and paragraph 12 of the original report were withheld entirely from declassification.",
+    sources: [
+      { label: "UAP.WATCH — DOC-137 full text", url: "https://uap-watch-flame.vercel.app/document/doc-137" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["whats-new-in-pursue-release-02", "fbi-ufo-files", "los-alamos-physicist-ufo-letters"],
+  },
+  {
+    slug: "los-alamos-physicist-ufo-letters",
+    q: "Why did a Manhattan Project physicist write UFO letters in the 1970s?",
+    pull:
+      "James L. Tuck, a Los Alamos National Laboratory physicist and Manhattan Project veteran, wrote to the U.S. Army Engineering School in December 1970 asking for 'the recipe' for simulated atomic-bomb demonstrations — to study 'the large atmospheric vortices' referenced in Dr. Edward Condon's UFO report.",
+    a:
+      "Catalog entry DOE-UAP-D002 (UAP.WATCH ID DOC-139) is four pages of declassified correspondence to and from James L. Tuck, a British-American physicist who worked on the Manhattan Project and led ball-lightning research at Los Alamos National Laboratory. The bundle contains three letters: a handwritten 1970 eyewitness account to Tuck describing 'green lights weaving in and out of Mountain peaks' over Los Alamos and the Jemez Mountains during 1948–1951, all reported to the LANL Protective Force; Tuck's typed December 16, 1970 letter to the U.S. Army Engineering School at Fort Belvoir requesting 'the recipe that was used for the simulated atomic bomb demonstrations' to study atmospheric vortices per the Condon Report; and an undated note enclosing UFO researcher James M. McCampbell's commentary on ball lightning, citing Einstein's unified field theory. The letters reveal direct engagement between mainstream nuclear physics and UAP investigation.",
+    sources: [
+      { label: "UAP.WATCH — DOC-139 full text", url: "https://uap-watch-flame.vercel.app/document/doc-139" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["sandia-green-fireballs-1948-1950", "ufos-near-nuclear-weapons-facilities", "cia-ufo-soviet-union-1973"],
+  }
 ];
 
 export const faqBySlug: Record<string, FaqEntry> = Object.fromEntries(

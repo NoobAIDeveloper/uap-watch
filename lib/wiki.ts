@@ -290,6 +290,237 @@ export const wikiEntries: WikiEntry[] = [
       { label: "50 U.S.C. § 3373", url: "https://www.law.cornell.edu/uscode/text/50/3373" },
     ],
   },
+  {
+    slug: "pursue-release-02-overview",
+    title: "PURSUE Release 02: Pentagon's Second UFO File Drop (May 22, 2026)",
+    description:
+      "Complete breakdown of PURSUE Release 02 — 64 declassified UAP records released by the U.S. Department of War on 2026-05-22, including the Syrian UAP video, the Lake Huron F-16C shootdown, the ODNI helicopter narrative, and seven NASA Apollo and Mercury audio recordings.",
+    lead:
+      "PURSUE Release 02 was published by the U.S. Department of War at war.gov/UFO/ on 2026-05-22, adding 64 declassified UAP records to the May 8 Release 01 catalog of 162 files. The Tranche 2 breakdown is 51 infrared and electro-optical videos from the Department of War (most from CENTCOM and INDOPACOM 2019–2024), six PDFs from four agencies (CIA, ODNI, DOE, DOW), and seven NASA mission audio recordings — a new media type. Three new agencies enter the PURSUE catalog in Release 02: Central Intelligence Agency, Office of the Director of National Intelligence, and Department of Energy. The Department of War's official statement frames the release as part of the Trump administration's transparency push. Secretary Pete Hegseth said the release 'demonstrates the Trump Administration's earnest commitment to unprecedented transparency.' war.gov/UFO has received over one billion hits since launch.",
+    pullQuote:
+      "These files, hidden behind classifications, have long fueled justified speculation — and it's time the American people see it for themselves.",
+    keywords: ["PURSUE Release 02", "UFO files 2026", "Department of War", "AARO", "second tranche", "declassified"],
+    sections: [
+      {
+        heading: "What's in Release 02",
+        body:
+          "The release totals 64 catalog entries: 51 videos (all DOW, all hosted on DVIDS, predominantly infrared sensor captures from U.S. Central Command and Indo-Pacific Command between 2019 and 2024), 6 PDFs (one CIA, one ODNI, three DOE, one DOW), and 7 audio recordings (all NASA — Apollo 12, Apollo 17, Mercury-Atlas 7/8/9, and Mercury-Redstone 4). Combined with Release 01, the public PURSUE catalog now contains 226 records — 79 videos, 126 PDFs, 14 images, and 7 audio recordings across 9 agencies.",
+      },
+      {
+        heading: "Headline records",
+        body:
+          "The video records with the highest external interest are DOW-UAP-PR050 (a four-UAP infrared formation observed over water in Iran on August 26, 2022), DOW-UAP-PR051 (the uploader-titled 'Syrian UAP instant acceleration' clip from 2021), DOW-UAP-PR071 (the February 12, 2023 USAF F-16C Lake Huron engagement with a 'kinetic interaction... fragmenting in a radial displacement pattern'), and DOW-UAP-PR086 (an East Coast December 2019 NORTHCOM infrared capture). The PDF headline record is DOC-141 (DOW-UAP-D017) — 116 pages of declassified correspondence on the 1948–1950 green-fireball investigation centered on Sandia Base.",
+      },
+      {
+        heading: "New media type: NASA mission audio",
+        body:
+          "Release 02 introduces audio to the PURSUE catalog. Seven NASA voice loops and post-flight medical debriefs document astronaut observations of unidentified luminous phenomena. The Apollo 12 medical debrief (AUD-001) captures Commander Pete Conrad, Dick Gordon, and Alan Bean describing 'streaks of lights' seen in the dark while sleeping. Apollo 17 transit audio (AUD-002) captures Cernan, Schmitt, and Evans describing 'jagged' and 'angular' particles drifting near the spacecraft and the Saturn S-IVB stage. Four Mercury recordings (AUD-003 through AUD-006) document John Glenn's 'fireflies,' later assessed by NASA as frozen condensation reflecting sunlight.",
+      },
+      {
+        heading: "Three new participating agencies",
+        body:
+          "Release 02 brings the Central Intelligence Agency, Office of the Director of National Intelligence, and Department of Energy into the PURSUE catalog for the first time. CIA contributes a 1973 intelligence information report from the Sary Shagan Soviet weapons testing range describing a luminous green concentric-ring phenomenon. ODNI contributes a 2025 USPER first-person narrative by a senior U.S. Intelligence Community official describing a helicopter UAP encounter on a Western U.S. test range. DOE contributes three records tied to U.S. nuclear-weapons facilities: a Pantex Plant surveillance image, James Tuck Manhattan-Project-era correspondence, and a 1986 Pajarito Astronomers Club invitation referencing a Los Alamos UAP talk.",
+      },
+    ],
+    related: ["whats-new-in-pursue-release-02", "sandia-green-fireballs-1948-1950", "release-01-vs-release-02"],
+    sources: [
+      { label: "Department of War press release — Release 02", url: "https://www.war.gov/News/Releases/Release/Article/4499305/" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "sandia-green-fireballs-1948-1950",
+    title: "Sandia Base Green Fireballs (1948–1950)",
+    description:
+      "Between November 1948 and May 1950, hundreds of 'green fireball' sightings were reported over Sandia Base, Kirtland AFB, Los Alamos, and other U.S. nuclear-weapons sites in New Mexico — investigated by Dr. Lincoln LaPaz under USAF Project SIGN and GRUDGE, now declassified in PURSUE Release 02 as DOC-141.",
+    lead:
+      "Between November 1948 and May 1950, the U.S. Air Force and the Armed Forces Special Weapons Project (AFSWP) tracked an extraordinary cluster of 'green fireball' sightings centered on the nuclear-handling complex of Sandia Base, Kirtland Air Force Base, Los Alamos National Laboratory, and the broader Albuquerque-Alamogordo corridor in New Mexico. The Office of Special Investigations 17th District tabulated more than 209 distinct sightings during this period. Dr. Lincoln LaPaz, the University of New Mexico's leading meteor specialist, was retained to determine whether the objects were natural meteoric phenomena — and concluded that they were not. His Fourth, Sixth, and Seventh Reports on the green-fireball phenomenon are part of the 116-page DOW-UAP-D017 declassification, released under PURSUE on 2026-05-22 as catalog entry DOC-141. The bundle documents the foundational U.S. government UFO investigation that preceded Project SIGN, GRUDGE, and Blue Book.",
+    pullQuote:
+      "Several sightings of green lights were made at Los Alamos. These usually occurred during the early part of the night, nine to eleven, and were usually in the Jemez Mountains.",
+    keywords: ["green fireballs", "Sandia Base", "Lincoln LaPaz", "1948 UFO", "Los Alamos UFO", "Project SIGN", "Kirtland AFB"],
+    sections: [
+      {
+        heading: "Dr. Lincoln LaPaz's investigation",
+        body:
+          "Dr. Lincoln LaPaz directed the Institute of Meteoritics at the University of New Mexico and was the U.S. military's top consultant on meteoric phenomena. The Sandia bundle declassified under PURSUE Release 02 contains his Fourth Report (December 20, 1948), Sixth Report, and Seventh Report (May 23, 1950). LaPaz personally observed green fireballs on multiple occasions and concluded they were not natural meteors — the flight characteristics (predominantly horizontal trajectories at low altitude, anomalous color, and lack of meteoritic debris recovery) ruled out the meteor hypothesis. His investigation triggered the AFSWP and USAF Project SIGN to treat the cluster as a national-security matter.",
+      },
+      {
+        heading: "The OSI 17th District tabulated sightings",
+        body:
+          "Pages 21–60 of DOC-141 contain the Office of Special Investigations 17th District's 'Summary of Sightings of Unknown Aerial Phenomena' — a 209-entry tabular log of sightings between August 1949 and May 1950. The log is organized by sighting number, date, location, witness description, and disposition. Locations cluster heavily around Sandia Base, Los Alamos, Kirtland AFB, Holloman AFB, Albuquerque, and Alamogordo, New Mexico. The summary represents the most comprehensive single-cluster UFO database the U.S. government compiled before Project Blue Book consolidated reporting in 1952.",
+      },
+      {
+        heading: "Project SIGN, GRUDGE, and the AFSWP",
+        body:
+          "The Sandia green-fireball investigation overlapped with USAF Project SIGN (the original 1948 UFO investigation program) and its successor Project GRUDGE. The Armed Forces Special Weapons Project — the direct post-WWII successor to the Manhattan Project — owned a parallel investigation because the sightings were concentrated over the U.S. nuclear-weapons complex. DOC-141 contains correspondence between Detachment D of the 1100th USAF Special Reporting Group, AFSWP Headquarters at Sandia Base, the Fourth Army, and the Strategic Air Command (SAC). The April 1949 Camp Campbell security inspection memo is the bundle's opening document.",
+      },
+      {
+        heading: "Why this matters today",
+        body:
+          "The Sandia bundle establishes that the U.S. government's earliest sustained UFO investigation was triggered specifically by sightings over nuclear-weapons facilities — not by Roswell or generic 'flying saucer' reports. This pattern recurs in later PURSUE records: the Department of Energy's Pantex Plant surveillance imagery (DOC-138), James Tuck's Los Alamos correspondence (DOC-139), and the 1986 Pajarito Astronomers UAP talk (DOC-140) all involve the same nuclear-handling sites. AARO does not formally connect the 1948–1950 cluster to modern UAP encounters, but the geographic and institutional continuity is documented in the primary record.",
+      },
+    ],
+    related: ["ufos-near-nuclear-weapons-facilities", "lincoln-lapaz-green-fireball-investigator", "los-alamos-physicist-ufo-letters"],
+    sources: [
+      { label: "UAP.WATCH — DOC-141 full text (116 pages)", url: "https://uap-watch-flame.vercel.app/document/doc-141" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "ufos-near-nuclear-weapons-facilities",
+    title: "UFOs Near U.S. Nuclear Weapons Facilities",
+    description:
+      "Declassified PURSUE Release 02 records document a recurring pattern of UAP sightings near U.S. nuclear-weapons facilities — Sandia Base, Los Alamos National Laboratory, Kirtland AFB, and the Pantex Plant in Texas — spanning 1948 to the present.",
+    lead:
+      "Declassified U.S. government UAP records show a recurring association between UAP sightings and U.S. nuclear-weapons facilities. The PURSUE Release 02 catalog (2026-05-22) consolidates this pattern across four primary documents: 116 pages of 1948–1950 green-fireball correspondence centered on Sandia Base and Los Alamos (DOC-141); a Pantex Plant ground-surveillance image of a domed object (DOC-138); James Tuck Los Alamos correspondence on atmospheric vortices and ball lightning (DOC-139); and a 1986 Pajarito Astronomers Club invitation to a Los Alamos physicist's UFO talk (DOC-140). The cluster spans seven decades and three U.S. nuclear-handling sites. AARO does not assert causation, but the geographic and institutional concentration is documented in the primary record.",
+    pullQuote:
+      "A Pantex Unidentified Object Incident Report that includes an enhanced image from ground surveillance radar tower.",
+    keywords: ["nuclear UFO", "Sandia Base UFO", "Pantex UFO", "Los Alamos UFO", "Kirtland AFB", "nuclear facility UAP"],
+    sections: [
+      {
+        heading: "The 1948–1950 Sandia and Los Alamos cluster",
+        body:
+          "The earliest documented U.S. UAP cluster is centered on the New Mexico nuclear-weapons complex. The Office of Special Investigations 17th District tabulated 209+ sightings between August 1949 and May 1950 over Sandia Base, Kirtland AFB, Los Alamos, Holloman, Albuquerque, and Alamogordo. Dr. Lincoln LaPaz, the U.S. military's lead meteoricist, investigated and concluded the green-fireball phenomenon was not meteoric. His Fourth, Sixth, and Seventh Reports are in DOC-141.",
+      },
+      {
+        heading: "Pantex Plant (Texas)",
+        body:
+          "The Pantex Plant outside Amarillo, Texas is the United States' principal nuclear-weapons assembly and disassembly facility. DOE-UAP-D001 (UAP.WATCH ID DOC-138) is a Pantex Unidentified Object Incident Report containing an enhanced ground-surveillance-radar tower image of an unidentified object. The PURSUE-released enhanced image shows a domed/bell-shaped object captured by the facility's perimeter surveillance system. The Department of Energy has not released the specific date of the incident; the document was redacted with reference '(b)(3) (UCNI)' — Unclassified Controlled Nuclear Information.",
+      },
+      {
+        heading: "James Tuck and Los Alamos atmospheric vortex research",
+        body:
+          "James L. Tuck — a British physicist who worked on the Manhattan Project and led Los Alamos ball-lightning research in the 1950s and 1960s — wrote to the U.S. Army Engineering School at Fort Belvoir in December 1970 requesting 'the recipe that was used for the simulated atomic bomb demonstrations' to study 'the large atmospheric vortices' referenced in Dr. Edward Condon's 'Scientific Study of Unidentified Flying Objects.' Tuck also received a 1970 handwritten eyewitness account from a LANL employee describing 'green lights weaving in and out of Mountain peaks' over Los Alamos and the Jemez Mountains during 1948–1951. DOE-UAP-D002 (DOC-139).",
+      },
+      {
+        heading: "Pattern in the federal record",
+        body:
+          "The four nuclear-facility records in PURSUE Release 02 — Sandia, Pantex, Los Alamos correspondence, Pajarito Astronomers — are concentrated within a 400-mile radius across New Mexico and Texas. They span 38 years (1948 to 1986). AARO has not published a formal assessment connecting these incidents to one another, but the underlying primary documents are now public in machine-readable form. Researchers can cross-reference DOC-138 through DOC-141 against the broader 209-entry OSI sighting log for spatiotemporal correlation.",
+      },
+    ],
+    related: ["sandia-green-fireballs-1948-1950", "los-alamos-physicist-ufo-letters", "lincoln-lapaz-green-fireball-investigator"],
+    sources: [
+      { label: "UAP.WATCH — Sandia (DOC-141)", url: "https://uap-watch-flame.vercel.app/document/doc-141" },
+      { label: "UAP.WATCH — Pantex (DOC-138)", url: "https://uap-watch-flame.vercel.app/document/doc-138" },
+      { label: "UAP.WATCH — Tuck letters (DOC-139)", url: "https://uap-watch-flame.vercel.app/document/doc-139" },
+    ],
+  },
+  {
+    slug: "apollo-mission-uap-records",
+    title: "Apollo Mission UAP Records",
+    description:
+      "NASA's Apollo program records released under PURSUE — Apollo 12 (1969) lunar imagery and medical-debrief audio of 'streaks of lights,' Apollo 17 (1972) lunar-sky photograph and transit audio about 'particles' near the Saturn S-IVB stage.",
+    lead:
+      "NASA's Apollo program is the only crewed spaceflight program with declassified UAP-related records in the U.S. government's public catalog. The PURSUE Release 01 (2026-05-08) and Release 02 (2026-05-22) catalogs together contain seven Apollo records: four imagery items from Apollo 12 (NASA-UAP-VM3, VM4, VM5) and Apollo 17 (NASA-UAP-VM6), one Apollo 12 medical-debriefing audio recording (NASA-UAP-D008, AUD-001), and one Apollo 17 cislunar-transit audio recording (NASA-UAP-D009, AUD-002). The Apollo 17 lunar-sky photograph is the most-discussed of these: it shows three dots in triangular formation north of Grimaldi crater, witnessed by Astronaut Jack Schmitt during the December 11, 1972 mission. NASA has stated 'the image feature is potentially the result of a physical object in the scene' and is conducting further analysis.",
+    pullQuote:
+      "Streaks of lights occurred in the dark as they tried to sleep.",
+    keywords: ["Apollo UFO", "Apollo 12 UFO", "Apollo 17 UFO", "NASA UAP", "astronaut UFO", "lunar UFO", "moon UFO"],
+    sections: [
+      {
+        heading: "Apollo 12 medical debrief (November 1969)",
+        body:
+          "PURSUE Release 02 catalog entry AUD-001 (NASA-UAP-D008) is a post-mission medical-debriefing audio recording of Apollo 12 Commander Charles 'Pete' Conrad, Command Module Pilot Richard F. Gordon, and Lunar Module Pilot Alan L. Bean. The astronauts describe observing 'streaks of lights' visible in the dark while trying to sleep during the November 1969 mission. NASA's medical team initially compared the reports to those of Apollo 11 LM Pilot Buzz Aldrin and considered whether retinal exposure to cosmic rays might explain the phenomenon. NASA's final assessment: 'the phenomena reported by the Apollo 12 flight crew were internal to the astronauts' vision rather than external light sources.'",
+      },
+      {
+        heading: "Apollo 17 transit audio (December 1972)",
+        body:
+          "PURSUE Release 02 catalog entry AUD-002 (NASA-UAP-D009) is voice-loop audio from Apollo 17 — NASA's eleventh and final crewed Apollo mission. During transit to the moon in December 1972, Commander Gene Cernan, Lunar Module Pilot Harrison Schmitt, and Command Module Pilot Ronald Evans report seeing small lights outside the Apollo spacecraft. The crew describe bright 'particles' or 'fragments' as 'jagged,' 'angular,' and drifting near the Apollo spacecraft and the separated Saturn S-IVB stage. The Apollo 17 crew themselves speculated that paint chips or ice chips were the likely source, noting the particles 'twinkle' and move away from the S-IVB stage.",
+      },
+      {
+        heading: "Lunar-surface photographs",
+        body:
+          "Four Apollo photographs are catalogued under PURSUE as NASA-sourced UAP records. NASA-UAP-VM3, VM4, and VM5 are Apollo 12 lunar-surface images. NASA-UAP-VM6 is the canonical Apollo 17 photograph showing three dots in a triangular formation in the lower-right quadrant of the lunar sky, witnessed by Astronaut Jack Schmitt during the December 11, 1972 mission. PURSUE notes that the U.S. government has obtained the original film from the Apollo 17 mission for further analysis, and that 'New preliminary US government analysis suggests the image feature is potentially the result of a physical object in the scene.'",
+      },
+      {
+        heading: "NASA's cosmic-ray flash explanation",
+        body:
+          "The most-cited NASA explanation for in-flight Apollo and Mercury 'lights' reports is the cosmic-ray retinal-flash hypothesis. Apollo-era research established that high-energy galactic cosmic rays striking the human retina at the speed of light can produce subjective phosphene-like light flashes that are not visible to external observers. NASA's PURSUE-released conclusion for the Apollo 12 medical debrief endorses this explanation. The Apollo 17 lunar-sky photograph (NASA-UAP-VM6) is treated separately, as a possible external object pending further analysis of the recovered original film.",
+      },
+    ],
+    related: ["mercury-program-uap-audio", "lunar-ufo-anomaly", "apollo-12-fireflies-explained"],
+    sources: [
+      { label: "UAP.WATCH — Apollo 12 audio (AUD-001)", url: "https://uap-watch-flame.vercel.app/audio/aud-001" },
+      { label: "UAP.WATCH — Apollo 17 audio (AUD-002)", url: "https://uap-watch-flame.vercel.app/audio/aud-002" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "mercury-program-uap-audio",
+    title: "Mercury Program UAP Audio Recordings",
+    description:
+      "Project Mercury voice loops declassified under PURSUE Release 02 (2026-05-22) — Mercury-Atlas 7, 8, and 9 plus Mercury-Redstone 4 — capture astronauts describing 'fireflies,' 'snowflakes,' 'lathe shavings,' and 'particles' drifting near their spacecraft in low Earth orbit.",
+    lead:
+      "Project Mercury — the United States' first crewed spaceflight program — produced repeated astronaut reports of unidentified luminous particles drifting alongside the spacecraft in orbit. The phenomenon was first described as 'fireflies' by John Glenn during Mercury-Atlas 6 on February 20, 1962. PURSUE Release 02 declassifies four follow-on Mercury audio recordings — Mercury-Redstone 4 (July 1961), MA-7 (May 1962), MA-8 (October 1962), and MA-9 (May 1963) — that capture the same phenomenon described by Scott Carpenter, Wally Schirra, and Gordon Cooper. NASA's later assessment attributes the phenomenon to frozen water condensation separating from the spacecraft body and reflecting sunlight, producing a 'white green-hued appearance.'",
+    pullQuote:
+      "Look exactly like snowflakes.",
+    keywords: ["Mercury UFO", "John Glenn fireflies", "Scott Carpenter UFO", "Wally Schirra UFO", "Gordon Cooper UFO", "snowflakes spacecraft"],
+    sections: [
+      {
+        heading: "Mercury-Atlas 7: Scott Carpenter (May 1962)",
+        body:
+          "Mercury-Atlas 7 was the fourth crewed Project Mercury spaceflight and the second American orbital mission. Pilot Scott Carpenter, flying the Aurora 7 capsule on May 24, 1962, described white particles in view that appear to move at 'random' and 'look exactly like snowflakes.' Carpenter characterized the particles as reflective, with some appearing to move faster than the Aurora 7 spacecraft itself. PURSUE Release 02 catalogues the audio as NASA-UAP-D013 (UAP.WATCH ID AUD-006).",
+      },
+      {
+        heading: "Mercury-Atlas 8: Wally Schirra (October 1962)",
+        body:
+          "On October 3, 1962, Mercury-Atlas 8 pilot Walter M. 'Wally' Schirra Jr. described observing 'little white objects that tend to come from the capsule itself and drift off' from his Sigma 7 capsule. Schirra later referred to those objects as 'particles' and 'lathe shavings.' He also describes seeing a burst of light in the window whose source he could not identify, speculating it corresponded with the moment the sun passed below the horizon during sunset. PURSUE catalog entry NASA-UAP-D012 (AUD-005).",
+      },
+      {
+        heading: "Mercury-Atlas 9: Gordon Cooper (May 1963)",
+        body:
+          "Mercury-Atlas 9 — Faith 7 — was the final and longest flight of Project Mercury, piloted by L. Gordon Cooper Jr. on May 15, 1963. Approximately one hour and 41 minutes into the flight, Cooper notes that he sees 'John's fireflies,' referring back to John Glenn's MA-6 observation. A second MA-9 audio recording (AUD-004) captures Cooper describing 'small, luminous, brilliant white particles drifting away from the spacecraft' as he approaches orbital sunrise after deploying spherical beacon equipment with xenon strobe lights.",
+      },
+      {
+        heading: "Mercury-Redstone 4: Liberty Bell 7 (July 1961)",
+        body:
+          "Mercury-Redstone 4 was the fourth launch and second crewed spaceflight of Project Mercury. The MR-4 recovery audio (NASA-UAP-D014, UAP.WATCH ID AUD-007) captures the recovery team's recorded discussion during the post-splashdown operations on July 21, 1961, including discussion of a dye pack in the water that did not activate. This is the earliest recording in the PURSUE Mercury audio set.",
+      },
+    ],
+    related: ["apollo-mission-uap-records", "apollo-12-fireflies-explained", "lunar-ufo-anomaly"],
+    sources: [
+      { label: "UAP.WATCH — MA-9 audio Cooper (AUD-003)", url: "https://uap-watch-flame.vercel.app/audio/aud-003" },
+      { label: "UAP.WATCH — MA-9 audio Cooper second clip (AUD-004)", url: "https://uap-watch-flame.vercel.app/audio/aud-004" },
+      { label: "UAP.WATCH — MA-7 Carpenter (AUD-006)", url: "https://uap-watch-flame.vercel.app/audio/aud-006" },
+    ],
+  },
+  {
+    slug: "lincoln-lapaz-green-fireball-investigator",
+    title: "Dr. Lincoln LaPaz: The Meteor Expert Who Investigated UFOs",
+    description:
+      "Dr. Lincoln LaPaz, the University of New Mexico's leading meteoriticist, directed the 1948–1950 USAF investigation of green fireballs over Sandia Base, Los Alamos, and other U.S. nuclear-weapons sites. His Fourth, Sixth, and Seventh Reports are part of the 116-page DOC-141 declassification.",
+    lead:
+      "Dr. Lincoln LaPaz (1897–1985) was the founding director of the University of New Mexico's Institute of Meteoritics and the U.S. military's primary scientific consultant on meteoric phenomena during the late 1940s and 1950s. Between November 1948 and May 1950, LaPaz was retained by the U.S. Air Force and the Armed Forces Special Weapons Project (AFSWP) to investigate an unusual cluster of 'green fireball' sightings concentrated over the U.S. nuclear-weapons complex in New Mexico. LaPaz personally observed multiple green fireballs and concluded they were not natural meteors — their predominantly horizontal trajectories at relatively low altitude, anomalous green color, and absence of recovered meteoritic debris were inconsistent with the meteor hypothesis. His Fourth (December 20, 1948), Sixth, and Seventh (May 23, 1950) Reports on the green-fireball phenomenon are declassified in PURSUE Release 02 as part of catalog entry DOC-141.",
+    pullQuote:
+      "These usually occurred during the early part of the night, nine to eleven, and were usually in the Jemez Mountains.",
+    keywords: ["Lincoln LaPaz", "green fireballs", "Project SIGN", "Project GRUDGE", "Sandia UFO", "meteor expert UFO"],
+    sections: [
+      {
+        heading: "LaPaz's credentials",
+        body:
+          "Lincoln LaPaz earned his PhD in mathematics from the University of Chicago and joined the University of New Mexico in 1945. He founded the Institute of Meteoritics — the first academic department in the world dedicated to the study of meteorites — and was widely regarded as the leading authority on meteoric phenomena in the United States. During World War II, LaPaz served as a technical analyst at Eglin Field. His expertise made him the natural choice for the USAF when an unusual luminous-phenomenon cluster began appearing over the U.S. nuclear-weapons handling sites in late 1948.",
+      },
+      {
+        heading: "The 1948 fireball anomaly",
+        body:
+          "On December 5, 1948, two USAF C-47 transport aircraft observed a green fireball over Albuquerque. The object's color (intense green), trajectory (predominantly horizontal), and altitude (low, estimated within ten miles of the ground) did not match the characteristics of natural meteors, which typically appear white or yellow, follow ballistic trajectories, and burn up at altitudes of 50–80 kilometers. LaPaz personally observed similar phenomena. His Fourth Report (December 20, 1948) is among the earliest documents in the Sandia bundle.",
+      },
+      {
+        heading: "Four major reports in the Sandia bundle",
+        body:
+          "DOC-141 contains LaPaz's Fourth Report (December 20, 1948), Sixth Report, and Seventh Report (May 23, 1950) on green-fireball phenomena. The reports document specific sightings, witness interviews, ballistic and spectroscopic analysis, and LaPaz's working hypothesis that the objects might be artificial in origin. The bundle also contains transmittal memoranda from Sandia Base to the Strategic Air Command Board and a 1st Indorsement from SAC dating from April 1949.",
+      },
+      {
+        heading: "Why LaPaz's conclusions still matter",
+        body:
+          "LaPaz's 1948–1950 investigation establishes a unique reference point in the U.S. government's UFO record: a credentialed meteor expert, given full access to the primary witness and trajectory data, concluding that the observed phenomena were not natural meteors. AARO does not formally endorse or refute LaPaz's hypothesis in current PURSUE materials, but the 116-page DOC-141 declassification preserves his analysis in primary form. Researchers can compare LaPaz's 1948–1950 conclusions against later AARO determinations on modern UAP cases.",
+      },
+    ],
+    related: ["sandia-green-fireballs-1948-1950", "ufos-near-nuclear-weapons-facilities", "project-sign-grudge"],
+    sources: [
+      { label: "UAP.WATCH — DOC-141 LaPaz reports", url: "https://uap-watch-flame.vercel.app/document/doc-141" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  }
 ];
 
 export const wikiBySlug: Record<string, WikiEntry> = Object.fromEntries(
