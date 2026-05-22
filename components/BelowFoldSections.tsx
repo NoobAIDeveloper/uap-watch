@@ -45,6 +45,20 @@ const VideoEvidenceGrid = dynamic(
   },
 );
 
+const AudioEvidenceGrid = dynamic(
+  () => import("@/components/AudioEvidenceGrid"),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="bg-panel border border-border rounded-[4px] animate-pulse"
+        style={{ minHeight: 280 }}
+        aria-hidden
+      />
+    ),
+  },
+);
+
 const LunarPanel = dynamic(() => import("@/components/LunarPanel"), {
   ssr: false,
   loading: () => (
@@ -78,6 +92,9 @@ export default function BelowFoldSections() {
       </section>
       <section className="mt-4">
         <VideoEvidenceGrid />
+      </section>
+      <section className="mt-4">
+        <AudioEvidenceGrid />
       </section>
       <section className="mt-4">
         <DocumentViewer />

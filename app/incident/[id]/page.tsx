@@ -142,8 +142,9 @@ export default async function IncidentPage({
 
         <h2>Why this case matters</h2>
         <p>
-          This incident is logged in PURSUE Release 01 — the U.S. Department of
-          War's 2026-05-08 declassified UAP file release — under identifier{" "}
+          This incident is logged in the Pentagon&apos;s PURSUE catalog — the
+          U.S. Department of War&apos;s rolling declassified UAP file release
+          (Release 01 on 2026-05-08, Release 02 on 2026-05-22) — under identifier{" "}
           <code>{i.id}</code>. The originating agency is the{" "}
           <strong>{AGENCY_NAMES[i.source]}</strong>; the case is currently
           classified <strong>{i.classification}</strong> and rated{" "}

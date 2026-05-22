@@ -33,7 +33,7 @@ export async function generateMetadata({
   if (!s) return {};
   return buildMetadata({
     title: `UFO Sightings in ${s.name} — Declassified Files & Famous Incidents`,
-    description: `Complete record of UFO and UAP sightings in ${s.name}: PURSUE Release 01 entries, famous historical incidents, and primary-source documentation. ${s.lead.slice(0, 100)}…`,
+    description: `Complete record of UFO and UAP sightings in ${s.name}: PURSUE catalog entries, famous historical incidents, and primary-source documentation. ${s.lead.slice(0, 100)}…`,
     path: `/state/${slug}`,
     type: "article",
     modifiedTime: LAST_UPDATED,
@@ -65,7 +65,7 @@ export default async function StatePage({
     "@context": "https://schema.org",
     "@type": "Article",
     headline: `UFO Sightings in ${s.name}`,
-    description: `${s.name} UFO and UAP record — PURSUE Release 01 entries plus famous historical incidents.`,
+    description: `${s.name} UFO and UAP record — PURSUE catalog entries plus famous historical incidents.`,
     datePublished: "2026-05-10",
     dateModified: LAST_UPDATED,
     inLanguage: "en-US",
@@ -115,7 +115,7 @@ export default async function StatePage({
 
         {linkedIncidents.length > 0 ? (
           <>
-            <h2>PURSUE Release 01 entries from {s.name}</h2>
+            <h2>PURSUE catalog entries from {s.name}</h2>
             <ul>
               {linkedIncidents.map((i) => (
                 <li key={i.id}>
@@ -136,13 +136,14 @@ export default async function StatePage({
           </>
         ) : (
           <>
-            <h2>PURSUE Release 01 coverage</h2>
+            <h2>PURSUE catalog coverage</h2>
             <p>
               {s.name} does not have any incidents publicly geolocated to it in
-              PURSUE Release 01. The Pentagon&apos;s catalog covers 26 named
+              the PURSUE catalog. The Pentagon&apos;s catalog covers 29 named
               incidents geographically; many &ldquo;Western United States
               (undisclosed)&rdquo; PURSUE entries — including the 2023
-              &ldquo;Eye of Sauron&rdquo; federal-agent encounter — may include
+              &ldquo;Eye of Sauron&rdquo; federal-agent encounter and the 2025
+              ODNI senior-intel-officer helicopter encounter — may include
               {" "}{s.name} locations that were redacted to protect facility
               identity.
             </p>

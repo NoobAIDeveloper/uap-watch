@@ -16,10 +16,11 @@ export default function Footer() {
             </div>
             <p className="text-[13px] leading-relaxed text-text-dim max-w-[42ch]">
               UAP.WATCH is an independent visualization layer for public
-              records released by the U.S. Department of War on 2026-05-08
-              under the Presidential Unsealing &amp; Reporting System for UAP
-              Encounters (PURSUE) program. Source material remains hosted at
-              war.gov/UFO/. Not affiliated with any U.S. government agency.
+              records released by the U.S. Department of War under the
+              Presidential Unsealing &amp; Reporting System for UAP Encounters
+              (PURSUE) program — Release 01 (2026-05-08) and Release 02
+              (2026-05-22). Source material remains hosted at war.gov/UFO/.
+              Not affiliated with any U.S. government agency.
             </p>
             <div className="mt-3 text-[11px] font-medium tracking-[0.04em] uppercase text-text-mute">
               For informational purposes only

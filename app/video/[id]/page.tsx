@@ -41,7 +41,7 @@ export async function generateMetadata({
   if (!v) return {};
   return buildMetadata({
     title: `${v.title} — Declassified UAP Video (${v.id})`,
-    description: `${v.description} ${v.format} sensor footage from ${v.location}, ${v.date}. Released by U.S. Department of War under PURSUE Release 01.`,
+    description: `${v.description} ${v.format} sensor footage from ${v.location}, ${v.date}. Released by U.S. Department of War under the PURSUE program.`,
     path: `/video/${v.id.toLowerCase()}`,
     type: "article",
     keywords: [
@@ -121,9 +121,10 @@ export default async function VideoPage({
           <strong>{v.date}</strong>. The clip is{" "}
           <strong>{v.durationSeconds} seconds</strong> long, recorded in{" "}
           <strong>{FORMAT_NAMES[v.format] ?? v.format}</strong> format. It is
-          part of PURSUE Release 01 — the Pentagon's 2026-05-08 declassified
-          UAP file release — and is hosted by the Department of Defense via
-          the Defense Visual Information Distribution Service (DVIDS).
+          part of the Pentagon's PURSUE program — the U.S. Department of War's
+          rolling declassified UAP file release (Release 01 on 2026-05-08,
+          Release 02 on 2026-05-22) — and is hosted by the Department of
+          Defense via the Defense Visual Information Distribution Service (DVIDS).
         </p>
 
         {linked.length > 0 && (

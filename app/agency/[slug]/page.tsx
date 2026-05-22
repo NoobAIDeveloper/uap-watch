@@ -31,7 +31,7 @@ const AGENCY_CONTEXT: Record<SourceAgency, string> = {
   DOD:
     "The Department of War (DoD) is the originating source for most modern military UAP video, including CENTCOM and INDOPACOM full-motion-video clips and the 2023 ellipsoid-bronze-metallic-object photograph. AARO sits within DoD as the central UAP investigation body.",
   NASA:
-    "NASA's UAP contributions to PURSUE Release 01 are the Apollo-era lunar plates: Apollo 12 (November 1969) areas-of-interest imagery and Apollo 17 (December 1972) — three dots in triangular formation north of Grimaldi crater, witnessed by Astronaut Jack Schmitt.",
+    "NASA's UAP contributions to PURSUE span Apollo-era lunar plates (Apollo 12 November 1969 areas-of-interest imagery and Apollo 17 December 1972 three-dot triangular formation north of Grimaldi crater, witnessed by Astronaut Jack Schmitt) plus seven Release 02 mission audio recordings — Apollo 12 medical-debrief 'streaks of lights,' Apollo 17 cislunar 'particles,' and Mercury-Atlas 7/8/9 + Mercury-Redstone 4 voice loops describing John Glenn's 'fireflies.'",
   STATE:
     "State Department UAP records are diplomatic cables, including the 1994 PanAm Tajikistan cable in which a commercial pilot recorded an object as 'possibly extraterrestrial and under intelligent control,' and a series of 1985–2025 cables from Papua New Guinea, Kazakhstan, Turkmenistan, Georgia, and Mexico.",
   USAF:
@@ -58,7 +58,7 @@ export async function generateMetadata({
   const docCount = documents.filter((d) => d.source === a.code).length;
   return buildMetadata({
     title: `${AGENCY_NAMES[a.code]} UFO / UAP Files`,
-    description: `${incidentCount} incidents and ${docCount} declassified documents from ${AGENCY_NAMES[a.code]} in the Pentagon's 2026 PURSUE Release 01 catalog. Browse by date, location, and classification.`,
+    description: `${incidentCount} incidents and ${docCount} declassified documents from ${AGENCY_NAMES[a.code]} in the Pentagon's 2026 PURSUE catalog. Browse by date, location, and classification.`,
     path: `/agency/${slug}`,
     type: "website",
     keywords: [AGENCY_NAMES[a.code], "UFO files", "UAP", "declassified", "Pentagon", "PURSUE"],
@@ -93,7 +93,7 @@ export default async function AgencyPage({
       <PageShell
         eyebrow={`Source agency · ${code}`}
         title={`${AGENCY_NAMES[code]} — Declassified UFO / UAP Files`}
-        subtitle={`${list.length} indexed incidents and ${docs.length} primary-source documents originating from ${AGENCY_NAMES[code]}, sourced from PURSUE Release 01.`}
+        subtitle={`${list.length} indexed incidents and ${docs.length} primary-source documents originating from ${AGENCY_NAMES[code]}, sourced from the PURSUE catalog.`}
         crumbs={[
           { name: "UAP.WATCH", href: "/" },
           { name: "By agency", href: "/" },

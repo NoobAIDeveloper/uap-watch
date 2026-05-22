@@ -37,7 +37,7 @@ export async function generateMetadata({
   const docCount = documents.filter((d) => d.date.startsWith(year)).length;
   return buildMetadata({
     title: `${year} UAP Incidents — Declassified UFO Files`,
-    description: `${incidentCount} declassified UAP incidents and ${docCount} primary-source documents from ${year}, indexed from the Pentagon's PURSUE Release 01.`,
+    description: `${incidentCount} declassified UAP incidents and ${docCount} primary-source documents from ${year}, indexed from the Pentagon's PURSUE catalog.`,
     path: `/year/${year}`,
     type: "website",
     keywords: ["UFO sightings", `UFO ${year}`, "declassified", "UAP", year],
@@ -74,7 +74,7 @@ export default async function YearPage({
       <PageShell
         eyebrow={`Annual archive · ${year}`}
         title={`${year} — Declassified UFO and UAP Incidents`}
-        subtitle={`${yearIncidents.length} indexed incidents and ${yearDocs.length} primary-source documents from ${year}, sourced from PURSUE Release 01 (war.gov/UFO/, released 2026-05-08).`}
+        subtitle={`${yearIncidents.length} indexed incidents and ${yearDocs.length} primary-source documents from ${year}, sourced from the Pentagon's PURSUE catalog (war.gov/UFO/).`}
         crumbs={[
           { name: "UAP.WATCH", href: "/" },
           { name: "Archive by year", href: "/" },
@@ -84,7 +84,7 @@ export default async function YearPage({
         <h2>What happened in {year}</h2>
         <p>
           {yearIncidents.length === 0
-            ? `No incidents are indexed for ${year} on UAP.WATCH; PURSUE Release 01 contains ${yearDocs.length} document(s) dated this year. The full list is below.`
+            ? `No incidents are indexed for ${year} on UAP.WATCH; the PURSUE catalog contains ${yearDocs.length} document(s) dated this year. The full list is below.`
             : yearIncidents.length === 1
               ? `One incident is indexed for ${year}: ${yearIncidents[0].location} (${yearIncidents[0].id}). The encounter is currently rated ${yearIncidents[0].status.toUpperCase()} by AARO.`
               : `${yearIncidents.length} incidents are indexed for ${year}, spanning ${

@@ -32,7 +32,7 @@ export async function generateMetadata({
   const count = incidents.filter((i) => i.region === region).length;
   return buildMetadata({
     title: `UFO and UAP Incidents in the ${region}`,
-    description: `${count} declassified UAP incidents in the ${region} region, indexed from the Pentagon's 2026 PURSUE Release 01 — primary-source documents, locations, and dates.`,
+    description: `${count} declassified UAP incidents in the ${region} region, indexed from the Pentagon's 2026 PURSUE catalog — primary-source documents, locations, and dates.`,
     path: `/region/${slug}`,
     type: "website",
     keywords: ["UFO sightings", region, "UAP", "declassified", "Pentagon"],
@@ -67,7 +67,7 @@ export default async function RegionPage({
       <PageShell
         eyebrow={`Regional archive · ${region}`}
         title={`UFO and UAP Incidents in the ${region}`}
-        subtitle={`${list.length} declassified incidents in the ${region}, spanning ${yearsCovered[0]} to ${yearsCovered[yearsCovered.length - 1]}. All entries sourced from PURSUE Release 01 (Pentagon, 2026-05-08).`}
+        subtitle={`${list.length} declassified incidents in the ${region}, spanning ${yearsCovered[0]} to ${yearsCovered[yearsCovered.length - 1]}. All entries sourced from the Pentagon's PURSUE catalog (war.gov/UFO/).`}
         crumbs={[
           { name: "UAP.WATCH", href: "/" },
           { name: "By region", href: "/" },

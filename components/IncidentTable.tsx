@@ -25,17 +25,16 @@ const FILTER_LABEL: Record<Filter, string> = {
   DOE: "DOE",
 };
 
-const PLACEHOLDER_SOURCES: SourceAgency[] = ["FBI", "DOD", "STATE", "DOD", "FBI"];
+// Boundary between Release 01 incidents (PURSUE-001 to PURSUE-026) and
+// Release 02 incidents (PURSUE-027 onwards). Used to render the tranche
+// divider between the two groups so the register makes the release split
+// visible at a glance.
+const T2_FIRST_ID = "PURSUE-027";
 
-type GhostRow = {
-  id: string;
-  source: SourceAgency;
-};
-
-const GHOST_ROWS: GhostRow[] = Array.from({ length: 5 }, (_, i) => ({
-  id: `PURSUE-${String(i + 27).padStart(3, "0")}`,
-  source: PLACEHOLDER_SOURCES[i] ?? "FBI",
-}));
+function isTranche2(id: string): boolean {
+  // String compare works because all PURSUE-NNN ids are zero-padded.
+  return id >= T2_FIRST_ID;
+}
 
 export default function IncidentTable() {
   const [filter, setFilter] = useState<Filter>("ALL");
@@ -194,89 +193,74 @@ export default function IncidentTable() {
                 </td>
               </tr>
             ) : (
-              visible.map((incident) => {
-                const selected = selectedId === incident.id;
-                return (
-                  <motion.tr
-                    key={`${incident.id}-${filter}-${query}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.18 }}
-                    onClick={() => handleRowClick(incident)}
-                    className={[
-                      "text-[13px] cursor-pointer transition-colors",
-                      selected ? "bg-accent-tint" : "hover:bg-panel-2",
-                    ].join(" ")}
-                    style={{ height: "36px" }}
-                  >
-                    <td className="px-3 mono text-[12px] text-text-dim border-b border-border">
-                      {incident.id}
-                    </td>
-                    <td className="px-3 mono text-[12px] text-text-dim border-b border-border whitespace-nowrap">
-                      {incident.dateLabel}
-                    </td>
-                    <td className="px-3 text-text border-b border-border">
-                      {incident.location}
-                    </td>
-                    <td className="px-3 text-text-dim border-b border-border whitespace-nowrap">
-                      {SOURCE_LABEL[incident.source]}
-                    </td>
-                    <td className="px-3 mono text-[11px] text-text-dim border-b border-border whitespace-nowrap">
-                      {incident.classification}
-                    </td>
-                    <td className="px-3 border-b border-border">
-                      <span
-                        className={`inline-flex items-center gap-1.5 h-5 px-2 rounded-[2px] text-[11px] font-medium ${STATUS_TAG_CLASS[incident.status]}`}
-                      >
+              (() => {
+                const renderRow = (incident: Incident) => {
+                  const selected = selectedId === incident.id;
+                  return (
+                    <motion.tr
+                      key={`${incident.id}-${filter}-${query}`}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.18 }}
+                      onClick={() => handleRowClick(incident)}
+                      className={[
+                        "text-[13px] cursor-pointer transition-colors",
+                        selected ? "bg-accent-tint" : "hover:bg-panel-2",
+                      ].join(" ")}
+                      style={{ height: "36px" }}
+                    >
+                      <td className="px-3 mono text-[12px] text-text-dim border-b border-border">
+                        {incident.id}
+                      </td>
+                      <td className="px-3 mono text-[12px] text-text-dim border-b border-border whitespace-nowrap">
+                        {incident.dateLabel}
+                      </td>
+                      <td className="px-3 text-text border-b border-border">
+                        {incident.location}
+                      </td>
+                      <td className="px-3 text-text-dim border-b border-border whitespace-nowrap">
+                        {SOURCE_LABEL[incident.source]}
+                      </td>
+                      <td className="px-3 mono text-[11px] text-text-dim border-b border-border whitespace-nowrap">
+                        {incident.classification}
+                      </td>
+                      <td className="px-3 border-b border-border">
                         <span
-                          aria-hidden
-                          className="inline-block w-[6px] h-[6px] rounded-[1px]"
-                          style={{ backgroundColor: STATUS_COLOR[incident.status] }}
-                        />
-                        {STATUS_LABEL[incident.status]}
-                      </span>
-                    </td>
-                  </motion.tr>
+                          className={`inline-flex items-center gap-1.5 h-5 px-2 rounded-[2px] text-[11px] font-medium ${STATUS_TAG_CLASS[incident.status]}`}
+                        >
+                          <span
+                            aria-hidden
+                            className="inline-block w-[6px] h-[6px] rounded-[1px]"
+                            style={{ backgroundColor: STATUS_COLOR[incident.status] }}
+                          />
+                          {STATUS_LABEL[incident.status]}
+                        </span>
+                      </td>
+                    </motion.tr>
+                  );
+                };
+
+                const t1 = visible.filter((i) => !isTranche2(i.id));
+                const t2 = visible.filter((i) => isTranche2(i.id));
+
+                return (
+                  <>
+                    {t1.map(renderRow)}
+                    {t2.length > 0 && (
+                      <tr className="bg-bg">
+                        <td
+                          colSpan={6}
+                          className="text-center text-accent text-[11px] font-medium tracking-[0.06em] uppercase py-2 border-b border-border"
+                        >
+                          Tranche 02 · released May 22, 2026
+                        </td>
+                      </tr>
+                    )}
+                    {t2.map(renderRow)}
+                  </>
                 );
-              })
+              })()
             )}
-
-            {/* Tranche divider */}
-            <tr className="bg-bg">
-              <td
-                colSpan={6}
-                className="text-center text-text-mute text-[11px] font-medium tracking-[0.06em] uppercase py-2 border-b border-border"
-              >
-                Tranche 02 · pending declassification review
-              </td>
-            </tr>
-
-            {GHOST_ROWS.map((g) => (
-              <tr
-                key={g.id}
-                className="text-[13px]"
-                style={{ height: "36px", opacity: 0.45 }}
-              >
-                <td className="px-3 mono text-[12px] text-text-mute border-b border-border">
-                  {g.id}
-                </td>
-                <td className="px-3 mono text-[12px] text-text-mute border-b border-border">
-                  Pending
-                </td>
-                <td className="px-3 text-text-mute border-b border-border">
-                  [[Classified]]
-                </td>
-                <td className="px-3 text-text-mute border-b border-border">
-                  {g.source}
-                </td>
-                <td className="px-3 mono text-[11px] text-text-mute border-b border-border">
-                  Redacted
-                </td>
-                <td className="px-3 text-text-mute border-b border-border">
-                  [[Queued]]
-                </td>
-              </tr>
-            ))}
           </tbody>
         </table>
       </div>

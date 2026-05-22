@@ -48,7 +48,7 @@ export async function generateMetadata({
   if (!d) return {};
   return buildMetadata({
     title: `${d.title} (${d.id})`,
-    description: `Declassified ${AGENCY_NAMES[d.source]} document — ${d.title}. Full text indexed from PURSUE Release 01 (2026-05-08). Classification: ${d.classification}.`,
+    description: `Declassified ${AGENCY_NAMES[d.source]} document — ${d.title}. Full text indexed from the Pentagon's PURSUE catalog. Classification: ${d.classification}.`,
     path: `/document/${d.id.toLowerCase()}`,
     type: "article",
     publishedTime: d.date,
@@ -134,12 +134,12 @@ export default async function DocumentPage({
           <strong>{d.title}</strong> is a declassified record from the U.S.{" "}
           <strong>{AGENCY_NAMES[d.source]}</strong>, dated{" "}
           <strong>{d.date}</strong>, classification{" "}
-          <strong>{d.classification}</strong>. It is part of PURSUE Release 01
-          — the Pentagon's first public unsealing of UAP records under the
-          Presidential Unsealing & Reporting System for UAP Encounters program,
-          published on 2026-05-08 at war.gov/UFO/. UAP.WATCH has indexed the
-          full text locally so the document can be read, searched, and cited
-          without leaving the site.
+          <strong>{d.classification}</strong>. It is part of the Pentagon&apos;s
+          PURSUE program — the rolling public unsealing of UAP records under
+          the Presidential Unsealing &amp; Reporting System for UAP Encounters,
+          published in tranches at war.gov/UFO/ (Release 01 on 2026-05-08,
+          Release 02 on 2026-05-22). UAP.WATCH has indexed the full text locally
+          so the document can be read, searched, and cited without leaving the site.
         </p>
 
         {linkedIncidents.length > 0 && (
