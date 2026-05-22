@@ -8,7 +8,11 @@ import { embedQuery } from "@/lib/embed";
 import { loadIndex, topK, type ChunkMeta } from "@/lib/rag";
 
 export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
+// `export const dynamic = "force-dynamic"` removed 2026-05-22: it triggered
+// a regression in Vercel's Next 16 build adapter ("modifyConfig" → TypeError:
+// path argument must be of type string. Received undefined). The route is
+// already dynamic by inference (uses request.json + in-memory state), so the
+// directive was redundant. See vercel community thread #42019.
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
 
