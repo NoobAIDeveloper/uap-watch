@@ -23,10 +23,20 @@ export default function DossierPanel() {
     [selectedId],
   );
 
+  // On mobile, panel sits below the incident table and Globe — fixed
+  // 640px wastes screen when empty. Auto-height when nothing is selected
+  // (compact prompt card), generous but viewport-bounded when populated.
+  // From sm+ it matches the table row height for visual alignment.
+  const heightClass = incident
+    ? "max-h-[80vh] sm:h-[640px] sm:max-h-none"
+    : "h-auto sm:h-[640px]";
+
   return (
-    <div className="bg-panel border border-border rounded-[4px] h-[640px] flex flex-col">
+    <div
+      className={`bg-panel border border-border rounded-[4px] flex flex-col ${heightClass}`}
+    >
       {/* Header */}
-      <div className="h-[40px] px-4 flex items-center justify-between border-b border-border">
+      <div className="h-[40px] px-4 flex items-center justify-between border-b border-border shrink-0">
         <h2 className="text-[14px] font-semibold text-text">Dossier</h2>
         {incident && (
           <button
@@ -41,7 +51,7 @@ export default function DossierPanel() {
       </div>
 
       {!incident ? (
-        <div className="flex-1 flex items-center justify-center p-6">
+        <div className="flex-1 flex items-center justify-center p-6 sm:p-6 py-8">
           <div className="text-center">
             <Crosshair
               size={28}
@@ -82,8 +92,9 @@ export default function DossierPanel() {
               </span>
             </div>
 
-            {/* Metadata grid — 2x2 with a single hairline grid */}
-            <div className="grid grid-cols-2 gap-px bg-border border border-border mb-4">
+            {/* Metadata grid — 2x2 on sm+, single column below to keep
+                long location/region strings readable at phone widths. */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-border border border-border mb-4">
               <Cell label="Date" value={incident.dateLabel} mono />
               <Cell label="Location" value={incident.location} />
               <Cell label="Region" value={incident.region} />

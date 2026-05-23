@@ -26,7 +26,7 @@ export default function PageShell({
   asideRight,
 }: Props) {
   return (
-    <article className="mx-auto max-w-[1480px] px-6 pt-16 pb-24">
+    <article className="mx-auto max-w-[1480px] px-4 sm:px-6 pt-8 sm:pt-16 pb-16 sm:pb-24">
       <nav
         aria-label="Breadcrumb"
         className="text-text-mute text-[10px] tracking-[0.25em] flex items-center flex-wrap gap-x-1.5 gap-y-1 pt-2 pb-6"
@@ -45,26 +45,26 @@ export default function PageShell({
         ))}
       </nav>
 
-      <header className="hairline-b pb-8 mb-10">
+      <header className="hairline-b pb-6 sm:pb-8 mb-8 sm:mb-10">
         {eyebrow && (
           <div className="text-accent text-[10px] tracking-[0.3em] mb-3">
             // {eyebrow.toUpperCase()} //
           </div>
         )}
         <h1
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-text"
+          className="text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-text"
           style={{ fontFamily: "var(--font-display)" }}
         >
           {title}
         </h1>
         {subtitle && (
-          <p className="mt-4 text-text-dim text-base sm:text-lg leading-relaxed max-w-[72ch]">
+          <p className="mt-4 text-text-dim text-sm sm:text-lg leading-relaxed max-w-[72ch]">
             {subtitle}
           </p>
         )}
       </header>
 
-      <div className="grid grid-cols-12 gap-6">
+      <div className="grid grid-cols-12 gap-6 lg:gap-6">
         <div className="col-span-12 lg:col-span-8 prose-uap">{children}</div>
         {asideRight && (
           <aside className="col-span-12 lg:col-span-4">{asideRight}</aside>
@@ -95,11 +95,11 @@ export function FactRow({
   value: React.ReactNode;
 }) {
   return (
-    <div className="grid grid-cols-[120px_1fr] gap-4 py-2.5 hairline-b last:border-b-0 text-sm">
+    <div className="flex flex-col sm:grid sm:grid-cols-[120px_1fr] gap-1 sm:gap-4 py-2.5 hairline-b last:border-b-0 text-sm">
       <div className="text-text-mute text-[10px] tracking-[0.2em] pt-0.5">
         {label.toUpperCase()}
       </div>
-      <div className="text-text-dim">{value}</div>
+      <div className="text-text-dim break-words">{value}</div>
     </div>
   );
 }

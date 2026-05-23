@@ -80,21 +80,25 @@ export default function IncidentTable() {
     setSelectedId(selectedId === incident.id ? null : incident.id);
   };
 
+  const t1 = visible.filter((i) => !isTranche2(i.id));
+  const t2 = visible.filter((i) => isTranche2(i.id));
+
   return (
-    <div className="bg-panel border border-border rounded-[4px] flex flex-col h-[640px]">
+    <div className="bg-panel border border-border rounded-[4px] flex flex-col h-[520px] sm:h-[640px]">
       {/* Panel header — title + meta on the right */}
-      <div className="h-[40px] px-4 flex items-center justify-between border-b border-border">
-        <h2 className="text-[14px] font-semibold text-text">
+      <div className="h-[40px] px-3 sm:px-4 flex items-center justify-between gap-2 border-b border-border">
+        <h2 className="text-[14px] font-semibold text-text shrink-0">
           Incident register
         </h2>
-        <span className="text-[11px] font-medium tracking-[0.04em] uppercase text-text-mute">
-          Updated <span className="mono normal-case tracking-normal">2026-05-22 15:30:00Z</span>
+        <span className="text-[10px] sm:text-[11px] font-medium tracking-[0.04em] uppercase text-text-mute truncate">
+          <span className="hidden sm:inline">Updated </span>
+          <span className="mono normal-case tracking-normal">2026-05-22 15:30Z</span>
         </span>
       </div>
 
       {/* Toolbar — chip filters + search */}
-      <div className="px-4 py-2.5 flex items-center gap-3 flex-wrap border-b border-border">
-        <div className="flex items-center gap-1 flex-wrap">
+      <div className="px-3 sm:px-4 py-2.5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 border-b border-border">
+        <div className="flex items-center gap-1 flex-wrap -mx-1 px-1 overflow-x-auto sm:overflow-visible">
           {FILTER_ORDER.map((f) => {
             const count = counts[f];
             if (count === 0 && f !== "ALL") return null;
@@ -105,7 +109,7 @@ export default function IncidentTable() {
                 type="button"
                 onClick={() => setFilter(f)}
                 className={[
-                  "h-6 px-2.5 inline-flex items-center gap-1.5 rounded-[2px] text-[12px] font-medium transition-colors",
+                  "h-6 px-2.5 inline-flex items-center gap-1.5 rounded-[2px] text-[12px] font-medium transition-colors shrink-0",
                   active
                     ? "bg-accent-fill text-white"
                     : "bg-panel-2 text-text-dim hover:bg-[rgba(143,153,168,0.16)] hover:text-text",
@@ -121,18 +125,19 @@ export default function IncidentTable() {
             );
           })}
         </div>
-        <div className="ml-auto flex items-center gap-2">
+        <div className="sm:ml-auto flex items-center gap-2 w-full sm:w-auto">
           {selectedId && (
             <button
               type="button"
               onClick={() => setSelectedId(null)}
-              className="h-[26px] px-2 inline-flex items-center gap-1 text-[12px] text-accent hover:text-text border border-[rgba(76,144,240,0.5)] hover:border-accent rounded-[2px]"
+              className="h-[26px] px-2 inline-flex items-center gap-1 text-[12px] text-accent hover:text-text border border-[rgba(76,144,240,0.5)] hover:border-accent rounded-[2px] shrink-0"
             >
               <X size={12} strokeWidth={1.5} />
-              Clear filter
+              <span className="hidden sm:inline">Clear filter</span>
+              <span className="sm:hidden">Clear</span>
             </button>
           )}
-          <div className="relative">
+          <div className="relative flex-1 sm:flex-initial">
             <Search
               size={12}
               strokeWidth={1.5}
@@ -142,16 +147,49 @@ export default function IncidentTable() {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Filter by ID, location, quote…"
-              className="h-[26px] w-[220px] pl-7 pr-2 bg-panel border border-border-bright rounded-[2px] text-[12px] text-text placeholder:text-text-mute focus:outline-2 focus:outline-[rgba(76,144,240,0.5)] focus:border-accent"
+              placeholder="Filter by ID, location…"
+              className="h-[26px] w-full sm:w-[220px] pl-7 pr-2 bg-panel border border-border-bright rounded-[2px] text-[12px] text-text placeholder:text-text-mute focus:outline-2 focus:outline-[rgba(76,144,240,0.5)] focus:border-accent"
             />
           </div>
         </div>
       </div>
 
-      {/* Table — flex-1 + overflow-auto so rows scroll while header stays pinned */}
-      <div className="flex-1 overflow-auto">
-        <table className="w-full border-collapse" style={{ minWidth: "640px" }}>
+      {/* Mobile card list (default) — vertical, scrollable */}
+      <div className="flex-1 overflow-y-auto sm:hidden">
+        {visible.length === 0 ? (
+          <div className="text-center text-text-mute py-12 text-[13px]">
+            No matches.
+          </div>
+        ) : (
+          <ul className="divide-y divide-border">
+            {t1.map((i) => (
+              <IncidentCard
+                key={`m-${i.id}-${filter}-${query}`}
+                incident={i}
+                selected={selectedId === i.id}
+                onClick={() => handleRowClick(i)}
+              />
+            ))}
+            {t2.length > 0 && (
+              <li className="bg-bg text-center text-accent text-[11px] font-medium tracking-[0.06em] uppercase py-2 border-b border-border">
+                Tranche 02 · released May 22, 2026
+              </li>
+            )}
+            {t2.map((i) => (
+              <IncidentCard
+                key={`m-${i.id}-${filter}-${query}`}
+                incident={i}
+                selected={selectedId === i.id}
+                onClick={() => handleRowClick(i)}
+              />
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {/* Desktop table (sm+) — sticky header, scrolling rows */}
+      <div className="hidden sm:block flex-1 overflow-auto">
+        <table className="w-full border-collapse">
           <thead className="sticky top-0 bg-panel-2 z-10">
             <tr className="text-text-dim text-[12px] font-medium">
               <th className="text-left px-3 py-0 h-[32px] border-b border-border" style={{ width: "120px" }}>
@@ -193,77 +231,134 @@ export default function IncidentTable() {
                 </td>
               </tr>
             ) : (
-              (() => {
-                const renderRow = (incident: Incident) => {
-                  const selected = selectedId === incident.id;
-                  return (
-                    <motion.tr
-                      key={`${incident.id}-${filter}-${query}`}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.18 }}
-                      onClick={() => handleRowClick(incident)}
-                      className={[
-                        "text-[13px] cursor-pointer transition-colors",
-                        selected ? "bg-accent-tint" : "hover:bg-panel-2",
-                      ].join(" ")}
-                      style={{ height: "36px" }}
+              <>
+                {t1.map((incident) => (
+                  <IncidentRow
+                    key={`${incident.id}-${filter}-${query}`}
+                    incident={incident}
+                    selected={selectedId === incident.id}
+                    onClick={() => handleRowClick(incident)}
+                  />
+                ))}
+                {t2.length > 0 && (
+                  <tr className="bg-bg">
+                    <td
+                      colSpan={6}
+                      className="text-center text-accent text-[11px] font-medium tracking-[0.06em] uppercase py-2 border-b border-border"
                     >
-                      <td className="px-3 mono text-[12px] text-text-dim border-b border-border">
-                        {incident.id}
-                      </td>
-                      <td className="px-3 mono text-[12px] text-text-dim border-b border-border whitespace-nowrap">
-                        {incident.dateLabel}
-                      </td>
-                      <td className="px-3 text-text border-b border-border">
-                        {incident.location}
-                      </td>
-                      <td className="px-3 text-text-dim border-b border-border whitespace-nowrap">
-                        {SOURCE_LABEL[incident.source]}
-                      </td>
-                      <td className="px-3 mono text-[11px] text-text-dim border-b border-border whitespace-nowrap">
-                        {incident.classification}
-                      </td>
-                      <td className="px-3 border-b border-border">
-                        <span
-                          className={`inline-flex items-center gap-1.5 h-5 px-2 rounded-[2px] text-[11px] font-medium ${STATUS_TAG_CLASS[incident.status]}`}
-                        >
-                          <span
-                            aria-hidden
-                            className="inline-block w-[6px] h-[6px] rounded-[1px]"
-                            style={{ backgroundColor: STATUS_COLOR[incident.status] }}
-                          />
-                          {STATUS_LABEL[incident.status]}
-                        </span>
-                      </td>
-                    </motion.tr>
-                  );
-                };
-
-                const t1 = visible.filter((i) => !isTranche2(i.id));
-                const t2 = visible.filter((i) => isTranche2(i.id));
-
-                return (
-                  <>
-                    {t1.map(renderRow)}
-                    {t2.length > 0 && (
-                      <tr className="bg-bg">
-                        <td
-                          colSpan={6}
-                          className="text-center text-accent text-[11px] font-medium tracking-[0.06em] uppercase py-2 border-b border-border"
-                        >
-                          Tranche 02 · released May 22, 2026
-                        </td>
-                      </tr>
-                    )}
-                    {t2.map(renderRow)}
-                  </>
-                );
-              })()
+                      Tranche 02 · released May 22, 2026
+                    </td>
+                  </tr>
+                )}
+                {t2.map((incident) => (
+                  <IncidentRow
+                    key={`${incident.id}-${filter}-${query}`}
+                    incident={incident}
+                    selected={selectedId === incident.id}
+                    onClick={() => handleRowClick(incident)}
+                  />
+                ))}
+              </>
             )}
           </tbody>
         </table>
       </div>
     </div>
+  );
+}
+
+function IncidentRow({
+  incident,
+  selected,
+  onClick,
+}: {
+  incident: Incident;
+  selected: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <motion.tr
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.18 }}
+      onClick={onClick}
+      className={[
+        "text-[13px] cursor-pointer transition-colors",
+        selected ? "bg-accent-tint" : "hover:bg-panel-2",
+      ].join(" ")}
+      style={{ height: "36px" }}
+    >
+      <td className="px-3 mono text-[12px] text-text-dim border-b border-border">
+        {incident.id}
+      </td>
+      <td className="px-3 mono text-[12px] text-text-dim border-b border-border whitespace-nowrap">
+        {incident.dateLabel}
+      </td>
+      <td className="px-3 text-text border-b border-border">
+        {incident.location}
+      </td>
+      <td className="px-3 text-text-dim border-b border-border whitespace-nowrap">
+        {SOURCE_LABEL[incident.source]}
+      </td>
+      <td className="px-3 mono text-[11px] text-text-dim border-b border-border whitespace-nowrap">
+        {incident.classification}
+      </td>
+      <td className="px-3 border-b border-border">
+        <span
+          className={`inline-flex items-center gap-1.5 h-5 px-2 rounded-[2px] text-[11px] font-medium ${STATUS_TAG_CLASS[incident.status]}`}
+        >
+          <span
+            aria-hidden
+            className="inline-block w-[6px] h-[6px] rounded-[1px]"
+            style={{ backgroundColor: STATUS_COLOR[incident.status] }}
+          />
+          {STATUS_LABEL[incident.status]}
+        </span>
+      </td>
+    </motion.tr>
+  );
+}
+
+function IncidentCard({
+  incident,
+  selected,
+  onClick,
+}: {
+  incident: Incident;
+  selected: boolean;
+  onClick: () => void;
+}) {
+  return (
+    <li
+      onClick={onClick}
+      className={[
+        "px-3 py-2.5 cursor-pointer transition-colors",
+        selected ? "bg-accent-tint" : "active:bg-panel-2",
+      ].join(" ")}
+    >
+      <div className="flex items-center justify-between gap-2 mb-1">
+        <span className="mono text-[12px] text-text-dim">{incident.id}</span>
+        <span
+          className={`inline-flex items-center gap-1.5 h-5 px-2 rounded-[2px] text-[11px] font-medium shrink-0 ${STATUS_TAG_CLASS[incident.status]}`}
+        >
+          <span
+            aria-hidden
+            className="inline-block w-[6px] h-[6px] rounded-[1px]"
+            style={{ backgroundColor: STATUS_COLOR[incident.status] }}
+          />
+          {STATUS_LABEL[incident.status]}
+        </span>
+      </div>
+      <div className="text-[13px] text-text leading-snug mb-1">
+        {incident.location}
+      </div>
+      <div className="flex items-center gap-2 text-[11px] text-text-mute mono">
+        <span>{incident.dateLabel}</span>
+        <span className="opacity-50">·</span>
+        <span>{SOURCE_LABEL[incident.source]}</span>
+        <span className="opacity-50">·</span>
+        <span className="truncate">{incident.classification}</span>
+      </div>
+    </li>
   );
 }

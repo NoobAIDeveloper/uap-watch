@@ -14,7 +14,7 @@ import BrowseHub from "@/components/BrowseHub";
 //   BrowseHub — internal-link tree for SEO crawlers
 export default function Page() {
   return (
-    <div className="mx-auto max-w-[1480px] px-6 pt-6 pb-24">
+    <div className="mx-auto max-w-[1480px] px-3 sm:px-6 pt-3 sm:pt-6 pb-16 sm:pb-24">
       <ReleaseBanner />
       {/* Top row column ratio mirrors the IncidentTable / DossierPanel row
           below (2fr / 1fr) so the right rail stays visually aligned across

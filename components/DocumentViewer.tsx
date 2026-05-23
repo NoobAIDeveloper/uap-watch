@@ -102,7 +102,7 @@ export default function DocumentViewer() {
   return (
     <section
       id="documents"
-      className="bg-panel border border-border rounded-[4px] flex flex-col h-[720px] scroll-mt-[80px]"
+      className="bg-panel border border-border rounded-[4px] flex flex-col h-[640px] sm:h-[720px] scroll-mt-[80px]"
       aria-label="Document viewer"
     >
       {/* Panel header */}
@@ -152,12 +152,14 @@ export default function DocumentViewer() {
         </div>
       )}
 
-      {/* Body — two-pane. The panel itself owns a fixed height (720px) so
-          BOTH panes scroll internally; the page no longer scrolls when the
-          user switches between docs of different lengths. */}
-      <div className="flex flex-1 overflow-hidden">
-        {/* Left rail — scrolls within the panel, not the page */}
-        <div className="w-[280px] shrink-0 border-r border-border overflow-y-auto">
+      {/* Body — two-pane on sm+, stacked on mobile (list above, body below)
+          so the 280px sidebar doesn't crush the right pane to ~60px at
+          phone widths. The panel owns a fixed height so BOTH regions scroll
+          internally; the page no longer scrolls when the user switches
+          between docs of different lengths. */}
+      <div className="flex flex-col sm:flex-row flex-1 overflow-hidden">
+        {/* Left rail — full-width capped strip on mobile, fixed 280px sidebar on sm+ */}
+        <div className="h-[180px] sm:h-auto w-full sm:w-[280px] shrink-0 border-b sm:border-b-0 sm:border-r border-border overflow-y-auto">
           {visibleCount === 0 ? (
             <div className="px-4 py-12 text-center">
               <div className="text-[12px] font-medium text-text-dim mb-1">
@@ -220,7 +222,7 @@ export default function DocumentViewer() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.18 }}
-                className="p-6 max-w-4xl mx-auto"
+                className="p-4 sm:p-6 max-w-4xl mx-auto"
               >
                 {/* Header block */}
                 <div className="flex items-center gap-2 mb-3">

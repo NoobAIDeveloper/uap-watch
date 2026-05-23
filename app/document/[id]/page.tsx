@@ -160,7 +160,9 @@ export default async function DocumentPage({
 
         <h2>Document text</h2>
         {body ? (
-          <pre>{body}</pre>
+          <pre className="whitespace-pre-wrap break-words text-[12px] sm:text-[13px] leading-relaxed overflow-x-auto">
+            {body}
+          </pre>
         ) : (
           <p className="text-text-mute italic">
             // THIS DOCUMENT IS A SCANNED IMAGE — OPEN ORIGINAL ON WAR.GOV //
