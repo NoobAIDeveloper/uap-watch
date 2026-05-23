@@ -533,6 +533,73 @@ export const compareEntries: CompareEntry[] = [
       { label: "Department of War — Release 01 announcement", url: "https://www.war.gov/News/Releases/Release/Article/4480582/" },
       { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
     ],
+  },
+  {
+    slug: "sary-shagan-vs-tic-tac",
+    title: "Sary Shagan vs Tic Tac — Cold War CIA vs Modern Navy UAP",
+    description:
+      "Side-by-side comparison of two declassified UAP encounters separated by 31 years and the Iron Curtain: the 1973 CIA Sary Shagan green-circles report from a Soviet weapons-testing range, and the 2004 USS Nimitz Tic Tac event off Southern California.",
+    lead:
+      "The 1973 Sary Shagan green-circles report and the 2004 Tic Tac event are separated by 31 years, two continents, and the Iron Curtain — but both sit in the declassified U.S. government UAP record and both share an oddly consistent observational core: a luminous object at a sensitive military installation, observed by credible witnesses, whose behavior could not be explained by known platforms. Sary Shagan is a 1973 CIA Intelligence Information Report describing a human source at the Soviet anti-ballistic-missile testing range in Kazakhstan SSR observing an 'unidentified sharp (bright) green circular object or mass' that expanded into concentric green circles before fading. Tic Tac is a 2004 U.S. Navy encounter off Southern California in which USS Nimitz strike-group F/A-18 pilots tracked a 40-foot oblong white object with no exhaust, no wings, and no observable means of propulsion.",
+    pullQuote:
+      "Sary Shagan and Tic Tac sit 31 years and two continents apart — same observational core, opposite sides of the Iron Curtain.",
+    left: {
+      name: "Sary Shagan (1973)",
+      facts: [
+        { label: "Date", value: "Late summer 1973" },
+        { label: "Location", value: "Sary Shagan ABM testing range, Kazakhstan SSR" },
+        { label: "Originating agency", value: "Central Intelligence Agency (CIA)" },
+        { label: "Catalog ID", value: "CIA-UAP-D001 / DOC-137" },
+        { label: "Sensor", value: "Human eyewitness — Soviet source" },
+        { label: "Object description", value: "Bright green circular mass widening into concentric circles" },
+        { label: "Classification", value: "CONFIDENTIAL" },
+        { label: "PURSUE release", value: "Release 02 (2026-05-22)" },
+      ],
+      links: [
+        { href: "/q/cia-ufo-soviet-union-1973", label: "Full Sary Shagan explainer" },
+        { href: "/wiki/cia-uap-records", label: "CIA UAP records" },
+      ],
+    },
+    right: {
+      name: "Tic Tac (2004)",
+      facts: [
+        { label: "Date", value: "November 14, 2004" },
+        { label: "Location", value: "Off Southern California, Pacific Ocean" },
+        { label: "Originating agency", value: "U.S. Navy (USS Nimitz strike group)" },
+        { label: "Catalog ID", value: "Pre-PURSUE — DoD-released FLIR1 clip (2017)" },
+        { label: "Sensor", value: "F/A-18 ATFLIR + USS Princeton AN/SPY-1 radar" },
+        { label: "Object description", value: "40-foot oblong white object, no wings, no exhaust" },
+        { label: "Classification", value: "Originally SECRET — declassified 2017" },
+        { label: "PURSUE release", value: "Not in PURSUE; resolved status: Unresolved (AARO 2026)" },
+      ],
+      links: [
+        { href: "/q/tic-tac-uap", label: "Full Tic Tac explainer" },
+        { href: "/compare/tic-tac-vs-gofast", label: "Tic Tac vs GOFAST" },
+      ],
+    },
+    sections: [
+      {
+        heading: "What's the same",
+        body:
+          "Both encounters were observed at sensitive military installations (Sary Shagan ABM testing range, USS Nimitz off Southern California). Both involve credible institutional witnesses (a CIA-rated foreign source for Sary Shagan; multiple U.S. Navy aviators and radar operators for Tic Tac). Both objects exhibit behavior that the originating agency's standard reporting framework could not classify as a known platform. Both sit in the declassified U.S. government record under their respective release frameworks.",
+      },
+      {
+        heading: "What's different",
+        body:
+          "Sary Shagan is a single eyewitness account routed through a human-intelligence pipeline; Tic Tac is a multi-sensor, multi-witness engagement with FLIR video, AN/SPY-1 radar tracks, and corroborating pilot testimony. Sary Shagan's object behavior is short-duration luminous expansion (seconds); Tic Tac's is sustained kinematic anomaly (minutes of tracked maneuver). Sary Shagan is a Soviet-territory record obtained via foreign collection; Tic Tac is a U.S.-territory record from organic military sensors. Sary Shagan paragraphs 1 through 9 are withheld entirely from the declassification; Tic Tac's full mission-report text remains classified, but the FLIR1 video clip and the bulk of the pilot testimony are public.",
+      },
+      {
+        heading: "What both tell us about the UAP record",
+        body:
+          "Both cases sit decades apart and on opposite sides of the Iron Curtain, but the observational pattern — an unexplained luminous or kinematic anomaly at a sensitive military installation, recorded by an institutionally-credible witness — recurs throughout the declassified UAP record. The 1948-1950 Sandia green fireballs (DOC-141), the 1994 PanAm Tajikistan State cable, and the 2025 ODNI helicopter narrative (DOC-142) all fit the same shape. Sary Shagan and Tic Tac are the Cold War and modern bookends.",
+      },
+    ],
+    keywords: ["Sary Shagan", "Tic Tac", "CIA UAP vs Navy UAP", "1973 vs 2004 UFO", "Cold War UFO vs modern"],
+    related: ["cia-ufo-soviet-union-1973", "tic-tac-uap", "cia-uap-records"],
+    sources: [
+      { label: "UAP.WATCH — DOC-137 Sary Shagan", url: "https://uap-watch-flame.vercel.app/document/doc-137" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
   }
 ];
 

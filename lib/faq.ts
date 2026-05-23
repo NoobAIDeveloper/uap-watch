@@ -703,6 +703,110 @@ export const faqEntries: FaqEntry[] = [
       { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
     ],
     related: ["sandia-green-fireballs-1948-1950", "ufos-near-nuclear-weapons-facilities", "cia-ufo-soviet-union-1973"],
+  },
+  {
+    slug: "iran-uap-formation-august-2022",
+    q: "What is the Iran UAP formation video from August 2022?",
+    pull:
+      "Catalog entry DOW-UAP-PR050 in PURSUE Release 02 is a 17-second forward-looking infrared clip from a U.S. military aircraft over Iran on August 26, 2022, depicting four UAPs in a loose 'box' formation. AARO's description notes the four objects maintain relative spacing during the engagement, with no detectable propulsion signature or thermal exhaust plume.",
+    a:
+      "Catalog entry DOW-UAP-PR050 is a 17-second forward-looking infrared (FLIR) clip captured on August 26, 2022 by a U.S. Central Command military aircraft operating over Iranian airspace. The clip depicts four discrete UAPs in a loose 'box' formation, maintaining relative spacing throughout the engagement. AARO's published video description notes no detectable propulsion signature, no thermal exhaust plume, and no characteristic infrared signature consistent with known platforms. The video was uploaded to a classified network in August 2022 — the same month the encounter occurred — and was declassified under PURSUE on 2026-05-22. The Iran formation is one of three CENTCOM clips released in Tranche 2 alongside the Syrian 'instant acceleration' video (DOW-UAP-PR051) and the February 2023 F-16 Lake Huron engagement (DOW-UAP-PR071), all sourced from DVIDS.",
+    sources: [
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "DVIDS — CENTCOM video archive", url: "https://www.dvidshub.net/" },
+    ],
+    related: ["syria-uap-instant-acceleration", "f16-shot-down-ufo-lake-huron-2023", "whats-new-in-pursue-release-02"],
+  },
+  {
+    slug: "missing-paragraphs-pursue-files",
+    q: "Are entire paragraphs missing from the released PURSUE files?",
+    pull:
+      "Yes — at least one PURSUE Release 02 document has nine consecutive paragraphs withheld entirely from declassification. The CIA's 1973 Sary Shagan intelligence report jumps from the cover sheet directly to paragraph 10, with paragraphs 1 through 9 and paragraph 12 omitted from the public release.",
+    a:
+      "The Pentagon's PURSUE declassification process treats redactions in two distinct ways: in-line blackouts (text obscured with classification-marker bars like (b)(1), (b)(3), (b)(6), (b)(7)) and full-paragraph withholdings (paragraphs removed entirely from the released PDF). The most prominent example of the latter in PURSUE Release 02 is the CIA's December 1973 Intelligence Information Report on Sary Shagan (catalog entry CIA-UAP-D001, UAP.WATCH ID DOC-137). The released document's numbered-paragraph sequence jumps from the cover sheet to paragraph 10, with paragraphs 1 through 9 and paragraph 12 absent from the released file — not blacked out, not marked, simply not present. The OCR'd text confirms the gap, with paragraph 10 beginning mid-context and discussing the visible-light observation of the green concentric circles. UAP.WATCH preserves the OCR'd text with the gap intact so researchers can see what paragraphs are missing.",
+    sources: [
+      { label: "UAP.WATCH — DOC-137 full text", url: "https://uap-watch-flame.vercel.app/document/doc-137" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["cia-ufo-soviet-union-1973", "whats-new-in-pursue-release-02", "what-is-pursue-program"],
+  },
+  {
+    slug: "green-fireballs-new-mexico-1948",
+    q: "What were the 'green fireballs' over New Mexico in 1948?",
+    pull:
+      "Between November 1948 and May 1950, hundreds of unusually-colored green fireballs were observed over Sandia Base, Kirtland AFB, Los Alamos, and the broader Albuquerque-Alamogordo corridor — the U.S. nuclear-weapons handling complex of the era. The U.S. Air Force opened a formal investigation under Dr. Lincoln LaPaz of the University of New Mexico.",
+    a:
+      "The 'green fireballs' were an unusual luminous-phenomenon cluster centered over the U.S. nuclear-weapons complex in New Mexico between November 1948 and May 1950. The Office of Special Investigations' 17th District tabulated more than 209 distinct sightings during this period (sightings #1 through #209, August 1949 to May 1950). The U.S. Air Force retained Dr. Lincoln LaPaz, the University of New Mexico's leading meteoriticist, to determine whether the objects were natural meteoric phenomena. LaPaz concluded that they were not — the predominantly horizontal trajectories, anomalous green color, and absence of recovered meteoritic debris were inconsistent with the meteor hypothesis. His Fourth (December 20, 1948), Sixth, and Seventh (May 23, 1950) Reports on the green-fireball phenomenon are declassified under PURSUE Release 02 as part of the 116-page DOC-141 Sandia Base bundle. The fireballs were investigated by Project SIGN, GRUDGE, and later Blue Book.",
+    sources: [
+      { label: "UAP.WATCH — DOC-141 Sandia bundle", url: "https://uap-watch-flame.vercel.app/document/doc-141" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["sandia-green-fireballs-1948-1950", "lincoln-lapaz-green-fireball-investigator", "ufos-near-nuclear-weapons-facilities"],
+  },
+  {
+    slug: "john-glenn-fireflies-mercury-atlas-6",
+    q: "What were John Glenn's 'fireflies' on Mercury-Atlas 6?",
+    pull:
+      "On February 20, 1962, John Glenn became the first American to orbit Earth aboard Friendship 7 during Mercury-Atlas 6. As the spacecraft passed into orbital sunrise, Glenn reported being surrounded by 'literally thousands of little particles that looked luminous… they looked like they were floating' — and famously named them 'fireflies.'",
+    a:
+      "On February 20, 1962, U.S. Marine Corps Colonel John Glenn became the first American to orbit Earth aboard the Friendship 7 capsule during Mercury-Atlas 6. As Friendship 7 passed into its first orbital sunrise, Glenn radioed Mission Control to report that the spacecraft was surrounded by 'literally thousands of little particles that looked luminous,' floating alongside the capsule and visible against the dark side of Earth. Glenn coined the term 'fireflies' for the phenomenon in real-time during the flight. Subsequent Mercury astronauts — Scott Carpenter (MA-7, May 1962), Wally Schirra (MA-8, October 1962), and Gordon Cooper (MA-9, May 1963) — reported identical phenomena in the four follow-on Mercury audio recordings declassified under PURSUE Release 02. NASA's later assessment attributes the phenomenon to frozen condensation separating from the spacecraft body and reflecting sunlight, producing the 'fireflies' appearance — the same explanation later applied to the white-green particles described by Carpenter as 'snowflakes.'",
+    sources: [
+      { label: "UAP.WATCH — Mercury audio archive", url: "https://uap-watch-flame.vercel.app/browse#audio" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["mercury-astronauts-fireflies", "mercury-program-uap-audio", "apollo-12-fireflies-explained"],
+  },
+  {
+    slug: "pajarito-astronomers-club-ufo",
+    q: "What was the 1986 Pajarito Astronomers Club UFO presentation?",
+    pull:
+      "On May 8, 1986, the Pajarito Astronomers Club of Los Alamos hosted a talk by Dr. John Warren of LANL's AT-6 division titled 'Why Should a Scientist be Concerned about UFO's?' — declassified in PURSUE Release 02 as catalog entry DOE-UAP-D003. The full talk title is readable from the PDF but truncated in the war.gov CSV.",
+    a:
+      "Catalog entry DOE-UAP-D003 (UAP.WATCH ID DOC-140) is a one-page Department of Energy declassification of a 1986 invitation issued by the Pajarito Astronomers Club of Los Alamos, New Mexico. The invitation announces a talk on May 8, 1986 by Dr. John Warren of Los Alamos National Laboratory's AT-6 (Accelerator Technology) division, titled 'Why Should a Scientist be Concerned about UFO's?' The PDF contains the full title, but the war.gov/UFO CSV truncates it to 'Why Should a Scientist be Concerned about U...' UAP.WATCH preserves the full title from the underlying OCR'd text. The document is one of three records released in PURSUE Release 02 from the Department of Energy — alongside the Pantex Plant ground-radar imagery report (DOC-138) and the James Tuck Manhattan Project correspondence (DOC-139). All three concentrate on UAP-adjacent activity within the U.S. nuclear-weapons handling complex.",
+    sources: [
+      { label: "UAP.WATCH — DOC-140 full text", url: "https://uap-watch-flame.vercel.app/document/doc-140" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["los-alamos-physicist-ufo-letters", "ufos-near-nuclear-weapons-facilities", "sandia-green-fireballs-1948-1950"],
+  },
+  {
+    slug: "afswp-armed-forces-special-weapons-project",
+    q: "What was AFSWP — the Armed Forces Special Weapons Project?",
+    pull:
+      "AFSWP — the Armed Forces Special Weapons Project — was the joint U.S. military command that managed the nation's nuclear-weapons stockpile and handling sites from 1947 to 1959. AFSWP's Sandia Base in Albuquerque was the central nuclear-handling facility during the 1948-1950 green fireball phenomena and appears throughout the PURSUE DOC-141 declassification.",
+    a:
+      "AFSWP, the Armed Forces Special Weapons Project, was a joint U.S. military command established in 1947 to manage the operational aspects of the U.S. nuclear-weapons stockpile, including weapons handling, storage, training, and effects testing. AFSWP was headquartered at Sandia Base in Albuquerque, New Mexico — a facility that sat at the geographic and operational center of the U.S. nuclear-weapons complex of the era. In 1959 AFSWP was reorganized as the Defense Atomic Support Agency (DASA), which later became the Defense Nuclear Agency (DNA) and eventually the Defense Threat Reduction Agency (DTRA). AFSWP is referenced extensively in the 116-page DOC-141 bundle declassified under PURSUE Release 02 — Sandia Base / AFSWP correspondence about the 1948-1950 green-fireball phenomena, including transmittals to the Strategic Air Command Board and the 1st Indorsement from SAC dated April 1949. AFSWP retained Dr. Lincoln LaPaz to investigate.",
+    sources: [
+      { label: "UAP.WATCH — DOC-141 AFSWP correspondence", url: "https://uap-watch-flame.vercel.app/document/doc-141" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["sandia-green-fireballs-1948-1950", "lincoln-lapaz-green-fireball-investigator", "ufos-near-nuclear-weapons-facilities"],
+  },
+  {
+    slug: "jack-schmitt-apollo-17-triangular-lights",
+    q: "What did astronaut Jack Schmitt photograph on Apollo 17?",
+    pull:
+      "On December 11, 1972, Apollo 17 Lunar Module Pilot Dr. Harrison 'Jack' Schmitt photographed three discrete dots in a triangular formation in the lunar sky north of Grimaldi crater. PURSUE notes that 'New preliminary US government analysis suggests the image feature is potentially the result of a physical object in the scene.'",
+    a:
+      "Catalog entry NASA-UAP-VM6 in PURSUE Release 01 is an Apollo 17 lunar-surface photograph captured on December 11, 1972 by Lunar Module Pilot Dr. Harrison Hagan 'Jack' Schmitt — the only professional geologist to have walked on the Moon. The photograph depicts three discrete dots in a triangular formation in the lunar sky, located in the lower-right quadrant of the frame, north of Grimaldi crater. NASA's PURSUE-released analysis notes that the U.S. government has obtained the original film from the Apollo 17 mission for further study and that 'New preliminary US government analysis suggests the image feature is potentially the result of a physical object in the scene' — a notably less-resolved conclusion than NASA's cosmic-ray-flash explanation for the Apollo 12 'streaks of lights' audio. The Apollo 17 image is one of four NASA lunar-surface UAP records in PURSUE alongside three Apollo 12 photographs (NASA-UAP-VM3, VM4, VM5).",
+    sources: [
+      { label: "UAP.WATCH — Apollo 17 audio AUD-002", url: "https://uap-watch-flame.vercel.app/audio/aud-002" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["apollo-12-fireflies-explained", "apollo-mission-uap-records", "lunar-ufo-anomaly"],
+  },
+  {
+    slug: "centcom-uap-videos-pursue",
+    q: "Which CENTCOM UAP videos are in the PURSUE catalog?",
+    pull:
+      "U.S. Central Command — the combatant command for the Middle East, Central Asia, and parts of Northeast Africa — is the originating authority for several of the most-cited modern UAP videos in PURSUE, including the Iraq May 2022 mission report, the Syrian 'instant acceleration' clip (PR051), and the four-UAP formation over Iran (PR050).",
+    a:
+      "U.S. Central Command (CENTCOM) is the U.S. combatant command responsible for the Middle East, Central Asia, the Levant, and parts of Northeast Africa. CENTCOM is the originating authority for several of the most-cited modern UAP videos in the PURSUE catalog. From Release 01: DOW-UAP-D14 (an Iraq May 2022 mission report declassified by Major General Richard A. Harrison, USCENTCOM Chief of Staff, on October 7, 2025) and the Syria July 2022 series. From Release 02: DOW-UAP-PR050 (the four-UAP formation over Iran, August 26 2022), DOW-UAP-PR051 (the Syrian 'instant acceleration' clip captured by a U.S. military aircraft), and additional CENTCOM infrared captures spanning 2021-2024. CENTCOM clips are typically hosted on DVIDS (the Defense Visual Information Distribution Service) and use forward-looking infrared (FLIR) or electro-optical (EO) sensors. UAP.WATCH indexes the CENTCOM video set under /agency/dod alongside USAF and USN material.",
+    sources: [
+      { label: "UAP.WATCH — DoD agency page", url: "https://uap-watch-flame.vercel.app/agency/dod" },
+      { label: "DVIDS — CENTCOM video archive", url: "https://www.dvidshub.net/" },
+    ],
+    related: ["syria-uap-instant-acceleration", "iran-uap-formation-august-2022", "f16-shot-down-ufo-lake-huron-2023"],
   }
 ];
 

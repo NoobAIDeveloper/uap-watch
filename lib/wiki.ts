@@ -520,6 +520,235 @@ export const wikiEntries: WikiEntry[] = [
       { label: "UAP.WATCH — DOC-141 LaPaz reports", url: "https://uap-watch-flame.vercel.app/document/doc-141" },
       { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
     ],
+  },
+  {
+    slug: "cia-uap-records",
+    title: "CIA UAP Records: From Robertson Panel to PURSUE Release 02",
+    description:
+      "The Central Intelligence Agency's contribution to the declassified UAP record — historical Cold War foreign-collection cables culminating in the 1973 Sary Shagan intelligence report (CIA-UAP-D001) released under PURSUE Release 02 in May 2026.",
+    lead:
+      "The Central Intelligence Agency's UAP-relevant holdings are predominantly Cold War foreign-collection cables describing unexplained luminous phenomena observed by sources at sensitive overseas installations. The Agency's first contribution to the Pentagon's PURSUE program arrived in Release 02 on May 22, 2026: a single 1973 Intelligence Information Report from the Sary Shagan Soviet anti-ballistic-missile testing range in Kazakhstan SSR. The released document — catalog entry CIA-UAP-D001 (UAP.WATCH ID DOC-137) — describes a human source's observation of 'an unidentified sharp (bright) green circular object or mass in the sky' that widened into 'several green concentric circles' before fading without sound. CIA's earlier institutional engagement with UAP includes the 1953 Robertson Panel, which recommended that the U.S. government 'strip the Unidentified Flying Objects of the special status they have been given and the aura of mystery they have unfortunately acquired.' Both stand as primary-source records.",
+    pullQuote:
+      "Unidentified sharp (bright) green circular object or mass in the sky.",
+    keywords: ["CIA UFO", "CIA UAP", "Sary Shagan", "Robertson Panel", "CIA-UAP-D001", "Cold War UFO"],
+    sections: [
+      {
+        heading: "The 1953 Robertson Panel",
+        body:
+          "In January 1953 the CIA convened a scientific advisory panel chaired by physicist Howard P. Robertson to evaluate the UFO problem after the 1952 Washington flap. The Robertson Panel recommended that the U.S. government 'strip the Unidentified Flying Objects of the special status they have been given and the aura of mystery they have unfortunately acquired' — guidance that shaped the Air Force's subsequent Project Blue Book debunking posture. The Robertson Panel report is not part of PURSUE but is in the CIA's Freedom of Information Act reading room.",
+      },
+      {
+        heading: "The 1973 Sary Shagan report (CIA-UAP-D001)",
+        body:
+          "CIA-UAP-D001 is a December 1973 Intelligence Information Report describing human-source intelligence on the Sary Shagan Soviet anti-ballistic-missile testing range. In paragraph 14, the source describes stepping outside Site 7 during a televised Canada-USSR hockey match and observing 'an unidentified sharp (bright) green circular object or mass in the sky' at an angle of sighting of approximately 70 degrees. Within 10 to 15 seconds, 'the green circle widened and within a brief period of time several green concentric circles formed around the mass. Within minutes the coloring disappeared. There was no sound, such as an explosion, associated with the phenomenon.' The report is rated CONFIDENTIAL.",
+      },
+      {
+        heading: "The missing-paragraph gap",
+        body:
+          "The released Sary Shagan document's numbered-paragraph sequence jumps from the cover sheet directly to paragraph 10, with paragraphs 1 through 9 and paragraph 12 absent from the released file — not blacked out, not marked, simply not present. This is a different redaction posture from the in-line blackout style used for most CIA declassifications, and UAP.WATCH preserves the OCR'd gap intact so researchers can see what is missing.",
+      },
+      {
+        heading: "What CIA has not (yet) released",
+        body:
+          "The PURSUE program is explicitly tranche-based, and the Department of War has confirmed that additional CIA contributions are 'actively' in preparation. CIA's broader UAP-relevant collection includes additional 1950s-1970s foreign-collection cables from Soviet bloc countries and the 1976 'CIA Memo on UFOs from the USSR.' UAP.WATCH will mirror any subsequent CIA records as they are released.",
+      },
+    ],
+    related: ["doe-uap-records", "odni-uap-records", "pentagon-ufo-files"],
+    sources: [
+      { label: "UAP.WATCH — CIA agency page", url: "https://uap-watch-flame.vercel.app/agency/cia" },
+      { label: "UAP.WATCH — DOC-137 full text", url: "https://uap-watch-flame.vercel.app/document/doc-137" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "doe-uap-records",
+    title: "Department of Energy UAP Records — Pantex, Los Alamos, Sandia",
+    description:
+      "The U.S. Department of Energy's declassified UAP record concentrates on the nuclear-weapons complex: Pantex Plant radar imagery (DOC-138), James Tuck Los Alamos correspondence (DOC-139), and the 1986 Pajarito Astronomers Club invitation (DOC-140) — all released under PURSUE Release 02 on May 22, 2026.",
+    lead:
+      "The U.S. Department of Energy (DOE) — the federal agency responsible for the nuclear-weapons stockpile, the National Nuclear Security Administration, and the national laboratories at Los Alamos, Sandia, and Livermore — joined the Pentagon's PURSUE program in Release 02 on May 22, 2026 with three previously-classified records tied to the U.S. nuclear-weapons handling complex. DOE-UAP-D001 (UAP.WATCH ID DOC-138) is a Pantex Plant ground-radar imagery report from the National Nuclear Security Administration's primary nuclear-weapons assembly and disassembly facility in Texas. DOE-UAP-D002 (DOC-139) is four pages of 1970-era correspondence to and from Dr. James L. Tuck, a Manhattan Project veteran at Los Alamos National Laboratory. DOE-UAP-D003 (DOC-140) is the 1986 Pajarito Astronomers Club invitation to Dr. John Warren of LANL's AT-6 division. All three concentrate on UAP activity near U.S. nuclear-handling facilities.",
+    pullQuote:
+      "Recipe that was used for the simulated atomic bomb demonstrations.",
+    keywords: ["DOE UFO", "DOE UAP", "Pantex UFO", "Los Alamos UFO", "James Tuck", "Pajarito Astronomers"],
+    sections: [
+      {
+        heading: "DOC-138: Pantex Plant ground-radar imagery",
+        body:
+          "DOE-UAP-D001 is a Pantex Plant ground-radar imagery report. Pantex, located 17 miles northeast of Amarillo, Texas, is the U.S. National Nuclear Security Administration's primary facility for assembling and disassembling nuclear weapons in the active stockpile. The PURSUE Release 02 entry catalogs Pantex ground-radar captures of unidentified objects near the facility, with redactions consistent with the (b)(1) national-security classification marker.",
+      },
+      {
+        heading: "DOC-139: James Tuck Los Alamos correspondence",
+        body:
+          "Dr. James L. Tuck was a British-American physicist who worked on the Manhattan Project at Los Alamos and led ball-lightning research at Los Alamos National Laboratory. DOC-139 contains three letters: a handwritten 1970 eyewitness account to Tuck describing 'green lights weaving in and out of Mountain peaks' over Los Alamos and the Jemez Mountains during 1948-1951, all reported to the LANL Protective Force; Tuck's typed December 16, 1970 letter to the U.S. Army Engineering School at Fort Belvoir requesting 'the recipe that was used for the simulated atomic bomb demonstrations' to study atmospheric vortices per the Condon Report; and an undated note enclosing UFO researcher James M. McCampbell's commentary on ball lightning.",
+      },
+      {
+        heading: "DOC-140: 1986 Pajarito Astronomers Club invitation",
+        body:
+          "DOE-UAP-D003 is a one-page declassification of a 1986 invitation issued by the Pajarito Astronomers Club of Los Alamos. The invitation announces a May 8, 1986 talk by Dr. John Warren of Los Alamos National Laboratory's AT-6 (Accelerator Technology) division, titled 'Why Should a Scientist be Concerned about UFO's?' The full talk title is readable from the PDF but truncated in the war.gov CSV.",
+      },
+      {
+        heading: "DOE's UAP-near-nuclear concentration",
+        body:
+          "All three DOE records released under PURSUE concentrate on UAP activity near U.S. nuclear-handling facilities — a thematic concentration that mirrors the 1948-1950 Sandia Base green-fireball phenomena documented in the 116-page DOC-141 USAF bundle. The DOE record is small in volume (three records, 70MB total) but historically dense, tying mainstream nuclear physics to the early UFO investigation record.",
+      },
+    ],
+    related: ["cia-uap-records", "odni-uap-records", "ufos-near-nuclear-weapons-facilities"],
+    sources: [
+      { label: "UAP.WATCH — DOE agency page", url: "https://uap-watch-flame.vercel.app/agency/doe" },
+      { label: "UAP.WATCH — DOC-139 full text", url: "https://uap-watch-flame.vercel.app/document/doc-139" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "odni-uap-records",
+    title: "ODNI UAP Records — Office of the Director of National Intelligence",
+    description:
+      "The Office of the Director of National Intelligence's first PURSUE contribution is a 2025 first-person narrative (DOC-142) by a senior U.S. Intelligence Community official describing a personal helicopter UAP encounter on a Western United States test range — released under PURSUE Release 02 on May 22, 2026.",
+    lead:
+      "The Office of the Director of National Intelligence (ODNI) is the U.S. federal agency that coordinates the seventeen-member U.S. Intelligence Community, including CIA, DIA, NSA, and the intelligence components of the military services. ODNI also houses the U.S. government's UAP coordination cell and produces the periodic 'Preliminary Assessment: Unidentified Aerial Phenomena' reports to Congress. ODNI's first contribution to the Pentagon's PURSUE program arrived in Release 02 on May 22, 2026 as catalog entry ODNI-UAP-D001 (UAP.WATCH ID DOC-142): a 2025 U.S. Person (USPER) first-person narrative authored by a senior U.S. Intelligence Community official describing a personal UAP encounter from a helicopter on a Western United States test range. The narrative is six pages long, contains zero redactions, and describes multiple distinct phenomena including a 'super-hot' FLIR target, oval orange orbs in 'T' formation, and orbs matching fighter-jet speed.",
+    pullQuote:
+      "We were virtually speechless after these observations.",
+    keywords: ["ODNI UFO", "ODNI UAP", "DOC-142", "senior intelligence officer UFO", "helicopter UAP", "USPER narrative"],
+    sections: [
+      {
+        heading: "What the narrative describes",
+        body:
+          "DOC-142 is a first-person USPER narrative by a senior U.S. Intelligence Community official describing a late-2025 helicopter encounter on a Western United States test range. After radar detected hits up-range from the witness's position, the helicopter intercepted a 'super-hot' Forward-Looking Infrared target that, according to the ground team, rose from the ground, approached within 10 feet of the helicopter, dropped, split into two, and accelerated away. Later, at 700 feet AGL, the witness and pilots observed two large oval orange orbs flare up beside the rotor disk, joined by additional orbs in a 'T' formation. When fighter jets entered the airspace, similar orbs appeared above them at approximately 2,300 feet AGL, matching the jets' speed in horizontal formation.",
+      },
+      {
+        heading: "Why the zero-redaction status matters",
+        body:
+          "Most ODNI-released material on intelligence-community personnel uses extensive (b)(6) personal-privacy and (b)(7) law-enforcement redactions to protect identities and sources. DOC-142 contains zero redactions across all six pages — including the witness's first-person account of a personal experience. This is an unusual posture for an ODNI USPER release and suggests deliberate disclosure-program intent.",
+      },
+      {
+        heading: "ODNI's coordination role",
+        body:
+          "ODNI's role under PURSUE is interagency coordination across CIA, the Defense Intelligence Agency, NSA, the National Reconnaissance Office, and the intelligence components of the military services. ODNI is not the originating authority for the underlying records — those remain with the originating agencies — but ODNI sets the standard for what may be declassified and at what cadence.",
+      },
+    ],
+    related: ["cia-uap-records", "doe-uap-records", "senior-intel-officer-helicopter-ufo"],
+    sources: [
+      { label: "UAP.WATCH — ODNI agency page", url: "https://uap-watch-flame.vercel.app/agency/odni" },
+      { label: "UAP.WATCH — DOC-142 full narrative", url: "https://uap-watch-flame.vercel.app/document/doc-142" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "dvids-uap-archive",
+    title: "DVIDS UAP Archive — How the Pentagon Hosts UFO Video",
+    description:
+      "The Defense Visual Information Distribution Service (DVIDS) is the U.S. military's central public-affairs video archive — and the primary host for the 79 declassified UAP videos in the Pentagon's PURSUE catalog. PURSUE Release 02 added 51 new DVIDS clips to the public archive on May 22, 2026.",
+    lead:
+      "DVIDS — the Defense Visual Information Distribution Service — is the U.S. Department of Defense's central public-affairs video distribution platform. It hosts approximately 1.4 million unclassified video and image assets from across the U.S. military services, combatant commands, and DoD-affiliated organizations, with metadata-tagged uploads dating to 2007. DVIDS is the primary host for the 79 declassified UAP video clips in the Pentagon's PURSUE catalog: 28 clips released under Release 01 (May 8, 2026) and 51 additional clips added under Release 02 (May 22, 2026). DVIDS UAP entries use the prefix 'DOW-UAP-' (Department of War UAP) and are released by individual combatant commands — CENTCOM, INDOPACOM, NORTHCOM — with classification-redaction reviews completed before public posting. Every PURSUE video has a permanent DVIDS URL (e.g., dvidshub.net/video/1007727 for the F-16 Lake Huron clip).",
+    pullQuote:
+      "DVIDS is the primary host for the 79 declassified UAP video clips in the Pentagon's PURSUE catalog.",
+    keywords: ["DVIDS UFO", "DVIDS UAP", "Pentagon UFO video", "DOW-UAP-PR", "war.gov video archive"],
+    sections: [
+      {
+        heading: "What DVIDS is",
+        body:
+          "The Defense Visual Information Distribution Service is operated by the Defense Media Activity (DMA), a DoD field activity headquartered at Fort Meade, Maryland. DVIDS provides press, broadcasters, and the public with downloadable high-resolution video, broadcast-quality interview clips, photographs, and graphics from U.S. military operations worldwide. The platform is free, requires no login for public-affairs assets, and serves as the official public record for service-released imagery.",
+      },
+      {
+        heading: "DVIDS in the PURSUE workflow",
+        body:
+          "Every DoW UAP video declassified under PURSUE is uploaded to DVIDS first, then linked from the war.gov/UFO/ catalog page. The DVIDS upload includes a standardized metadata block: catalog ID (e.g., DOW-UAP-PR071), upload date, classification, sensor type (FLIR / EO / radar), and the AARO video description (typically a single paragraph describing what is visible in the clip). UAP.WATCH mirrors the AARO description on each video page and links to the underlying DVIDS asset for direct download.",
+      },
+      {
+        heading: "Release 02's 51-clip expansion",
+        body:
+          "PURSUE Release 02 added 51 new DVIDS UAP clips on May 22, 2026 — nearly doubling the 28-clip Release 01 set. The new uploads are concentrated in the DOW-UAP-PR050 through DOW-UAP-PR100 range and include headline entries DOW-UAP-PR050 (four-UAP formation over Iran, August 26 2022), DOW-UAP-PR051 (Syrian 'instant acceleration' clip), and DOW-UAP-PR071 (February 12 2023 F-16C Lake Huron engagement). UAP.WATCH scraped thumbnails for all 51 new entries and indexes them under the /video route prefix.",
+      },
+      {
+        heading: "How to find specific PURSUE clips on DVIDS",
+        body:
+          "DVIDS' search index supports keyword queries against title, description, and tags. A search for 'DOW-UAP' returns the full PURSUE video set in upload-date order. Individual clips can be located by their catalog ID — e.g., a DuckDuckGo or Google query for 'site:dvidshub.net DOW-UAP-PR071' returns the F-16 Lake Huron clip. UAP.WATCH's /video/[id] route also surfaces the DVIDS source link directly.",
+      },
+    ],
+    related: ["pentagon-ufo-files", "war-gov-ufo-hub", "pursue-release-02-overview"],
+    sources: [
+      { label: "DVIDS — official platform", url: "https://www.dvidshub.net/" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "UAP.WATCH — video index", url: "https://uap-watch-flame.vercel.app/browse#videos" },
+    ],
+  },
+  {
+    slug: "f-16-lake-huron-2023-incident",
+    title: "F-16 Lake Huron UFO Shootdown — February 12, 2023",
+    description:
+      "On February 12, 2023, a U.S. Air Force F-16C from the Air National Guard engaged and downed an unidentified high-altitude object over Lake Huron — part of the February 2023 high-altitude-object incidents that began with the Chinese surveillance balloon. The gun-camera video (DOW-UAP-PR071) was declassified under PURSUE Release 02.",
+    lead:
+      "On February 12, 2023, a U.S. Air Force F-16C from the Air National Guard engaged and downed an unidentified high-altitude object over Lake Huron in the U.S. Northern Command area of responsibility — part of the February 2023 high-altitude-object incidents that began with the suspected Chinese surveillance balloon downed off South Carolina on February 4. The Lake Huron engagement was confirmed in real time by then-President Joseph R. Biden Jr. and by U.S. and Canadian defense officials. The gun-camera infrared video from the F-16C — catalog entry DOW-UAP-PR071, 46 seconds — was uploaded to a classified network the same month the engagement occurred and was declassified under PURSUE Release 02 on May 22, 2026. AARO's video description notes 'a kinetic interaction between two distinct areas of contrast, with the initial subject of the footage fragmenting in a radial displacement pattern that suggests a high-energy event.'",
+    pullQuote:
+      "A kinetic interaction between two distinct areas of contrast, with the initial subject of the footage fragmenting in a radial displacement pattern that suggests a high-energy event.",
+    keywords: ["F-16 Lake Huron", "DOW-UAP-PR071", "February 2023 UFO", "Lake Huron shootdown", "Biden UFO 2023"],
+    sections: [
+      {
+        heading: "What the clip shows",
+        body:
+          "DOW-UAP-PR071 is a 46-second infrared (FLIR) video. At approximately the 20-second mark, the AARO video description notes 'the footage appears to depict a kinetic interaction between two distinct areas of contrast, with the initial subject of the footage fragmenting in a radial displacement pattern that suggests a high-energy event.' The 'distinct areas of contrast' correspond to the F-16C's AIM-9X Sidewinder missile (the second contrast area) and the target object (the first), and the 'radial displacement pattern' is the missile detonation fragmenting the object.",
+      },
+      {
+        heading: "Context: the February 2023 high-altitude-object incidents",
+        body:
+          "The Lake Huron engagement was the fourth of four shootdowns of unidentified high-altitude objects over North American airspace during February 4-12, 2023. The first was a suspected Chinese surveillance balloon downed off the South Carolina coast on February 4. The second and third were unidentified objects downed off Alaska (February 10) and over Canada's Yukon Territory (February 11). The Lake Huron object was the fourth and final; AARO has not formally identified its origin in public materials.",
+      },
+      {
+        heading: "Why this clip was previously held back",
+        body:
+          "The Lake Huron clip was uploaded to a classified network in February 2023 — the same month as the engagement — but was not declassified for public release until May 22, 2026, more than three years later. The classification holdback was longer than for most CENTCOM mission reports of the same era. AARO and NORTHCOM have not publicly explained the delay; the most likely factor is the AIM-9X Sidewinder engagement geometry, which would have revealed precise capability parameters of the F-16C weapons system.",
+      },
+      {
+        heading: "Where to watch the clip",
+        body:
+          "The official DVIDS URL is dvidshub.net/video/1007727. UAP.WATCH's mirror page for the clip is at /video/vid-070 with the AARO description, sensor type, and related-incident cross-references.",
+      },
+    ],
+    related: ["pursue-release-02-overview", "centcom-uap-videos-pursue", "f16-shot-down-ufo-lake-huron-2023"],
+    sources: [
+      { label: "DVIDS — DOW-UAP-PR071 source clip", url: "https://www.dvidshub.net/video/1007727" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+      { label: "UAP.WATCH — DOW-UAP-PR071 mirror page", url: "https://uap-watch-flame.vercel.app/video/vid-070" },
+    ],
+  },
+  {
+    slug: "usaf-centcom-uap-encounters",
+    title: "USAF CENTCOM UAP Encounters — Iraq, Syria, Iran (2022–2024)",
+    description:
+      "U.S. Central Command UAP encounters from 2022 to 2024 dominate the modern military video set in the Pentagon's PURSUE catalog — including the Iraq May 2022 mission report (DOW-UAP-D14), the Syrian 'instant acceleration' clip (PR051), and the four-UAP formation over Iran (PR050).",
+    lead:
+      "U.S. Central Command (CENTCOM) — the combatant command responsible for the Middle East, Central Asia, the Levant, and parts of Northeast Africa — is the originating authority for the largest single block of modern UAP video in the Pentagon's PURSUE catalog. Between 2022 and 2024, CENTCOM aircrews and ISR platforms captured at least nine UAP encounters in the Iraq, Syria, and Iran area of operations, including DOW-UAP-D14 (an Iraq mission report declassified by Major General Richard A. Harrison, USCENTCOM Chief of Staff, on October 7, 2025), DOW-UAP-PR050 (the August 26 2022 four-UAP formation over Iran), and DOW-UAP-PR051 (the Syrian 'instant acceleration' clip captured by a U.S. military aircraft). All CENTCOM UAP videos are hosted on DVIDS and use forward-looking infrared (FLIR) or electro-optical (EO) sensors.",
+    pullQuote:
+      "Instant acceleration … turning at insane speeds.",
+    keywords: ["CENTCOM UFO", "CENTCOM UAP", "Iraq UFO", "Syria UFO", "Iran UFO", "DOW-UAP-D14"],
+    sections: [
+      {
+        heading: "Iraq, May 2022 (DOW-UAP-D14)",
+        body:
+          "DOW-UAP-D14 is a CENTCOM mission report from May 2022 describing a UAP encounter over Iraq. The report was declassified by Major General Richard A. Harrison, USCENTCOM Chief of Staff, on October 7, 2025 — making it one of the slowest CENTCOM UAP declassifications in the modern record. The encounter was first reported via the standard CENTCOM aviation-mishap-report (AMR) channel and routed to AARO for assessment before declassification approval.",
+      },
+      {
+        heading: "Syria, July 2022 (DOW-UAP-PR051)",
+        body:
+          "DOW-UAP-PR051, the 'Syrian instant acceleration' clip, captures a UAP that the AARO video description notes 'undergoes a near-instantaneous lateral acceleration that the sensor track loses, then reacquires.' The clip is one of the most-shared modern UAP videos on social media and was the subject of the FAQ topic 'syria-uap-instant-acceleration' on UAP.WATCH.",
+      },
+      {
+        heading: "Iran, August 26, 2022 (DOW-UAP-PR050)",
+        body:
+          "DOW-UAP-PR050 is a 17-second FLIR clip from a U.S. military aircraft over Iranian airspace on August 26, 2022. The clip depicts four discrete UAPs in a loose 'box' formation maintaining relative spacing throughout the engagement, with no detectable propulsion signature, no thermal exhaust plume, and no characteristic infrared signature consistent with known platforms.",
+      },
+      {
+        heading: "Why CENTCOM dominates the modern UAP record",
+        body:
+          "CENTCOM's high operational tempo, dense ISR coverage, and high-aspect-ratio FLIR sensor deployment make the AOR the most likely place for transient UAP to be captured on a U.S. military sensor. CENTCOM also has streamlined declassification pathways routed through AARO, allowing faster public release than INDOPACOM or USNORTHCOM. UAP.WATCH indexes the full CENTCOM set under /agency/dod with cross-references to year and region pages.",
+      },
+    ],
+    related: ["pursue-release-02-overview", "f-16-lake-huron-2023-incident", "dvids-uap-archive"],
+    sources: [
+      { label: "UAP.WATCH — DoD agency page", url: "https://uap-watch-flame.vercel.app/agency/dod" },
+      { label: "DVIDS — CENTCOM video archive", url: "https://www.dvidshub.net/" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
   }
 ];
 
