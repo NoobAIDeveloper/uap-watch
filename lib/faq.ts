@@ -807,6 +807,110 @@ export const faqEntries: FaqEntry[] = [
       { label: "DVIDS — CENTCOM video archive", url: "https://www.dvidshub.net/" },
     ],
     related: ["syria-uap-instant-acceleration", "iran-uap-formation-august-2022", "f16-shot-down-ufo-lake-huron-2023"],
+  },
+  {
+    slug: "february-2023-high-altitude-object-shootdowns",
+    q: "What were the February 2023 high-altitude object shootdowns?",
+    pull:
+      "Between February 4 and February 12, 2023, the U.S. and Canadian militaries shot down four unidentified high-altitude objects over North American airspace. The first was a suspected Chinese surveillance balloon off South Carolina; the fourth was the F-16C engagement over Lake Huron now declassified as DOW-UAP-PR071 in PURSUE Release 02.",
+    a:
+      "The February 2023 high-altitude object incidents were a four-event sequence in which U.S. and Canadian forces engaged and destroyed unidentified objects over North American airspace within a nine-day window. February 4: U.S. Air Force F-22 fighters used an AIM-9X Sidewinder missile to down a suspected Chinese surveillance balloon off the South Carolina coast at 60,000 feet. February 10: a smaller unidentified object was downed off northern Alaska. February 11: Canadian and U.S. fighters downed an unidentified object over Canada's Yukon Territory. February 12: a USAF Air National Guard F-16C downed an unidentified object over Lake Huron in the U.S. Northern Command area of responsibility. The Lake Huron gun-camera footage was declassified under PURSUE Release 02 on May 22, 2026 as catalog entry DOW-UAP-PR071. AARO has not publicly identified the origin of objects #2, #3, or #4 — only the first balloon has been attributed.",
+    sources: [
+      { label: "UAP.WATCH — DOW-UAP-PR071 F-16 Lake Huron clip", url: "https://uap-watch-flame.vercel.app/video/vid-070" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["f16-shot-down-ufo-lake-huron-2023", "f-16-lake-huron-2023-incident", "centcom-uap-videos-pursue"],
+  },
+  {
+    slug: "forward-looking-infrared-flir-uap",
+    q: "What is forward-looking infrared (FLIR) and why does it matter for UAP video?",
+    pull:
+      "Forward-looking infrared (FLIR) is a thermal-imaging sensor that detects heat signatures rather than visible light. Most of the modern UAP video in the Pentagon's PURSUE catalog — including the 2017 Navy GOFAST clip and the 2023 F-16 Lake Huron engagement — was captured on FLIR sensors mounted on military aircraft.",
+    a:
+      "Forward-looking infrared (FLIR) is a passive thermal-imaging sensor technology that detects mid-wave or long-wave infrared radiation emitted by objects warmer than their surroundings. Unlike visible-light cameras, FLIR sensors work at night, see through smoke and light cloud, and can detect engine exhaust, body heat, and aerodynamic friction signatures that are invisible to the naked eye. The vast majority of modern military UAP video in the Pentagon's PURSUE catalog was captured on FLIR sensors mounted on tactical aircraft — including the 2017 USS Theodore Roosevelt GOFAST clip (F/A-18F ATFLIR pod), the 2023 USAF F-16C Lake Huron engagement (DOW-UAP-PR071), the Iraq May 2022 mission report (DOW-UAP-D14), the Syrian 'instant acceleration' clip (DOW-UAP-PR051), and the Iran four-UAP formation (DOW-UAP-PR050). FLIR's strength — surfacing thermal signatures invisible to visible-light cameras — is also its analytical limitation: 'black-hot' versus 'white-hot' polarity inversions and gimbal-lock artifacts can both mimic anomalous behavior.",
+    sources: [
+      { label: "UAP.WATCH — DoD video archive", url: "https://uap-watch-flame.vercel.app/agency/dod" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["atflir-targeting-pod-navy-uap", "gofast-video-explained", "centcom-uap-videos-pursue"],
+  },
+  {
+    slug: "atflir-targeting-pod-navy-uap",
+    q: "What is the ATFLIR targeting pod used in Navy UAP videos?",
+    pull:
+      "The AN/ASQ-228 Advanced Targeting Forward-Looking Infrared (ATFLIR) is the F/A-18 Super Hornet's primary targeting pod and the sensor that captured the 2015 Navy GOFAST and GIMBAL videos. Some apparent UAP behavior in ATFLIR footage — including GIMBAL's 90-degree rotation — may be sensor-pod artifacts rather than real object motion.",
+    a:
+      "The AN/ASQ-228 Advanced Targeting Forward-Looking Infrared (ATFLIR) pod is a Raytheon-built electro-optical/infrared targeting system carried by the U.S. Navy's F/A-18E/F Super Hornet. ATFLIR combines a forward-looking infrared sensor with a CCD television camera, a laser rangefinder, and a laser spot tracker — used to identify and track ground or air targets at standoff range. Both the 2015 USS Theodore Roosevelt GOFAST and GIMBAL videos were captured by F/A-18F ATFLIR pods and declassified by the Department of Defense in 2017 and 2020 respectively. AARO's 2026 resolution of GOFAST attributed the apparent low-altitude high-speed motion to parallax artifact: 'the object is not actually close to the water, but is rather closer to 13,000 feet.' The skeptical interpretation of GIMBAL's apparent 90-degree rotation is that the ATFLIR pod itself reached a tracking-axis gimbal-lock singularity — meaning the rotation may be a sensor artifact rather than real object motion.",
+    sources: [
+      { label: "UAP.WATCH — GOFAST explainer", url: "https://uap-watch-flame.vercel.app/q/gofast-video-explained" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["gofast-video-explained", "gimbal-video-explained", "forward-looking-infrared-flir-uap"],
+  },
+  {
+    slug: "who-is-jon-kosloski-aaro-director",
+    q: "Who is Dr. Jon Kosloski, the AARO director?",
+    pull:
+      "Dr. Jon T. Kosloski is the U.S. Department of War's All-domain Anomaly Resolution Office (AARO) director who delivered the office's 2026 GOFAST resolution: 'Through a very careful geospatial intelligence analysis and using trigonometry, we assess with high confidence that the object is not actually close to the water, but is rather closer to 13,000 feet.'",
+    a:
+      "Dr. Jon T. Kosloski is the director of the U.S. Department of War's All-domain Anomaly Resolution Office (AARO), the central body that investigates and assesses UAP reports across the U.S. military and intelligence community. Kosloski took the role following AARO's 2022 statutory establishment under the National Defense Authorization Act and the brief tenure of inaugural director Dr. Sean Kirkpatrick. Kosloski's most public 2026 statement was AARO's resolution of the 2017 USS Theodore Roosevelt GOFAST video: 'Through a very careful geospatial intelligence analysis and using trigonometry, we assess with high confidence that the object is not actually close to the water, but is rather closer to 13,000 feet.' AARO assesses every PURSUE-released file before declassification and assigns one of four statuses — corroborated, anomalous, unresolved, or resolved. Under Kosloski's leadership AARO has continued the periodic 'Preliminary Assessment: Unidentified Aerial Phenomena' reports to Congress.",
+    sources: [
+      { label: "UAP.WATCH — AARO FAQ", url: "https://uap-watch-flame.vercel.app/q/what-is-aaro" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["what-is-aaro", "gofast-video-explained", "aaro-status-codes-explained"],
+  },
+  {
+    slug: "condon-report-1968-uap",
+    q: "What was the 1968 Condon Report on UFOs?",
+    pull:
+      "The Condon Report — formally 'Scientific Study of Unidentified Flying Objects,' published in 1968 by Dr. Edward U. Condon at the University of Colorado under USAF contract — concluded that further scientific study of UFOs 'cannot be justified.' The report directly preceded the 1969 termination of Project Blue Book and is referenced in the 1970 James Tuck Los Alamos letter declassified under PURSUE Release 02.",
+    a:
+      "The Condon Report, formally titled 'Scientific Study of Unidentified Flying Objects,' is a 1,485-page 1968 academic study conducted at the University of Colorado by physicist Dr. Edward U. Condon under contract from the U.S. Air Force. The report reviewed 91 UFO case files and concluded that 'nothing has come from the study of UFOs in the past 21 years that has added to scientific knowledge' and that 'further extensive study of UFOs probably cannot be justified.' The Condon Report's conclusions directly preceded the December 1969 termination of Project Blue Book — the USAF's 17-year UFO investigation program. The Condon Report remains in print and is cited extensively in subsequent academic and government UAP discussions. James L. Tuck's December 16, 1970 letter to the U.S. Army Engineering School (declassified as DOC-139 in PURSUE Release 02) explicitly references 'the large atmospheric vortices' from the Condon Report, demonstrating the report's continued influence on nuclear-physics-adjacent UAP research even after the Blue Book termination.",
+    sources: [
+      { label: "UAP.WATCH — DOC-139 Tuck letter", url: "https://uap-watch-flame.vercel.app/document/doc-139" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["project-blue-book", "los-alamos-physicist-ufo-letters", "project-sign-grudge"],
+  },
+  {
+    slug: "aaro-status-codes-explained",
+    q: "What do AARO's UAP status codes 'corroborated,' 'anomalous,' 'unresolved,' and 'resolved' mean?",
+    pull:
+      "The All-domain Anomaly Resolution Office assigns one of four status codes to every UAP case it assesses: corroborated (multi-witness or multi-sensor confirmation, identity not yet established), anomalous (behavior or signature inconsistent with known platforms), unresolved (under investigation), or resolved (identity established — e.g., the 2017 GOFAST video resolved as a parallax artifact at ~13,000 feet).",
+    a:
+      "The U.S. Department of War's All-domain Anomaly Resolution Office (AARO) assigns one of four standardized status codes to every UAP case it assesses for PURSUE declassification. 'Corroborated' indicates multi-witness, multi-sensor, or multi-source confirmation that an event occurred as reported, even if the object's identity is not yet established. 'Anomalous' indicates the observed behavior, kinematic profile, sensor signature, or material characteristics are inconsistent with any known U.S., allied, or adversary platform. 'Unresolved' indicates the case remains under active investigation and AARO has not reached a conclusion. 'Resolved' indicates AARO has established the object's identity — the marquee 2026 example is the 2017 USS Theodore Roosevelt GOFAST video, resolved as a parallax artifact at approximately 13,000 feet altitude rather than the apparent low-altitude high-speed motion in the raw ATFLIR footage. Of the 29 named incidents UAP.WATCH currently indexes from PURSUE Release 01 + Release 02, the AARO-assigned status distribution is roughly 1 resolved, 8 unresolved, 14 anomalous, and 6 corroborated.",
+    sources: [
+      { label: "UAP.WATCH — incident register", url: "https://uap-watch-flame.vercel.app/" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["what-is-aaro", "who-is-jon-kosloski-aaro-director", "gofast-video-explained"],
+  },
+  {
+    slug: "indopacom-uap-encounters",
+    q: "What UAP encounters has U.S. Indo-Pacific Command reported?",
+    pull:
+      "U.S. Indo-Pacific Command (INDOPACOM) has contributed multiple UAP encounters to the Pentagon's PURSUE catalog, including a 2024 'football-shaped object' captured on infrared sensor and a 'misshapen ball of white light' surrounded by a halo. INDOPACOM's UAP video set is hosted on DVIDS alongside CENTCOM material.",
+    a:
+      "U.S. Indo-Pacific Command (INDOPACOM) is the U.S. combatant command responsible for the Indian Ocean, the Pacific Ocean, and parts of East and Southeast Asia — the largest geographic AOR of any U.S. combatant command. INDOPACOM has contributed multiple modern UAP encounters to the Pentagon's PURSUE catalog. Notable INDOPACOM entries include a 2024 'football-shaped object' captured on a U.S. military aircraft's forward-looking infrared sensor and an INDOPACOM 'misshapen and uneven ball of white light' clip in which the object exhibits a visible halo. INDOPACOM's UAP video set is hosted on DVIDS (the Defense Visual Information Distribution Service) alongside CENTCOM, USNORTHCOM, and NORAD material. INDOPACOM's geographic scope means its UAP captures often involve naval aviation platforms (carrier strike groups operating in the South China Sea, the East China Sea, and the Philippine Sea), as opposed to CENTCOM's land-based fighter aircraft. UAP.WATCH indexes the INDOPACOM clips under /agency/dod.",
+    sources: [
+      { label: "UAP.WATCH — DoD agency page", url: "https://uap-watch-flame.vercel.app/agency/dod" },
+      { label: "DVIDS — INDOPACOM video archive", url: "https://www.dvidshub.net/" },
+    ],
+    related: ["centcom-uap-videos-pursue", "dvids-uap-archive", "navy-uap-encounters"],
+  },
+  {
+    slug: "transmedium-uap-explained",
+    q: "What are trans-medium UAPs?",
+    pull:
+      "Trans-medium UAPs are unidentified objects observed transitioning between physical mediums — air to water, water to air, space to atmosphere — without the propulsion modification that such transitions require for known platforms. The U.S. statutory definition of UAP in 50 U.S.C. § 3373 was deliberately expanded in 2022 to include trans-medium phenomena.",
+    a:
+      "Trans-medium UAP are unidentified objects that move between distinct physical mediums — typically air-to-water or water-to-air — without the propulsion modification or hydrodynamic-to-aerodynamic transition that such crossings would require for any known aircraft, missile, or submersible. Congress and the Pentagon's 2022 statutory definition of UAP (codified at 50 U.S.C. § 3373) was deliberately expanded from the original aviation-only 'Unidentified Aerial Phenomena' to 'Unidentified Anomalous Phenomena' specifically to encompass trans-medium events. The All-domain Anomaly Resolution Office's name reflects the same scope expansion — 'all-domain' meaning air, space, surface, and undersea simultaneously. Trans-medium claims appear in several pre-PURSUE Navy reports (most prominently the 2019 USS Omaha 'transmedium' pyramid-shaped clip filmed off San Diego) and in the broader institutional record AARO inherited. The Pentagon's PURSUE catalog itself contains primarily aerial and lunar-surface phenomena to date; AARO has not formally certified any catalog entry as trans-medium-confirmed.",
+    sources: [
+      { label: "50 U.S.C. § 3373 (UAP statutory definition)", url: "https://www.law.cornell.edu/uscode/text/50/3373" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+    related: ["what-are-uaps", "ufo-vs-uap", "what-is-aaro"],
   }
 ];
 

@@ -600,6 +600,75 @@ export const compareEntries: CompareEntry[] = [
       { label: "UAP.WATCH — DOC-137 Sary Shagan", url: "https://uap-watch-flame.vercel.app/document/doc-137" },
       { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
     ],
+  },
+  {
+    slug: "lake-huron-shootdown-vs-chinese-balloon-2023",
+    title: "Lake Huron Shootdown vs Chinese Balloon (February 2023) — Same Week, Different Objects",
+    description:
+      "Side-by-side comparison of the two most-publicized U.S. shootdowns in the February 2023 high-altitude object series: the February 4 Chinese surveillance balloon downed off South Carolina, and the February 12 F-16 Lake Huron engagement now declassified as DOW-UAP-PR071 in PURSUE Release 02.",
+    lead:
+      "The February 2023 high-altitude object series produced four U.S. and Canadian shootdowns within nine days, but only two attracted sustained public attention: the February 4 Chinese surveillance balloon off the South Carolina coast (formally attributed to the People's Republic of China) and the February 12 F-16C engagement over Lake Huron (still formally unidentified by AARO in 2026). The two events share a sensor environment, an engagement pattern (AIM-9X Sidewinder missile launch), and a public-affairs framing — but diverge on every analytical dimension that matters: the balloon was attributed within 48 hours; the Lake Huron object remains officially unidentified three years later. The Lake Huron gun-camera footage was declassified under PURSUE Release 02 on May 22, 2026 as catalog entry DOW-UAP-PR071; the balloon engagement footage was released publicly through DoD press channels in February 2023.",
+    pullQuote:
+      "The February 4 balloon was attributed within 48 hours. The February 12 Lake Huron object remains officially unidentified three years later.",
+    left: {
+      name: "Chinese Surveillance Balloon (Feb 4, 2023)",
+      facts: [
+        { label: "Date", value: "February 4, 2023" },
+        { label: "Location", value: "Off South Carolina coast, Atlantic Ocean" },
+        { label: "Engaging aircraft", value: "USAF F-22 Raptor (1st Fighter Wing)" },
+        { label: "Weapon", value: "AIM-9X Sidewinder air-to-air missile" },
+        { label: "Object altitude at engagement", value: "~60,000 feet" },
+        { label: "Object size", value: "~200 feet diameter envelope" },
+        { label: "AARO / official attribution", value: "RESOLVED — PRC surveillance platform" },
+        { label: "Debris recovered", value: "Yes — extensive recovery off South Carolina coast" },
+        { label: "In PURSUE catalog", value: "No (released via standard DoD channels)" },
+      ],
+      links: [
+        { href: "/wiki/february-2023-high-altitude-object-shootdowns", label: "Full Feb 2023 timeline" },
+      ],
+    },
+    right: {
+      name: "Lake Huron Object (Feb 12, 2023)",
+      facts: [
+        { label: "Date", value: "February 12, 2023" },
+        { label: "Location", value: "Over Lake Huron, USNORTHCOM AOR" },
+        { label: "Engaging aircraft", value: "USAF Air National Guard F-16C" },
+        { label: "Weapon", value: "AIM-9X Sidewinder air-to-air missile" },
+        { label: "Object altitude at engagement", value: "~20,000 feet" },
+        { label: "Object size", value: "Smaller — 'cylindrical' per public DoD characterization" },
+        { label: "AARO / official attribution", value: "UNRESOLVED — origin not publicly identified" },
+        { label: "Debris recovered", value: "Limited — engaged over open water" },
+        { label: "In PURSUE catalog", value: "Yes — DOW-UAP-PR071 (declassified 2026-05-22)" },
+      ],
+      links: [
+        { href: "/q/f16-shot-down-ufo-lake-huron-2023", label: "Lake Huron FAQ" },
+        { href: "/wiki/f-16-lake-huron-2023-incident", label: "Lake Huron wiki" },
+      ],
+    },
+    sections: [
+      {
+        heading: "What's the same",
+        body:
+          "Both engagements occurred within nine days under USNORTHCOM and NORAD command and control. Both used the AIM-9X Sidewinder as the engagement weapon. Both were captured on gun-camera infrared sensors mounted on USAF tactical aircraft. Both were publicly acknowledged in real time by senior U.S. officials including then-President Biden. Both produced declassified imagery that was eventually released to the public — though through different release pathways (DoD press channels for the balloon; PURSUE Release 02 three years later for Lake Huron).",
+      },
+      {
+        heading: "What's different",
+        body:
+          "The Chinese balloon was attributed to a known foreign-state surveillance platform within 48 hours via a combination of visual identification, AN/APG-77 radar signature, ground-based weather radar tracking from the platform's transit across the continental United States, and post-recovery debris analysis. The Lake Huron object remains unattributed three years later — AARO has not publicly identified the object's origin, propulsion mechanism, or platform class. The Lake Huron clip's AARO description ('a kinetic interaction between two distinct areas of contrast, with the initial subject of the footage fragmenting in a radial displacement pattern that suggests a high-energy event') is unusually descriptive for a still-unidentified object.",
+      },
+      {
+        heading: "Why the three-year declassification delay on Lake Huron",
+        body:
+          "The Lake Huron clip was uploaded to a classified network in February 2023 — the same month the engagement occurred — but was not declassified for public release until May 22, 2026, more than three years later. The most-likely factors in the holdback are the AIM-9X Sidewinder engagement geometry (which would reveal precise capability parameters of the F-16C weapons system) and the fact that the underlying object remains unidentified (creating analytical sensitivity around what the gun-camera footage's 'fragmenting in a radial displacement pattern' actually shows). The Chinese balloon clip had no equivalent classification sensitivity — the platform was attributed, the engagement was conventional, and the public-affairs framing was settled within days.",
+      },
+    ],
+    keywords: ["Lake Huron 2023", "Chinese balloon 2023", "February 2023 shootdowns", "DOW-UAP-PR071", "AIM-9X Sidewinder", "Biden UFO"],
+    related: ["f16-shot-down-ufo-lake-huron-2023", "f-16-lake-huron-2023-incident", "february-2023-high-altitude-object-shootdowns"],
+    sources: [
+      { label: "UAP.WATCH — DOW-UAP-PR071", url: "https://uap-watch-flame.vercel.app/video/vid-070" },
+      { label: "DVIDS — DOW-UAP-PR071 source clip", url: "https://www.dvidshub.net/video/1007727" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
   }
 ];
 

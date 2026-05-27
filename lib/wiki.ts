@@ -749,6 +749,208 @@ export const wikiEntries: WikiEntry[] = [
       { label: "DVIDS — CENTCOM video archive", url: "https://www.dvidshub.net/" },
       { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
     ],
+  },
+  {
+    slug: "february-2023-high-altitude-object-shootdowns",
+    title: "February 2023 High-Altitude Object Shootdowns",
+    description:
+      "Between February 4 and February 12, 2023, U.S. and Canadian forces engaged and destroyed four unidentified high-altitude objects over North American airspace. The fourth — the F-16C Lake Huron engagement on February 12 — was declassified under PURSUE Release 02 as catalog entry DOW-UAP-PR071.",
+    lead:
+      "The February 2023 high-altitude object incidents were a four-event sequence in which U.S. and Canadian military forces engaged and destroyed unidentified objects over North American airspace within a nine-day window. The first event on February 4 — a suspected Chinese surveillance balloon downed off the South Carolina coast at 60,000 feet by a USAF F-22 firing an AIM-9X Sidewinder — was the most publicly attributed. The three subsequent shootdowns (February 10 off northern Alaska, February 11 over Canada's Yukon Territory, February 12 over Lake Huron) involved smaller unidentified objects whose origin AARO has not publicly identified. The Lake Huron engagement gun-camera infrared video was uploaded to a classified network in February 2023 and declassified under PURSUE Release 02 on May 22, 2026 as catalog entry DOW-UAP-PR071 — a 46-second clip whose AARO description notes 'a kinetic interaction between two distinct areas of contrast.'",
+    pullQuote:
+      "A kinetic interaction between two distinct areas of contrast, with the initial subject of the footage fragmenting in a radial displacement pattern that suggests a high-energy event.",
+    keywords: ["February 2023 UFO", "high-altitude object shootdown", "Lake Huron F-16", "Chinese balloon 2023", "Yukon UFO 2023", "Alaska UFO 2023"],
+    sections: [
+      {
+        heading: "February 4: Chinese surveillance balloon (South Carolina)",
+        body:
+          "The first shootdown of the February 2023 series was a suspected Chinese surveillance balloon engaged by a USAF F-22 Raptor off the South Carolina coast at approximately 60,000 feet altitude. The F-22 fired a single AIM-9X Sidewinder air-to-air missile and the balloon descended into Atlantic waters where Navy and Coast Guard recovery teams recovered debris over the following days. The U.S. attributed the platform to the People's Republic of China; PRC denied the attribution and characterized the balloon as a 'civilian weather research vehicle.' This is the only one of the four February 2023 objects to which AARO has publicly attached an origin.",
+      },
+      {
+        heading: "February 10: Alaska object",
+        body:
+          "On February 10, 2023, a smaller unidentified object was engaged and downed off the northern Alaska coast inside U.S. airspace. The Pentagon described the object as 'roughly the size of a small car' and at an altitude of approximately 40,000 feet. AARO has not publicly identified the object's origin, propulsion mechanism, or recovery status.",
+      },
+      {
+        heading: "February 11: Yukon Territory object",
+        body:
+          "On February 11, 2023, U.S. and Canadian fighter aircraft engaged and downed an unidentified object over Canada's Yukon Territory. The object was described as 'small and cylindrical' at approximately 40,000 feet altitude. Canadian Armed Forces participated in the engagement under the NORAD bilateral defense agreement. AARO has not publicly attributed the object's origin.",
+      },
+      {
+        heading: "February 12: Lake Huron (DOW-UAP-PR071)",
+        body:
+          "On February 12, 2023, a USAF Air National Guard F-16C engaged and downed an unidentified object over Lake Huron in the U.S. Northern Command area of responsibility. The 46-second gun-camera infrared video — catalog entry DOW-UAP-PR071 — was uploaded to a classified network the same month and declassified under PURSUE Release 02 on May 22, 2026. AARO's video description notes 'a kinetic interaction between two distinct areas of contrast, with the initial subject of the footage fragmenting in a radial displacement pattern that suggests a high-energy event.' The 'two distinct areas of contrast' are the F-16C's AIM-9X Sidewinder missile and the target object; the 'radial displacement pattern' is the missile detonation fragmenting the object.",
+      },
+      {
+        heading: "Why three of the four objects remain unidentified",
+        body:
+          "The Pentagon and AARO have publicly acknowledged that objects #2, #3, and #4 from the February 2023 series have not been definitively identified. The most-likely explanations cited in unclassified DoD statements have ranged from foreign-state surveillance platforms to commercial weather and hobbyist payloads. AARO's investigation status for the Lake Huron event remains formally open more than three years after the engagement; the official declassification of the gun-camera footage in PURSUE Release 02 does not constitute a closure of the investigation.",
+      },
+    ],
+    related: ["f-16-lake-huron-2023-incident", "pursue-release-02-overview", "usaf-centcom-uap-encounters"],
+    sources: [
+      { label: "UAP.WATCH — DOW-UAP-PR071", url: "https://uap-watch-flame.vercel.app/video/vid-070" },
+      { label: "DVIDS — DOW-UAP-PR071 source clip", url: "https://www.dvidshub.net/video/1007727" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "uss-nimitz-tic-tac-2004-encounter",
+    title: "USS Nimitz Tic Tac Encounter — November 14, 2004",
+    description:
+      "On November 14, 2004, U.S. Navy F/A-18 pilots from the USS Nimitz carrier strike group tracked a 40-foot oblong white object — the 'Tic Tac' — off the coast of Southern California. The encounter, captured on ATFLIR video as the FLIR1 clip, remains formally unresolved by AARO in 2026.",
+    lead:
+      "The USS Nimitz Tic Tac event is one of the most-cited U.S. Navy UAP encounters on the public record. On November 14, 2004, F/A-18F Super Hornet pilots Commander David Fravor and Lieutenant Commander Alex Dietrich from the USS Nimitz carrier strike group, operating off the coast of Southern California, were vectored to investigate radar tracks first detected by the USS Princeton's AN/SPY-1 radar. The object — described by Fravor as resembling a '40-foot Tic Tac mint,' white, smooth, with no wings, no exhaust, and no observable propulsion mechanism — exhibited what the pilots described as instantaneous-acceleration kinematics and apparent radar-track jamming. The 76-second ATFLIR FLIR1 clip from the encounter was released by the Department of Defense in 2017 alongside the GIMBAL and GOFAST videos. AARO has not formally resolved the case; Tic Tac remains the modern bookend of the institutional pre-PURSUE Navy UAP narrative.",
+    pullQuote:
+      "It looked like a 40-foot Tic Tac mint, white, smooth, no wings, no exhaust.",
+    keywords: ["Tic Tac UFO", "USS Nimitz UFO 2004", "David Fravor", "Alex Dietrich", "FLIR1", "Nimitz encounter", "Navy UAP"],
+    sections: [
+      {
+        heading: "The encounter timeline (November 14, 2004)",
+        body:
+          "On November 14, 2004, the USS Princeton (CG-59), an Aegis-equipped Ticonderoga-class cruiser operating with the USS Nimitz carrier strike group off Southern California, began tracking unidentified contacts on the AN/SPY-1 radar. The contacts had been observed intermittently for several days but on November 14 the Princeton's senior chief operations specialist, Kevin Day, directed two F/A-18F Super Hornets from Strike Fighter Squadron 41 (VFA-41 'Black Aces') to investigate. Commander David Fravor (Black Ace 01) and Lieutenant Commander Alex Dietrich (Black Ace 02) intercepted at approximately 20,000 feet over the Pacific test range and observed an object 'roughly the size of an F/A-18, but with no wings, no exhaust, and no obvious means of propulsion.'",
+      },
+      {
+        heading: "What the FLIR1 video shows",
+        body:
+          "A subsequent CAP flight by another VFA-41 Super Hornet captured the object on ATFLIR — the 76-second FLIR1 clip, released by the Department of Defense in December 2017 alongside the 2015 GIMBAL and GOFAST videos. The clip shows a white oblong object against a featureless background; the ATFLIR sensor track-locks on the object briefly before the object accelerates out of the sensor field. The clip is hosted on DVIDS and indexed by UAP.WATCH under the legacy DoD release rather than the PURSUE catalog (Tic Tac predates the PURSUE 2026 program).",
+      },
+      {
+        heading: "Pilot testimony",
+        body:
+          "Commander Fravor's public testimony — given at multiple congressional hearings, in the New York Times' 2017 article, and in the 2023 'Beyond Skinwalker Ranch' interview — describes the object as approximately 40 feet long, white, smooth, with no visible propulsion or wings. Fravor reported that as he descended toward the object, it ascended toward him, mirrored his maneuver, then accelerated away at a rate that exceeded his F/A-18F's capability. Lieutenant Commander Dietrich corroborated the encounter's basic facts in her own subsequent public testimony. AN/SPY-1 radar operator Kevin Day has also corroborated the radar-track aspect.",
+      },
+      {
+        heading: "AARO status in 2026",
+        body:
+          "Tic Tac remains formally unresolved by AARO in 2026. AARO Director Dr. Jon Kosloski's 2026 GOFAST resolution did not extend to the 2004 Nimitz encounter, which involves a different sensor (an early ATFLIR variant), different observers, and a different kinematic profile (instantaneous acceleration rather than apparent low-altitude high-speed motion). The full Nimitz mission report remains classified; only the FLIR1 clip and the public pilot testimony are available.",
+      },
+    ],
+    related: ["mercury-program-uap-audio", "navy-uap-encounters", "uap-sensor-types-flir-eo-radar"],
+    sources: [
+      { label: "UAP.WATCH — Tic Tac FAQ", url: "https://uap-watch-flame.vercel.app/q/tic-tac-uap" },
+      { label: "UAP.WATCH — GOFAST vs Tic Tac compare", url: "https://uap-watch-flame.vercel.app/compare/tic-tac-vs-gofast" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "state-department-uap-cables",
+    title: "U.S. State Department UAP Diplomatic Cables",
+    description:
+      "The U.S. State Department's contribution to the declassified UAP record consists of diplomatic cables from embassies and consulates worldwide — including the 1994 PanAm Tajikistan cable and a series of 1985-2025 cables from Papua New Guinea, Kazakhstan, Turkmenistan, Georgia, and Mexico.",
+    lead:
+      "The U.S. Department of State's UAP-relevant holdings on the declassified record consist primarily of diplomatic cables sent from U.S. embassies and consulates worldwide describing UAP observations by local nationals, foreign government officials, or U.S. diplomatic personnel. The most-cited State cable in the Pentagon's PURSUE catalog is a 1994 wire from the U.S. Embassy in Tajikistan describing a PanAm commercial pilot who, at 41,000 feet over the Tajikistan-Kazakhstan border, observed an object making 'circles, corkscrews and 90-degree turns at rapid rates of speed and under very high G's' — and assessed the object as 'possibly extraterrestrial and under intelligent control.' Additional State cables span 1985 through 2025 and include reports from Papua New Guinea, Kazakhstan, Turkmenistan, Georgia, and Mexico. The cables share a common shape: short, dispassionate, written in the standard diplomatic-reporting voice.",
+    pullQuote:
+      "Possibly extraterrestrial and under intelligent control.",
+    keywords: ["State Department UFO", "State Department UAP", "PanAm Tajikistan cable", "diplomatic cable UFO", "WikiLeaks UFO"],
+    sections: [
+      {
+        heading: "The 1994 PanAm Tajikistan cable",
+        body:
+          "The 1994 PanAm Tajikistan cable is a U.S. Embassy Dushanbe wire reporting a commercial-aviation UAP observation from a PanAm Airways flight crew at 41,000 feet over the Tajikistan-Kazakhstan border. The reporting pilot described an object making 'circles, corkscrews and 90-degree turns at rapid rates of speed and under very high G's' and offered the assessment that the object was 'possibly extraterrestrial and under intelligent control.' The cable is one of the most-quoted State Department UAP records on the public catalog and is referenced extensively in pre-PURSUE academic and policy discussions of commercial-aviation UAP observations.",
+      },
+      {
+        heading: "Cable cluster: Papua New Guinea, Kazakhstan, Turkmenistan, Georgia, Mexico",
+        body:
+          "The State Department's broader PURSUE contribution is a series of cables spanning 1985 through 2025 from U.S. diplomatic posts in Papua New Guinea, Kazakhstan, Turkmenistan, Georgia, and Mexico. The cables typically describe local-witness reports forwarded to the embassy by host-nation officials or media, with embassy commentary on credibility, recent regional UAP patterns, and potential operational implications for U.S. personnel. The cluster of post-Soviet Central Asian cables is notable for its concentration near former Soviet weapons-testing infrastructure including the Sary Shagan ABM range — geographically aligned with the CIA's 1973 Sary Shagan report declassified under PURSUE Release 02 as DOC-137.",
+      },
+      {
+        heading: "Why diplomatic cables matter for the UAP record",
+        body:
+          "Diplomatic cables operate under a different sourcing and verification standard than military mission reports or intelligence-community intelligence information reports. A cable from a U.S. embassy typically conveys what a host-nation source said with embassy commentary on the source's reliability and motivation; the cable does not itself certify the underlying observation. This makes State cables useful for documenting the global distribution of UAP reports across decades and political boundaries, without committing the U.S. government to the truth of any individual observation. The State Department record is small in absolute volume but historically wide in geographic coverage.",
+      },
+      {
+        heading: "Where to find the cables",
+        body:
+          "UAP.WATCH indexes all State Department PURSUE entries under /agency/state, with each cable's date, originating post, and AARO assessment. The original PDF for each cable is linked to its war.gov/UFO/ source URL. Pre-PURSUE State Department UFO cables (predominantly the 1973-2010 era) are also available via the State Department Office of the Historian and via WikiLeaks' Public Library of US Diplomacy.",
+      },
+    ],
+    related: ["pentagon-ufo-files", "cia-uap-records", "ufo-sightings"],
+    sources: [
+      { label: "UAP.WATCH — State agency page", url: "https://uap-watch-flame.vercel.app/agency/state" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "uap-sensor-types-flir-eo-radar",
+    title: "UAP Sensor Types — FLIR, Electro-Optical, and Radar",
+    description:
+      "Modern military UAP observations are captured by three primary sensor classes — forward-looking infrared (FLIR), electro-optical (EO), and radar — each with distinct strengths, characteristic artifacts, and analytical limitations that shape how PURSUE-catalog videos read on screen.",
+    lead:
+      "Modern military UAP observations are captured by three primary sensor classes: forward-looking infrared (FLIR), electro-optical (EO), and radar. Each class has distinct strengths and characteristic artifacts that shape how AARO assesses the underlying observation and how the resulting video reads to a viewer. The Pentagon's PURSUE catalog contains examples of all three: FLIR captures dominate the modern CENTCOM, INDOPACOM, and NORTHCOM video set (including the 2017 Navy GOFAST clip and the 2023 F-16 Lake Huron engagement); EO captures appear in NASA's Apollo lunar-surface photographs and a 2023 ellipsoid-bronze-metallic-object FBI photograph; radar tracks appear as supporting evidence for the 2004 USS Nimitz Tic Tac encounter (the USS Princeton's AN/SPY-1 radar). Understanding which sensor produced an image is critical to assessing what its apparent behavior actually means.",
+    pullQuote:
+      "The object is not actually close to the water, but is rather closer to 13,000 feet.",
+    keywords: ["UAP sensors", "FLIR", "ATFLIR", "EO sensor UAP", "radar UAP", "AN/SPY-1 radar", "UFO sensor types"],
+    sections: [
+      {
+        heading: "Forward-looking infrared (FLIR)",
+        body:
+          "FLIR is a passive thermal-imaging sensor that detects mid-wave or long-wave infrared radiation. FLIR works at night, sees through smoke and light cloud, and captures heat signatures invisible to the visible-light cameras. FLIR is the most-common modern UAP sensor in the PURSUE catalog because the U.S. military's tactical aircraft (F/A-18 ATFLIR, F-16 Sniper-XR, F-35 EOTS) all carry FLIR-equipped targeting pods. FLIR's analytical limitation: 'black-hot' versus 'white-hot' polarity inversions, parallax artifacts at long sensor range, and pod-gimbal-lock artifacts can all mimic anomalous behavior that the underlying object does not actually exhibit.",
+      },
+      {
+        heading: "Electro-optical (EO) and visible-light",
+        body:
+          "Electro-optical sensors capture visible-light imagery in the conventional photographic sense. EO appears in the PURSUE catalog primarily as NASA's Apollo 12 and Apollo 17 lunar-surface photographs, FBI black-hot infrared captures from September and December 2025, and a 2023 ellipsoid-bronze-metallic-object photograph from a southeastern U.S. encounter. EO captures preserve color and surface detail that FLIR loses but require daylight and reasonably-clear atmospheric conditions. EO's analytical advantage over FLIR is that color, material reflectivity, and shadow geometry constrain the identification more tightly.",
+      },
+      {
+        heading: "Radar (AN/SPY-1, AN/SPY-6, AN/APG-79)",
+        body:
+          "Radar provides ranged tracking data — position, velocity, altitude — independent of visible-light or thermal-imaging conditions. The most-cited radar contributions to the modern UAP record come from the U.S. Navy's AN/SPY-1 (Aegis Combat System cruiser/destroyer radar, used aboard the USS Princeton during the 2004 Tic Tac encounter), the more recent AN/SPY-6 (Flight III Aegis), and the F/A-18E/F's AN/APG-79 AESA fire-control radar. Radar tracks corroborate visual or FLIR observations and provide kinematic ground truth — track velocity, acceleration, and altitude — that pure visual reports cannot establish. Radar tracks also have characteristic clutter and electronic-warfare artifacts that must be ruled out.",
+      },
+      {
+        heading: "Multi-sensor corroboration in AARO assessments",
+        body:
+          "AARO's status code 'corroborated' typically requires multi-sensor evidence — for example, a FLIR clip backed by an independent radar track. AARO's status code 'resolved' typically requires either multi-sensor corroboration of an identified platform (the February 2023 Chinese balloon: U.S. F-22 visual, AN/APG-77 radar, ground-based weather radar, and post-recovery debris analysis) or a single-sensor analysis that definitively explains the apparent anomaly (the 2017 GOFAST: pure ATFLIR analysis combined with geospatial trigonometry).",
+      },
+    ],
+    related: ["forward-looking-infrared-flir-uap", "atflir-targeting-pod-navy-uap", "aaro-investigations-process"],
+    sources: [
+      { label: "UAP.WATCH — DoD agency page", url: "https://uap-watch-flame.vercel.app/agency/dod" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
+  },
+  {
+    slug: "usaf-uap-encounters-modern",
+    title: "Modern U.S. Air Force UAP Encounters (2004–2026)",
+    description:
+      "The U.S. Air Force has contributed dozens of modern UAP encounters to the Pentagon's PURSUE catalog — from the 2017-2026 CENTCOM mission report series through the 2023 F-16 Lake Huron shootdown and the 2025 ODNI senior-IC-officer helicopter narrative on a Western U.S. test range.",
+    lead:
+      "The U.S. Air Force is the originating authority for a substantial fraction of the modern UAP encounters in the Pentagon's PURSUE catalog. USAF UAP records span the 1947-1948 foundational era (the Wright Field Air Material Command memorandum, the 1948 Top Secret Air Force Intelligence report opening 'For some time we have been concerned by the recurring reports on flying saucers') through the 1948-1950 Sandia Base green-fireball investigation (declassified in Release 02 as DOC-141, with Dr. Lincoln LaPaz's Fourth, Sixth, and Seventh Reports) through the modern CENTCOM mission report series (Iraq May 2022, Syria July 2022, Mediterranean January 2024) and the February 12, 2023 F-16C Lake Huron engagement (DOW-UAP-PR071). The USAF UAP record concentrates institutional weight on incidents involving fighter or transport aircraft, missile-warning radar, and aircrew-witness reports — distinct from the U.S. Navy record's carrier-aviation, ATFLIR, and AN/SPY-1 emphasis.",
+    pullQuote:
+      "For some time we have been concerned by the recurring reports on flying saucers.",
+    keywords: ["USAF UFO", "USAF UAP", "Air Force UAP encounters", "CENTCOM USAF", "F-16 Lake Huron", "Project SIGN", "Project BLUE BOOK"],
+    sections: [
+      {
+        heading: "Foundational era (1947–1950)",
+        body:
+          "The USAF's foundational UAP record opens with the 1947 Wright Field Air Material Command (AMC) memorandum formally acknowledging 'continued and recent reports from qualified observers concerning this phenomenon' — the predecessor document to Project SIGN. The 1948 Top Secret Air Force Intelligence report opens with the line 'For some time we have been concerned by the recurring reports on flying saucers' and established the institutional framing that carried through Projects SIGN, GRUDGE, and Blue Book. The 1948-1950 Sandia Base green-fireball investigation under Dr. Lincoln LaPaz at the Armed Forces Special Weapons Project followed.",
+      },
+      {
+        heading: "Project SIGN, GRUDGE, and Blue Book (1948–1969)",
+        body:
+          "The USAF's UFO investigation programs ran continuously from 1948 to 1969 under three successive names: Project SIGN (1948), Project GRUDGE (1949-1951), and Project Blue Book (1952-1969). Blue Book investigated 12,618 cases over its 17-year run, of which 701 remained unidentified at termination. The 1968 Condon Report ('Scientific Study of Unidentified Flying Objects'), commissioned by the USAF and conducted at the University of Colorado, concluded that further study 'cannot be justified' — directly preceding the December 1969 Blue Book termination.",
+      },
+      {
+        heading: "Modern CENTCOM mission reports (2022–2024)",
+        body:
+          "USAF modern UAP encounters dominate the CENTCOM AOR. Notable PURSUE entries include DOW-UAP-D14 (Iraq May 2022 mission report, declassified by Major General Richard A. Harrison, USCENTCOM Chief of Staff, on October 7, 2025), the Syria July 2022 series including DOW-UAP-PR051 (the 'instant acceleration' clip), DOW-UAP-PR050 (the four-UAP formation over Iran, August 26, 2022), and additional infrared captures spanning 2021-2024. All CENTCOM USAF clips are hosted on DVIDS.",
+      },
+      {
+        heading: "February 12, 2023 F-16 Lake Huron shootdown (DOW-UAP-PR071)",
+        body:
+          "On February 12, 2023, a USAF Air National Guard F-16C engaged and downed an unidentified object over Lake Huron in the U.S. Northern Command area of responsibility — the fourth of four shootdowns during the February 4-12, 2023 high-altitude object series. The 46-second gun-camera infrared video was declassified under PURSUE Release 02 as DOW-UAP-PR071, with AARO's description noting 'a kinetic interaction between two distinct areas of contrast.' This is the USAF's most-publicized modern UAP engagement on the public record.",
+      },
+      {
+        heading: "2025 ODNI helicopter narrative (DOC-142)",
+        body:
+          "Although authored by a senior U.S. Intelligence Community official and originating with ODNI rather than USAF, the late-2025 Western U.S. test-range helicopter encounter declassified as DOC-142 occurred during USAF-coordinated test-range operations and involved fighter jets entering the airspace. The narrative is included in the modern USAF context because the test range is USAF-administered and the F-15/F-16 fighter participation is the USAF's operational signature on the encounter.",
+      },
+    ],
+    related: ["usaf-centcom-uap-encounters", "f-16-lake-huron-2023-incident", "lincoln-lapaz-green-fireball-investigator"],
+    sources: [
+      { label: "UAP.WATCH — USAF agency page", url: "https://uap-watch-flame.vercel.app/agency/usaf" },
+      { label: "war.gov/UFO/", url: "https://www.war.gov/UFO/" },
+    ],
   }
 ];
 
