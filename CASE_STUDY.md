@@ -2,9 +2,11 @@
 
 > **Live:** https://uap-watch-flame.vercel.app/
 > **Code:** https://github.com/NoobAIDeveloper/uap-watch
-> **Built:** 2026-05-08 → 2026-05-09 (~30 hours to v1 + indexed; audit + vision-pass recovery on Day 2 evening)
+> **Built:** 2026-05-08 → ongoing (~30 hours to v1; Release 02 ingest on 2026-05-22; mobile rebuild + pSEO ramp continuing)
 
 A trend-driven, news-cycle product. The Pentagon released 162 declassified UAP files at war.gov/UFO/ on the morning of May 8, 2026; I shipped a tactical-style mirror dashboard the same day, then kept iterating through the next 24 hours while the news cycle was hot. The site now hosts locally-extracted text for every PDF in the catalog so visitors don't have to bounce to the .gov listing to actually read anything.
+
+**Post-v1, the project kept compounding.** When the Pentagon dropped PURSUE Release 02 two weeks later (May 22, 2026 — 64 new records, 3 previously-absent agencies, audio as a new media type), I ingested the whole tranche the same day. The site now mirrors 226 files across both releases (126 PDFs, 79 videos, 7 NASA audio recordings, 14 images, 29 indexed incidents), publishes 95 programmatic SEO pages (66 FAQs, 19 wikis, 10 compare pages) keyed to the catalog, and ships a Reddit-driven mobile rebuild after analytics surfaced a ~50/50 desktop/mobile split.
 
 ---
 
@@ -54,6 +56,20 @@ All 162 files in the Pentagon's catalog are accounted for; 113 of the 118 unique
 - Spawned parallel Claude Code subagents to vision-transcribe the 7 documents OCR could not read; DOC-031 went from 551 chars to 33,831 chars (61× lift) and surfaced the previously-invisible Senator Richard Russell trans-Caucasus sighting
 - Caught and removed a duplicate catalog entry (DOC-037 was byte-identical to DOC-036)
 - Wrote `scripts/download-missing.mjs` — strict-sequential Wayback fallback after Akamai 403'd the IP again on the re-run
+
+**Day 14 (2026-05-22) — PURSUE Release 02, same-day ingest**
+- Pentagon dropped Tranche 2 at war.gov/UFO/: 64 new records (6 PDFs, 51 videos, 7 NASA audio recordings) from three previously-absent agencies (CIA, ODNI, DOE) plus three new named incidents (PURSUE-027 Sandia 1948–50, PURSUE-028 Western U.S. helicopter 2025, PURSUE-029 Sary Shagan 1973)
+- Bypassed Akamai via the same Wayback-CSV trick from Day 2 (war.gov direct still 403'd, but the canonical CSV at `/Portals/1/Interactive/2026/UFO/uap-data.csv` was Wayback-snapshotted with all 222 entries)
+- Extended `SourceAgency` to 9 codes, introduced `EvidenceAudio` as a first-class media type with its own schema.org `AudioObject` JSON-LD and `/audio/[id]` route, mirroring the existing `EvidenceVideo` shape
+- Built `AudioEvidenceGrid` and slotted it into `BelowFoldSections` between videos and documents
+- Scraped DVIDS thumbnails for all 51 new clips (VID-045 → VID-095)
+- OCR'd all 6 T2 PDFs via Claude vision (Read tool's PDF support with `pages` parameter), including the 116-page Sandia bundle split across 6 parallel subagents
+- Re-rendered globe + incident register + agency pages to reflect the new totals; relabeled the "pending declassification" divider to "Tranche 02 · released May 22, 2026"; swept stale "Release 01 only" / "2026-05-08" date strings across 8 page templates
+
+**Day 14+ — pSEO ramp + mobile rebuild**
+- Two drip batches of 15+ pSEO pages each keyed to Release 02 long-tail terms (Sary Shagan, green fireballs, Apollo fireflies, AFSWP, Pajarito Astronomers, CENTCOM video set, ODNI helicopter narrative, DVIDS archive, F-16 Lake Huron)
+- All entries built to the Princeton GEO citable-passage shape (134–167 words, verbatim quotation, statistic, primary-source citation) so AI overviews can lift the lead paragraph cleanly
+- Mobile rebuild triggered by a Reddit commenter ("not very good on mobile") and Vercel Analytics' ~50/50 desktop/mobile split — replaced the `minWidth: 640px` incident table with a card list below `sm:`, added a hamburger nav sheet, fixed seven other hard floors that blew out the 375px viewport
 
 ## Hard problems and how I solved them
 
@@ -143,31 +159,69 @@ The orthographic globe plots terrestrial incidents tinted by `status` — `corro
 
 The tint constants needed to stay in sync between cobe's WebGL marker buffer (normalized 0–1 RGB triplets) and the legend/tooltip overlays (hex strings), so I added a parallel `STATUS_HEX` and `STATUS_LABEL` map next to the existing `STATUS_TINT` table — drift between the two now requires editing both maps in the same file, which is the right friction level.
 
+### 14. Release 02 dropped two weeks later — same-day ingest, three new agencies, audio as a new media type
+
+The Pentagon's second PURSUE tranche landed at 7am on May 22, 2026: 64 new records, three previously-absent agencies (CIA, ODNI, DOE), and audio as a media type the v1 schema didn't model. Reflexively staging the work behind a feature branch would have missed the news cycle the same way a one-day-late v1 would have. Instead I ingested it in the same session it dropped.
+
+**Fix:** widened `SourceAgency` from a 6-code union to 9, mirrored `EvidenceVideo` into a new `EvidenceAudio` type (no `format` field — audio is always single-format), generated a new `/audio/[id]` route + schema.org `AudioObject` JSON-LD, and built `AudioEvidenceGrid` to slot into `BelowFoldSections` between videos and documents. All cross-references (incident → audio, audio → incident, agency → audio) flow through the same selection store used by video. The schema extension was the load-bearing decision: doing it as a clean type rather than a "video with an `isAudio: true` flag" kept every downstream consumer (JSON-LD generator, agency aggregator, browse hub, OG image card) honest. The same trick that worked on Day 1 (Wayback-cached CSV bypass for Akamai 403s) worked again — pulled the updated 222-row catalog from the Wayback snapshot of `/Portals/1/Interactive/2026/UFO/uap-data.csv`.
+
+### 15. The 116-page Sandia bundle stalled a single Claude vision subagent
+
+DOC-141 — the AFSWP / USAF / LANL green-fireball correspondence bundle from 1948–1950 — is 116 pages of dense typewritten correspondence including Lincoln LaPaz's Fourth, Sixth, and Seventh Reports. The Read tool's PDF support caps at 20 pages per call, so the natural pattern is one subagent looping through six page-ranges. The subagent ran for ten minutes at the same token count, clearly stuck.
+
+**Fix:** killed the stuck agent with `TaskStop`, then fanned the work out across six parallel sub-subagents — each handling a single 20-page range (1–20, 21–40, …, 101–116) with one Read + one Write to `/tmp/sandia-parts/sandia-part-N.txt`. Concatenated the six outputs via a bash heredoc into `public/extracted/DOC-141.txt`. Final extraction was 238,545 characters across the bundle, the largest single transcript in the catalog. The lesson: when a Claude agent has a structured loop and stalls, it usually isn't a model problem — it's a context-pressure or tool-loop problem, and breaking the loop into independent siblings is faster than trying to debug the original agent's state.
+
+### 16. Vercel build adapter crashed on a known Next 16.2.6 bug after a big PR
+
+The build started failing on Vercel with `TypeError: The 'path' argument must be of type string. Received undefined` at the `Applying modifyConfig from Vercel` step. Local build was green. The same commit had worked the prior week; the only intervening change was a single `export const dynamic = "force-dynamic"` line on `app/api/chat/route.ts` that I'd added defensively. Vercel community thread #42019 showed the same symptoms across multiple Next 16.2.6 projects.
+
+**Fix:** removed the `force-dynamic` export. The route is implicitly dynamic anyway because it POSTs with `request.json()` and streams SSE — there was no behavioral reason to declare it. Build green on the next commit. The bigger discipline lesson: when a build breaks after a "defensive" change, treat the defensive change as the suspect first, not the framework. Most defensive code in modern frameworks is at best inert and at worst a footgun.
+
+### 17. Reddit told me the site was bad on mobile, and analytics confirmed it
+
+A Reddit commenter dropped "not very good on mobile" in a thread linking to UAP.WATCH. Vercel Analytics showed a roughly 50/50 desktop/mobile session split, so the issue wasn't a niche audience — it was half the traffic. A headless audit at 375 × 812px (iPhone) surfaced seven hard floors that blew out the viewport: an incident-table `minWidth: 640px`, a 280px `DocumentViewer` left rail that crushed the right pane to ~60px, a 7-link `AppBar` nav with no overflow handling, a fixed-640px `DossierPanel` that wasted screen when nothing was selected, a `<pre>` for OCR text with no `whitespace-pre-wrap`, `FactRow` with `grid-cols-[120px_1fr]` and no mobile stack, and the lack of an explicit `viewport` export.
+
+**Fix:** rebuilt the IncidentTable as a dual-mode component (card list below `sm:`, table at `sm:+`) rather than trying to retrofit the table; converted AppBar to a client component with a slide-down hamburger sheet; stacked DocumentViewer's two panes vertically on mobile (180px list rail above body); made DossierPanel height auto when empty / `max-h-[80vh]` when populated; added `whitespace-pre-wrap break-words` to the document `<pre>`; replaced FactRow's fixed grid with `flex-col sm:grid`; exported an explicit `viewport` block from `app/layout.tsx`. Verified at 375 / 768 / 1280 via headless Playwright — no horizontal scroll on five sampled routes. The deeper lesson: a `whitespace-nowrap` added later to "fix" desktop date alignment can be a mobile-killer at the same time. Responsiveness is per-element, not per-page, and a date-alignment cleanup pass should be reviewed against the smallest target viewport, not just the largest.
+
+### 18. pSEO at scale without tripping spam heuristics
+
+A 2026-era programmatic-SEO play has to navigate two competing pressures: Google's manual-action threshold for "mass-generated low-value content" (which fires on bulk deploys of templated pages) versus the LLM-summarization gold rush (where AI Overviews preferentially cite pages structured to the Princeton GEO research's "citable passage" shape — 134–167 words, verbatim quotation, statistic, primary-source citation). Either you build hand-crafted pages at scale, or you stay under the threshold by dripping.
+
+**Fix:** chose drip + hand-crafted. Every pSEO page is written end-to-end against the actual primary source it cites — not templated from a JSON blob. The /q/, /wiki/, /compare/ schemas in `lib/faq.ts`, `lib/wiki.ts`, `lib/compare.ts` are typed with TypeScript discriminated unions so the JSON-LD generators stay schema-honest. Deploys happen in batches of 15–20 pages spread across days, sequenced to coincide with news-cycle moments (Release 02 dropped → next-day pSEO batch keyed to the new records). Across the first three weeks since launch the site has accumulated 95 pSEO pages (66 FAQs, 19 wikis, 10 compares), each grounded in a specific declassified document or video. The structural payoff: AI Overviews can lift the lead paragraph as-is, and human users land on a real research page, not a doorway.
+
 ## By the numbers
 
 | | Value |
 |---|---|
-| Time from Pentagon release to live deploy | ~6 hours |
+| Time from Pentagon release to live deploy (v1) | ~6 hours |
 | Time to v1 with full feature set | ~24 hours |
 | Time to 100% catalog coverage including local PDF extraction | ~30 hours |
+| Time from Release 02 drop to same-day ingest deploy | ~8 hours |
 | Lighthouse Performance (desktop / mobile) | 100 / 95 |
 | LCP (desktop / mobile observed) | 687 ms / ~140 ms |
 | First Load JS (initial HTML response) | 382 KB → 106 KB after lazy-loading below-fold |
 | Click-to-paint latency on incident selection (Playwright benchmark) | 27–32 ms (avg 29.5 ms) |
-| Total commits on `main` | 26 |
-| Components built | 16 |
+| Total commits on `main` | 44 |
+| Components built | 18 (added `AudioEvidenceGrid` and the `IncidentTable` card-view variant) |
+| Total files mirrored across both PURSUE releases | 226 (162 in R01 + 64 in R02) |
+| Documents indexed (with locally-extracted text) | 141 |
+| Videos indexed | 95 (28 R01 + 51 R02 PURSUE + 16 supporting) |
+| NASA audio recordings (new media type in R02) | 7 |
+| Incidents indexed | 29 (26 R01 + 3 R02) |
+| Source agencies represented | 9 (FBI, DOD, NASA, STATE, USAF, USN + CIA, ODNI, DOE added in R02) |
+| pSEO pages live (drip-deployed across 3 weeks) | 95 (66 FAQs, 19 wikis, 10 compares) |
 | PDFs extracted via pdftotext (digital-native) | 48 |
 | PDFs extracted via ocrmypdf (scanned, OCR'd) | 40 |
 | PDFs verified image-only (no extractable text) | 25 |
 | PDFs re-OCR'd in Day 2 quality pass with stricter flags | 20 |
-| PDFs recovered via Claude Code vision-pass subagents | 7 |
+| PDFs recovered via Claude Code vision-pass subagents (R01) | 7 |
+| PDFs OCR'd same-day via Claude vision (R02) | 6 (incl. 116-page Sandia bundle split across 6 parallel subagents) |
 | Largest single-document text recovery (DOC-031, Sen. Russell sighting) | 551 → 33,831 chars (61×) |
+| Largest single-document transcript (DOC-141, Sandia 1948–50 bundle) | 238,545 chars |
 | Duplicate catalog entries removed during audit | 1 (DOC-037 = DOC-036) |
 | Day 3 OCR swap (Reducto VLM, CC BY 4.0) — PDFs replaced / total body delta | 111 / +1.99M chars (+43%) |
 | RAG chunks after swap | 5,106 → 6,908 (+35%) |
-| Incidents indexed | 26 |
-| Documents indexed | 135 (after dedup) |
-| Videos indexed | 44 (28 PURSUE + 16 supporting) |
+| Mobile viewport hard floors fixed in Day-19 rebuild | 7 |
 | Vision-pass API spend | $0 (ran inside Claude Code, not via paid API) |
 | Per-PDF LLM token cost during initial extraction | 0 |
 | Recurring infrastructure cost | $0 (Vercel Hobby + free brew tools) |
@@ -186,11 +240,11 @@ The tint constants needed to stay in sync between cobe's WebGL marker buffer (no
 
 ## What this project demonstrates
 
-**Trend instincts.** Recognized a 24-hour news-cycle window and shipped a product that hit it. Most "vibe-coded" sites you see in this kind of moment look generic — this one was differentiated by the design language, the depth of the actual content, and the fact that it kept improving while the trend was alive.
+**Trend instincts, repeated.** Recognized a 24-hour news-cycle window for Release 01 and shipped a product that hit it. Repeated the trick for Release 02 two weeks later with an ~8-hour same-day ingest that included a new media type, three new source agencies, and full OCR of the entire new PDF set. Most "vibe-coded" sites you see in a news-cycle moment look generic — this one was differentiated by the design language, the depth of the actual content, and the fact that it kept improving while the trend was alive *and* compounded into a real archive after the trend moved on.
 
 **Speed without slop.** v1 shipped in under 24 hours. The Lighthouse score is 100/95 with zero hand-tuning, the design is sourced from Palantir's actual public design system rather than vibes, and every claim about file counts on the page is reconciled to the canonical CSV source-of-truth — not made up.
 
-**Agentic engineering.** Most of the work was orchestrated through Claude Code subagents running in parallel waves: scaffold → 7 component agents in parallel → data backfill + UX rebuild in parallel → performance pass + screenshot agent in parallel → indexing pipeline + babysit watchdog. I worked as the orchestrator (decompose, define schemas, integrate) rather than the typer. This is the 2026-relevant version of "shipped fast."
+**Agentic engineering.** Most of the work was orchestrated through Claude Code subagents running in parallel waves: scaffold → 7 component agents in parallel → data backfill + UX rebuild in parallel → performance pass + screenshot agent in parallel → indexing pipeline + babysit watchdog. The pattern repeated through Release 02 (6 parallel subagents for the Sandia 116-page OCR, page-range partitioned) and through the mobile rebuild (one Explore agent for the responsiveness audit, then targeted Edits). I worked as the orchestrator (decompose, define schemas, integrate) rather than the typer. This is the 2026-relevant version of "shipped fast."
 
 **Honest engineering.** When the war.gov network started 403'ing, I didn't fake the data — I dug for the canonical CSV via Wayback. When the synthetic memo bodies were ungrounded stubs, I built a real local OCR pipeline rather than asking an LLM to hallucinate plausible text. When 5 PDFs failed extraction even after retry, I logged them as failed and let the UI fall back gracefully. After v1 shipped and the news cycle moved on, I went back and audited every extracted file — re-OCR'd 20 docs with stricter flags, vision-recovered the 7 that were unreadable, and removed a duplicate catalog entry. The Senator Russell trans-Caucasus sighting (61× text recovery on DOC-031) wouldn't have been visible to any reader if the audit hadn't happened. Trend-driven ship dates don't excuse archive-quality lapses.
 
@@ -200,4 +254,4 @@ The tint constants needed to stay in sync between cobe's WebGL marker buffer (no
 
 ---
 
-*UAP.WATCH was a one-person, ~30-hour solo build orchestrating multiple Claude Code subagents in parallel. Live since 2026-05-08, indexed since 2026-05-09.*
+*UAP.WATCH was a one-person solo build orchestrating multiple Claude Code subagents in parallel — ~30 hours to v1 on Release 01 (2026-05-08), ~8 hours to same-day ingest of Release 02 (2026-05-22), and continued iteration since. Live, indexed, and mirroring 226 declassified UAP files across the Pentagon's two PURSUE tranches as of this update (2026-05-27).*
