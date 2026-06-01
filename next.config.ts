@@ -7,6 +7,13 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
   },
+  // Serve the standalone GEO case-study page at a clean /case-study URL.
+  // The self-contained HTML lives in public/case-study.html (its own fonts,
+  // styles, and scripts), so the rewrite lets it bypass the app layout
+  // entirely while still resolving at the pretty path.
+  async rewrites() {
+    return [{ source: "/case-study", destination: "/case-study.html" }];
+  },
 };
 
 export default nextConfig;

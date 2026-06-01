@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>UAP.WATCH — GEO Field Report</title>
+<meta name="description" content="How a declassified-document archive engineered for the AI retrieval layer earned ~10% of its traffic from ChatGPT, Claude, and Perplexity. A GEO/GTM case study." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0d1013;
+    --bg-2:#14181c;
+    --panel:#1b2026;
+    --panel-2:#1f262d;
+    --line:rgba(255,255,255,.08);
+    --line-2:rgba(255,255,255,.14);
+    --ink:#dbe3ec;
+    --ink-soft:#aeb9c4;
+    --ink-mute:#7c8893;
+    --blue:#4c90f0;
+    --blue-bright:#2d72d2;
+    --rose:#f5498b;
+    --indigo:#9881f3;
+    --turq:#13c9ba;
+    --warn:#ec9a3c;
+    --green:#3dcc91;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --display:'Space Mono',var(--mono);
+    --body:'Newsreader',Georgia,'Times New Roman',serif;
+    --maxw:980px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(1200px 700px at 80% -10%, rgba(76,144,240,.10), transparent 60%),
+      radial-gradient(900px 600px at 0% 0%, rgba(152,129,243,.07), transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:18px;
+    line-height:1.72;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* faint engineering grid */
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+    background-size:34px 34px;
+    mask-image:radial-gradient(ellipse 100% 80% at 50% 0%, #000 30%, transparent 90%);
+  }
+
+  a{color:var(--blue);text-decoration:none;}
+  a:hover{text-decoration:underline;text-underline-offset:3px;}
+
+  /* ── scroll progress ── */
+  #progress{
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:linear-gradient(90deg,var(--turq),var(--blue),var(--indigo));
+    z-index:60; transition:width .08s linear;
+    box-shadow:0 0 10px rgba(76,144,240,.6);
+  }
+
+  /* ── classification banner ── */
+  .classbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; gap:14px;
+    padding:7px 16px;
+    background:rgba(13,16,19,.86);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--ink-mute);
+  }
+  .classbar .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2.4s infinite;}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+  .classbar .sep{color:rgba(255,255,255,.16);}
+  .classbar .right{margin-left:auto;display:flex;gap:14px;align-items:center;}
+  .classbar b{color:var(--ink-soft);font-weight:500;}
+  #zulu{color:var(--blue);}
+
+  /* ── section nav ── */
+  .secnav{
+    position:sticky; top:33px; z-index:40;
+    background:rgba(13,16,19,.82); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    overflow-x:auto; scrollbar-width:none;
+  }
+  .secnav::-webkit-scrollbar{display:none;}
+  .secnav ul{display:flex;gap:2px;margin:0 auto;padding:0 12px;max-width:var(--maxw);list-style:none;}
+  .secnav a{
+    display:block;padding:11px 12px;font-family:var(--mono);font-size:11px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);
+    white-space:nowrap;border-bottom:2px solid transparent;
+  }
+  .secnav a:hover{color:var(--ink);text-decoration:none;}
+  .secnav a.active{color:var(--blue);border-bottom-color:var(--blue);}
+
+  /* ── layout ── */
+  .wrap{position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+  section{padding:64px 0;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--blue);margin:0 0 18px;display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line-2),transparent);}
+  h2{
+    font-family:var(--mono);font-weight:700;font-size:clamp(24px,3.4vw,34px);
+    letter-spacing:-.01em;margin:0 0 24px;color:#fff;line-height:1.15;
+  }
+  h3{font-family:var(--mono);font-weight:700;font-size:16px;letter-spacing:.01em;color:#fff;margin:0 0 8px;}
+  p{margin:0 0 18px;color:var(--ink-soft);}
+  p strong, li strong{color:var(--ink);font-weight:600;}
+  .lead{font-size:20px;color:var(--ink);}
+
+  /* ── HERO ── */
+  .hero{padding:74px 0 58px;border-bottom:1px solid var(--line);position:relative;}
+  .hero .tag{font-family:var(--mono);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--turq);margin-bottom:22px;}
+  .wordmark{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(44px,9vw,96px);line-height:.92;letter-spacing:-.02em;color:#fff;margin:0;
+  }
+  .wordmark .dotwatch{color:var(--blue);}
+  .hero .dek{
+    font-family:var(--body);font-size:clamp(19px,2.4vw,24px);line-height:1.5;
+    color:var(--ink-soft);max-width:42ch;margin:22px 0 0;
+  }
+  .hero .byline{
+    margin-top:26px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink-mute);display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;
+  }
+  .hero .byline b{color:var(--ink-soft);font-weight:500;}
+  .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;}
+  .btn{
+    font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    padding:11px 18px;border:1px solid var(--line-2);border-radius:2px;color:var(--ink);
+    background:var(--panel);cursor:pointer;transition:.18s;display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn:hover{border-color:var(--blue);color:#fff;text-decoration:none;transform:translateY(-1px);}
+  .btn.primary{background:var(--blue-bright);border-color:var(--blue-bright);color:#fff;}
+  .btn.primary:hover{background:var(--blue);border-color:var(--blue);box-shadow:0 6px 22px rgba(45,114,210,.4);}
+
+  /* radar deco */
+  .radar{
+    position:absolute;top:60px;right:0;width:230px;height:230px;border-radius:50%;
+    pointer-events:none;opacity:.6;
+    background:
+      radial-gradient(circle, transparent 0 27%, rgba(76,144,240,.10) 27% 28%, transparent 28%),
+      radial-gradient(circle, transparent 0 54%, rgba(76,144,240,.10) 54% 55%, transparent 55%),
+      radial-gradient(circle, transparent 0 81%, rgba(76,144,240,.10) 81% 82%, transparent 82%);
+  }
+  .radar::before{
+    content:"";position:absolute;inset:0;border-radius:50%;
+    background:conic-gradient(from 0deg, transparent 0 78%, rgba(19,201,186,.22) 90%, rgba(19,201,186,.55) 100%);
+    animation:sweep 4.2s linear infinite;
+    mask:radial-gradient(circle, #000 82%, transparent 83%);
+  }
+  @keyframes sweep{to{transform:rotate(360deg)}}
+  @media(max-width:720px){.radar{display:none}}
+
+  /* ── stat strip ── */
+  .stats{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden;margin-top:6px;
+  }
+  .stat{background:var(--bg-2);padding:22px 20px;position:relative;}
+  .stat .n{font-family:var(--display);font-weight:700;font-size:34px;color:#fff;line-height:1;}
+  .stat .n .u{font-size:18px;color:var(--blue);}
+  .stat .l{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);margin-top:10px;line-height:1.5;}
+  .stat.hl .n{color:var(--turq);}
+  @media(max-width:680px){.stats{grid-template-columns:repeat(2,1fr)}.stat .n{font-size:28px}}
+
+  /* ── panels / cards ── */
+  .panel{
+    background:linear-gradient(180deg,var(--panel),var(--panel-2));
+    border:1px solid var(--line);border-radius:4px;padding:22px;position:relative;
+  }
+  .panel.tick::before,.panel.tick::after{
+    content:"";position:absolute;width:11px;height:11px;border:1.5px solid var(--blue);opacity:.7;
+  }
+  .panel.tick::before{top:-1px;left:-1px;border-right:none;border-bottom:none;}
+  .panel.tick::after{bottom:-1px;right:-1px;border-left:none;border-top:none;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:720px){.grid2{grid-template-columns:1fr}}
+
+  .layer{display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line);}
+  .layer:last-child{border-bottom:none;}
+  .layer .idx{font-family:var(--mono);font-size:12px;color:var(--blue);padding-top:3px;min-width:30px;}
+  .layer h3{margin-bottom:4px;font-size:15px;}
+  .layer p{margin:0;font-size:16px;}
+
+  /* numbered reasons */
+  ol.reasons{counter-reset:r;list-style:none;padding:0;margin:0;}
+  ol.reasons li{counter-increment:r;position:relative;padding:14px 0 14px 52px;border-bottom:1px dashed var(--line);}
+  ol.reasons li:last-child{border-bottom:none;}
+  ol.reasons li::before{
+    content:counter(r,decimal-leading-zero);position:absolute;left:0;top:14px;
+    font-family:var(--mono);font-size:13px;color:var(--turq);
+    border:1px solid var(--line-2);border-radius:3px;padding:3px 7px;
+  }
+  ol.reasons b{color:#fff;}
+
+  /* callout */
+  .callout{
+    border-left:3px solid var(--turq);background:rgba(19,201,186,.06);
+    padding:16px 20px;border-radius:0 4px 4px 0;margin:24px 0;
+  }
+  .callout.warn{border-left-color:var(--warn);background:rgba(236,154,60,.07);}
+  .callout p{margin:0;color:var(--ink);}
+  .callout .k{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--turq);display:block;margin-bottom:6px;}
+  .callout.warn .k{color:var(--warn);}
+
+  /* lever menu groups */
+  .lever{margin-bottom:20px;}
+  .lever .gh{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:9px;}
+  .lever .gh .pip{width:9px;height:9px;border-radius:2px;}
+  .lever.good .pip{background:var(--green);} .lever.good .gh{color:var(--green);}
+  .lever.exp .pip{background:var(--indigo);} .lever.exp .gh{color:var(--indigo);}
+  .lever.bad .pip{background:var(--warn);} .lever.bad .gh{color:var(--warn);}
+  .lever ul{margin:0;padding-left:20px;}
+  .lever li{margin-bottom:7px;color:var(--ink-soft);}
+
+  /* improve list */
+  ul.bul{list-style:none;padding:0;margin:0;}
+  ul.bul li{position:relative;padding:10px 0 10px 26px;border-bottom:1px dashed var(--line);color:var(--ink-soft);}
+  ul.bul li:last-child{border-bottom:none;}
+  ul.bul li::before{content:"▹";position:absolute;left:0;color:var(--rose);}
+
+  /* ── Q&A ── */
+  .qa details{
+    background:var(--panel);border:1px solid var(--line);border-radius:4px;margin-bottom:10px;overflow:hidden;
+    transition:border-color .18s;
+  }
+  .qa details[open]{border-color:var(--line-2);}
+  .qa summary{
+    list-style:none;cursor:pointer;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;
+    font-family:var(--mono);font-weight:500;font-size:15px;color:#fff;
+  }
+  .qa summary::-webkit-details-marker{display:none;}
+  .qa summary .q{font-size:12px;color:var(--blue);min-width:34px;padding-top:2px;}
+  .qa summary .plus{margin-left:auto;color:var(--ink-mute);font-size:18px;transition:.2s;flex-shrink:0;}
+  .qa details[open] summary .plus{transform:rotate(45deg);color:var(--blue);}
+  .qa .ans{padding:0 18px 18px 66px;}
+  .qa .ans p{margin:0;color:var(--ink-soft);font-size:17px;}
+  @media(max-width:560px){.qa .ans{padding-left:18px;}}
+
+  /* closer */
+  .closer{padding:70px 0;text-align:center;}
+  .closer blockquote{
+    font-family:var(--body);font-style:italic;font-size:clamp(22px,3.4vw,30px);
+    line-height:1.45;color:#fff;max-width:24ch;margin:0 auto;position:relative;
+  }
+  .closer .mark{font-family:var(--display);color:var(--blue);font-size:48px;line-height:0;}
+
+  footer{padding:40px 0 70px;text-align:center;font-family:var(--mono);font-size:12px;color:var(--ink-mute);letter-spacing:.04em;}
+  footer .links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:18px;}
+  footer .disc{max-width:60ch;margin:18px auto 0;line-height:1.7;font-size:11px;opacity:.8;}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}.radar::before{animation:none;}.classbar .dot{animation:none;}}
+
+  /* print */
+  @media print{
+    body{background:#fff;color:#111;font-size:11pt;}
+    body::before,#progress,.classbar,.secnav,.radar,.cta,.closer .mark{display:none!important;}
+    .wrap{max-width:none;padding:0;}
+    section{padding:18px 0;border-color:#ccc;page-break-inside:avoid;}
+    h2,h3,.wordmark{color:#000;} .eyebrow{color:#000;}
+    p,li,.stat .l,.qa .ans p{color:#222;}
+    .panel,.stat{background:#fff;border-color:#ccc;}
+    .qa details{border-color:#ccc;} .qa .ans{padding-left:18px;}
+    .qa details{open:true;}
+    .closer blockquote{color:#000;}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<div class="classbar">
+  <span class="dot"></span>
+  <span>UNCLASSIFIED</span><span class="sep">//</span>
+  <span>FIELD REPORT</span><span class="sep">//</span>
+  <span>GEO-OPS</span>
+  <span class="right">
+    <span><b>REF</b> UAP-WATCH</span>
+    <span class="sep">//</span>
+    <span id="zulu">--:--:--Z</span>
+  </span>
+</div>
+
+<nav class="secnav">
+  <ul>
+    <li><a href="#summary">00 · Summary</a></li>
+    <li><a href="#did">01 · What I did</a></li>
+    <li><a href="#worked">02 · Why it worked</a></li>
+    <li><a href="#tried">03 · What I tried</a></li>
+    <li><a href="#better">04 · Do better</a></li>
+    <li><a href="#matters">05 · Why it matters</a></li>
+  </ul>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero reveal">
+    <div class="radar"></div>
+    <div class="tag">Generative Engine Optimization · Case Study</div>
+    <h1 class="wordmark">UAP<span class="dotwatch">.WATCH</span></h1>
+    <p class="dek">How a declassified-document archive, engineered for the AI&nbsp;retrieval layer, earned <strong style="color:var(--turq)">~10% of its traffic from ChatGPT, Claude&nbsp;&amp; Perplexity</strong> — in one month.</p>
+    <div class="byline">
+      <span><b>Prepared by</b> Bharat Jaju</span><span class="sep">·</span>
+      <span><b>Build</b> Solo · &lt;24h to v1</span><span class="sep">·</span>
+      <span><b>Stack</b> Next.js 16 · Vercel</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="https://uap-watch-flame.vercel.app" target="_blank" rel="noopener">▶ View live site</a>
+      <a class="btn" href="https://github.com/NoobAIDeveloper/uap-watch" target="_blank" rel="noopener">◰ Source / GitHub</a>
+      <button class="btn" onclick="window.print()">⎙ Save as PDF</button>
+    </div>
+  </header>
+
+  <!-- SUMMARY / STATS -->
+  <section id="summary" class="reveal">
+    <div class="eyebrow">00 — At a glance</div>
+    <div class="stats">
+      <div class="stat hl"><div class="n">~10<span class="u">%</span></div><div class="l">Traffic from AI assistants (ChatGPT · Claude · Perplexity)</div></div>
+      <div class="stat"><div class="n">~95</div><div class="l">Hand-written pSEO pages (+ hundreds of entity pages)</div></div>
+      <div class="stat"><div class="n">~30</div><div class="l">AI crawlers explicitly allow-listed</div></div>
+      <div class="stat"><div class="n">134–167</div><div class="l">Word "citable-passage" spec, per page</div></div>
+      <div class="stat"><div class="n">7</div><div class="l">schema.org JSON-LD types on every page</div></div>
+      <div class="stat"><div class="n">&lt;24<span class="u">h</span></div><div class="l">Release → live, indexed inside the news cycle</div></div>
+    </div>
+    <p style="margin-top:26px" class="lead">The Pentagon dropped 162 declassified UAP files into a flat, unbrowsable directory during a live news cycle. I shipped a better archive the same day — then engineered it as a machine-readable, primary-source corpus built specifically for the way AI assistants retrieve and cite sources.</p>
+  </section>
+
+  <!-- 01 WHAT I DID -->
+  <section id="did" class="reveal">
+    <div class="eyebrow">01 — What I did</div>
+    <h2>SEO ranks you in a list. GEO makes you the answer.</h2>
+    <p>Modern AI answers are <strong>retrieval-augmented</strong>: when someone asks Perplexity or ChatGPT a question, the system runs a live search, fetches a few pages <em>at inference time</em>, and writes its answer grounded in them. That fetch step is the lever. GEO is, in effect, SEO for the retrieval layer of LLMs — plus formatting your content the way a model likes to quote it.</p>
+    <p>So I built the site as a <strong>machine-readable primary-source archive</strong> and optimized every layer for both human search and LLM retrieval. Five things stacked together:</p>
+
+    <div class="panel tick" style="margin-top:8px">
+      <div class="layer"><div class="idx">A</div><div><h3>Wide programmatic surface</h3><p>~95 hand-written long-tail pages (FAQ / wiki / compare) plus hundreds of auto-generated entity pages — one per incident, document, video, agency, year, US state. Each targets a real question someone asks an AI.</p></div></div>
+      <div class="layer"><div class="idx">B</div><div><h3>The "citable-passage" shape</h3><p>Every answer is 134–167 words, definition-first, with a <strong>statistic + a verbatim quotation + a primary-source citation</strong>. A dedicated pull-quote per page gives the model a clean string to lift. (Straight from the Princeton GEO research.)</p></div></div>
+      <div class="layer"><div class="idx">C</div><div><h3>Structured data everywhere</h3><p>The same JSON-LD vocabulary (FAQPage, NewsArticle, Dataset, Quotation, GeoCoordinates…) repeated across every page, so crawlers extract facts unambiguously instead of guessing from prose.</p></div></div>
+      <div class="layer"><div class="idx">D</div><div><h3>Machine-ingestion endpoints</h3><p>An <code style="font-family:var(--mono);color:var(--blue)">llms.txt</code> index and a build-time <code style="font-family:var(--mono);color:var(--blue)">llms-full.txt</code> corpus (the whole site in one file), plus a robots.txt that explicitly allow-lists ~30 AI crawlers by name.</p></div></div>
+      <div class="layer"><div class="idx">E</div><div><h3>Fast, push-based discovery</h3><p>A programmatic sitemap with fresh <code style="font-family:var(--mono);color:var(--blue)">lastmod</code> and an <strong>IndexNow</strong> ping on every deploy — so we were indexed in minutes, during the news cycle, not days later.</p></div></div>
+    </div>
+    <div class="callout"><span class="k">Wrapped around all of it</span><p>Primary-source grounding on every claim (links back to war.gov), a RAG chatbot grounded only in the corpus, and trend timing — shipping into spiking demand before any authoritative competitor existed.</p></div>
+  </section>
+
+  <!-- 02 WHY IT WORKED -->
+  <section id="worked" class="reveal">
+    <div class="eyebrow">02 — Why it worked</div>
+    <h2>A combination, not one magic trick.</h2>
+    <ol class="reasons">
+      <li><b>Owned a fresh, low-competition topic.</b> A brand-new release with spiking demand and almost no authoritative sources — I became one of the most complete within 24 hours.</li>
+      <li><b>Was the cleanest thing to quote.</b> Our pages were pre-formatted into the self-contained, sourced, statistic-bearing passages models prefer. We didn't just rank — we were <em>liftable</em>.</li>
+      <li><b>Was trivially machine-ingestible.</b> Server-rendered HTML (content in the first response, not behind JS), consistent JSON-LD, explicit crawler allow-list, one-file corpus. No reason for a crawler to skip or misparse us.</li>
+      <li><b>Covered the long tail.</b> Hundreds of specific question- and entity-pages meant that for a huge range of natural-language queries, <em>some</em> page of ours was the best match.</li>
+      <li><b>Got discovered fast, trusted quickly.</b> IndexNow + sitemap freshness got us indexed during the cycle; primary-source grounding made us safe to cite.</li>
+    </ol>
+    <div class="callout warn"><span class="k">The honesty point that lands well in interviews</span><p>I can't cleanly attribute the 10% to any single lever, and the big confound is that this was a viral news event — topical authority did a lot of work a normal client won't have. What <strong>does</strong> transfer is the on-page system. Next time I'd prove it: baseline first, then A/B the structured-data and content-shape changes, and monitor which pages actually get cited.</p></div>
+  </section>
+
+  <!-- 03 WHAT I TRIED -->
+  <section id="tried" class="reveal">
+    <div class="eyebrow">03 — The lever menu</div>
+    <h2>What I tried — in order of confidence.</h2>
+    <div class="grid2">
+      <div class="panel">
+        <div class="lever good"><div class="gh"><span class="pip"></span>Durable · high-confidence</div>
+          <ul>
+            <li>Citable-passage content shape (stat + quote + citation)</li>
+            <li>JSON-LD structured data across all page types</li>
+            <li>Programmatic long-tail pages grounded in a real dataset</li>
+            <li>Build-time sitemap + IndexNow push on every deploy</li>
+            <li>Explicit AI-crawler allow-listing</li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="lever exp"><div class="gh"><span class="pip"></span>Experimental · cheap bets</div>
+          <ul>
+            <li><code style="font-family:var(--mono);color:var(--indigo)">llms.txt</code> / <code style="font-family:var(--mono);color:var(--indigo)">llms-full.txt</code> — a <em>proposed</em> convention; shipped because near-zero cost &amp; directionally right, not because I proved it's read</li>
+            <li>RAG chatbot grounded only in the corpus — part feature, part credibility / dwell-time signal</li>
+          </ul>
+        </div>
+        <div class="lever bad" style="margin-top:6px"><div class="gh"><span class="pip"></span>Deliberately avoided</div>
+          <ul>
+            <li><strong>Mass-dumping templated pages.</strong> Chose drip + hand-crafted instead: batches of 15–20, spread across days, timed to news moments — under Google's spam threshold. Scale the surface, not the slop.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:20px"><strong>Distribution as a GEO input:</strong> I seeded Reddit, Hacker News, and Twitter. That matters for GEO too — human distribution drives real traffic and inbound mentions, which makes crawlers discover and trust you faster. GEO isn't only on-page; being talked about on sites the models already trust is itself a citation lever.</p>
+  </section>
+
+  <!-- 04 DO BETTER -->
+  <section id="better" class="reveal">
+    <div class="eyebrow">04 — What I'd do better</div>
+    <h2>Where the next iteration goes.</h2>
+    <ul class="bul">
+      <li><strong>Measurement from day one.</strong> No A/B on structured-data or content-shape changes, no tracking of <em>which</em> pages got cited. I'd instrument that before touching content.</li>
+      <li><strong>Direct citation monitoring.</strong> I tracked referral <em>traffic</em> but never queried the assistants to see whether/how they actually quoted us, and for which questions.</li>
+      <li><strong>Off-site authority.</strong> Nearly all signals were first-party. I'd chase third-party mentions and links on sites models already trust — an under-pulled lever.</li>
+      <li><strong>Name the speculative parts.</strong> <code style="font-family:var(--mono);color:var(--blue)">llms.txt</code> is a bet, not a proven channel. Knowing the difference between established and emerging tactics is part of doing this credibly.</li>
+    </ul>
+  </section>
+
+  <!-- 05 WHY IT MATTERS -->
+  <section id="matters" class="reveal">
+    <div class="eyebrow">05 — Why this matters</div>
+    <h2>The next search land-grab is already open.</h2>
+    <p>Search is shifting from ten blue links to AI assistants that answer directly and cite a handful of sources. That's a <strong>new, under-contested surface</strong> where most small businesses are completely invisible — and being <em>the cited answer</em> is worth more than ranking #4 on Google.</p>
+    <p>It's an early-mover moment, the way SEO was in ~2010. A shop that can reliably get small businesses cited by AI is selling into a market that mostly doesn't yet know it has the problem. The wedge writes itself: a free <em>"Is your business invisible to AI?"</em> audit that shows an owner ChatGPT recommending a competitor for their core question — that gap is visceral, and it sells.</p>
+  </section>
+
+  <!-- CLOSER -->
+  <div class="closer reveal">
+    <div class="mark">“</div>
+    <blockquote>GEO is SEO for the retrieval layer — same discipline, new surface.</blockquote>
+    <p style="font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-mute);margin-top:22px">The winners make a business the cleanest, most trustworthy thing for a model to quote — and prove it with citation tracking.</p>
+  </div>
+
+  <footer>
+    <div class="links">
+      <a href="https://uap-watch-flame.vercel.app" target="_blank" rel="noopener">Live site ↗</a>
+      <a href="https://github.com/NoobAIDeveloper/uap-watch" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="#summary">↑ Top</a>
+    </div>
+    <div>UAP.WATCH · GEO Field Report · Prepared by Bharat Jaju</div>
+    <p class="disc">Metrics from Vercel Analytics referral data over the trailing ~30 days. "~10% from AI assistants" reflects sessions referred by ChatGPT, Claude, and Perplexity. Single-event project; figures illustrate mechanism and direction, not a controlled study.</p>
+  </footer>
+
+</div>
+
+<script>
+  // live Zulu clock
+  (function(){
+    var el=document.getElementById('zulu');
+    function tick(){
+      var d=new Date();
+      function p(n){return String(n).padStart(2,'0');}
+      el.textContent=p(d.getUTCHours())+':'+p(d.getUTCMinutes())+':'+p(d.getUTCSeconds())+'Z';
+    }
+    tick(); setInterval(tick,1000);
+  })();
+
+  // scroll progress
+  var prog=document.getElementById('progress');
+  function onScroll(){
+    var h=document.documentElement;
+    var sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight);
+    prog.style.width=(sc*100)+'%';
+  }
+  document.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // reveal on scroll
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(n){io.observe(n);});
+
+  // active section in nav
+  var links=[].slice.call(document.querySelectorAll('.secnav a'));
+  var map={}; links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  var spy=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){
+        links.forEach(function(l){l.classList.remove('active');});
+        var id=e.target.id; if(map[id]) map[id].classList.add('active');
+      }
+    });
+  },{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('section[id]').forEach(function(s){spy.observe(s);});
+</script>
+</body>
+</html>
