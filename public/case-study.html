@@ -339,7 +339,7 @@
     <div class="eyebrow">00 — At a glance</div>
     <div class="stats">
       <div class="stat hl"><div class="n">~10<span class="u">%</span></div><div class="l">Traffic from AI assistants (ChatGPT · Claude · Perplexity)</div></div>
-      <div class="stat"><div class="n">~95</div><div class="l">Hand-written pSEO pages (+ hundreds of entity pages)</div></div>
+      <div class="stat"><div class="n">~95</div><div class="l">Programmatic pSEO pages (+ hundreds of entity pages)</div></div>
       <div class="stat"><div class="n">~30</div><div class="l">AI crawlers explicitly allow-listed</div></div>
       <div class="stat"><div class="n">134–167</div><div class="l">Word "citable-passage" spec, per page</div></div>
       <div class="stat"><div class="n">7</div><div class="l">schema.org JSON-LD types on every page</div></div>
@@ -356,7 +356,7 @@
     <p>So I built the site as a <strong>machine-readable primary-source archive</strong> and optimized every layer for both human search and LLM retrieval. Five things stacked together:</p>
 
     <div class="panel tick" style="margin-top:8px">
-      <div class="layer"><div class="idx">A</div><div><h3>Wide programmatic surface</h3><p>~95 hand-written long-tail pages (FAQ / wiki / compare) plus hundreds of auto-generated entity pages — one per incident, document, video, agency, year, US state. Each targets a real question someone asks an AI.</p></div></div>
+      <div class="layer"><div class="idx">A</div><div><h3>Wide programmatic surface</h3><p>~95 programmatically generated long-tail pages (FAQ / wiki / compare) plus hundreds of auto-generated entity pages — one per incident, document, video, agency, year, US state. Each is generated from the structured catalog and grounded in a specific declassified document, targeting a real question someone asks an AI.</p></div></div>
       <div class="layer"><div class="idx">B</div><div><h3>The "citable-passage" shape</h3><p>Every answer is 134–167 words, definition-first, with a <strong>statistic + a verbatim quotation + a primary-source citation</strong>. A dedicated pull-quote per page gives the model a clean string to lift. (Straight from the Princeton GEO research.)</p></div></div>
       <div class="layer"><div class="idx">C</div><div><h3>Structured data everywhere</h3><p>The same JSON-LD vocabulary (FAQPage, NewsArticle, Dataset, Quotation, GeoCoordinates…) repeated across every page, so crawlers extract facts unambiguously instead of guessing from prose.</p></div></div>
       <div class="layer"><div class="idx">D</div><div><h3>Machine-ingestion endpoints</h3><p>An <code style="font-family:var(--mono);color:var(--blue)">llms.txt</code> index and a build-time <code style="font-family:var(--mono);color:var(--blue)">llms-full.txt</code> corpus (the whole site in one file), plus a robots.txt that explicitly allow-lists ~30 AI crawlers by name.</p></div></div>
@@ -432,7 +432,7 @@
         </div>
         <div class="lever bad" style="margin-top:6px"><div class="gh"><span class="pip"></span>Deliberately avoided</div>
           <ul>
-            <li><strong>Mass-dumping templated pages.</strong> Chose drip + hand-crafted instead: batches of 15–20, spread across days, timed to news moments — under Google's spam threshold. Scale the surface, not the slop.</li>
+            <li><strong>Mass-dumping templated pages.</strong> Chose drip + source-grounded generation instead: pages generated from the catalog (questions, topics, incidents, agencies, US states, comparisons), each tied to a primary-source declassified document — not templated slop. Shipped in batches of 15–20, spread across days, timed to news moments — under Google's spam threshold. Scale the surface, not the slop.</li>
           </ul>
         </div>
       </div>
