@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>UAP.WATCH — GEO Field Report</title>
-<meta name="description" content="How a declassified-document archive engineered for the AI retrieval layer earned ~10% of its traffic from ChatGPT, Claude, and Perplexity. A GEO/GTM case study." />
+<meta name="description" content="How a declassified-document archive engineered for the AI retrieval layer earned ~10% of its traffic from ChatGPT, Claude, and Perplexity. A generative engine optimization (GEO) case study." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet" />
@@ -307,9 +307,10 @@
     <li><a href="#summary">00 · Summary</a></li>
     <li><a href="#did">01 · What I did</a></li>
     <li><a href="#worked">02 · Why it worked</a></li>
-    <li><a href="#tried">03 · What I tried</a></li>
-    <li><a href="#better">04 · Do better</a></li>
-    <li><a href="#matters">05 · Why it matters</a></li>
+    <li><a href="#cited">03 · What we rank for</a></li>
+    <li><a href="#tried">04 · What I tried</a></li>
+    <li><a href="#better">05 · Do better</a></li>
+    <li><a href="#matters">06 · Why it matters</a></li>
   </ul>
 </nav>
 
@@ -375,12 +376,40 @@
       <li><b>Covered the long tail.</b> Hundreds of specific question- and entity-pages meant that for a huge range of natural-language queries, <em>some</em> page of ours was the best match.</li>
       <li><b>Got discovered fast, trusted quickly.</b> IndexNow + sitemap freshness got us indexed during the cycle; primary-source grounding made us safe to cite.</li>
     </ol>
-    <div class="callout warn"><span class="k">The honesty point that lands well in interviews</span><p>I can't cleanly attribute the 10% to any single lever, and the big confound is that this was a viral news event — topical authority did a lot of work a normal client won't have. What <strong>does</strong> transfer is the on-page system. Next time I'd prove it: baseline first, then A/B the structured-data and content-shape changes, and monitor which pages actually get cited.</p></div>
+    <div class="callout warn"><span class="k">Honest attribution</span><p>I can't cleanly attribute the 10% to any single lever, and the big confound is that this was a viral news event — topical authority did a lot of work a normal client won't have. What <strong>does</strong> transfer is the on-page system. The way to prove it is to baseline first, then A/B the structured-data and content-shape changes and monitor which pages actually get cited.</p></div>
   </section>
 
-  <!-- 03 WHAT I TRIED -->
+  <!-- 03 WHAT WE GET CITED FOR -->
+  <section id="cited" class="reveal">
+    <div class="eyebrow">03 — The proof</div>
+    <h2>What we actually get cited for.</h2>
+    <p>To pressure-test the result, I ran the site's target queries through live web search and AI synthesis — the same retrieve-then-summarise substrate that ChatGPT search, Perplexity, and Google's AI Overviews run on. A sharp pattern emerged: we win on <strong>differentiated-angle and brand queries</strong>, and lose on <strong>high-authority factual terms</strong>.</p>
+    <div class="grid2">
+      <div class="panel">
+        <div class="lever good"><div class="gh"><span class="pip"></span>Cited · ranked #1</div>
+          <ul>
+            <li><b>"interactive map of declassified Pentagon UAP incidents"</b> — the #1 result, and the first source named in the AI's recommendation list, above competing mirror sites.</li>
+            <li><b>"UAP.WATCH interactive map"</b> — #1, with the AI answer lifting our own page copy near-verbatim.</li>
+            <li><b>"uap watch"</b> (branded) — present and accurately summarised.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="lever bad"><div class="gh"><span class="pip"></span>Not cited · authority wins</div>
+          <ul>
+            <li>Factual head terms — <em>how many files were released, what PURSUE is, the GOFAST resolution, the green-fireball case, the "Eye of Sauron" orb.</em></li>
+            <li>Here war.gov, Wikipedia, the FBI Vault, and major news (TIME · CNN · NBC · CBS) dominate — even where we publish a dedicated page.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="callout"><span class="k">The pattern</span><p>The queries we own are <strong>recommendation-style</strong> ("interactive map of…") — the kind that actually sends qualified visitors — and they're won on a <strong>differentiated angle</strong>, not by competing head-on with the primary source and the news cycle. Closing the gap on factual terms is an <strong>off-site authority</strong> problem — earning links and mentions on sites the models already trust — which is the clearest place to invest next.</p></div>
+    <p style="font-family:var(--mono);font-size:12px;line-height:1.7;color:var(--ink-mute);margin-top:18px">Method · target queries run through live web search + AI synthesis, June 2026 — a proxy for what AI assistants retrieve and cite. Directional, not a controlled measurement of any single engine.</p>
+  </section>
+
+  <!-- 04 WHAT I TRIED -->
   <section id="tried" class="reveal">
-    <div class="eyebrow">03 — The lever menu</div>
+    <div class="eyebrow">04 — The lever menu</div>
     <h2>What I tried — in order of confidence.</h2>
     <div class="grid2">
       <div class="panel">
@@ -411,9 +440,9 @@
     <p style="margin-top:20px"><strong>Distribution as a GEO input:</strong> I seeded Reddit, Hacker News, and Twitter. That matters for GEO too — human distribution drives real traffic and inbound mentions, which makes crawlers discover and trust you faster. GEO isn't only on-page; being talked about on sites the models already trust is itself a citation lever.</p>
   </section>
 
-  <!-- 04 DO BETTER -->
+  <!-- 05 DO BETTER -->
   <section id="better" class="reveal">
-    <div class="eyebrow">04 — What I'd do better</div>
+    <div class="eyebrow">05 — What I'd do better</div>
     <h2>Where the next iteration goes.</h2>
     <ul class="bul">
       <li><strong>Measurement from day one.</strong> No A/B on structured-data or content-shape changes, no tracking of <em>which</em> pages got cited. I'd instrument that before touching content.</li>
@@ -423,9 +452,9 @@
     </ul>
   </section>
 
-  <!-- 05 WHY IT MATTERS -->
+  <!-- 06 WHY IT MATTERS -->
   <section id="matters" class="reveal">
-    <div class="eyebrow">05 — Why this matters</div>
+    <div class="eyebrow">06 — Why this matters</div>
     <h2>The next search land-grab is already open.</h2>
     <p>Search is shifting from ten blue links to AI assistants that answer directly and cite a handful of sources. That's a <strong>new, under-contested surface</strong> where most small businesses are completely invisible — and being <em>the cited answer</em> is worth more than ranking #4 on Google.</p>
     <p>It's an early-mover moment, the way SEO was in ~2010. A shop that can reliably get small businesses cited by AI is selling into a market that mostly doesn't yet know it has the problem. The wedge writes itself: a free <em>"Is your business invisible to AI?"</em> audit that shows an owner ChatGPT recommending a competitor for their core question — that gap is visceral, and it sells.</p>
